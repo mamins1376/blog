@@ -76,7 +76,7 @@ a {
     color: #1756a9; }
   a:hover {
     color: #111;
-    text-decoration: underline; }
+    transition: color 1s; }
 
 /**
  * Blockquotes
@@ -319,7 +319,8 @@ pre {
  * Syntax highlighting styles
  */
 .highlight {
-  background: #fff; }
+  background: #fff;
+  direction: ltr; }
   .highlight .c {
     color: #998;
     font-style: italic; }

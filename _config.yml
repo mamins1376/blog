@@ -9,3 +9,9 @@ github_username:  mamins1376
 
 # Build settings
 markdown: kramdown
+
+encoding: utf-8
+permalink: /:year/:month/:title
+paginate: 5
+paginate_path: "/page:num/"
+timezone: Asia/Tehran
