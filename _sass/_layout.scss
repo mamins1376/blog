@@ -16,7 +16,8 @@
     letter-spacing: -1px;
     margin-bottom: 0;
     float: right;
-
+    white-space: nowrap;
+    
     &,
     &:visited {
         color: $grey-color-dark;

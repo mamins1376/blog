@@ -18,12 +18,10 @@ layout: default
             {{ post.content | strip_html | truncatewords:100 }}
           {% endif %}
           <br>
-          <a href="{{ post.url | prepend: site.baseurl }}">بیش‌تر بخوانید...</a><br><br>
+          <a href="{{ post.url | prepend: site.baseurl }}">بیش‌تر بخوانید...</a><br>
         </div>
       </li>
     {% endfor %}
   </ul>
-
-  <p class="rss-subscribe">مشترک <a href="{{ "/feed.xml" | prepend: site.baseurl }}">خوراک خبری</a> شوید!</p>
 
 </div>
