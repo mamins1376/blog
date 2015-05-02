@@ -4,10 +4,10 @@
     <title>گیک لایف</title>
     <description>آموزش، نقد و بررسی، معرفی و ...
 </description>
-    <link>http://mamins1376.github.io//</link>
-    <atom:link href="http://mamins1376.github.io//feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 02 May 2015 16:20:52 +0430</pubDate>
-    <lastBuildDate>Sat, 02 May 2015 16:20:52 +0430</lastBuildDate>
+    <link>http://mamins1376.github.io//weblog/</link>
+    <atom:link href="http://mamins1376.github.io//weblog/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Sat, 02 May 2015 16:34:25 +0430</pubDate>
+    <lastBuildDate>Sat, 02 May 2015 16:34:25 +0430</lastBuildDate>
     <generator>Jekyll v2.5.3</generator>
     
       <item>
@@ -28,8 +28,8 @@
 
 </description>
         <pubDate>Sat, 02 May 2015 19:48:46 +0430</pubDate>
-        <link>http://mamins1376.github.io//jekyll/update/2015/05/02/welcome-to-jekyll.html</link>
-        <guid isPermaLink="true">http://mamins1376.github.io//jekyll/update/2015/05/02/welcome-to-jekyll.html</guid>
+        <link>http://mamins1376.github.io//weblog/jekyll/update/2015/05/02/welcome-to-jekyll.html</link>
+        <guid isPermaLink="true">http://mamins1376.github.io//weblog/jekyll/update/2015/05/02/welcome-to-jekyll.html</guid>
         
         
         <category>jekyll</category>
