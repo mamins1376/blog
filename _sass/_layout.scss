@@ -15,7 +15,7 @@
     line-height: 56px;
     letter-spacing: -1px;
     margin-bottom: 0;
-    float: left;
+    float: right;
 
     &,
     &:visited {
@@ -24,7 +24,7 @@
 }
 
 .site-nav {
-    float: right;
+    float: left;
     line-height: 56px;
 
     .menu-icon {
@@ -44,15 +44,15 @@
     @include media-query($on-palm) {
         position: absolute;
         top: 9px;
-        right: 30px;
+        left: 30px;
         background-color: $background-color;
         border: 1px solid $grey-color-light;
         border-radius: 5px;
-        text-align: right;
+        text-align: left;
 
         .menu-icon {
             display: block;
-            float: right;
+            float: left;
             width: 36px;
             height: 26px;
             line-height: 0;
