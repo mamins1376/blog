@@ -1,3 +1,8 @@
+@font-face {
+  font-family: 'Droid Arabic Naskh';
+  font-style: normal;
+  font-weight: 400;
+  src: local("Droid Arabic Naskh"), url(/css/fonts/DroidNaskh-Regular.woff) format("woff"); }
 /**
  * Reset some basic elements
  */
