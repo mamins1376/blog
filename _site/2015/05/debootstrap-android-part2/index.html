@@ -10,7 +10,7 @@
   <meta name="description" content="در قسمت قبل بسته‌ها بارگیری و به پوشه‌ی debroot منتقل شدند. حالا ادامه‌ی مراحل را انجام می‌دهیم.">
 
   <link rel="stylesheet" href="/weblog/css/main.css">
-  <link rel="canonical" href="http://mamins1376.github.io//weblog/2015-05-03-debootstrap-android-part2">
+  <link rel="canonical" href="http://mamins1376.github.io//weblog/2015/05/debootstrap-android-part2">
   <link rel="alternate" type="application/rss+xml" title="گیک لایف" href="http://mamins1376.github.io//weblog/feed.xml" />
 </head>
 
@@ -62,7 +62,7 @@
   </header>
 
   <article class="post-content">
-    <p>در <a href="http://mamins1376.github.io//weblog/2015-05-02-debootstrap-android-part1">قسمت قبل</a> بسته‌ها بارگیری و به پوشه‌ی <code>debroot</code> منتقل شدند. حالا ادامه‌ی مراحل را انجام می‌دهیم.
+    <p>در <a href="http://mamins1376.github.io//weblog/2015/05/debootstrap-android-part1">قسمت قبل</a> بسته‌ها بارگیری و به پوشه‌ی <code>debroot</code> منتقل شدند. حالا ادامه‌ی مراحل را انجام می‌دهیم.
 <!-- ادامه --></p>
 
 <h4 id="section">۳. ساخت تصویر توزیع</h4>
@@ -113,7 +113,7 @@ root@localhost:/#</code></pre></div>
 
 <p><code>debootstrap</code> شروع به نصب سیستم می‌کند.</p>
 
-<p><strong>تبریک!</strong> توزیع ما آماده است؛ ولی هنوز کارهای کوچکی باقی‌مانده که می‌تواند کار ما را راحت‌تر کند. مثلا با اسکریپت زیر، هربار توزیع آماده و اجرا می‌شود و پس از اتمام کار خودبه‌خود جدا می‌شود. من <a href="http://mamins1376.github.io//weblog/_downloads/2015-05-03-debootstrap-android-part2/debian">این اسکریپت</a> را در مسیر <code>system/bin/debian/</code> قرار دادم.</p>
+<p><strong>تبریک!</strong> توزیع ما آماده است؛ ولی هنوز کارهای کوچکی باقی‌مانده که می‌تواند کار ما را راحت‌تر کند. مثلا با اسکریپت زیر، هربار توزیع آماده و اجرا می‌شود و پس از اتمام کار خودبه‌خود جدا می‌شود. من <a href="http://mamins1376.github.io//weblog/_downloads/2015/05/debootstrap-android-part2/debian">این اسکریپت</a> را در مسیر <code>system/bin/debian/</code> قرار دادم.</p>
 
 <div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="lineno"> 1</span> <span class="nb">export </span><span class="nv">DEBMNT</span><span class="o">=</span>/data/debian
 <span class="lineno"> 2</span> busybox mount -t ext2 /dev/block/mmcblk1p2 <span class="nv">$DEBMNT</span>
@@ -142,7 +142,7 @@ root@localhost:/#</code></pre></div>
 <div class="highlight"><pre><code class="language-bash" data-lang="bash">root@localhost:/# vi /etc/apt/sources.list</code></pre></div>
 
 <p><strong>توجه!</strong> به جای ویرایش‌گر <code>vi</code>، هر ویرایشی که با آن راحت‌تر هستید استفاده کنید. <code>nano</code> به‌طور پیش‌فرض نصب است.<br />
-خطوط زیر را به آن اضافه کنید یا فایل آماده را <a href="http://mamins1376.github.io//weblog/_downloads/2015-05-03-debootstrap-android-part2/sources.list">دریافت کنید</a>.</p>
+خطوط زیر را به آن اضافه کنید یا فایل آماده را <a href="http://mamins1376.github.io//_downloads/sources.list">دریافت کنید</a>.</p>
 
 <div class="highlight"><pre><code class="language-debsources" data-lang="debsources"><span class="lineno">1</span> <span class="k">deb</span> <span class="s">http://ftp.ir.debian.org/debian/</span> <span class="kp">jessie</span> <span class="kp">contrib</span> <span class="kp">main</span> <span class="kp">non-free</span>
 <span class="lineno">2</span> <span class="k">deb-src</span> <span class="s">http://ftp.ir.debian.org/debian/</span> <span class="kp">jessie</span> <span class="kp">contrib</span> <span class="kp">main</span> <span class="kp">non-free</span>

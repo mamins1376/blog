@@ -109,4 +109,4 @@ root@localhost:/# apt-get update
 [busybox]: http://busybox.net/
 [busybox-install]: https://play.google.com/store/apps/details?id=com.jrummy.busybox.installer
 [script]: {{ site.url }}{{ site.baseurl }}/_downloads{{ page.url }}/debian
-[sources.list]: {{ site.url }}{{ site.baseurl }}/_downloads{{ page.url }}/sources.list
+[sources.list]: {{ site.url }}/_downloads/sources.list
