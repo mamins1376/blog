@@ -108,5 +108,5 @@ root@localhost:/# apt-get update
 [previous-post]: {{ site.url }}{{ site.baseurl }}{% post_url 2015-05-02-debootstrap-android-part1 %}
 [busybox]: http://busybox.net/
 [busybox-install]: https://play.google.com/store/apps/details?id=com.jrummy.busybox.installer
-[script]: {{ site.url }}{{ site.baseurl }}/_downloads{{ page.url }}/debian
-[sources.list]: {{ site.url }}/_downloads/sources.list
+[script]: {{ site.url }}{{ site.baseurl }}/_downloads/debian
+[sources.list]: {{ site.url }}{{ site.baseurl }}/_downloads/sources.list
