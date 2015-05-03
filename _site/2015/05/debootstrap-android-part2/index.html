@@ -113,7 +113,7 @@ root@localhost:/#</code></pre></div>
 
 <p><code>debootstrap</code> شروع به نصب سیستم می‌کند.</p>
 
-<p><strong>تبریک!</strong> توزیع ما آماده است؛ ولی هنوز کارهای کوچکی باقی‌مانده که می‌تواند کار ما را راحت‌تر کند. مثلا با اسکریپت زیر، هربار توزیع آماده و اجرا می‌شود و پس از اتمام کار خودبه‌خود جدا می‌شود. من <a href="http://mamins1376.github.io//weblog/_downloads/2015/05/debootstrap-android-part2/debian">این اسکریپت</a> را در مسیر <code>system/bin/debian/</code> قرار دادم.</p>
+<p><strong>تبریک!</strong> توزیع ما آماده است؛ ولی هنوز کارهای کوچکی باقی‌مانده که می‌تواند کار ما را راحت‌تر کند. مثلا با اسکریپت زیر، هربار توزیع آماده و اجرا می‌شود و پس از اتمام کار خودبه‌خود جدا می‌شود. من <a href="/weblog/_downloads/2015/05/debian">این اسکریپت</a> را در مسیر <code>system/bin/debian/</code> قرار دادم.</p>
 
 <div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="lineno"> 1</span> <span class="nb">export </span><span class="nv">DEBMNT</span><span class="o">=</span>/data/debian
 <span class="lineno"> 2</span> busybox mount -t ext2 /dev/block/mmcblk1p2 <span class="nv">$DEBMNT</span>
@@ -142,7 +142,7 @@ root@localhost:/#</code></pre></div>
 <div class="highlight"><pre><code class="language-bash" data-lang="bash">root@localhost:/# vi /etc/apt/sources.list</code></pre></div>
 
 <p><strong>توجه!</strong> به جای ویرایش‌گر <code>vi</code>، هر ویرایشی که با آن راحت‌تر هستید استفاده کنید. <code>nano</code> به‌طور پیش‌فرض نصب است.<br />
-خطوط زیر را به آن اضافه کنید یا فایل آماده را <a href="http://mamins1376.github.io//_downloads/sources.list">دریافت کنید</a>.</p>
+خطوط زیر را به آن اضافه کنید یا فایل آماده را <a href="/weblog/_downloads/2015/05/sources.list">دریافت کنید</a>.</p>
 
 <div class="highlight"><pre><code class="language-debsources" data-lang="debsources"><span class="lineno">1</span> <span class="k">deb</span> <span class="s">http://ftp.ir.debian.org/debian/</span> <span class="kp">jessie</span> <span class="kp">contrib</span> <span class="kp">main</span> <span class="kp">non-free</span>
 <span class="lineno">2</span> <span class="k">deb-src</span> <span class="s">http://ftp.ir.debian.org/debian/</span> <span class="kp">jessie</span> <span class="kp">contrib</span> <span class="kp">main</span> <span class="kp">non-free</span>
