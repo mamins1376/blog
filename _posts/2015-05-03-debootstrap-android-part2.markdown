@@ -33,7 +33,7 @@ root@host:~# umount /mnt
 حالا ما یک ایمیج از توزیع‌مان داریم ولی هنوز آماده نیست. از این‌جا دیگر به پوشه‌ی `debroot` نیاز نداریم.
 
 #### ۴. انتقال توزیع به اندروید ####
-مهم نیست که ایمیج کجا کپی می‌شود، ولی باید قابل دسترس باشد و فضای کافی داشته باشد. مثلا ایمیج من در `/storage/sdcard1/Disks/` قرار دارد. پس انتقال ایمیج، دیگر کاری با ماشین گنو/لینوکسی نداریم.  
+مهم نیست که ایمیج کجا کپی می‌شود، ولی باید قابل دسترس باشد و فضای کافی داشته باشد. مثلا ایمیج من در `/storage/sdcard1/Disks/` قرار دارد. پس از انتقال ایمیج، دیگر کاری با ماشین گنو/لینوکسی نداریم.  
 **توجه!** در مرحله‌ی بعد به [BusyBox][busybox] نیاز خواهیم داشت. اگر هنوز آن را روی اندروید نصب نکرده‌اید، همین حالا [نصب کنید][busybox-install].
 
 #### ۵. نصب توزیع ####
@@ -42,7 +42,7 @@ root@host:~# umount /mnt
 root@android:~# mkdir /data/debian
 root@android:~# busybox mount -o loop,rw -t ext4 <IMAGE> /data/debian
 {% endhighlight %}
-یادتان نرود که در دستور بالا، `<IMAGE>` را با مسیر ایمیجی که کپی کردیم عوض کنید. وارد توزیع می‌شویم:
+یادتان نرود که در کدهای گفته شده، `<IMAGE>` را با مسیر ایمیجی که کپی کردیم عوض کنید. وارد توزیع می‌شویم:
 {% highlight bash %}
 root@android:~# export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 root@android:~# export USER=root
@@ -59,7 +59,7 @@ root@localhost:/# /debootstrap/debootstrap --second-stage
 **تبریک!** توزیع ما آماده است؛ ولی هنوز کارهای کوچکی باقی‌مانده که می‌تواند کار ما را راحت‌تر کند. مثلا با اسکریپت زیر، هربار توزیع آماده و اجرا می‌شود و پس از اتمام کار خودبه‌خود جدا می‌شود. من [این اسکریپت][script] را در مسیر `system/bin/debian/` قرار دادم.
 {% highlight bash linenos %}
 export DEBMNT=/data/debian
-busybox mount -t ext2 /dev/block/mmcblk1p2 $DEBMNT
+busybox mount -t ext2 <IMAGE> $DEBMNT
 busybox mount -t proc none $DEBMNT/proc
 busybox mount -t sysfs none $DEBMNT/sys
 busybox mount -o bind /dev $DEBMNT/dev

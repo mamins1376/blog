@@ -90,7 +90,7 @@
 <p>حالا ما یک ایمیج از توزیع‌مان داریم ولی هنوز آماده نیست. از این‌جا دیگر به پوشه‌ی <code>debroot</code> نیاز نداریم.</p>
 
 <h4 id="section-1">۴. انتقال توزیع به اندروید</h4>
-<p>مهم نیست که ایمیج کجا کپی می‌شود، ولی باید قابل دسترس باشد و فضای کافی داشته باشد. مثلا ایمیج من در <code>/storage/sdcard1/Disks/</code> قرار دارد. پس انتقال ایمیج، دیگر کاری با ماشین گنو/لینوکسی نداریم.<br />
+<p>مهم نیست که ایمیج کجا کپی می‌شود، ولی باید قابل دسترس باشد و فضای کافی داشته باشد. مثلا ایمیج من در <code>/storage/sdcard1/Disks/</code> قرار دارد. پس از انتقال ایمیج، دیگر کاری با ماشین گنو/لینوکسی نداریم.<br />
 <strong>توجه!</strong> در مرحله‌ی بعد به <a href="http://busybox.net/">BusyBox</a> نیاز خواهیم داشت. اگر هنوز آن را روی اندروید نصب نکرده‌اید، همین حالا <a href="https://play.google.com/store/apps/details?id=com.jrummy.busybox.installer">نصب کنید</a>.</p>
 
 <h4 id="section-2">۵. نصب توزیع</h4>
@@ -99,7 +99,7 @@
 <div class="highlight"><pre><code class="language-bash" data-lang="bash">root@android:~# mkdir /data/debian
 root@android:~# busybox mount -o loop,rw -t ext4 &lt;IMAGE&gt; /data/debian</code></pre></div>
 
-<p>یادتان نرود که در دستور بالا، <code>&lt;IMAGE&gt;</code> را با مسیر ایمیجی که کپی کردیم عوض کنید. وارد توزیع می‌شویم:</p>
+<p>یادتان نرود که در کدهای گفته شده، <code>&lt;IMAGE&gt;</code> را با مسیر ایمیجی که کپی کردیم عوض کنید. وارد توزیع می‌شویم:</p>
 
 <div class="highlight"><pre><code class="language-bash" data-lang="bash">root@android:~# <span class="nb">export </span><span class="nv">PATH</span><span class="o">=</span>/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 root@android:~# <span class="nb">export </span><span class="nv">USER</span><span class="o">=</span>root
@@ -113,10 +113,10 @@ root@localhost:/#</code></pre></div>
 
 <p><code>debootstrap</code> شروع به نصب سیستم می‌کند.</p>
 
-<p><strong>تبریک!</strong> توزیع ما آماده است؛ ولی هنوز کارهای کوچکی باقی‌مانده که می‌تواند کار ما را راحت‌تر کند. مثلا با اسکریپت زیر، هربار توزیع آماده و اجرا می‌شود و پس از اتمام کار خودبه‌خود جدا می‌شود. من <a href="/weblog/_downloads/2015/05/debian">این اسکریپت</a> را در مسیر <code>system/bin/debian/</code> قرار دادم.</p>
+<p><strong>تبریک!</strong> توزیع ما آماده است؛ ولی هنوز کارهای کوچکی باقی‌مانده که می‌تواند کار ما را راحت‌تر کند. مثلا با اسکریپت زیر، هربار توزیع آماده و اجرا می‌شود و پس از اتمام کار خودبه‌خود جدا می‌شود. من <a href="/weblog/downloads/2015/05/debian">این اسکریپت</a> را در مسیر <code>system/bin/debian/</code> قرار دادم.</p>
 
 <div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="lineno"> 1</span> <span class="nb">export </span><span class="nv">DEBMNT</span><span class="o">=</span>/data/debian
-<span class="lineno"> 2</span> busybox mount -t ext2 /dev/block/mmcblk1p2 <span class="nv">$DEBMNT</span>
+<span class="lineno"> 2</span> busybox mount -t ext2 &lt;IMAGE&gt; <span class="nv">$DEBMNT</span>
 <span class="lineno"> 3</span> busybox mount -t proc none <span class="nv">$DEBMNT</span>/proc
 <span class="lineno"> 4</span> busybox mount -t sysfs none <span class="nv">$DEBMNT</span>/sys
 <span class="lineno"> 5</span> busybox mount -o <span class="nb">bind</span> /dev <span class="nv">$DEBMNT</span>/dev
@@ -142,7 +142,7 @@ root@localhost:/#</code></pre></div>
 <div class="highlight"><pre><code class="language-bash" data-lang="bash">root@localhost:/# vi /etc/apt/sources.list</code></pre></div>
 
 <p><strong>توجه!</strong> به جای ویرایش‌گر <code>vi</code>، هر ویرایشی که با آن راحت‌تر هستید استفاده کنید. <code>nano</code> به‌طور پیش‌فرض نصب است.<br />
-خطوط زیر را به آن اضافه کنید یا فایل آماده را <a href="/weblog/_downloads/2015/05/sources.list">دریافت کنید</a>.</p>
+خطوط زیر را به آن اضافه کنید یا فایل آماده را <a href="/weblog/downloads/2015/05/sources.list">دریافت کنید</a>.</p>
 
 <div class="highlight"><pre><code class="language-debsources" data-lang="debsources"><span class="lineno">1</span> <span class="k">deb</span> <span class="s">http://ftp.ir.debian.org/debian/</span> <span class="kp">jessie</span> <span class="kp">contrib</span> <span class="kp">main</span> <span class="kp">non-free</span>
 <span class="lineno">2</span> <span class="k">deb-src</span> <span class="s">http://ftp.ir.debian.org/debian/</span> <span class="kp">jessie</span> <span class="kp">contrib</span> <span class="kp">main</span> <span class="kp">non-free</span>

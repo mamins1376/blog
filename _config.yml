@@ -1,5 +1,6 @@
 # Site settings
 title: گیک لایف
+author: محمدامین
 email: mamins1376@gmail.com
 description: > # this means to ignore newlines until "baseurl:"
   آموزش، نقد و بررسی، معرفی و ...
@@ -10,6 +11,7 @@ github_username:  mamins1376
 # Build settings
 markdown: kramdown
 
+comments: true
 encoding: utf-8
 permalink: /:year/:month/:title
 paginate: 5

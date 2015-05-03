@@ -6,8 +6,8 @@
 </description>
     <link>http://mamins1376.github.io//weblog/</link>
     <atom:link href="http://mamins1376.github.io//weblog/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 03 May 2015 16:26:27 +0430</pubDate>
-    <lastBuildDate>Sun, 03 May 2015 16:26:27 +0430</lastBuildDate>
+    <pubDate>Sun, 03 May 2015 17:52:54 +0430</pubDate>
+    <lastBuildDate>Sun, 03 May 2015 17:52:54 +0430</lastBuildDate>
     <generator>Jekyll v2.5.3</generator>
     
       <item>
@@ -40,7 +40,7 @@
 &lt;p&gt;حالا ما یک ایمیج از توزیع‌مان داریم ولی هنوز آماده نیست. از این‌جا دیگر به پوشه‌ی &lt;code&gt;debroot&lt;/code&gt; نیاز نداریم.&lt;/p&gt;
 
 &lt;h4 id=&quot;section-1&quot;&gt;۴. انتقال توزیع به اندروید&lt;/h4&gt;
-&lt;p&gt;مهم نیست که ایمیج کجا کپی می‌شود، ولی باید قابل دسترس باشد و فضای کافی داشته باشد. مثلا ایمیج من در &lt;code&gt;/storage/sdcard1/Disks/&lt;/code&gt; قرار دارد. پس انتقال ایمیج، دیگر کاری با ماشین گنو/لینوکسی نداریم.&lt;br /&gt;
+&lt;p&gt;مهم نیست که ایمیج کجا کپی می‌شود، ولی باید قابل دسترس باشد و فضای کافی داشته باشد. مثلا ایمیج من در &lt;code&gt;/storage/sdcard1/Disks/&lt;/code&gt; قرار دارد. پس از انتقال ایمیج، دیگر کاری با ماشین گنو/لینوکسی نداریم.&lt;br /&gt;
 &lt;strong&gt;توجه!&lt;/strong&gt; در مرحله‌ی بعد به &lt;a href=&quot;http://busybox.net/&quot;&gt;BusyBox&lt;/a&gt; نیاز خواهیم داشت. اگر هنوز آن را روی اندروید نصب نکرده‌اید، همین حالا &lt;a href=&quot;https://play.google.com/store/apps/details?id=com.jrummy.busybox.installer&quot;&gt;نصب کنید&lt;/a&gt;.&lt;/p&gt;
 
 &lt;h4 id=&quot;section-2&quot;&gt;۵. نصب توزیع&lt;/h4&gt;
@@ -49,7 +49,7 @@
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;root@android:~# mkdir /data/debian
 root@android:~# busybox mount -o loop,rw -t ext4 &amp;lt;IMAGE&amp;gt; /data/debian&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-&lt;p&gt;یادتان نرود که در دستور بالا، &lt;code&gt;&amp;lt;IMAGE&amp;gt;&lt;/code&gt; را با مسیر ایمیجی که کپی کردیم عوض کنید. وارد توزیع می‌شویم:&lt;/p&gt;
+&lt;p&gt;یادتان نرود که در کدهای گفته شده، &lt;code&gt;&amp;lt;IMAGE&amp;gt;&lt;/code&gt; را با مسیر ایمیجی که کپی کردیم عوض کنید. وارد توزیع می‌شویم:&lt;/p&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;root@android:~# &lt;span class=&quot;nb&quot;&gt;export &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;PATH&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 root@android:~# &lt;span class=&quot;nb&quot;&gt;export &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;USER&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;root
@@ -63,10 +63,10 @@ root@localhost:/#&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;&lt;code&gt;debootstrap&lt;/code&gt; شروع به نصب سیستم می‌کند.&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;تبریک!&lt;/strong&gt; توزیع ما آماده است؛ ولی هنوز کارهای کوچکی باقی‌مانده که می‌تواند کار ما را راحت‌تر کند. مثلا با اسکریپت زیر، هربار توزیع آماده و اجرا می‌شود و پس از اتمام کار خودبه‌خود جدا می‌شود. من &lt;a href=&quot;/weblog/_downloads/2015/05/debian&quot;&gt;این اسکریپت&lt;/a&gt; را در مسیر &lt;code&gt;system/bin/debian/&lt;/code&gt; قرار دادم.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;تبریک!&lt;/strong&gt; توزیع ما آماده است؛ ولی هنوز کارهای کوچکی باقی‌مانده که می‌تواند کار ما را راحت‌تر کند. مثلا با اسکریپت زیر، هربار توزیع آماده و اجرا می‌شود و پس از اتمام کار خودبه‌خود جدا می‌شود. من &lt;a href=&quot;/weblog/downloads/2015/05/debian&quot;&gt;این اسکریپت&lt;/a&gt; را در مسیر &lt;code&gt;system/bin/debian/&lt;/code&gt; قرار دادم.&lt;/p&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;lineno&quot;&gt; 1&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;export &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;DEBMNT&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;/data/debian
-&lt;span class=&quot;lineno&quot;&gt; 2&lt;/span&gt; busybox mount -t ext2 /dev/block/mmcblk1p2 &lt;span class=&quot;nv&quot;&gt;$DEBMNT&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt; 2&lt;/span&gt; busybox mount -t ext2 &amp;lt;IMAGE&amp;gt; &lt;span class=&quot;nv&quot;&gt;$DEBMNT&lt;/span&gt;
 &lt;span class=&quot;lineno&quot;&gt; 3&lt;/span&gt; busybox mount -t proc none &lt;span class=&quot;nv&quot;&gt;$DEBMNT&lt;/span&gt;/proc
 &lt;span class=&quot;lineno&quot;&gt; 4&lt;/span&gt; busybox mount -t sysfs none &lt;span class=&quot;nv&quot;&gt;$DEBMNT&lt;/span&gt;/sys
 &lt;span class=&quot;lineno&quot;&gt; 5&lt;/span&gt; busybox mount -o &lt;span class=&quot;nb&quot;&gt;bind&lt;/span&gt; /dev &lt;span class=&quot;nv&quot;&gt;$DEBMNT&lt;/span&gt;/dev
@@ -92,7 +92,7 @@ root@localhost:/#&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;root@localhost:/# vi /etc/apt/sources.list&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;&lt;strong&gt;توجه!&lt;/strong&gt; به جای ویرایش‌گر &lt;code&gt;vi&lt;/code&gt;، هر ویرایشی که با آن راحت‌تر هستید استفاده کنید. &lt;code&gt;nano&lt;/code&gt; به‌طور پیش‌فرض نصب است.&lt;br /&gt;
-خطوط زیر را به آن اضافه کنید یا فایل آماده را &lt;a href=&quot;/weblog/_downloads/2015/05/sources.list&quot;&gt;دریافت کنید&lt;/a&gt;.&lt;/p&gt;
+خطوط زیر را به آن اضافه کنید یا فایل آماده را &lt;a href=&quot;/weblog/downloads/2015/05/sources.list&quot;&gt;دریافت کنید&lt;/a&gt;.&lt;/p&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-debsources&quot; data-lang=&quot;debsources&quot;&gt;&lt;span class=&quot;lineno&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;deb&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;http://ftp.ir.debian.org/debian/&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;jessie&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;contrib&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;main&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;non-free&lt;/span&gt;
 &lt;span class=&quot;lineno&quot;&gt;2&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;deb-src&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;http://ftp.ir.debian.org/debian/&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;jessie&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;contrib&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;main&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;non-free&lt;/span&gt;
