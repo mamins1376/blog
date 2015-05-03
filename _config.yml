@@ -11,7 +11,6 @@ github_username:  mamins1376
 # Build settings
 markdown: kramdown
 
-comments: true
 encoding: utf-8
 permalink: /:year/:month/:title
 paginate: 5
