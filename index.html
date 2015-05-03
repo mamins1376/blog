@@ -23,5 +23,12 @@ layout: default
       </li>
     {% endfor %}
   </ul>
-
+  <div class="pagination">
+    {% if paginator.previous_page %}
+      <a href="{{ paginator.previous_page_path }}" class="previous">صفحه‌ی قبل</a>
+    {% endif %}
+    {% if paginator.next_page %}
+      <a href="{{ paginator.next_page_path }}" class="next">صفحه‌ی بعد</a>
+    {% endif %}
+  </div>
 </div>

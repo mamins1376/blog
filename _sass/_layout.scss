@@ -235,3 +235,13 @@
         }
     }
 }
+
+.pagination {
+  text-align: center;
+}
+.pagination .previous {
+  float: right;
+}
+.pagination .next {
+  float: left;
+}

@@ -329,6 +329,15 @@ pre {
       .post-content h4 {
         font-size: 18px; } }
 
+.pagination {
+  text-align: center; }
+
+.pagination .previous {
+  float: right; }
+
+.pagination .next {
+  float: left; }
+
 /**
  * Syntax highlighting styles
  */
