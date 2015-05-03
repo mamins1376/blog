@@ -6,9 +6,125 @@
 </description>
     <link>http://mamins1376.github.io//weblog/</link>
     <atom:link href="http://mamins1376.github.io//weblog/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 02 May 2015 21:48:35 +0430</pubDate>
-    <lastBuildDate>Sat, 02 May 2015 21:48:35 +0430</lastBuildDate>
+    <pubDate>Sun, 03 May 2015 16:06:12 +0430</pubDate>
+    <lastBuildDate>Sun, 03 May 2015 16:06:12 +0430</lastBuildDate>
     <generator>Jekyll v2.5.3</generator>
+    
+      <item>
+        <title>دبیان بر بستر اندروید: پیش به سوی جسی!(قسمت دوم)</title>
+        <description>&lt;p&gt;در &lt;a href=&quot;http://mamins1376.github.io//weblog/2015-05-02-debootstrap-android-part1&quot;&gt;قسمت قبل&lt;/a&gt; بسته‌ها بارگیری و به پوشه‌ی &lt;code&gt;debroot&lt;/code&gt; منتقل شدند. حالا ادامه‌ی مراحل را انجام می‌دهیم.
+&lt;!-- ادامه --&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;section&quot;&gt;۳. ساخت تصویر توزیع&lt;/h4&gt;
+&lt;p&gt;یک ایمیج خالی با استفاده از &lt;code&gt;dd&lt;/code&gt; درست می‌کنیم:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;root@host:~# dd &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;/dev/zero &lt;span class=&quot;nv&quot;&gt;of&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;Debian.img &lt;span class=&quot;nv&quot;&gt;count&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;bs&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;1M &lt;span class=&quot;nv&quot;&gt;seek&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;1K&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;حجم ایمیج ساخته‌شده ۱گیگابایت خواهد بود. برای داشتن اندازه‌ی دلخواهتان مقدار &lt;code&gt;seek&lt;/code&gt; را بر حسب مگابایت تغییر دهید.&lt;br /&gt;
+آن را فرمت می‌کنیم:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;root@host:~# mkfs.ext4 -F -L Debian Debian.img&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;و سپس سوار می‌کنیم:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;root@host:~# mount -t ext4 -o loop,rw Debian.img /mnt&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;حالا همه‌ی بسته‌های بارگیری شده را به ایمیج کپی می‌کنیم:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;root@host:~# cp -r debroot/* /mnt/&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; sync&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;و ایمیج را جدا:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;root@host:~# umount /mnt&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;حالا ما یک ایمیج از توزیع‌مان داریم ولی هنوز آماده نیست. از این‌جا دیگر به پوشه‌ی &lt;code&gt;debroot&lt;/code&gt; نیاز نداریم.&lt;/p&gt;
+
+&lt;h4 id=&quot;section-1&quot;&gt;۴. انتقال توزیع به اندروید&lt;/h4&gt;
+&lt;p&gt;مهم نیست که ایمیج کجا کپی می‌شود، ولی باید قابل دسترس باشد و فضای کافی داشته باشد. مثلا ایمیج من در &lt;code&gt;/storage/sdcard1/Disks/&lt;/code&gt; قرار دارد. پس انتقال ایمیج، دیگر کاری با ماشین گنو/لینوکسی نداریم.&lt;br /&gt;
+&lt;strong&gt;توجه!&lt;/strong&gt; در مرحله‌ی بعد به &lt;a href=&quot;http://busybox.net/&quot;&gt;BusyBox&lt;/a&gt; نیاز خواهیم داشت. اگر هنوز آن را روی اندروید نصب نکرده‌اید، همین حالا &lt;a href=&quot;https://play.google.com/store/apps/details?id=com.jrummy.busybox.installer&quot;&gt;نصب کنید&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h4 id=&quot;section-2&quot;&gt;۵. نصب توزیع&lt;/h4&gt;
+&lt;p&gt;یک پوشه می‌سازیم. این پوشه محل سوارشدن ایمیج خواهد بود:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;root@android:~# mkdir /data/debian
+root@android:~# busybox mount -o loop,rw -t ext4 &amp;lt;IMAGE&amp;gt; /data/debian&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;یادتان نرود که در دستور بالا، &lt;code&gt;&amp;lt;IMAGE&amp;gt;&lt;/code&gt; را با مسیر ایمیجی که کپی کردیم عوض کنید. وارد توزیع می‌شویم:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;root@android:~# &lt;span class=&quot;nb&quot;&gt;export &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;PATH&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+root@android:~# &lt;span class=&quot;nb&quot;&gt;export &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;USER&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;root
+root@android:~# &lt;span class=&quot;nb&quot;&gt;export &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;HOME&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;/root
+root@android:~# busybox chroot /data/debian /bin/bash
+root@localhost:/#&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;اکنون شما وارد توزیع شدید. اما هنوز بسته‌ها را استخراج نکردیم!&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;root@localhost:/# /debootstrap/debootstrap --second-stage&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;code&gt;debootstrap&lt;/code&gt; شروع به نصب سیستم می‌کند.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;تبریک!&lt;/strong&gt; توزیع ما آماده است؛ ولی هنوز کارهای کوچکی باقی‌مانده که می‌تواند کار ما را راحت‌تر کند. مثلا با اسکریپت زیر، هربار توزیع آماده و اجرا می‌شود و پس از اتمام کار خودبه‌خود جدا می‌شود. من &lt;a href=&quot;http://mamins1376.github.io//weblog/_downloads/2015-05-03-debootstrap-android-part2/debian&quot;&gt;این اسکریپت&lt;/a&gt; را در مسیر &lt;code&gt;system/bin/debian/&lt;/code&gt; قرار دادم.&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;lineno&quot;&gt; 1&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;export &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;DEBMNT&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;/data/debian
+&lt;span class=&quot;lineno&quot;&gt; 2&lt;/span&gt; busybox mount -t ext2 /dev/block/mmcblk1p2 &lt;span class=&quot;nv&quot;&gt;$DEBMNT&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt; 3&lt;/span&gt; busybox mount -t proc none &lt;span class=&quot;nv&quot;&gt;$DEBMNT&lt;/span&gt;/proc
+&lt;span class=&quot;lineno&quot;&gt; 4&lt;/span&gt; busybox mount -t sysfs none &lt;span class=&quot;nv&quot;&gt;$DEBMNT&lt;/span&gt;/sys
+&lt;span class=&quot;lineno&quot;&gt; 5&lt;/span&gt; busybox mount -o &lt;span class=&quot;nb&quot;&gt;bind&lt;/span&gt; /dev &lt;span class=&quot;nv&quot;&gt;$DEBMNT&lt;/span&gt;/dev
+&lt;span class=&quot;lineno&quot;&gt; 6&lt;/span&gt; busybox mount -t devpts none &lt;span class=&quot;nv&quot;&gt;$DEBMNT&lt;/span&gt;/dev/pts
+&lt;span class=&quot;lineno&quot;&gt; 7&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;unset &lt;/span&gt;LD_PRELOAD
+&lt;span class=&quot;lineno&quot;&gt; 8&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;LAST_PATH&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$PATH&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt; 9&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;export &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;PATH&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+&lt;span class=&quot;lineno&quot;&gt;10&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;export &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;USER&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;root
+&lt;span class=&quot;lineno&quot;&gt;11&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;export &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;HOME&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;/root
+&lt;span class=&quot;lineno&quot;&gt;12&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;export &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;TERM&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;linux
+&lt;span class=&quot;lineno&quot;&gt;13&lt;/span&gt; busybox chroot &lt;span class=&quot;nv&quot;&gt;$DEBMNT&lt;/span&gt; /bin/bash
+&lt;span class=&quot;lineno&quot;&gt;14&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;export &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;PATH&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$LAST_PATH&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;15&lt;/span&gt; sync
+&lt;span class=&quot;lineno&quot;&gt;16&lt;/span&gt; busybox umount &lt;span class=&quot;nv&quot;&gt;$DEBMNT&lt;/span&gt;/dev/pts
+&lt;span class=&quot;lineno&quot;&gt;17&lt;/span&gt; busybox umount &lt;span class=&quot;nv&quot;&gt;$DEBMNT&lt;/span&gt;/dev
+&lt;span class=&quot;lineno&quot;&gt;18&lt;/span&gt; busybox umount &lt;span class=&quot;nv&quot;&gt;$DEBMNT&lt;/span&gt;/proc
+&lt;span class=&quot;lineno&quot;&gt;19&lt;/span&gt; busybox umount &lt;span class=&quot;nv&quot;&gt;$DEBMNT&lt;/span&gt;/sys
+&lt;span class=&quot;lineno&quot;&gt;20&lt;/span&gt; busybox umount &lt;span class=&quot;nv&quot;&gt;$DEBMNT&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;||&lt;/span&gt; sh -c &lt;span class=&quot;s2&quot;&gt;&amp;quot;busybox umount -l $DEBMNT &amp;amp;&amp;amp; echo &amp;#39;Force unmounted!&amp;#39;&amp;quot;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h4 id=&quot;apt&quot;&gt;۶. تنظیم apt&lt;/h4&gt;
+&lt;p&gt;لازم است که تغییراتی در &lt;code&gt;sources.list&lt;/code&gt; مربوط به مدیر بسته‌ی &lt;code&gt;apt&lt;/code&gt; به‌وجود آوریم تا بتوانیم بسته‌های مورد نیازمان را نصب کنیم.&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;root@localhost:/# vi /etc/apt/sources.list&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;توجه!&lt;/strong&gt; به جای ویرایش‌گر &lt;code&gt;vi&lt;/code&gt;، هر ویرایشی که با آن راحت‌تر هستید استفاده کنید. &lt;code&gt;nano&lt;/code&gt; به‌طور پیش‌فرض نصب است.&lt;br /&gt;
+خطوط زیر را به آن اضافه کنید یا فایل آماده را &lt;a href=&quot;http://mamins1376.github.io//weblog/_downloads/2015-05-03-debootstrap-android-part2/sources.list&quot;&gt;دریافت کنید&lt;/a&gt;.&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-debsources&quot; data-lang=&quot;debsources&quot;&gt;&lt;span class=&quot;lineno&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;deb&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;http://ftp.ir.debian.org/debian/&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;jessie&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;contrib&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;main&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;non-free&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;2&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;deb-src&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;http://ftp.ir.debian.org/debian/&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;jessie&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;contrib&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;main&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;non-free&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;3&lt;/span&gt; 
+&lt;span class=&quot;lineno&quot;&gt;4&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;deb&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;http://ftp.ir.debian.org/debian/&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;jessie-backports&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;contrib&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;main&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;non-free&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;5&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;deb-src&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;http://ftp.ir.debian.org/debian/&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;jessie-backports&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;contrib&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;main&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;non-free&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;6&lt;/span&gt; 
+&lt;span class=&quot;lineno&quot;&gt;7&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;deb&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;http://ftp.ir.debian.org/debian/&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;jessie-updates&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;contrib&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;main&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;non-free&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;8&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;deb-src&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;http://ftp.ir.debian.org/debian/&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;jessie-updates&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;contrib&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;main&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;non-free&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;و در آخر،‌ برای به‌روزرسانی کَش &lt;code&gt;apt&lt;/code&gt;:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;root@localhost:/# apt-get update&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;توجه!&lt;/strong&gt; فرمان بالا نیاز به اتصال اینترنت دارد.&lt;br /&gt;
+اکنون توزیع شما دقیقا مانند یک توزیع گنو/لینوکس عادی رفتار می‌کند.&lt;/p&gt;
+
+&lt;p&gt;در قسمت بعد به نصب محیط گرافیکی(به هر دو روش &lt;code&gt;framebuffer&lt;/code&gt; و &lt;code&gt;VNC&lt;/code&gt;) خواهیم پرداخت.&lt;/p&gt;
+
+</description>
+        <pubDate>Sun, 03 May 2015 16:00:00 +0430</pubDate>
+        <link>http://mamins1376.github.io//weblog/2015-05-03-debootstrap-android-part2</link>
+        <guid isPermaLink="true">http://mamins1376.github.io//weblog/2015-05-03-debootstrap-android-part2</guid>
+        
+        
+        <category>linux</category>
+        
+        <category>android</category>
+        
+        <category>debootstrap</category>
+        
+      </item>
     
       <item>
         <title>دبیان بر بستر اندروید: پیش به سوی جسی!(قسمت اول)</title>
@@ -36,7 +152,7 @@
 &lt;/ul&gt;
 
 &lt;h4 id=&quot;debootstrap&quot;&gt;۱. نصب debootstrap&lt;/h4&gt;
-&lt;p&gt;برای نصب گنو/لینوکس از گنو/لینوکس، debootstrap گزینه‌ی خوبی‌ست، ایجاد یکی دیگر از صفر مطلق؛ بدون کرنل، بوت‌لودر و هرگونه بسته‌ی اختیاری.&lt;br /&gt;
+&lt;p&gt;برای نصب گنو/لینوکس از گنو/لینوکس، &lt;code&gt;debootstrap&lt;/code&gt; گزینه‌ی خوبی‌ست، ایجاد یکی دیگر از صفر مطلق؛ بدون کرنل، بوت‌لودر و هرگونه بسته‌ی اختیاری.&lt;br /&gt;
 فایل‌های تولیدشده &lt;strong&gt;فقط&lt;/strong&gt; شامل بسته‌های پایه‌ی سیستم می‌شود.&lt;br /&gt;
 ابتدا آن را نصب می‌کنیم:&lt;/p&gt;
 
@@ -47,18 +163,18 @@
 &lt;ul&gt;
   &lt;li&gt;&lt;strong&gt;نوع پردازنده&lt;/strong&gt;: در حال حاضر دو نوع پردازنده، غالب دستگاه‌های بازار را پوشش می‌دهند:
     &lt;ul&gt;
-      &lt;li&gt;x86: معماری کامپیوترهای ۳۲بیتی رایج&lt;/li&gt;
-      &lt;li&gt;arm: معماری میکروکنترلرهای پیش‌رفته و نسل جدید که خود سه نوع دارد:
+      &lt;li&gt;&lt;code&gt;x86&lt;/code&gt;: معماری کامپیوترهای ۳۲بیتی رایج&lt;/li&gt;
+      &lt;li&gt;&lt;code&gt;arm&lt;/code&gt;: معماری میکروکنترلرهای پیش‌رفته و نسل جدید که خود سه نوع دارد:
         &lt;ul&gt;
-          &lt;li&gt;armel: نسل قدیمی arm&lt;/li&gt;
-          &lt;li&gt;armhf: نسل جدید arm که armv7 معادل این نسل است&lt;/li&gt;
-          &lt;li&gt;arm64: چیپ‌های arm نسخه‌ی ۶۴بیتی&lt;br /&gt;
+          &lt;li&gt;&lt;code&gt;armel&lt;/code&gt;: نسل قدیمی &lt;code&gt;arm&lt;/code&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;code&gt;armhf&lt;/code&gt;: نسل جدید &lt;code&gt;arm&lt;/code&gt; که &lt;code&gt;armv7&lt;/code&gt; معادل این نسل است&lt;/li&gt;
+          &lt;li&gt;&lt;code&gt;arm64&lt;/code&gt;: چیپ‌های &lt;code&gt;arm&lt;/code&gt; نسخه‌ی ۶۴بیتی&lt;br /&gt;
 بسته به نوع دستگاه باید یکی از ۴ مورد بالا را انتخاب کرد.&lt;/li&gt;
         &lt;/ul&gt;
       &lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;نسخه‌ی توزیع&lt;/strong&gt;: ما از توزیع &lt;a href=&quot;https://www.debian.org/&quot;&gt;دبیان&lt;/a&gt; نسخه‌ی &lt;a href=&quot;https://www.debian.org/News/2015/20150426&quot;&gt;۸(جسی)&lt;/a&gt; استفاده می‌کنیم. شما می‌توانید از هرنسخه‌ی دیگری(stable، testing، wheezy، …) استفاده کرده یا حتی به جای دبیان، &lt;a href=&quot;http://www.ubuntu.com/&quot;&gt;اوبونتو&lt;/a&gt; را امتحان کنید.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;نسخه‌ی توزیع&lt;/strong&gt;: ما از توزیع &lt;a href=&quot;https://www.debian.org/&quot;&gt;دبیان&lt;/a&gt; نسخه‌ی &lt;a href=&quot;https://www.debian.org/News/2015/20150426&quot;&gt;۸(جسی)&lt;/a&gt; استفاده می‌کنیم. شما می‌توانید از هرنسخه‌ی دیگری(&lt;code&gt;stable&lt;/code&gt;، &lt;code&gt;testing&lt;/code&gt;، &lt;code&gt;wheezy&lt;/code&gt;، …) استفاده کرده یا حتی به جای دبیان، &lt;a href=&quot;http://www.ubuntu.com/&quot;&gt;اوبونتو&lt;/a&gt; را امتحان کنید.&lt;/li&gt;
   &lt;li&gt;&lt;strong&gt;آینه‌ی بسته‌ها&lt;/strong&gt;: برای بارگیری بسته‌های اصلی سیستم از یک آینه استفاده می‌شود؛ این آینه می‌تواند محلی بوده یا روی ماشین دیگری باشد. فاصله‌ی جغرافیایی کمتر بین شما و آینه‌ی منتخبتان معمولاً سرعت بیش‌تری را به همراه دارد. نوع محلی از تصویر توزیع بهره می‌برد که توضیح نحوه‌ی استفاده از آن خارج از حوصله‌ی این مطلب است. ما از مخزن ایران استفاده خواهیم کرد.&lt;/li&gt;
 &lt;/ul&gt;
 
@@ -67,7 +183,7 @@
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;root@host:~# mkdir debroot&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-&lt;p&gt;سینتکس کلی برنامه‌ی debootstrap این است:&lt;/p&gt;
+&lt;p&gt;سینتکس کلی برنامه‌ی &lt;code&gt;debootstrap&lt;/code&gt; این است:&lt;/p&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;root@host:~# debootstrap &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;OPTIONS&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt; &amp;lt;DIST&amp;gt; &amp;lt;DIR&amp;gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&amp;lt;MIRROR&amp;gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
@@ -78,25 +194,28 @@
 &lt;p&gt;در این‌جا:&lt;/p&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;foreign&lt;/strong&gt;: به برنامه می‌گوید که بسته‌ها را استخراج نکند، زیرا معماری ماشین هدف با معماری این ماشین متفاوت است.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;arch&lt;/strong&gt;: معماری ماشین هدف(اندروید) را مشخص می‌کند که در بالا توضیح داده شد.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;jessie&lt;/strong&gt;: نسخه‌ی توزیع&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;debroot/.&lt;/strong&gt;: نشانی پوشه‌ای که بالاتر ساختیم.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;…http://ftp&lt;/strong&gt;: نشانی آینه.&lt;/li&gt;
+  &lt;li&gt;&lt;code&gt;foreign&lt;/code&gt;: به برنامه می‌گوید که بسته‌ها را استخراج نکند، زیرا معماری ماشین هدف با معماری این ماشین متفاوت است.&lt;/li&gt;
+  &lt;li&gt;&lt;code&gt;arch&lt;/code&gt;: معماری ماشین هدف(اندروید) را مشخص می‌کند که در بالا توضیح داده شد.&lt;/li&gt;
+  &lt;li&gt;&lt;code&gt;jessie&lt;/code&gt;: نسخه‌ی توزیع&lt;/li&gt;
+  &lt;li&gt;&lt;code&gt;debroot/.&lt;/code&gt;: نشانی پوشه‌ای که بالاتر ساختیم.&lt;/li&gt;
+  &lt;li&gt;&lt;code&gt;...http://ftp&lt;/code&gt;: نشانی آینه.&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;پس از بارگیری بسته‌ها، توزیع دریافت شده و debootstrap بسته‌ها را درون پوشه‌ی debroot خواهد ریخت.&lt;/p&gt;
+&lt;p&gt;پس از بارگیری بسته‌ها، توزیع دریافت شده و &lt;code&gt;debootstrap&lt;/code&gt; بسته‌ها را درون پوشه‌ی &lt;code&gt;debroot&lt;/code&gt; خواهد ریخت.&lt;/p&gt;
 
-&lt;p&gt;در قسمت بعد، بسته‌های دریافت شده را به اندروید منتقل کرده و مراحل راه‌اندازی را انجام خواهیم داد.&lt;/p&gt;
+&lt;p&gt;در &lt;a href=&quot;http://mamins1376.github.io//weblog/2015-05-03-debootstrap-android-part2&quot;&gt;قسمت بعد&lt;/a&gt;، بسته‌های دریافت شده را به اندروید منتقل کرده و مراحل راه‌اندازی را انجام خواهیم داد.&lt;/p&gt;
+
 </description>
         <pubDate>Sat, 02 May 2015 23:00:46 +0430</pubDate>
-        <link>http://mamins1376.github.io//weblog/2015/05/debootstrap-android-part1</link>
-        <guid isPermaLink="true">http://mamins1376.github.io//weblog/2015/05/debootstrap-android-part1</guid>
+        <link>http://mamins1376.github.io//weblog/2015-05-02-debootstrap-android-part1</link>
+        <guid isPermaLink="true">http://mamins1376.github.io//weblog/2015-05-02-debootstrap-android-part1</guid>
         
         
         <category>linux</category>
         
         <category>android</category>
+        
+        <category>debootstrap</category>
         
       </item>
     

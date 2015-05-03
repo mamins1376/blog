@@ -2,7 +2,16 @@
   font-family: 'Droid Arabic Naskh';
   font-style: normal;
   font-weight: 400;
-  src: local("Droid Arabic Naskh"), url(/css/fonts/DroidNaskh-Regular.woff) format("woff"); }
+  src: local("Droid Arabic Naskh"), url("/weblog/css/fonts/DroidNaskh-Regular.woff") format("woff"); }
+@font-face {
+  font-family: 'Iranian Sans';
+  src: url("/weblog/css/fonts/irsans.ttf"); }
+@font-face {
+  font-family: 'Ubuntu';
+  src: local("Ubuntu"), url("/weblog/css/fonts/Ubuntu-R.ttf"); }
+@font-face {
+  font-family: 'Ubuntu Mono';
+  src: local("Ubuntu Mono"), url("/weblog/css/fonts/UbuntuMono-R.ttf"); }
 /**
  * Reset some basic elements
  */
@@ -19,7 +28,7 @@ strong {
  * Basic styling
  */
 body {
-  font-family: "Iranian Sans", "Droid Arabic Naskh", Helvetica, Arial, sans-serif;
+  font-family: Iranian Sans, Ubuntu, Droid Arabic Naskh, Helvetica, Arial, sans-serif;
   font-size: 16px;
   line-height: 1.65;
   font-weight: 300;
@@ -105,6 +114,7 @@ code {
   background-color: #eef; }
 
 code {
+  font-family: 'Ubuntu Mono';
   padding: 1px 5px; }
 
 pre {
@@ -176,8 +186,8 @@ pre {
   .site-nav .menu-icon {
     display: none; }
   .site-nav .page-link {
-    color: #111;
-    line-height: 1.65; }
+    line-height: 1.65;
+    color: #121212; }
     .site-nav .page-link:not(:first-child) {
       margin-left: 20px; }
   @media screen and (max-width: 600px) {
@@ -186,9 +196,9 @@ pre {
       top: 9px;
       left: 30px;
       background-color: #f5f5f5;
-      border: 1px solid #b8b8b8;
-      border-radius: 5px;
-      text-align: left; }
+      border: 0 solid #b8b8b8;
+      text-align: left;
+      border-radius: 3px; }
       .site-nav .menu-icon {
         display: block;
         float: left;

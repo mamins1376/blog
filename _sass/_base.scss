@@ -2,7 +2,22 @@
   font-family: 'Droid Arabic Naskh';
   font-style: normal;
   font-weight: 400;
-  src: local('Droid Arabic Naskh'), url(/css/fonts/DroidNaskh-Regular.woff) format('woff');
+  src: local('Droid Arabic Naskh'), url("/weblog/css/fonts/DroidNaskh-Regular.woff") format('woff');
+}
+
+@font-face {
+  font-family: 'Iranian Sans';
+  src: url("/weblog/css/fonts/irsans.ttf");
+}
+
+@font-face {
+  font-family: 'Ubuntu';
+  src: local('Ubuntu'), url("/weblog/css/fonts/Ubuntu-R.ttf");
+}
+
+@font-face {
+  font-family: 'Ubuntu Mono';
+  src: local('Ubuntu Mono'), url("/weblog/css/fonts/UbuntuMono-R.ttf");
 }
 
 /**
@@ -144,6 +159,7 @@ code {
 }
 
 code {
+    font-family: 'Ubuntu Mono';
     padding: 1px 5px;
 }
 
