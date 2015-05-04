@@ -6,9 +6,57 @@
 </description>
     <link>http://mamins1376.github.io//weblog/</link>
     <atom:link href="http://mamins1376.github.io//weblog/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 03 May 2015 22:44:40 +0430</pubDate>
-    <lastBuildDate>Sun, 03 May 2015 22:44:40 +0430</lastBuildDate>
+    <pubDate>Mon, 04 May 2015 17:06:05 +0430</pubDate>
+    <lastBuildDate>Mon, 04 May 2015 17:06:05 +0430</lastBuildDate>
     <generator>Jekyll v2.5.3</generator>
+    
+      <item>
+        <title>cron و rtcwake: خواب راحت</title>
+        <description>&lt;p&gt;دانلود شبانه یکی از باحال‌ترین کارهاست ولی دردسرهایی داره: باید سیستم رو روشن بذارین تا سر ساعت شروع کنه. &lt;a href=&quot;http://forum.ubuntu.ir/index.php?topic=59242.0&quot;&gt;rtcwake&lt;/a&gt; قراره به کمک cron این مشکل رو برای همیشه برامون حل کنه تا به‌خاطر چند گیگ ناقابل از خواب‌مون نزنیم!
+&lt;!-- ادامه --&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://forum.ubuntu.ir/index.php/topic,40582.0.html&quot;&gt;راهنماهای خوبی&lt;/a&gt; برای دانلود شبانه وجود دارن پس ما از اول شروع نمی‌کنیم و فقط تنظیم سیستم رو این‌جا شرح می‌دیم.&lt;br /&gt;
+&lt;strong&gt;نکته:&lt;/strong&gt; rtcwake و cron هردو روی توزیع دبیان به‌طور پیش‌فرض نصبن. برای نصبش روی توزیع خودتون از مدیربسته استفاده کنین. این روش به نوع توزیع وابسته نیست.&lt;/p&gt;
+
+&lt;h4 id=&quot;rtcwake&quot;&gt;۱. کار با rtcwake&lt;/h4&gt;
+&lt;p&gt;چون کار با بسیاری از سخت‌افزارهای سیستم نیازمند دسترسی روت هست، rtcwake که از ساعت سخت‌افزاری سیستم استفاده می‌کنه طبیعتاً از این قاعده مستثنی نیست. پس باید کارهای مربوط به rtcwake رو با این سطح دسترسی انجام بدیم. قالب مورد نیاز ما برای روشن کردن سیستم سر ساعت &lt;code&gt;&amp;lt;TIME&amp;gt;&lt;/code&gt; که بر حسب زمان محلی وارد می‌شه( سوییچ &lt;code&gt;l-&lt;/code&gt; این کار رو انجام می‌ده) به این صورته:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;root@debian:~# rtcwake -l -m no -t &lt;span class=&quot;k&quot;&gt;$(&lt;/span&gt; date +%s -d &amp;lt;TIME&amp;gt; &lt;span class=&quot;k&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;سوئیچ &lt;code&gt;m&lt;/code&gt; به rtcwake می‌گه بعد از این که سیستم رو تنظیم کردی، هیچ‌کاری نکن(مثل خاموش کردن، حالت خواب و …). date خروجی‌ش رو به rtcwake می‌ده که واحدش ثانیه‌ست و فاصله‌ی زمان داده‌شده رو با مبدأ زمانی یونیکس مشخص می‌کنه. مثلا ما می‌خوایم ساعت ۱ شب سیستم روشن بشه:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;root@debian:~# rtcwake -l -m no -t &lt;span class=&quot;k&quot;&gt;$(&lt;/span&gt; date +%s -d &lt;span class=&quot;s1&quot;&gt;&amp;#39;tomorrow 01:00&amp;#39;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;کلمه‌ی &lt;code&gt;tomorrow‍&lt;/code&gt; به date می‌فهمونه که منظور ما ساعت ۱‍ شبی‌‍ه که از ساعت ۲۴ گذشته باشه؛ یعنی اگر این دستور بعد از ساعت ۱۲ شب اجرا بشه روشن کردن سیستم رو به فردا شب موکول می‌کنه! پس دقت کنین که الان ساعت چنده.&lt;/p&gt;
+
+&lt;h4 id=&quot;cron&quot;&gt;۲. افزودن به cron&lt;/h4&gt;
+&lt;p&gt;خود cron یک‌سری کلمه داره که رویداد خاصی رو مشخص می‌کنه. مثلا &lt;code&gt;reboot&lt;/code&gt; به معنی «هر وقت سیستم روشن شد»‍ه. &lt;strong&gt;چه خوب!&lt;/strong&gt; ما از این قابلیت استفاده می‌کنیم و به cron می‌گیم که هروقت سیستم روشن شد برای دانلود شبانه تنظیمش کنه. این طوری دیگه نیازی به اجرای دستی rtcwake نیست.&lt;br /&gt;
+معمولا چون cron خیلی از مسیرهای رایج رو توی متغییر محیطی &lt;code&gt;PATH&lt;/code&gt; نداره مجبوریم خودمون دستی مسیر هر کدوم از اجرایی‌ها رو وارد کنیم.&lt;br /&gt;
+&lt;strong&gt;توجه!&lt;/strong&gt; مسیرهایی که این‌جا برای date و rtcwake استفاده شدن ممکنه روی سیستم شما فرق کنن. با دستور &lt;code&gt;which&lt;/code&gt; می‌تونید از مسیر هر دستوری مطلع بشین.&lt;/p&gt;
+
+&lt;p&gt;اول cron مربوط به کاربر ریشه رو باز می‌کنیم:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;root@debian:~# crontab -u root -e&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;حالا خط زیر رو واردش می‌کنیم. توجه داشته باشین که &lt;code&gt;&amp;lt;TIME&amp;gt;&lt;/code&gt; رو با زمان دلخواهتون عوض کنین:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;@reboot /usr/sbin/rtcwake -l -m no -t &lt;span class=&quot;k&quot;&gt;$(&lt;/span&gt; /bin/date +&lt;span class=&quot;se&quot;&gt;\%&lt;/span&gt;s -d &amp;lt;TIME&amp;gt; &lt;span class=&quot;k&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;و در انتها سیستم رو ریبوت کنین تا rtcwake ساعت رو تنظیم کنه.&lt;/p&gt;
+
+</description>
+        <pubDate>Mon, 04 May 2015 20:00:00 +0430</pubDate>
+        <link>http://mamins1376.github.io//weblog/2015/05/rtcwake-cron</link>
+        <guid isPermaLink="true">http://mamins1376.github.io//weblog/2015/05/rtcwake-cron</guid>
+        
+        
+        <category>linux</category>
+        
+        <category>cron</category>
+        
+        <category>rtcwake</category>
+        
+      </item>
     
       <item>
         <title>دبیان بر بستر اندروید: پیش به سوی جسی!(قسمت دوم)</title>
