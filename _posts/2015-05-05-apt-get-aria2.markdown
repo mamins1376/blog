@@ -60,6 +60,7 @@ root@debian:~# apt-get --print-uris -y install guake | grep 'http://' | cut -d\'
 {% highlight bash %}
 root@debian:~# aria2c -d /var/cache/apt/archives/ -i Links.txt -s 16 -x 16 -c
 {% endhighlight %}
+سوئیچ `d` مسیری که فایل‌های دانلود شده در اون ریخته می‌شن رو مشخص می‌کنه. ‍`i` هم مسیر لینک‌ها رو. بقیه‌ی سوئیچ‌ها هم که رایج هستن و مربوط تعداد اتصال‌ها و سرعت دانلود می‌شن.
 
 #### ۳. نصب بسته ها ####
 همیشه اپت بسته‌ها رو توی مسیر `/var/cache/apt/archives/` می‌ریزه. خب، ما که خودمون این کار رو با aria2 کردیم! پس دیگه apt نیازی به دانلود نداره.
@@ -99,4 +100,8 @@ Setting up python-vte (1:0.28.2-5ubuntu1) ...
 Setting up python-glade2 (2.24.0-3ubuntu3) ...
 Setting up guake (0.4.4-1ubuntu1) ...
 {% endhighlight %}
-خوش باشین.
+در ظمن اگر دیدین بسته‌های زیادی دانلود کردین و حجم زیادی رو اشغال، از شرشون خلاص بشین!
+{% highlight bash %}
+root@debian:~# apt-get clean
+{% endhighlight %}
+موفق باشین.

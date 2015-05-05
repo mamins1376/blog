@@ -116,6 +116,8 @@ http://ir.archive.ubuntu.com/ubuntu/pool/universe/g/guake/guake_0.4.4-1ubuntu1_a
 
 <div class="highlight"><pre><code class="language-bash" data-lang="bash">root@debian:~# aria2c -d /var/cache/apt/archives/ -i Links.txt -s <span class="m">16</span> -x <span class="m">16</span> -c</code></pre></div>
 
+<p>سوئیچ <code>d</code> مسیری که فایل‌های دانلود شده در اون ریخته می‌شن رو مشخص می‌کنه. ‍<code>i</code> هم مسیر لینک‌ها رو. بقیه‌ی سوئیچ‌ها هم که رایج هستن و مربوط تعداد اتصال‌ها و سرعت دانلود می‌شن.</p>
+
 <h4 id="section-2">۳. نصب بسته ها</h4>
 <p>همیشه اپت بسته‌ها رو توی مسیر <code>/var/cache/apt/archives/</code> می‌ریزه. خب، ما که خودمون این کار رو با aria2 کردیم! پس دیگه apt نیازی به دانلود نداره.</p>
 
@@ -154,7 +156,11 @@ Setting up python-vte <span class="o">(</span>1:0.28.2-5ubuntu1<span class="o">)
 Setting up python-glade2 <span class="o">(</span>2.24.0-3ubuntu3<span class="o">)</span> ...
 Setting up guake <span class="o">(</span>0.4.4-1ubuntu1<span class="o">)</span> ...</code></pre></div>
 
-<p>خوش باشین.</p>
+<p>در ظمن اگر دیدین بسته‌های زیادی دانلود کردین و حجم زیادی رو اشغال، از شرشون خلاص بشین!</p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">root@debian:~# apt-get clean</code></pre></div>
+
+<p>موفق باشین.</p>
 
   </article>
   
