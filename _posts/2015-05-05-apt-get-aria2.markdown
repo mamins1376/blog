@@ -7,6 +7,8 @@ categories: linux cron rtcwake
 یکی از مشکلات کاربران دبیان-بیس‌ها، سرعت apt در امر طاقت‌فرسای دانلوده که باعث می‌شه خیلی‌ها سراغ مواردی مثل apt-fast برن. ما با ترکیب آریا۲ و اپت، یه دانلود کننده‌ی توپ می‌سازیم.
 <!-- ادامه -->
 
+**نکته مهم:** هر دستوری که اولش علامت `#` رو می‌بینید به دسترسی روت نیاز داره و هر دستوری که اولش علامت `$` رو داره،‌ یعنی هر کاربری توانایی اجراش رو داره.
+
 #### ۱. استخراج لینک‌ها ####
 مسلماً بسته‌های دبیان چیزی جز فایل نیستن و apt هم این «فایل»ها رو دانلود می‌کنه. خب وقتی خودش می‌تونه دانلود کنه،‌ چرا ما نتونیم؟ خوش‌بختانه برای همچین‌کاری یه سوئیچ خوب وجود داره:
 {% highlight bash %}
@@ -41,12 +43,13 @@ root@debian:~# apt-get --print-uris -y install guake | grep 'http://'
 'http://ir.archive.ubuntu.com/ubuntu/pool/universe/g/guake/guake_0.4.4-1ubuntu1_amd64.deb' guake_0.4.4-1ubuntu1_amd64.deb 171024 MD5Sum:a24f28469f7a83debc4aed2ec6ea1515
 {% endhighlight %}
 ولی ما فقط اون قسمتی که لینک فایل توش هست رو نیاز داریم؛ پس اون‌رو هم با `cut` فیلتر می‌کنیم:
-{% highlight bash %}'''
+{% highlight bash %}
 root@debian:~# apt-get --print-uris -y install guake | grep 'http://' | cut -d\' -f2
 http://ir.archive.ubuntu.com/ubuntu/pool/main/v/vte/python-vte_0.28.2-5ubuntu1_amd64.deb
 http://ir.archive.ubuntu.com/ubuntu/pool/main/p/pygtk/python-glade2_2.24.0-3ubuntu3_amd64.deb
 http://ir.archive.ubuntu.com/ubuntu/pool/universe/g/guake/guake_0.4.4-1ubuntu1_amd64.deb
-'''{% endhighlight %}
+{% endhighlight %}
+این‌جا `cut` متن رو بر اساس کاراکتر ‍`'` تقسیم می‌کنه. لینکی که ما لازم داریم میشه ستون دوم.  
 حالا لینک ها رو داریم. می‌ریزیمشون توی یه فایل به اسم `Links.txt`:
 {% highlight bash %}
 root@debian:~# apt-get --print-uris -y install guake | grep 'http://' | cut -d\' -f2 > Links.txt

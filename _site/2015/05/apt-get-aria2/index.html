@@ -65,6 +65,8 @@
     <p>یکی از مشکلات کاربران دبیان-بیس‌ها، سرعت apt در امر طاقت‌فرسای دانلوده که باعث می‌شه خیلی‌ها سراغ مواردی مثل apt-fast برن. ما با ترکیب آریا۲ و اپت، یه دانلود کننده‌ی توپ می‌سازیم.
 <!-- ادامه --></p>
 
+<p><strong>نکته مهم:</strong> هر دستوری که اولش علامت <code>#</code> رو می‌بینید به دسترسی روت نیاز داره و هر دستوری که اولش علامت <code>$</code> رو داره،‌ یعنی هر کاربری توانایی اجراش رو داره.</p>
+
 <h4 id="section">۱. استخراج لینک‌ها</h4>
 <p>مسلماً بسته‌های دبیان چیزی جز فایل نیستن و apt هم این «فایل»ها رو دانلود می‌کنه. خب وقتی خودش می‌تونه دانلود کنه،‌ چرا ما نتونیم؟ خوش‌بختانه برای همچین‌کاری یه سوئیچ خوب وجود داره:</p>
 
@@ -99,14 +101,13 @@ After this operation, 1,381 kB of additional disk space will be used.
 
 <p>ولی ما فقط اون قسمتی که لینک فایل توش هست رو نیاز داریم؛ پس اون‌رو هم با <code>cut</code> فیلتر می‌کنیم:</p>
 
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1">root@debian:~# apt-get --print-uris -y install guake | grep &#39;</span>http://<span class="s1">&#39; | cut -d\&#39; -f2</span>
-<span class="s1">http://ir.archive.ubuntu.com/ubuntu/pool/main/v/vte/python-vte_0.28.2-5ubuntu1_amd64.deb</span>
-<span class="s1">http://ir.archive.ubuntu.com/ubuntu/pool/main/p/pygtk/python-glade2_2.24.0-3ubuntu3_amd64.deb</span>
-<span class="s1">http://ir.archive.ubuntu.com/ubuntu/pool/universe/g/guake/guake_0.4.4-1ubuntu1_amd64.deb</span>
-<span class="s1">&#39;&#39;&#39;</span></code></pre></div>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">root@debian:~# apt-get --print-uris -y install guake <span class="p">|</span> grep <span class="s1">&#39;http://&#39;</span> <span class="p">|</span> cut -d<span class="se">\&#39;</span> -f2
+http://ir.archive.ubuntu.com/ubuntu/pool/main/v/vte/python-vte_0.28.2-5ubuntu1_amd64.deb
+http://ir.archive.ubuntu.com/ubuntu/pool/main/p/pygtk/python-glade2_2.24.0-3ubuntu3_amd64.deb
+http://ir.archive.ubuntu.com/ubuntu/pool/universe/g/guake/guake_0.4.4-1ubuntu1_amd64.deb</code></pre></div>
 
-<p>حالا لینک ها رو داریم. می‌ریزیمشون توی یه فایل به اسم <code>Links.txt</code>:</p>
+<p>این‌جا <code>cut</code> متن رو بر اساس کاراکتر ‍<code>'</code> تقسیم می‌کنه. لینکی که ما لازم داریم میشه ستون دوم.<br />
+حالا لینک ها رو داریم. می‌ریزیمشون توی یه فایل به اسم <code>Links.txt</code>:</p>
 
 <div class="highlight"><pre><code class="language-bash" data-lang="bash">root@debian:~# apt-get --print-uris -y install guake <span class="p">|</span> grep <span class="s1">&#39;http://&#39;</span> <span class="p">|</span> cut -d<span class="se">\&#39;</span> -f2 &gt; Links.txt</code></pre></div>
 
