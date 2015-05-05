@@ -22,7 +22,11 @@ dl, dd, ol, ul, figure {
   padding: 0; }
 
 strong {
-  font-weight: bold; }
+  font-weight: bold;
+  transition: color 3s; }
+  strong:hover {
+    color: #FF0000;
+    transition: color 0.25s; }
 
 /**
  * Basic styling

@@ -32,6 +32,12 @@ dl, dd, ol, ul, figure {
 
 strong {
   font-weight: bold;
+  transition: color 3s;
+  
+  &:hover {
+    color: #FF0000;
+    transition: color 0.25s;
+  }
 }
 
 /**
