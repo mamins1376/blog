@@ -6,9 +6,117 @@
 </description>
     <link>http://mamins1376.github.io//weblog/</link>
     <atom:link href="http://mamins1376.github.io//weblog/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 05 May 2015 12:58:34 +0430</pubDate>
-    <lastBuildDate>Tue, 05 May 2015 12:58:34 +0430</lastBuildDate>
+    <pubDate>Tue, 05 May 2015 14:05:44 +0430</pubDate>
+    <lastBuildDate>Tue, 05 May 2015 14:05:44 +0430</lastBuildDate>
     <generator>Jekyll v2.5.3</generator>
+    
+      <item>
+        <title>آریا۲ و اپت: سرعتی دوچندان</title>
+        <description>&lt;p&gt;یکی از مشکلات کاربران دبیان-بیس‌ها، سرعت apt در امر طاقت‌فرسای دانلوده که باعث می‌شه خیلی‌ها سراغ مواردی مثل apt-fast برن. ما با ترکیب آریا۲ و اپت، یه دانلود کننده‌ی توپ می‌سازیم.
+&lt;!-- ادامه --&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;section&quot;&gt;۱. استخراج لینک‌ها&lt;/h4&gt;
+&lt;p&gt;مسلماً بسته‌های دبیان چیزی جز فایل نیستن و apt هم این «فایل»ها رو دانلود می‌کنه. خب وقتی خودش می‌تونه دانلود کنه،‌ چرا ما نتونیم؟ خوش‌بختانه برای همچین‌کاری یه سوئیچ خوب وجود داره:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;root@debian:~# apt-get -y --print-uris &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt; install &amp;lt;PACKAGE&amp;gt; &lt;span class=&quot;p&quot;&gt;|&lt;/span&gt; upgrade &lt;span class=&quot;p&quot;&gt;|&lt;/span&gt; ... &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;این سوئیچ به apt می‌گه که فقط لینک رو بنویس و بی‌خیال دانلود شو. سوئیچ &lt;code&gt;y&lt;/code&gt; هم می‌گه که خودت تائید کن.
+مثلا من guake رو امتحان می‌کنم:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;root@debian:~# apt-get -y --print-uris install guake 
+Reading package lists... Done
+Building dependency tree
+Reading state information... Done
+The following extra packages will be installed:
+  python-glade2 python-vte
+Suggested packages:
+  python-gtk2-doc
+The following NEW packages will be installed:
+  guake python-glade2 python-vte
+&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt; upgraded, &lt;span class=&quot;m&quot;&gt;3&lt;/span&gt; newly installed, &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt; to remove and &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt; not upgraded.
+Need to get &lt;span class=&quot;m&quot;&gt;201&lt;/span&gt; kB of archives.
+After this operation, 1,381 kB of additional disk space will be used.
+&lt;span class=&quot;s1&quot;&gt;&amp;#39;http://ir.archive.ubuntu.com/ubuntu/pool/main/v/vte/python-vte_0.28.2-5ubuntu1_amd64.deb&amp;#39;&lt;/span&gt; python-vte_1%3a0.28.2-5ubuntu1_amd64.deb &lt;span class=&quot;m&quot;&gt;21726&lt;/span&gt; MD5Sum:a0b9e19f09fa001ca3e75534a5298c51
+&lt;span class=&quot;s1&quot;&gt;&amp;#39;http://ir.archive.ubuntu.com/ubuntu/pool/main/p/pygtk/python-glade2_2.24.0-3ubuntu3_amd64.deb&amp;#39;&lt;/span&gt; python-glade2_2.24.0-3ubuntu3_amd64.deb &lt;span class=&quot;m&quot;&gt;8744&lt;/span&gt; MD5Sum:1aef0e4a843eac23ffc619bc02382f03
+&lt;span class=&quot;s1&quot;&gt;&amp;#39;http://ir.archive.ubuntu.com/ubuntu/pool/universe/g/guake/guake_0.4.4-1ubuntu1_amd64.deb&amp;#39;&lt;/span&gt; guake_0.4.4-1ubuntu1_amd64.deb &lt;span class=&quot;m&quot;&gt;171024&lt;/span&gt; MD5Sum:a24f28469f7a83debc4aed2ec6ea1515&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;اطلاعاتی که ما لازم داریم سه خط آخر هستن که وجه اشتراکشون &lt;code&gt;//:http&lt;/code&gt; ابتداشونه. پس با &lt;code&gt;grep&lt;/code&gt; فیلترشون می‌کنیم:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;root@debian:~# apt-get --print-uris -y install guake &lt;span class=&quot;p&quot;&gt;|&lt;/span&gt; grep &lt;span class=&quot;s1&quot;&gt;&amp;#39;http://&amp;#39;&lt;/span&gt;
+&lt;span class=&quot;s1&quot;&gt;&amp;#39;http://ir.archive.ubuntu.com/ubuntu/pool/main/v/vte/python-vte_0.28.2-5ubuntu1_amd64.deb&amp;#39;&lt;/span&gt; python-vte_1%3a0.28.2-5ubuntu1_amd64.deb &lt;span class=&quot;m&quot;&gt;21726&lt;/span&gt; MD5Sum:a0b9e19f09fa001ca3e75534a5298c51
+&lt;span class=&quot;s1&quot;&gt;&amp;#39;http://ir.archive.ubuntu.com/ubuntu/pool/main/p/pygtk/python-glade2_2.24.0-3ubuntu3_amd64.deb&amp;#39;&lt;/span&gt; python-glade2_2.24.0-3ubuntu3_amd64.deb &lt;span class=&quot;m&quot;&gt;8744&lt;/span&gt; MD5Sum:1aef0e4a843eac23ffc619bc02382f03
+&lt;span class=&quot;s1&quot;&gt;&amp;#39;http://ir.archive.ubuntu.com/ubuntu/pool/universe/g/guake/guake_0.4.4-1ubuntu1_amd64.deb&amp;#39;&lt;/span&gt; guake_0.4.4-1ubuntu1_amd64.deb &lt;span class=&quot;m&quot;&gt;171024&lt;/span&gt; MD5Sum:a24f28469f7a83debc4aed2ec6ea1515&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;ولی ما فقط به اون قسمت لینک نیاز داریم پس اون‌رو هم با &lt;code&gt;cut&lt;/code&gt; فیلتر می‌کنیم:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;&amp;#39;&amp;#39;&lt;/span&gt;
+&lt;span class=&quot;s1&quot;&gt;root@debian:~# apt-get --print-uris -y install guake | grep &amp;#39;&lt;/span&gt;http://&lt;span class=&quot;s1&quot;&gt;&amp;#39; | cut -d\&amp;#39; -f2&lt;/span&gt;
+&lt;span class=&quot;s1&quot;&gt;http://ir.archive.ubuntu.com/ubuntu/pool/main/v/vte/python-vte_0.28.2-5ubuntu1_amd64.deb&lt;/span&gt;
+&lt;span class=&quot;s1&quot;&gt;http://ir.archive.ubuntu.com/ubuntu/pool/main/p/pygtk/python-glade2_2.24.0-3ubuntu3_amd64.deb&lt;/span&gt;
+&lt;span class=&quot;s1&quot;&gt;http://ir.archive.ubuntu.com/ubuntu/pool/universe/g/guake/guake_0.4.4-1ubuntu1_amd64.deb&lt;/span&gt;
+&lt;span class=&quot;s1&quot;&gt;&amp;#39;&amp;#39;&amp;#39;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;حالا لینک ها رو داریم. می‌ریزیمشون توی یه فایل به اسم &lt;code&gt;Links.txt&lt;/code&gt;:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;root@debian:~# apt-get --print-uris -y install guake &lt;span class=&quot;p&quot;&gt;|&lt;/span&gt; grep &lt;span class=&quot;s1&quot;&gt;&amp;#39;http://&amp;#39;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;|&lt;/span&gt; cut -d&lt;span class=&quot;se&quot;&gt;\&amp;#39;&lt;/span&gt; -f2 &amp;gt; Links.txt&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h4 id=&quot;section-1&quot;&gt;۲. دانلود بسته‌ها&lt;/h4&gt;
+&lt;p&gt;برای این کار از &lt;code&gt;aria2&lt;/code&gt; استفاده می‌کنیم.&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;root@debian:~# aria2c -d /var/cache/apt/archives/ -i Links.txt -s &lt;span class=&quot;m&quot;&gt;16&lt;/span&gt; -x &lt;span class=&quot;m&quot;&gt;16&lt;/span&gt; -c&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h4 id=&quot;section-2&quot;&gt;۳. نصب بسته ها&lt;/h4&gt;
+&lt;p&gt;همیشه اپت بسته‌ها رو توی مسیر &lt;code&gt;/var/cache/apt/archives/&lt;/code&gt; می‌ریزه. خب، ما که خودمون این کار رو با aria2 کردیم! پس دیگه apt نیازی به دانلود نداره.&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;root@debian:~# apt-get -y install guake
+Reading package lists... Done
+Building dependency tree
+Reading state information... Done
+The following extra packages will be installed:
+  python-glade2 python-vte
+Suggested packages:
+  python-gtk2-doc
+The following NEW packages will be installed:
+  guake python-glade2 python-vte
+&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt; upgraded, &lt;span class=&quot;m&quot;&gt;3&lt;/span&gt; newly installed, &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt; to remove and &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt; not upgraded.
+Need to get &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt; B/201 kB of archives.
+After this operation, 1,381 kB of additional disk space will be used.
+Selecting previously unselected package python-vte.
+&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;Reading database ... &lt;span class=&quot;m&quot;&gt;240702&lt;/span&gt; files and directories currently installed.&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+Preparing to unpack .../python-vte_0.28.2-5ubuntu1_amd64.deb ...
+Unpacking python-vte &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;1:0.28.2-5ubuntu1&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; ...
+Selecting previously unselected package python-glade2.
+Preparing to unpack .../python-glade2_2.24.0-3ubuntu3_amd64.deb ...
+Unpacking python-glade2 &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;2.24.0-3ubuntu3&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; ...
+Selecting previously unselected package guake.
+Preparing to unpack .../guake_0.4.4-1ubuntu1_amd64.deb ...
+Unpacking guake &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;0.4.4-1ubuntu1&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; ...
+Processing triggers &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; gconf2 &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;3.2.6-0ubuntu2&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; ...
+Processing triggers &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; man-db &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;2.6.7.1-1ubuntu1&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; ...
+Processing triggers &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; gnome-menus &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;3.10.1-0ubuntu2&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; ...
+Processing triggers &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; desktop-file-utils &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;0.22-1ubuntu1&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; ...
+Processing triggers &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; bamfdaemon &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;0.5.1+14.04.20140409-0ubuntu1&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; ...
+Rebuilding /usr/share/applications/bamf-2.index...
+Processing triggers &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; mime-support &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;3.54ubuntu1.1&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; ...
+Processing triggers &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; hicolor-icon-theme &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;0.13-1&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; ...
+Setting up python-vte &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;1:0.28.2-5ubuntu1&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; ...
+Setting up python-glade2 &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;2.24.0-3ubuntu3&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; ...
+Setting up guake &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;0.4.4-1ubuntu1&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; ...&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;خوش باشین.&lt;/p&gt;
+</description>
+        <pubDate>Tue, 05 May 2015 18:34:00 +0430</pubDate>
+        <link>http://mamins1376.github.io//weblog/2015/05/apt-get-aria2</link>
+        <guid isPermaLink="true">http://mamins1376.github.io//weblog/2015/05/apt-get-aria2</guid>
+        
+        
+        <category>linux</category>
+        
+        <category>cron</category>
+        
+        <category>rtcwake</category>
+        
+      </item>
     
       <item>
         <title>cron و rtcwake: خواب راحت</title>
