@@ -40,7 +40,7 @@ root@debian:~# apt-get --print-uris -y install guake | grep 'http://'
 'http://ir.archive.ubuntu.com/ubuntu/pool/main/p/pygtk/python-glade2_2.24.0-3ubuntu3_amd64.deb' python-glade2_2.24.0-3ubuntu3_amd64.deb 8744 MD5Sum:1aef0e4a843eac23ffc619bc02382f03
 'http://ir.archive.ubuntu.com/ubuntu/pool/universe/g/guake/guake_0.4.4-1ubuntu1_amd64.deb' guake_0.4.4-1ubuntu1_amd64.deb 171024 MD5Sum:a24f28469f7a83debc4aed2ec6ea1515
 {% endhighlight %}
-ولی ما فقط به اون قسمت لینک نیاز داریم پس اون‌رو هم با `cut` فیلتر می‌کنیم:
+ولی ما فقط اون قسمتی که لینک فایل توش هست رو نیاز داریم؛ پس اون‌رو هم با `cut` فیلتر می‌کنیم:
 {% highlight bash %}'''
 root@debian:~# apt-get --print-uris -y install guake | grep 'http://' | cut -d\' -f2
 http://ir.archive.ubuntu.com/ubuntu/pool/main/v/vte/python-vte_0.28.2-5ubuntu1_amd64.deb

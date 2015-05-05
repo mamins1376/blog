@@ -97,7 +97,7 @@ After this operation, 1,381 kB of additional disk space will be used.
 <span class="s1">&#39;http://ir.archive.ubuntu.com/ubuntu/pool/main/p/pygtk/python-glade2_2.24.0-3ubuntu3_amd64.deb&#39;</span> python-glade2_2.24.0-3ubuntu3_amd64.deb <span class="m">8744</span> MD5Sum:1aef0e4a843eac23ffc619bc02382f03
 <span class="s1">&#39;http://ir.archive.ubuntu.com/ubuntu/pool/universe/g/guake/guake_0.4.4-1ubuntu1_amd64.deb&#39;</span> guake_0.4.4-1ubuntu1_amd64.deb <span class="m">171024</span> MD5Sum:a24f28469f7a83debc4aed2ec6ea1515</code></pre></div>
 
-<p>ولی ما فقط به اون قسمت لینک نیاز داریم پس اون‌رو هم با <code>cut</code> فیلتر می‌کنیم:</p>
+<p>ولی ما فقط اون قسمتی که لینک فایل توش هست رو نیاز داریم؛ پس اون‌رو هم با <code>cut</code> فیلتر می‌کنیم:</p>
 
 <div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="s1">&#39;&#39;&#39;</span>
 <span class="s1">root@debian:~# apt-get --print-uris -y install guake | grep &#39;</span>http://<span class="s1">&#39; | cut -d\&#39; -f2</span>

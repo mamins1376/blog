@@ -6,8 +6,8 @@
 </description>
     <link>http://mamins1376.github.io//weblog/</link>
     <atom:link href="http://mamins1376.github.io//weblog/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 05 May 2015 14:05:44 +0430</pubDate>
-    <lastBuildDate>Tue, 05 May 2015 14:05:44 +0430</lastBuildDate>
+    <pubDate>Tue, 05 May 2015 14:09:28 +0430</pubDate>
+    <lastBuildDate>Tue, 05 May 2015 14:09:28 +0430</lastBuildDate>
     <generator>Jekyll v2.5.3</generator>
     
       <item>
@@ -47,7 +47,7 @@ After this operation, 1,381 kB of additional disk space will be used.
 &lt;span class=&quot;s1&quot;&gt;&amp;#39;http://ir.archive.ubuntu.com/ubuntu/pool/main/p/pygtk/python-glade2_2.24.0-3ubuntu3_amd64.deb&amp;#39;&lt;/span&gt; python-glade2_2.24.0-3ubuntu3_amd64.deb &lt;span class=&quot;m&quot;&gt;8744&lt;/span&gt; MD5Sum:1aef0e4a843eac23ffc619bc02382f03
 &lt;span class=&quot;s1&quot;&gt;&amp;#39;http://ir.archive.ubuntu.com/ubuntu/pool/universe/g/guake/guake_0.4.4-1ubuntu1_amd64.deb&amp;#39;&lt;/span&gt; guake_0.4.4-1ubuntu1_amd64.deb &lt;span class=&quot;m&quot;&gt;171024&lt;/span&gt; MD5Sum:a24f28469f7a83debc4aed2ec6ea1515&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-&lt;p&gt;ولی ما فقط به اون قسمت لینک نیاز داریم پس اون‌رو هم با &lt;code&gt;cut&lt;/code&gt; فیلتر می‌کنیم:&lt;/p&gt;
+&lt;p&gt;ولی ما فقط اون قسمتی که لینک فایل توش هست رو نیاز داریم؛ پس اون‌رو هم با &lt;code&gt;cut&lt;/code&gt; فیلتر می‌کنیم:&lt;/p&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;&amp;#39;&amp;#39;&lt;/span&gt;
 &lt;span class=&quot;s1&quot;&gt;root@debian:~# apt-get --print-uris -y install guake | grep &amp;#39;&lt;/span&gt;http://&lt;span class=&quot;s1&quot;&gt;&amp;#39; | cut -d\&amp;#39; -f2&lt;/span&gt;
