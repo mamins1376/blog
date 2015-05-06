@@ -11,7 +11,28 @@ layout: default
   <article class="post-content">
     {{ content }}
   </article>
-  
+  <span class='post-category'>
+در دسته‌های
+    {% for category in page.categories %}
+      {% if category != page.categories[0] %}
+          ،
+      {% endif %}
+      {{ category }}
+    {% endfor %}
+  </span>
+  <div class='post-pager'>
+    {% if page.previous != nil %}
+    <span>
+      قبلی: 
+        <a href='{{ site.baseurl }}{{ page.previous.url }}'>{{ page.previous.title }}</a></span><br/>
+    {% endif %}
+    {% if page.next != nil %}
+      <span>
+      بعدی:
+        <a href='{{ site.baseurl }}{{ page.next.url }}'>{{ page.next.title }}</a></span>
+    {% endif %}
+    
+  </div>
   {% include disqus.html %}
   
 </div>

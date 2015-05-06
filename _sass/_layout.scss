@@ -184,6 +184,16 @@
     color: $grey-color;
 }
 
+.post-category {
+    display: inline;
+    color: $grey-color;
+}
+
+.post-pager {
+    margin-bottom: $spacing-unit;
+    color: $grey-color;
+}
+
 .post-link {
     display: block;
     font-size: 24px;

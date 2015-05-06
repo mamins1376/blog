@@ -296,6 +296,14 @@ pre {
   font-size: 14px;
   color: #525252; }
 
+.post-category {
+  display: inline;
+  color: #525252; }
+
+.post-pager {
+  margin-bottom: 30px;
+  color: #525252; }
+
 .post-link {
   display: block;
   font-size: 24px; }
