@@ -6,8 +6,8 @@
 </description>
     <link>http://mamins1376.github.io//weblog/</link>
     <atom:link href="http://mamins1376.github.io//weblog/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 05 May 2015 15:00:29 +0430</pubDate>
-    <lastBuildDate>Tue, 05 May 2015 15:00:29 +0430</lastBuildDate>
+    <pubDate>Wed, 06 May 2015 15:52:15 +0430</pubDate>
+    <lastBuildDate>Wed, 06 May 2015 15:52:15 +0430</lastBuildDate>
     <generator>Jekyll v2.5.3</generator>
     
       <item>
@@ -119,9 +119,13 @@ Setting up guake &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;0.4.4-1ubuntu1&lt
         
         <category>linux</category>
         
-        <category>cron</category>
+        <category>aria2</category>
         
-        <category>rtcwake</category>
+        <category>apt-get</category>
+        
+        <category>package</category>
+        
+        <category>debian</category>
         
       </item>
     
