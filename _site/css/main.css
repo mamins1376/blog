@@ -54,6 +54,9 @@ ul, ol, dl, figure,
  * Images
  */
 img {
+  max-width: 100%; }
+
+.post-container img {
   max-width: 80%;
   vertical-align: middle;
   display: block;
@@ -62,13 +65,11 @@ img {
   -moz-box-shadow: 0 0 25px 0 #111;
   -webkit-box-shadow: 0 0 25px 0 #111;
   box-shadow: 0 0 25px 0 #111;
-  transition: filter 0.5s; }
-  img:hover {
-    -webkit-filter: blur(1px);
-    -moz-filter: blur(1px);
-    -o-filter: blur(1px);
-    -ms-filter: blur(1px);
-    filter: blur(1px); }
+  filter: contrast(80%);
+  transition: filter 3s; }
+  .post-container img:hover {
+    filter: contrast(140%);
+    transition: filter 1s; }
 
 /**
  * Figures
@@ -254,6 +255,19 @@ pre {
   list-style: none;
   margin-left: 0; }
 
+.contact-list a {
+  transition: padding 0.6s; }
+  .contact-list a:hover {
+    padding-right: 10px;
+    padding-left: 10px;
+    transition: padding 0.2s; }
+
+.social-media-list li {
+  transition: padding 0.6s; }
+  .social-media-list li:hover {
+    padding-right: 15px;
+    transition: padding 0.2s; }
+
 .footer-col-wrapper {
   font-size: 15px;
   color: #525252;
@@ -271,6 +285,11 @@ pre {
 .footer-col-2 {
   width: -webkit-calc(20% - (30px / 2));
   width: calc(20% - (30px / 2)); }
+  .footer-col-2 img {
+    transition: filter 2s; }
+    .footer-col-2 img:hover {
+      filter: sepia(220%);
+      transition: 0s; }
 
 .footer-col-3 {
   width: -webkit-calc(45% - (30px / 2));

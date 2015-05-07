@@ -72,6 +72,10 @@ ul, ol, dl, figure,
  * Images
  */
 img {
+    max-width: 100%;
+}
+ 
+.post-container img {
     max-width: 80%;
     vertical-align: middle;
     display: block;
@@ -80,14 +84,12 @@ img {
     -moz-box-shadow: 0 0 25px 0 $text-color;
     -webkit-box-shadow: 0 0 25px 0 $text-color;
     box-shadow: 0 0 25px 0 $text-color;
-    transition: filter 0.5s;
+    filter: contrast(80%);
+    transition: filter 3s;
     
     &:hover {
-        -webkit-filter: blur(1px);
-        -moz-filter: blur(1px);
-        -o-filter: blur(1px);
-        -ms-filter: blur(1px);
-        filter: blur(1px);
+        filter: contrast(140%);
+        transition: filter 1s;
     }
 }
 
