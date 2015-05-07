@@ -6,112 +6,18 @@
 </description>
     <link>http://mamins1376.github.io//weblog/</link>
     <atom:link href="http://mamins1376.github.io//weblog/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 06 May 2015 16:38:07 +0430</pubDate>
-    <lastBuildDate>Wed, 06 May 2015 16:38:07 +0430</lastBuildDate>
+    <pubDate>Thu, 07 May 2015 10:44:19 +0430</pubDate>
+    <lastBuildDate>Thu, 07 May 2015 10:44:19 +0430</lastBuildDate>
     <generator>Jekyll v2.5.3</generator>
     
       <item>
         <title>آریا۲ و اپت: سرعتی دوچندان</title>
-        <description>&lt;p&gt;یکی از مشکلات کاربران دبیان-بیس‌ها، سرعت apt در امر طاقت‌فرسای دانلوده که باعث می‌شه خیلی‌ها سراغ مواردی مثل apt-fast برن. ما با ترکیب آریا۲ و اپت، یه دانلود کننده‌ی توپ می‌سازیم.
-&lt;!-- ادامه --&gt;&lt;/p&gt;
+        <description>
+          
+            &lt;p&gt;یکی از مشکلات کاربران دبیان-بیس‌ها، سرعت apt در امر طاقت‌فرسای دانلوده که باعث می‌شه خیلی‌ها سراغ مواردی مثل apt-fast برن. ما با ترکیب آریا۲ و اپت، یه دانلود کننده‌ی توپ می‌سازیم.
 
-&lt;p&gt;&lt;strong&gt;نکته مهم:&lt;/strong&gt; هر دستوری که اولش علامت &lt;code&gt;#&lt;/code&gt; رو می‌بینید به دسترسی روت نیاز داره و هر دستوری که اولش علامت &lt;code&gt;$&lt;/code&gt; رو داره،‌ یعنی هر کاربری توانایی اجراش رو داره و دسترسی روت لازم نیست.&lt;/p&gt;
-
-&lt;h4 id=&quot;section&quot;&gt;۱. استخراج لینک‌ها&lt;/h4&gt;
-&lt;p&gt;مسلماً بسته‌های دبیان چیزی جز فایل نیستن و apt هم این «فایل»ها رو دانلود می‌کنه. خب وقتی خودش می‌تونه دانلود کنه،‌ چرا ما نتونیم؟ خوش‌بختانه برای همچین‌کاری یه سوئیچ خوب وجود داره:&lt;/p&gt;
-
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;root@debian:~# apt-get -y --print-uris &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt; install &amp;lt;PACKAGE&amp;gt; &lt;span class=&quot;p&quot;&gt;|&lt;/span&gt; upgrade &lt;span class=&quot;p&quot;&gt;|&lt;/span&gt; ... &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;این سوئیچ به apt می‌گه که فقط لینک رو بنویس و بی‌خیال دانلود شو. سوئیچ &lt;code&gt;y&lt;/code&gt; هم می‌گه که خودت تائید کن.
-مثلا من guake رو امتحان می‌کنم:&lt;/p&gt;
-
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;root@debian:~# apt-get -y --print-uris install guake 
-Reading package lists... Done
-Building dependency tree
-Reading state information... Done
-The following extra packages will be installed:
-  python-glade2 python-vte
-Suggested packages:
-  python-gtk2-doc
-The following NEW packages will be installed:
-  guake python-glade2 python-vte
-&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt; upgraded, &lt;span class=&quot;m&quot;&gt;3&lt;/span&gt; newly installed, &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt; to remove and &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt; not upgraded.
-Need to get &lt;span class=&quot;m&quot;&gt;201&lt;/span&gt; kB of archives.
-After this operation, 1,381 kB of additional disk space will be used.
-&lt;span class=&quot;s1&quot;&gt;&amp;#39;http://ir.archive.ubuntu.com/ubuntu/pool/main/v/vte/python-vte_0.28.2-5ubuntu1_amd64.deb&amp;#39;&lt;/span&gt; python-vte_1%3a0.28.2-5ubuntu1_amd64.deb &lt;span class=&quot;m&quot;&gt;21726&lt;/span&gt; MD5Sum:a0b9e19f09fa001ca3e75534a5298c51
-&lt;span class=&quot;s1&quot;&gt;&amp;#39;http://ir.archive.ubuntu.com/ubuntu/pool/main/p/pygtk/python-glade2_2.24.0-3ubuntu3_amd64.deb&amp;#39;&lt;/span&gt; python-glade2_2.24.0-3ubuntu3_amd64.deb &lt;span class=&quot;m&quot;&gt;8744&lt;/span&gt; MD5Sum:1aef0e4a843eac23ffc619bc02382f03
-&lt;span class=&quot;s1&quot;&gt;&amp;#39;http://ir.archive.ubuntu.com/ubuntu/pool/universe/g/guake/guake_0.4.4-1ubuntu1_amd64.deb&amp;#39;&lt;/span&gt; guake_0.4.4-1ubuntu1_amd64.deb &lt;span class=&quot;m&quot;&gt;171024&lt;/span&gt; MD5Sum:a24f28469f7a83debc4aed2ec6ea1515&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;اطلاعاتی که ما لازم داریم سه خط آخر هستن که وجه اشتراکشون &lt;code&gt;//:http&lt;/code&gt; ابتداشونه. پس با &lt;code&gt;grep&lt;/code&gt; فیلترشون می‌کنیم:&lt;/p&gt;
-
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;root@debian:~# apt-get --print-uris -y install guake &lt;span class=&quot;p&quot;&gt;|&lt;/span&gt; grep &lt;span class=&quot;s1&quot;&gt;&amp;#39;http://&amp;#39;&lt;/span&gt;
-&lt;span class=&quot;s1&quot;&gt;&amp;#39;http://ir.archive.ubuntu.com/ubuntu/pool/main/v/vte/python-vte_0.28.2-5ubuntu1_amd64.deb&amp;#39;&lt;/span&gt; python-vte_1%3a0.28.2-5ubuntu1_amd64.deb &lt;span class=&quot;m&quot;&gt;21726&lt;/span&gt; MD5Sum:a0b9e19f09fa001ca3e75534a5298c51
-&lt;span class=&quot;s1&quot;&gt;&amp;#39;http://ir.archive.ubuntu.com/ubuntu/pool/main/p/pygtk/python-glade2_2.24.0-3ubuntu3_amd64.deb&amp;#39;&lt;/span&gt; python-glade2_2.24.0-3ubuntu3_amd64.deb &lt;span class=&quot;m&quot;&gt;8744&lt;/span&gt; MD5Sum:1aef0e4a843eac23ffc619bc02382f03
-&lt;span class=&quot;s1&quot;&gt;&amp;#39;http://ir.archive.ubuntu.com/ubuntu/pool/universe/g/guake/guake_0.4.4-1ubuntu1_amd64.deb&amp;#39;&lt;/span&gt; guake_0.4.4-1ubuntu1_amd64.deb &lt;span class=&quot;m&quot;&gt;171024&lt;/span&gt; MD5Sum:a24f28469f7a83debc4aed2ec6ea1515&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;ولی ما فقط اون قسمتی که لینک فایل توش هست رو نیاز داریم؛ پس اون‌رو هم با &lt;code&gt;cut&lt;/code&gt; فیلتر می‌کنیم:&lt;/p&gt;
-
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;root@debian:~# apt-get --print-uris -y install guake &lt;span class=&quot;p&quot;&gt;|&lt;/span&gt; grep &lt;span class=&quot;s1&quot;&gt;&amp;#39;http://&amp;#39;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;|&lt;/span&gt; cut -d&lt;span class=&quot;se&quot;&gt;\&amp;#39;&lt;/span&gt; -f2
-http://ir.archive.ubuntu.com/ubuntu/pool/main/v/vte/python-vte_0.28.2-5ubuntu1_amd64.deb
-http://ir.archive.ubuntu.com/ubuntu/pool/main/p/pygtk/python-glade2_2.24.0-3ubuntu3_amd64.deb
-http://ir.archive.ubuntu.com/ubuntu/pool/universe/g/guake/guake_0.4.4-1ubuntu1_amd64.deb&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;این‌جا &lt;code&gt;cut&lt;/code&gt; متن رو بر اساس کاراکتر ‍&lt;code&gt;'&lt;/code&gt; تقسیم می‌کنه. لینکی که ما لازم داریم میشه ستون دوم.&lt;br /&gt;
-حالا لینک ها رو داریم. می‌ریزیمشون توی یه فایل به اسم &lt;code&gt;Links.txt&lt;/code&gt;:&lt;/p&gt;
-
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;root@debian:~# apt-get --print-uris -y install guake &lt;span class=&quot;p&quot;&gt;|&lt;/span&gt; grep &lt;span class=&quot;s1&quot;&gt;&amp;#39;http://&amp;#39;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;|&lt;/span&gt; cut -d&lt;span class=&quot;se&quot;&gt;\&amp;#39;&lt;/span&gt; -f2 &amp;gt; Links.txt&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;h4 id=&quot;section-1&quot;&gt;۲. دانلود بسته‌ها&lt;/h4&gt;
-&lt;p&gt;برای این کار از &lt;code&gt;aria2&lt;/code&gt; استفاده می‌کنیم.&lt;/p&gt;
-
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;root@debian:~# aria2c -d /var/cache/apt/archives/ -i Links.txt -s &lt;span class=&quot;m&quot;&gt;16&lt;/span&gt; -x &lt;span class=&quot;m&quot;&gt;16&lt;/span&gt; -c&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;سوئیچ &lt;code&gt;d&lt;/code&gt; مسیری که فایل‌های دانلود شده در اون ریخته می‌شن رو مشخص می‌کنه. ‍&lt;code&gt;i&lt;/code&gt; هم مسیر لینک‌ها رو. بقیه‌ی سوئیچ‌ها هم که رایج هستن و مربوط تعداد اتصال‌ها و سرعت دانلود می‌شن.&lt;/p&gt;
-
-&lt;h4 id=&quot;section-2&quot;&gt;۳. نصب بسته ها&lt;/h4&gt;
-&lt;p&gt;همیشه اپت بسته‌ها رو توی مسیر &lt;code&gt;/var/cache/apt/archives/&lt;/code&gt; می‌ریزه. خب، ما که خودمون این کار رو با aria2 کردیم! پس دیگه apt نیازی به دانلود نداره.&lt;/p&gt;
-
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;root@debian:~# apt-get -y install guake
-Reading package lists... Done
-Building dependency tree
-Reading state information... Done
-The following extra packages will be installed:
-  python-glade2 python-vte
-Suggested packages:
-  python-gtk2-doc
-The following NEW packages will be installed:
-  guake python-glade2 python-vte
-&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt; upgraded, &lt;span class=&quot;m&quot;&gt;3&lt;/span&gt; newly installed, &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt; to remove and &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt; not upgraded.
-Need to get &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt; B/201 kB of archives.
-After this operation, 1,381 kB of additional disk space will be used.
-Selecting previously unselected package python-vte.
-&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;Reading database ... &lt;span class=&quot;m&quot;&gt;240702&lt;/span&gt; files and directories currently installed.&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
-Preparing to unpack .../python-vte_0.28.2-5ubuntu1_amd64.deb ...
-Unpacking python-vte &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;1:0.28.2-5ubuntu1&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; ...
-Selecting previously unselected package python-glade2.
-Preparing to unpack .../python-glade2_2.24.0-3ubuntu3_amd64.deb ...
-Unpacking python-glade2 &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;2.24.0-3ubuntu3&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; ...
-Selecting previously unselected package guake.
-Preparing to unpack .../guake_0.4.4-1ubuntu1_amd64.deb ...
-Unpacking guake &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;0.4.4-1ubuntu1&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; ...
-Processing triggers &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; gconf2 &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;3.2.6-0ubuntu2&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; ...
-Processing triggers &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; man-db &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;2.6.7.1-1ubuntu1&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; ...
-Processing triggers &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; gnome-menus &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;3.10.1-0ubuntu2&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; ...
-Processing triggers &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; desktop-file-utils &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;0.22-1ubuntu1&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; ...
-Processing triggers &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; bamfdaemon &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;0.5.1+14.04.20140409-0ubuntu1&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; ...
-Rebuilding /usr/share/applications/bamf-2.index...
-Processing triggers &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; mime-support &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;3.54ubuntu1.1&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; ...
-Processing triggers &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; hicolor-icon-theme &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;0.13-1&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; ...
-Setting up python-vte &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;1:0.28.2-5ubuntu1&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; ...
-Setting up python-glade2 &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;2.24.0-3ubuntu3&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; ...
-Setting up guake &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;0.4.4-1ubuntu1&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; ...&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;در ظمن اگر دیدین بسته‌های زیادی دانلود کردین و حجم زیادی رو اشغال، از شرشون خلاص بشین!&lt;/p&gt;
-
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;root@debian:~# apt-get clean&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;موفق باشین.&lt;/p&gt;
-</description>
+          
+        </description>
         <pubDate>Tue, 05 May 2015 18:34:00 +0430</pubDate>
         <link>http://mamins1376.github.io//weblog/2015/05/apt-get-aria2</link>
         <guid isPermaLink="true">http://mamins1376.github.io//weblog/2015/05/apt-get-aria2</guid>
@@ -131,39 +37,12 @@ Setting up guake &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;0.4.4-1ubuntu1&lt
     
       <item>
         <title>cron و rtcwake: خواب راحت</title>
-        <description>&lt;p&gt;دانلود شبانه یکی از باحال‌ترین کارهاست ولی دردسرهایی داره: باید سیستم رو روشن بذارین تا سر ساعت شروع کنه. &lt;a href=&quot;http://forum.ubuntu.ir/index.php?topic=59242.0&quot;&gt;rtcwake&lt;/a&gt; قراره به کمک cron این مشکل رو برای همیشه برامون حل کنه تا به‌خاطر چند گیگ ناقابل از خواب‌مون نزنیم!
-&lt;!-- ادامه --&gt;&lt;/p&gt;
+        <description>
+          
+            &lt;p&gt;دانلود شبانه یکی از باحال‌ترین کارهاست ولی دردسرهایی داره: باید سیستم رو روشن بذارین تا سر ساعت شروع کنه. &lt;a href=&quot;http://forum.ubuntu.ir/index.php?topic=59242.0&quot;&gt;rtcwake&lt;/a&gt; قراره به کمک cron این مشکل رو برای همیشه برامون حل کنه تا به‌خاطر چند گیگ ناقابل از خواب‌مون نزنیم!
 
-&lt;p&gt;&lt;a href=&quot;http://forum.ubuntu.ir/index.php/topic,40582.0.html&quot;&gt;راهنماهای خوبی&lt;/a&gt; برای دانلود شبانه وجود دارن پس ما از اول شروع نمی‌کنیم و فقط تنظیم سیستم رو این‌جا شرح می‌دیم.&lt;br /&gt;
-&lt;strong&gt;نکته:&lt;/strong&gt; rtcwake و cron هردو روی توزیع دبیان به‌طور پیش‌فرض نصبن. برای نصبش روی توزیع خودتون از مدیربسته استفاده کنین. این روش به نوع توزیع وابسته نیست.&lt;/p&gt;
-
-&lt;h4 id=&quot;rtcwake&quot;&gt;۱. کار با rtcwake&lt;/h4&gt;
-&lt;p&gt;چون کار با بسیاری از سخت‌افزارهای سیستم نیازمند دسترسی روت هست، rtcwake که از ساعت سخت‌افزاری سیستم استفاده می‌کنه طبیعتاً از این قاعده مستثنی نیست. پس باید کارهای مربوط به rtcwake رو با این سطح دسترسی انجام بدیم. قالب مورد نیاز ما برای روشن کردن سیستم سر ساعت &lt;code&gt;&amp;lt;TIME&amp;gt;&lt;/code&gt; که بر حسب زمان محلی وارد می‌شه( سوییچ &lt;code&gt;l-&lt;/code&gt; این کار رو انجام می‌ده) به این صورته:&lt;/p&gt;
-
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;root@debian:~# rtcwake -l -m no -t &lt;span class=&quot;k&quot;&gt;$(&lt;/span&gt; date +%s -d &amp;lt;TIME&amp;gt; &lt;span class=&quot;k&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;سوئیچ &lt;code&gt;m&lt;/code&gt; به rtcwake می‌گه بعد از این که سیستم رو تنظیم کردی، هیچ‌کاری نکن(مثل خاموش کردن، حالت خواب و …). date خروجی‌ش رو به rtcwake می‌ده که واحدش ثانیه‌ست و فاصله‌ی زمان داده‌شده رو با مبدأ زمانی یونیکس مشخص می‌کنه. مثلا ما می‌خوایم ساعت ۱ شب سیستم روشن بشه:&lt;/p&gt;
-
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;root@debian:~# rtcwake -l -m no -t &lt;span class=&quot;k&quot;&gt;$(&lt;/span&gt; date +%s -d &lt;span class=&quot;s1&quot;&gt;&amp;#39;tomorrow 01:00&amp;#39;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;کلمه‌ی &lt;code&gt;tomorrow‍&lt;/code&gt; به date می‌فهمونه که منظور ما ساعت ۱‍ شبی‌‍ه که از ساعت ۲۴ گذشته باشه؛ یعنی اگر این دستور بعد از ساعت ۱۲ شب اجرا بشه روشن کردن سیستم رو به فردا شب موکول می‌کنه! پس دقت کنین که الان ساعت چنده.&lt;/p&gt;
-
-&lt;h4 id=&quot;cron&quot;&gt;۲. افزودن به cron&lt;/h4&gt;
-&lt;p&gt;خود cron یک‌سری کلمه داره که رویداد خاصی رو مشخص می‌کنه. مثلا &lt;code&gt;reboot&lt;/code&gt; به معنی «هر وقت سیستم روشن شد»‍ه. &lt;strong&gt;چه خوب!&lt;/strong&gt; ما از این قابلیت استفاده می‌کنیم و به cron می‌گیم که هروقت سیستم روشن شد برای دانلود شبانه تنظیمش کنه. این طوری دیگه نیازی به اجرای دستی rtcwake نیست.&lt;br /&gt;
-معمولا چون cron خیلی از مسیرهای رایج رو توی متغییر محیطی &lt;code&gt;PATH&lt;/code&gt; نداره مجبوریم خودمون دستی مسیر هر کدوم از اجرایی‌ها رو وارد کنیم.&lt;br /&gt;
-&lt;strong&gt;توجه!&lt;/strong&gt; مسیرهایی که این‌جا برای date و rtcwake استفاده شدن ممکنه روی سیستم شما فرق کنن. با دستور &lt;code&gt;which&lt;/code&gt; می‌تونید از مسیر هر دستوری مطلع بشین.&lt;/p&gt;
-
-&lt;p&gt;اول cron مربوط به کاربر ریشه رو باز می‌کنیم:&lt;/p&gt;
-
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;root@debian:~# crontab -u root -e&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;حالا خط زیر رو واردش می‌کنیم. توجه داشته باشین که &lt;code&gt;&amp;lt;TIME&amp;gt;&lt;/code&gt; رو با زمان دلخواهتون عوض کنین:&lt;/p&gt;
-
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;@reboot /usr/sbin/rtcwake -l -m no -t &lt;span class=&quot;k&quot;&gt;$(&lt;/span&gt; /bin/date +&lt;span class=&quot;se&quot;&gt;\%&lt;/span&gt;s -d &amp;lt;TIME&amp;gt; &lt;span class=&quot;k&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;و در انتها سیستم رو ریبوت کنین تا rtcwake ساعت رو تنظیم کنه.&lt;/p&gt;
-
-</description>
+          
+        </description>
         <pubDate>Mon, 04 May 2015 20:00:00 +0430</pubDate>
         <link>http://mamins1376.github.io//weblog/2015/05/rtcwake-cron</link>
         <guid isPermaLink="true">http://mamins1376.github.io//weblog/2015/05/rtcwake-cron</guid>
@@ -179,107 +58,12 @@ Setting up guake &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;0.4.4-1ubuntu1&lt
     
       <item>
         <title>دبیان بر بستر اندروید: پیش به سوی جسی!(قسمت دوم)</title>
-        <description>&lt;p&gt;در &lt;a href=&quot;http://mamins1376.github.io//weblog/2015/05/debootstrap-android-part1&quot;&gt;قسمت قبل&lt;/a&gt; بسته‌ها بارگیری و به پوشه‌ی &lt;code&gt;debroot&lt;/code&gt; منتقل شدند. حالا ادامه‌ی مراحل را انجام می‌دهیم.
-&lt;!-- ادامه --&gt;&lt;/p&gt;
+        <description>
+          
+            &lt;p&gt;در &lt;a href=&quot;http://mamins1376.github.io//weblog/2015/05/debootstrap-android-part1&quot;&gt;قسمت قبل&lt;/a&gt; بسته‌ها بارگیری و به پوشه‌ی &lt;code&gt;debroot&lt;/code&gt; منتقل شدند. حالا ادامه‌ی مراحل را انجام می‌دهیم.
 
-&lt;h4 id=&quot;section&quot;&gt;۳. ساخت تصویر توزیع&lt;/h4&gt;
-&lt;p&gt;یک ایمیج خالی با استفاده از &lt;code&gt;dd&lt;/code&gt; درست می‌کنیم:&lt;/p&gt;
-
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;root@host:~# dd &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;/dev/zero &lt;span class=&quot;nv&quot;&gt;of&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;Debian.img &lt;span class=&quot;nv&quot;&gt;count&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;bs&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;1M &lt;span class=&quot;nv&quot;&gt;seek&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;1K&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;حجم ایمیج ساخته‌شده ۱گیگابایت خواهد بود. برای داشتن اندازه‌ی دلخواهتان مقدار &lt;code&gt;seek&lt;/code&gt; را بر حسب مگابایت تغییر دهید.&lt;br /&gt;
-آن را فرمت می‌کنیم:&lt;/p&gt;
-
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;root@host:~# mkfs.ext4 -F -L Debian Debian.img&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;و سپس سوار می‌کنیم:&lt;/p&gt;
-
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;root@host:~# mount -t ext4 -o loop,rw Debian.img /mnt&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;حالا همه‌ی بسته‌های بارگیری شده را به ایمیج کپی می‌کنیم:&lt;/p&gt;
-
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;root@host:~# cp -r debroot/* /mnt/&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; sync&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;و ایمیج را جدا:&lt;/p&gt;
-
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;root@host:~# umount /mnt&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;حالا ما یک ایمیج از توزیع‌مان داریم ولی هنوز آماده نیست. از این‌جا دیگر به پوشه‌ی &lt;code&gt;debroot&lt;/code&gt; نیاز نداریم.&lt;/p&gt;
-
-&lt;h4 id=&quot;section-1&quot;&gt;۴. انتقال توزیع به اندروید&lt;/h4&gt;
-&lt;p&gt;مهم نیست که ایمیج کجا کپی می‌شود، ولی باید قابل دسترس باشد و فضای کافی داشته باشد. مثلا ایمیج من در &lt;code&gt;/storage/sdcard1/Disks/&lt;/code&gt; قرار دارد. پس از انتقال ایمیج، دیگر کاری با ماشین گنو/لینوکسی نداریم.&lt;br /&gt;
-&lt;strong&gt;توجه!&lt;/strong&gt; در مرحله‌ی بعد به &lt;a href=&quot;http://busybox.net/&quot;&gt;BusyBox&lt;/a&gt; نیاز خواهیم داشت. اگر هنوز آن را روی اندروید نصب نکرده‌اید، همین حالا &lt;a href=&quot;https://play.google.com/store/apps/details?id=com.jrummy.busybox.installer&quot;&gt;نصب کنید&lt;/a&gt;.&lt;/p&gt;
-
-&lt;h4 id=&quot;section-2&quot;&gt;۵. نصب توزیع&lt;/h4&gt;
-&lt;p&gt;یک پوشه می‌سازیم. این پوشه محل سوارشدن ایمیج خواهد بود:&lt;/p&gt;
-
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;root@android:~# mkdir /data/debian
-root@android:~# busybox mount -o loop,rw -t ext4 &amp;lt;IMAGE&amp;gt; /data/debian&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;یادتان نرود که در کدهای گفته شده، &lt;code&gt;&amp;lt;IMAGE&amp;gt;&lt;/code&gt; را با مسیر ایمیجی که کپی کردیم عوض کنید. وارد توزیع می‌شویم:&lt;/p&gt;
-
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;root@android:~# &lt;span class=&quot;nb&quot;&gt;export &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;PATH&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
-root@android:~# &lt;span class=&quot;nb&quot;&gt;export &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;USER&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;root
-root@android:~# &lt;span class=&quot;nb&quot;&gt;export &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;HOME&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;/root
-root@android:~# busybox chroot /data/debian /bin/bash
-root@localhost:/#&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;اکنون شما وارد توزیع شدید. اما هنوز بسته‌ها را استخراج نکردیم!&lt;/p&gt;
-
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;root@localhost:/# /debootstrap/debootstrap --second-stage&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;code&gt;debootstrap&lt;/code&gt; شروع به نصب سیستم می‌کند.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;تبریک!&lt;/strong&gt; توزیع ما آماده است؛ ولی هنوز کارهای کوچکی باقی‌مانده که می‌تواند کار ما را راحت‌تر کند. مثلا با اسکریپت زیر، هربار توزیع آماده و اجرا می‌شود و پس از اتمام کار خودبه‌خود جدا می‌شود. من &lt;a href=&quot;/weblog/downloads/2015/05/debian&quot;&gt;این اسکریپت&lt;/a&gt; را در مسیر &lt;code&gt;system/bin/debian/&lt;/code&gt; قرار دادم.&lt;/p&gt;
-
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;lineno&quot;&gt; 1&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;export &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;DEBMNT&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;/data/debian
-&lt;span class=&quot;lineno&quot;&gt; 2&lt;/span&gt; busybox mount -t ext2 &amp;lt;IMAGE&amp;gt; &lt;span class=&quot;nv&quot;&gt;$DEBMNT&lt;/span&gt;
-&lt;span class=&quot;lineno&quot;&gt; 3&lt;/span&gt; busybox mount -t proc none &lt;span class=&quot;nv&quot;&gt;$DEBMNT&lt;/span&gt;/proc
-&lt;span class=&quot;lineno&quot;&gt; 4&lt;/span&gt; busybox mount -t sysfs none &lt;span class=&quot;nv&quot;&gt;$DEBMNT&lt;/span&gt;/sys
-&lt;span class=&quot;lineno&quot;&gt; 5&lt;/span&gt; busybox mount -o &lt;span class=&quot;nb&quot;&gt;bind&lt;/span&gt; /dev &lt;span class=&quot;nv&quot;&gt;$DEBMNT&lt;/span&gt;/dev
-&lt;span class=&quot;lineno&quot;&gt; 6&lt;/span&gt; busybox mount -t devpts none &lt;span class=&quot;nv&quot;&gt;$DEBMNT&lt;/span&gt;/dev/pts
-&lt;span class=&quot;lineno&quot;&gt; 7&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;unset &lt;/span&gt;LD_PRELOAD
-&lt;span class=&quot;lineno&quot;&gt; 8&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;LAST_PATH&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$PATH&lt;/span&gt;
-&lt;span class=&quot;lineno&quot;&gt; 9&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;export &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;PATH&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
-&lt;span class=&quot;lineno&quot;&gt;10&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;export &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;USER&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;root
-&lt;span class=&quot;lineno&quot;&gt;11&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;export &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;HOME&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;/root
-&lt;span class=&quot;lineno&quot;&gt;12&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;export &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;TERM&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;linux
-&lt;span class=&quot;lineno&quot;&gt;13&lt;/span&gt; busybox chroot &lt;span class=&quot;nv&quot;&gt;$DEBMNT&lt;/span&gt; /bin/bash
-&lt;span class=&quot;lineno&quot;&gt;14&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;export &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;PATH&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$LAST_PATH&lt;/span&gt;
-&lt;span class=&quot;lineno&quot;&gt;15&lt;/span&gt; sync
-&lt;span class=&quot;lineno&quot;&gt;16&lt;/span&gt; busybox umount &lt;span class=&quot;nv&quot;&gt;$DEBMNT&lt;/span&gt;/dev/pts
-&lt;span class=&quot;lineno&quot;&gt;17&lt;/span&gt; busybox umount &lt;span class=&quot;nv&quot;&gt;$DEBMNT&lt;/span&gt;/dev
-&lt;span class=&quot;lineno&quot;&gt;18&lt;/span&gt; busybox umount &lt;span class=&quot;nv&quot;&gt;$DEBMNT&lt;/span&gt;/proc
-&lt;span class=&quot;lineno&quot;&gt;19&lt;/span&gt; busybox umount &lt;span class=&quot;nv&quot;&gt;$DEBMNT&lt;/span&gt;/sys
-&lt;span class=&quot;lineno&quot;&gt;20&lt;/span&gt; busybox umount &lt;span class=&quot;nv&quot;&gt;$DEBMNT&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;||&lt;/span&gt; sh -c &lt;span class=&quot;s2&quot;&gt;&amp;quot;busybox umount -l $DEBMNT &amp;amp;&amp;amp; echo &amp;#39;Force unmounted!&amp;#39;&amp;quot;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;h4 id=&quot;apt&quot;&gt;۶. تنظیم apt&lt;/h4&gt;
-&lt;p&gt;لازم است که تغییراتی در &lt;code&gt;sources.list&lt;/code&gt; مربوط به مدیر بسته‌ی &lt;code&gt;apt&lt;/code&gt; به‌وجود آوریم تا بتوانیم بسته‌های مورد نیازمان را نصب کنیم.&lt;/p&gt;
-
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;root@localhost:/# vi /etc/apt/sources.list&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;strong&gt;توجه!&lt;/strong&gt; به جای ویرایش‌گر &lt;code&gt;vi&lt;/code&gt;، هر ویرایشی که با آن راحت‌تر هستید استفاده کنید. &lt;code&gt;nano&lt;/code&gt; به‌طور پیش‌فرض نصب است.&lt;br /&gt;
-خطوط زیر را به آن اضافه کنید یا فایل آماده را &lt;a href=&quot;/weblog/downloads/2015/05/sources.list&quot;&gt;دریافت کنید&lt;/a&gt;.&lt;/p&gt;
-
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-debsources&quot; data-lang=&quot;debsources&quot;&gt;&lt;span class=&quot;lineno&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;deb&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;http://ftp.ir.debian.org/debian/&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;jessie&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;contrib&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;main&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;non-free&lt;/span&gt;
-&lt;span class=&quot;lineno&quot;&gt;2&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;deb-src&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;http://ftp.ir.debian.org/debian/&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;jessie&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;contrib&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;main&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;non-free&lt;/span&gt;
-&lt;span class=&quot;lineno&quot;&gt;3&lt;/span&gt; 
-&lt;span class=&quot;lineno&quot;&gt;4&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;deb&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;http://ftp.ir.debian.org/debian/&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;jessie-backports&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;contrib&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;main&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;non-free&lt;/span&gt;
-&lt;span class=&quot;lineno&quot;&gt;5&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;deb-src&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;http://ftp.ir.debian.org/debian/&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;jessie-backports&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;contrib&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;main&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;non-free&lt;/span&gt;
-&lt;span class=&quot;lineno&quot;&gt;6&lt;/span&gt; 
-&lt;span class=&quot;lineno&quot;&gt;7&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;deb&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;http://ftp.ir.debian.org/debian/&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;jessie-updates&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;contrib&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;main&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;non-free&lt;/span&gt;
-&lt;span class=&quot;lineno&quot;&gt;8&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;deb-src&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;http://ftp.ir.debian.org/debian/&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;jessie-updates&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;contrib&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;main&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;non-free&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;و در آخر،‌ برای به‌روزرسانی کَش &lt;code&gt;apt&lt;/code&gt;:&lt;/p&gt;
-
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;root@localhost:/# apt-get update&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;strong&gt;توجه!&lt;/strong&gt; فرمان بالا نیاز به اتصال اینترنت دارد.&lt;br /&gt;
-اکنون توزیع شما دقیقا مانند یک توزیع گنو/لینوکس عادی رفتار می‌کند.&lt;/p&gt;
-
-&lt;p&gt;در قسمت بعد به نصب محیط گرافیکی(به هر دو روش &lt;code&gt;framebuffer&lt;/code&gt; و &lt;code&gt;VNC&lt;/code&gt;) خواهیم پرداخت.&lt;/p&gt;
-
-</description>
+          
+        </description>
         <pubDate>Sun, 03 May 2015 16:00:00 +0430</pubDate>
         <link>http://mamins1376.github.io//weblog/2015/05/debootstrap-android-part2</link>
         <guid isPermaLink="true">http://mamins1376.github.io//weblog/2015/05/debootstrap-android-part2</guid>
@@ -295,84 +79,13 @@ root@localhost:/#&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
     
       <item>
         <title>دبیان بر بستر اندروید: پیش به سوی جسی!(قسمت اول)</title>
-        <description>&lt;p&gt;بسیاری از افراد پس از خرید یک تلفن هوشمند یا تبلت، اقدام به روت کردن آن می‌کنند. مفهوم «روت» در اندروید همانند مفهوم روت در دیگر سیستم‌های گنو/لینوکسی‌ست. دلایل زیادی برای روت‌کردن وجود دارد: شخصی‌سازی بیش‌تر، حذف برنامه‌های سیستمی، اصلاح سیستم و البته نصب یک توزیع گنو/لینوکسی.&lt;br /&gt;
+        <description>
+          
+            &lt;p&gt;بسیاری از افراد پس از خرید یک تلفن هوشمند یا تبلت، اقدام به روت کردن آن می‌کنند. مفهوم «روت» در اندروید همانند مفهوم روت در دیگر سیستم‌های گنو/لینوکسی‌ست. دلایل زیادی برای روت‌کردن وجود دارد: شخصی‌سازی بیش‌تر، حذف برنامه‌های سیستمی، اصلاح سیستم و البته نصب یک توزیع گنو/لینوکسی.&lt;br /&gt;
 در این‌جا، به نصب دبیان ۸ (جسی) بر روی یک وسیله‌ی مبتنی بر اندروید می‌پردازیم.
-&lt;!-- ادامه --&gt;&lt;/p&gt;
 
-&lt;h3 id=&quot;section&quot;&gt;چه‌چیزی لازم داریم؟&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;یک ماشین گنو/لینوکسی: ترجیحاً از خانواده‌ی دبیان&lt;/li&gt;
-  &lt;li&gt;دسترسی به اینترنت یا مخزن محلی: حدود ۶۰-۷۰ مگابایت در این روش بارگیری خواهد شد.&lt;/li&gt;
-  &lt;li&gt;تلفن هوشمند یا تبلت روت شده&lt;/li&gt;
-  &lt;li&gt;کابل اتصال به رایانه: برای انتقال داده از ماشین گنو/لینوکسی به دستگاه&lt;/li&gt;
-  &lt;li&gt;حداقل ۱ گیگابایت فضای خالی روی دستگاه: مهم نیست که روی حافظه‌ی داخلی باشد یا کارت SD خارجی&lt;/li&gt;
-  &lt;li&gt;وقت و حوصله‌ی فراوان&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;section-1&quot;&gt;چه قابلیت‌هایی دارد؟&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;اجرا به موازات اندروید بدون دستکاری سیستم&lt;/li&gt;
-  &lt;li&gt;روان، سریع و بدون نصب هرگونه برنامه‌ی شخص سوم&lt;/li&gt;
-  &lt;li&gt;حذف آسان&lt;/li&gt;
-  &lt;li&gt;محیط گرافیکی(اختیاری)&lt;/li&gt;
-  &lt;li&gt;اجرای اکثر برنامه‌های گنو/لینوکس(&lt;a href=&quot;https://www.winehq.org/about/&quot;&gt;WINE&lt;/a&gt; هم شامل می‌شود!)&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h4 id=&quot;debootstrap&quot;&gt;۱. نصب debootstrap&lt;/h4&gt;
-&lt;p&gt;برای نصب گنو/لینوکس از گنو/لینوکس، &lt;code&gt;debootstrap&lt;/code&gt; گزینه‌ی خوبی‌ست، ایجاد یکی دیگر از صفر مطلق؛ بدون کرنل، بوت‌لودر و هرگونه بسته‌ی اختیاری.&lt;br /&gt;
-فایل‌های تولیدشده &lt;strong&gt;فقط&lt;/strong&gt; شامل بسته‌های پایه‌ی سیستم می‌شود.&lt;br /&gt;
-ابتدا آن را نصب می‌کنیم:&lt;/p&gt;
-
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;root@host:~# apt-get install debootstrap&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;برای شروع کار با debootstrap به این اطلاعات نیازمندیم:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;نوع پردازنده&lt;/strong&gt;: در حال حاضر دو نوع پردازنده، غالب دستگاه‌های بازار را پوشش می‌دهند:
-    &lt;ul&gt;
-      &lt;li&gt;&lt;code&gt;x86&lt;/code&gt;: معماری کامپیوترهای ۳۲بیتی رایج&lt;/li&gt;
-      &lt;li&gt;&lt;code&gt;arm&lt;/code&gt;: معماری میکروکنترلرهای پیش‌رفته و نسل جدید که خود سه نوع دارد:
-        &lt;ul&gt;
-          &lt;li&gt;&lt;code&gt;armel&lt;/code&gt;: نسل قدیمی &lt;code&gt;arm&lt;/code&gt;&lt;/li&gt;
-          &lt;li&gt;&lt;code&gt;armhf&lt;/code&gt;: نسل جدید &lt;code&gt;arm&lt;/code&gt; که &lt;code&gt;armv7&lt;/code&gt; معادل این نسل است&lt;/li&gt;
-          &lt;li&gt;&lt;code&gt;arm64&lt;/code&gt;: چیپ‌های &lt;code&gt;arm&lt;/code&gt; نسخه‌ی ۶۴بیتی&lt;br /&gt;
-بسته به نوع دستگاه باید یکی از ۴ مورد بالا را انتخاب کرد.&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;نسخه‌ی توزیع&lt;/strong&gt;: ما از توزیع &lt;a href=&quot;https://www.debian.org/&quot;&gt;دبیان&lt;/a&gt; نسخه‌ی &lt;a href=&quot;https://www.debian.org/News/2015/20150426&quot;&gt;۸(جسی)&lt;/a&gt; استفاده می‌کنیم. شما می‌توانید از هرنسخه‌ی دیگری(&lt;code&gt;stable&lt;/code&gt;، &lt;code&gt;testing&lt;/code&gt;، &lt;code&gt;wheezy&lt;/code&gt;، …) استفاده کرده یا حتی به جای دبیان، &lt;a href=&quot;http://www.ubuntu.com/&quot;&gt;اوبونتو&lt;/a&gt; را امتحان کنید.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;آینه‌ی بسته‌ها&lt;/strong&gt;: برای بارگیری بسته‌های اصلی سیستم از یک آینه استفاده می‌شود؛ این آینه می‌تواند محلی بوده یا روی ماشین دیگری باشد. فاصله‌ی جغرافیایی کمتر بین شما و آینه‌ی منتخبتان معمولاً سرعت بیش‌تری را به همراه دارد. نوع محلی از تصویر توزیع بهره می‌برد که توضیح نحوه‌ی استفاده از آن خارج از حوصله‌ی این مطلب است. ما از مخزن ایران استفاده خواهیم کرد.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h4 id=&quot;section-2&quot;&gt;۲. بارگیری پایه‌ی سیستم&lt;/h4&gt;
-&lt;p&gt;پوشه‌ای ایجاد می‌کنیم. این پوشه حاوی فایل‌های اصلی توزیع ما خواهد بود:&lt;/p&gt;
-
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;root@host:~# mkdir debroot&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;سینتکس کلی برنامه‌ی &lt;code&gt;debootstrap&lt;/code&gt; این است:&lt;/p&gt;
-
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;root@host:~# debootstrap &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;OPTIONS&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt; &amp;lt;DIST&amp;gt; &amp;lt;DIR&amp;gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&amp;lt;MIRROR&amp;gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;برای ما:&lt;/p&gt;
-
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;root@host:~# debootstrap --foreign --arch&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;armhf jessie ./debroot http://ftp.ir.debian.org/debian/&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;در این‌جا:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;code&gt;foreign&lt;/code&gt;: به برنامه می‌گوید که بسته‌ها را استخراج نکند، زیرا معماری ماشین هدف با معماری این ماشین متفاوت است.&lt;/li&gt;
-  &lt;li&gt;&lt;code&gt;arch&lt;/code&gt;: معماری ماشین هدف(اندروید) را مشخص می‌کند که در بالا توضیح داده شد.&lt;/li&gt;
-  &lt;li&gt;&lt;code&gt;jessie&lt;/code&gt;: نسخه‌ی توزیع&lt;/li&gt;
-  &lt;li&gt;&lt;code&gt;debroot/.&lt;/code&gt;: نشانی پوشه‌ای که بالاتر ساختیم.&lt;/li&gt;
-  &lt;li&gt;&lt;code&gt;...http://ftp&lt;/code&gt;: نشانی آینه.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;پس از بارگیری بسته‌ها، توزیع دریافت شده و &lt;code&gt;debootstrap&lt;/code&gt; بسته‌ها را درون پوشه‌ی &lt;code&gt;debroot&lt;/code&gt; خواهد ریخت.&lt;/p&gt;
-
-&lt;p&gt;در &lt;a href=&quot;http://mamins1376.github.io//weblog/2015/05/debootstrap-android-part2&quot;&gt;قسمت بعد&lt;/a&gt;، بسته‌های دریافت شده را به اندروید منتقل کرده و مراحل راه‌اندازی را انجام خواهیم داد.&lt;/p&gt;
-
-</description>
+          
+        </description>
         <pubDate>Sat, 02 May 2015 23:00:46 +0430</pubDate>
         <link>http://mamins1376.github.io//weblog/2015/05/debootstrap-android-part1</link>
         <guid isPermaLink="true">http://mamins1376.github.io//weblog/2015/05/debootstrap-android-part1</guid>
