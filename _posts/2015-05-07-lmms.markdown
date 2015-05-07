@@ -1,0 +1,56 @@
+---
+layout: post
+title:  "LMMS: خلاقیت به خرج دهید!"
+date:   2015-05-07 11:07:45
+categories: lmms music
+---
+معمولا وقتی کسی از [جاهای ناجور][windows] به جمع آزادکارها می‌پیونده دنبال یک‌سری معادل برای برنامه‌هایی که فبلا با اون‌ها دمخور بوده می‌گرده؛ خب خیلی از آهنگ‌سازان امروزی از برنامه‌های آهنگ‌سازی با کامپیوتر مثل [FL Studio®][fl-studio] برای ساخت ملودی‌هاشون استفاده می‌کنن. ممکنه استفاده از معادل یک برنامه در ابتدا سخت به نظر بیاد، اما استثناهایی هم وجود دارن که از بقیه بهتر کار می‌کنن!
+[Linux Multimedia Studio][lmms] یکی از باحال‌ترین DAWها برای ساخت آهنگ‌های سبک الکترونیکه که از VST، MIDI، Soundfont و خیلی چیزهای دیگه پشتیبانی می‌کنه و [پلتفرمی][lmms-sharing] هم برای به اشتراک‌گذاری محتواش داره.
+<!-- ادامه -->
+
+چند روش برای نصب این برنامه وجود داره:
+
+- نصب از مخزن رسمی
+- نصب از مخزن غیر رسمی
+- دانلود از سایت خود برنامه
+- کامپایل و ازین حرفا
+
+دوتای اول راحت‌تر از بقیه هستن.
+
+#### ۱. نصب LMMS ####
+
+##### از مخزن رسمی #####
+فعلاً نسخه‌ی ۱.۰.۰ بدون پشتیبانی از VST توی [مخزن رسمی][apt-link]‍ه:
+{% highlight bash %}
+user@ubuntu:~$ sudo apt-get install lmms
+{% endhighlight %}
+
+##### از مخزن غیر رسمی #####
+نسخه‌ی ۱.۱.۰ هم با پشتیبانی از VST به همراه WINE توی مخزن [irie][irie-ppa] هست:
+{% highlight bash %}
+user@ubuntu:~$ sudo add-apt-repository ppa:irie/lmms
+user@ubuntu:~$ sudo apt-get update
+user@ubuntu:~$ sudo apt-get install lmms
+{% endhighlight %}
+
+#### ۲. افزودن بانک صدا ####
+خود برنامه سمپل‌های خوبی داره ولی برای من کافی نبود. با توجه به این‌که fluidsynth یکی از بهترین سینثی‌سایزرهای متن‌بازه، ما از sf2ی اون استفاده می‌کنیم. حجم زیادی داره ولی صدای پیانو، گیتار(الکتریک، پلاستیک، بیس و ...)، ویولن، درام‌ست و ... رو به‌خوبی تولید می‌کنه.
+{% highlight bash %}
+user@ubuntu:~$ sudo apt-get install fluid-soundfont-gm
+user@ubuntu:~$ cp /usr/share/sounds/sf2/FluidR3_GM.sf2 ~/Soundbank.sf2
+{% endhighlight %}
+حالا یک فایل به اسم `Soundbank.sf2` توی پوشه‌ی خانگی شما هست.
+
+#### ۳. نمونه ####
+چون پلتفرم برنامه فقط اجازه‌ی اشتراک‌گذاری فایل پروژه‌ی برنامه رو می‌ده، همه‌ی فایل‌های موجود بدون هرگونه بانک صدا یا پلاگین خارجی آپلود می‌شن.
+سری به [نمونه‌ی کارهای من][my-projects] هم بزنین.
+
+شما هم کارهای خودتون رو برای بقیه بذارین!
+
+[windows]: http://windows.microsoft.com/en-us/windows/home
+[fl-studio]: http://www.image-line.com/flstudio/
+[lmms]: https://lmms.io/
+[lmms-sharing]: https://lmms.io/lsp/
+[apt-link]: apt://lmms
+[irie-ppa]: https://launchpad.net/~irie
+[my-projects]: https://lmms.io/lsp/?action=browse&user=mamins1376
