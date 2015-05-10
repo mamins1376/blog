@@ -6,22 +6,87 @@
 </description>
     <link>http://mamins1376.github.io//weblog/</link>
     <atom:link href="http://mamins1376.github.io//weblog/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 10 May 2015 15:53:59 +0430</pubDate>
-    <lastBuildDate>Sun, 10 May 2015 15:53:59 +0430</lastBuildDate>
+    <pubDate>Sun, 10 May 2015 16:38:48 +0430</pubDate>
+    <lastBuildDate>Sun, 10 May 2015 16:38:48 +0430</lastBuildDate>
     <generator>Jekyll v2.5.3</generator>
     <language>fa-IR</language>
+    
+      <item>
+        <title>تبدیل ایمیج به مخزن محلی</title>
+        <description>
+          
+            &lt;p&gt;ایمیج‌های دبیان(و طبیعتاً نوادگانش مثل اوبونتو) خیلی از بسته‌های پایه رو توی خودشون دارن که ساختاری دقیقا شبیه به مخزن‌های apt داره. DVDهای دبیان هم رایج‌ترین بسته‌ها(مثل میزکارها و …) رو به همراه دارن. برای کسی که دانلود شبانه داره یکی از راه‌ها دانلود کردن بسته‌ها از قبل برای نصب در آینده‌ست. مسلما خیلی‌ها بعد از نصب کردن برنامه‌ی مورد نیازشون بسته‌های دانلود شده رو حذف می‌کنن و بدی این روش اینه‌که هر برنامه‌ای که لازم دارین باید تا دانلودش توی ساعت رایگان صبر کنین. خب چرا اغلب بسته‌ها رو دانلود نکنیم تا لازم نباشه هر دفعه صبر کنیم؟
+
+          ...
+        </description>
+        <pubDate>Thu, 07 May 2015 15:37:45 +0430</pubDate>
+        <link>http://mamins1376.github.io//weblog/2015/05/local-repo</link>
+        <guid isPermaLink="true">http://mamins1376.github.io//weblog/2015/05/local-repo</guid>
+        
+        
+        <category>lmms</category>
+        
+        <category>music</category>
+        
+        <content>
+        <p>ایمیج‌های دبیان(و طبیعتاً نوادگانش مثل اوبونتو) خیلی از بسته‌های پایه رو توی خودشون دارن که ساختاری دقیقا شبیه به مخزن‌های apt داره. DVDهای دبیان هم رایج‌ترین بسته‌ها(مثل میزکارها و …) رو به همراه دارن. برای کسی که دانلود شبانه داره یکی از راه‌ها دانلود کردن بسته‌ها از قبل برای نصب در آینده‌ست. مسلما خیلی‌ها بعد از نصب کردن برنامه‌ی مورد نیازشون بسته‌های دانلود شده رو حذف می‌کنن و بدی این روش اینه‌که هر برنامه‌ای که لازم دارین باید تا دانلودش توی ساعت رایگان صبر کنین. خب چرا اغلب بسته‌ها رو دانلود نکنیم تا لازم نباشه هر دفعه صبر کنیم؟
+<!-- ادامه --></p>
+
+<p><strong>توجه!</strong> همه‌ی فرمان‌های زیر به دسترسی روت نیاز دارن. این ایمیج‌ها شامل بسته‌های <code>non-free</code> نمی‌شن.</p>
+
+<h4 id="section">۱. دانلود ایمیج‌ها</h4>
+<p>من ۳ تا از DVDهای دبیان ۶۴بیتی رو دانلود کردم و توی پوشه‌ی خونگیم(یعنی <code>/root/</code>) ریختم:</p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">root@debian:~# ls -sh1 /root/*.iso
+3.8G debian-8.0.0-amd64-DVD-1.iso
+4.4G debian-8.0.0-amd64-DVD-2.iso
+4.4G debian-8.0.0-amd64-DVD-3.iso</code></pre></div>
+
+<h4 id="section-1">۲. سوارکردن ایمیج‌ها</h4>
+<p>من ۳ تا ایمیج دارم، پس ۳ تا پوشه برای هرکدوم توی مسیر <code>/mnt/</code> درست می‌کنم:</p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">root@debian:~# mkdir -p /mnt/debian/dvd<span class="o">{</span>1,2,3<span class="o">}</span></code></pre></div>
+
+<p>برای این که کار راحت‌تر بشه و نیازی به تایپ دستورهای طولانی نداشته باشیم، یه اسکریپت می‌سازیم که خودش برامون ایمیج‌ها رو سوار کنه. ایمیج‌های من توی <code>/root/</code> هستن. شما باید با توجه به مسیری که ایمیج‌هاتون اونجا هستن خط <code>ISO_DIR=/root</code> رو تغییر بدین:</p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">root@debian:~# cat &gt; /usr/local/sbin/mount-repo
+<span class="c">#!/bin/sh</span>
+<span class="nv">ISO_DIR</span><span class="o">=</span>/root
+mount -o loop,ro -t iso9660 <span class="nv">$ISO_DIR</span>/debian-8.0.0-amd64-DVD-1.iso /mnt/debian/dvd1/
+mount -o loop,ro -t iso9660 <span class="nv">$ISO_DIR</span>/debian-8.0.0-amd64-DVD-2.iso /mnt/debian/dvd2/
+mount -o loop,ro -t iso9660 <span class="nv">$ISO_DIR</span>/debian-8.0.0-amd64-DVD-3.iso /mnt/debian/dvd3/
+^D
+root@debian:~# chmod <span class="m">744</span> /usr/local/sbin/mount-repo
+root@debian:~# /usr/local/sbin/mount-repo</code></pre></div>
+
+<p>اگر اسکریپت <code>mount-repo</code> رو داخل <code>cron</code> قرار بدین دیگه نیازی نیست که هر دفعه خودتون اون رو فراخوانی کنین.</p>
+
+<h4 id="apt">۳. تنظیم apt</h4>
+<p>چون بسته‌هایی که داخل ایمیج‌ها هستن نیاز من رو برطرف می‌کردن، مخزن‌های راه دور رو کلا حذف کردم؛ اگر شما به مخازن فعلی‌تون نیاز دارین خطوط زیر رو به فایل مخازن apt فقط اضافه کنین. این فایل <code>etc/apt/sources.list/</code> منه:</p>
+
+<div class="highlight"><pre><code class="language-debsources" data-lang="debsources"><span class="k">deb</span> <span class="s">file:///mnt/debian/dvd1/</span> <span class="kp">jessie</span> <span class="kp">contrib</span> <span class="kp">main</span>
+<span class="k">deb</span> <span class="s">file:///mnt/debian/dvd2/</span> <span class="kp">jessie</span> <span class="kp">contrib</span> <span class="kp">main</span>
+<span class="k">deb</span> <span class="s">file:///mnt/debian/dvd3/</span> <span class="kp">jessie</span> <span class="kp">contrib</span> <span class="kp">main</span></code></pre></div>
+
+<p>و در آخر:</p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">root@debian:~# apt-get update</code></pre></div>
+
+
+        </content>
+      </item>
     
       <item>
         <title>LMMS: خلاقیت به خرج دهید!</title>
         <description>
           
-            &lt;p&gt;معمولا وقتی کسی از &lt;a href=&quot;http://windows.microsoft.com/en-us/windows/home&quot;&gt;جاهای ناجور&lt;/a&gt; به جمع آزادکارها می‌پیونده دنبال یک‌سری معادل برای برنامه‌هایی که فبلا با اون‌ها دمخور بوده می‌گرده؛ خب خیلی از آهنگ‌سازان امروزی از برنامه‌های آهنگ‌سازی با کامپیوتر مثل &lt;a href=&quot;http://www.image-line.com/flstudio/&quot;&gt;®FL Studio&lt;/a&gt; برای ساخت ملودی‌هاشون استفاده می‌کنن. ممکنه استفاده از معادل یک برنامه در ابتدا سخت به نظر بیاد، اما استثناهایی هم وجود دارن که از بقیه بهتر کار می‌کنن!&lt;/p&gt;
+            &lt;p&gt;معمولا وقتی کسی از &lt;a href=&quot;http://windows.microsoft.com/en-us/windows/home&quot;&gt;جاهای ناجور&lt;/a&gt; به جمع آزادکارها می‌پیونده دنبال یک‌سری معادل برای برنامه‌هایی که قبلا با اون‌ها دمخور بوده می‌گرده؛ خب خیلی از آهنگ‌سازان امروزی از برنامه‌های آهنگ‌سازی با کامپیوتر مثل &lt;a href=&quot;http://www.image-line.com/flstudio/&quot;&gt;®FL Studio&lt;/a&gt; برای ساخت ملودی‌هاشون استفاده می‌کنن. ممکنه استفاده از معادل یک برنامه در ابتدا سخت به نظر بیاد، اما استثناهایی هم وجود دارن که از بقیه بهتر کار می‌کنن!&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;/weblog/downloads/2015/05/lmms.png&quot; alt=&quot;LMMS Screenshot&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&quot;https://lmms.io/&quot;&gt;Linux Multimedia Studio&lt;/a&gt; یکی از باحال‌ترین DAWها برای ساخت آهنگ‌های سبک الکترونیکه که از VST، MIDI، Soundfont و خیلی چیزهای دیگه پشتیبانی می‌کنه و &lt;a href=&quot;https://lmms.io/lsp/&quot;&gt;پلتفرمی&lt;/a&gt; هم برای به اشتراک‌گذاری محتواش داره.
 
-          
+          ...
         </description>
         <pubDate>Thu, 07 May 2015 15:37:45 +0430</pubDate>
         <link>http://mamins1376.github.io//weblog/2015/05/lmms</link>
@@ -33,7 +98,7 @@
         <category>music</category>
         
         <content>
-        <p>معمولا وقتی کسی از <a href="http://windows.microsoft.com/en-us/windows/home">جاهای ناجور</a> به جمع آزادکارها می‌پیونده دنبال یک‌سری معادل برای برنامه‌هایی که فبلا با اون‌ها دمخور بوده می‌گرده؛ خب خیلی از آهنگ‌سازان امروزی از برنامه‌های آهنگ‌سازی با کامپیوتر مثل <a href="http://www.image-line.com/flstudio/">®FL Studio</a> برای ساخت ملودی‌هاشون استفاده می‌کنن. ممکنه استفاده از معادل یک برنامه در ابتدا سخت به نظر بیاد، اما استثناهایی هم وجود دارن که از بقیه بهتر کار می‌کنن!</p>
+        <p>معمولا وقتی کسی از <a href="http://windows.microsoft.com/en-us/windows/home">جاهای ناجور</a> به جمع آزادکارها می‌پیونده دنبال یک‌سری معادل برای برنامه‌هایی که قبلا با اون‌ها دمخور بوده می‌گرده؛ خب خیلی از آهنگ‌سازان امروزی از برنامه‌های آهنگ‌سازی با کامپیوتر مثل <a href="http://www.image-line.com/flstudio/">®FL Studio</a> برای ساخت ملودی‌هاشون استفاده می‌کنن. ممکنه استفاده از معادل یک برنامه در ابتدا سخت به نظر بیاد، اما استثناهایی هم وجود دارن که از بقیه بهتر کار می‌کنن!</p>
 
 <p><img src="/weblog/downloads/2015/05/lmms.png" alt="LMMS Screenshot" /></p>
 
@@ -89,7 +154,7 @@ user@ubuntu:~<span class="nv">$ </span>cp /usr/share/sounds/sf2/FluidR3_GM.sf2 ~
           
             &lt;p&gt;یکی از مشکلات کاربران دبیان-بیس‌ها، سرعت apt در امر طاقت‌فرسای دانلوده که باعث می‌شه خیلی‌ها سراغ مواردی مثل apt-fast برن. ما با ترکیب آریا۲ و اپت، یه دانلود کننده‌ی توپ می‌سازیم.
 
-          
+          ...
         </description>
         <pubDate>Tue, 05 May 2015 18:34:00 +0430</pubDate>
         <link>http://mamins1376.github.io//weblog/2015/05/apt-get-aria2</link>
@@ -216,7 +281,7 @@ Setting up guake <span class="o">(</span>0.4.4-1ubuntu1<span class="o">)</span> 
           
             &lt;p&gt;دانلود شبانه یکی از باحال‌ترین کارهاست ولی دردسرهایی داره: باید سیستم رو روشن بذارین تا سر ساعت شروع کنه. &lt;a href=&quot;http://forum.ubuntu.ir/index.php?topic=59242.0&quot;&gt;rtcwake&lt;/a&gt; قراره به کمک cron این مشکل رو برای همیشه برامون حل کنه تا به‌خاطر چند گیگ ناقابل از خواب‌مون نزنیم!
 
-          
+          ...
         </description>
         <pubDate>Mon, 04 May 2015 20:00:00 +0430</pubDate>
         <link>http://mamins1376.github.io//weblog/2015/05/rtcwake-cron</link>
@@ -272,7 +337,7 @@ Setting up guake <span class="o">(</span>0.4.4-1ubuntu1<span class="o">)</span> 
           
             &lt;p&gt;در &lt;a href=&quot;http://mamins1376.github.io//weblog/2015/05/debootstrap-android-part1&quot;&gt;قسمت قبل&lt;/a&gt; بسته‌ها بارگیری و به پوشه‌ی &lt;code&gt;debroot&lt;/code&gt; منتقل شدند. حالا ادامه‌ی مراحل را انجام می‌دهیم.
 
-          
+          ...
         </description>
         <pubDate>Sun, 03 May 2015 16:00:00 +0430</pubDate>
         <link>http://mamins1376.github.io//weblog/2015/05/debootstrap-android-part2</link>
@@ -397,7 +462,7 @@ root@localhost:/#</code></pre></div>
             &lt;p&gt;بسیاری از افراد پس از خرید یک تلفن هوشمند یا تبلت، اقدام به روت کردن آن می‌کنند. مفهوم «روت» در اندروید همانند مفهوم روت در دیگر سیستم‌های گنو/لینوکسی‌ست. دلایل زیادی برای روت‌کردن وجود دارد: شخصی‌سازی بیش‌تر، حذف برنامه‌های سیستمی، اصلاح سیستم و البته نصب یک توزیع گنو/لینوکسی.&lt;br /&gt;
 در این‌جا، به نصب دبیان ۸ (جسی) بر روی یک وسیله‌ی مبتنی بر اندروید می‌پردازیم.
 
-          
+          ...
         </description>
         <pubDate>Sat, 02 May 2015 23:00:46 +0430</pubDate>
         <link>http://mamins1376.github.io//weblog/2015/05/debootstrap-android-part1</link>

@@ -20,7 +20,7 @@ layout: null
             {{ post.content | split:'<!-- ادامه -->' | first % | xml_escape }}
           {% else %}
             {{ post.content | truncatewords:75 | xml_escape }}
-          {% endif %}
+          {% endif %}...
         </description>
         <pubDate>{{ post.date | date_to_rfc822 }}</pubDate>
         <link>{{ post.url | prepend: site.baseurl | prepend: site.url }}</link>

@@ -6,11 +6,11 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>LMMS: خلاقیت به خرج دهید!</title>
-  <meta name="description" content="معمولا وقتی کسی از جاهای ناجور به جمع آزادکارها می‌پیونده دنبال یک‌سری معادل برای برنامه‌هایی که قبلا با اون‌ها دمخور بوده می‌گرده؛ خب خیلی از آهنگ‌سازان امر...">
+  <title>تبدیل ایمیج به مخزن محلی</title>
+  <meta name="description" content="ایمیج‌های دبیان(و طبیعتاً نوادگانش مثل اوبونتو) خیلی از بسته‌های پایه رو توی خودشون دارن که ساختاری دقیقا شبیه به مخزن‌های apt داره. DVDهای دبیان هم رایج‌تری...">
 
   <link rel="stylesheet" href="/weblog/css/main.css">
-  <link rel="canonical" href="http://mamins1376.github.io//weblog/2015/05/lmms">
+  <link rel="canonical" href="http://mamins1376.github.io//weblog/2015/05/local-repo">
   <link rel="alternate" type="application/rss+xml" title="زندگی خوره‌ای" href="http://mamins1376.github.io//weblog/feed.xml" />
 </head>
 
@@ -59,56 +59,53 @@
         <div class="post">
 
   <header class="post-header">
-    <h1 class="post-title">LMMS: خلاقیت به خرج دهید!</h1>
+    <h1 class="post-title">تبدیل ایمیج به مخزن محلی</h1>
     <p class="post-meta">May 7, 2015</p>
   </header>
 
   <article class="post-content">
-    <p>معمولا وقتی کسی از <a href="http://windows.microsoft.com/en-us/windows/home">جاهای ناجور</a> به جمع آزادکارها می‌پیونده دنبال یک‌سری معادل برای برنامه‌هایی که قبلا با اون‌ها دمخور بوده می‌گرده؛ خب خیلی از آهنگ‌سازان امروزی از برنامه‌های آهنگ‌سازی با کامپیوتر مثل <a href="http://www.image-line.com/flstudio/">®FL Studio</a> برای ساخت ملودی‌هاشون استفاده می‌کنن. ممکنه استفاده از معادل یک برنامه در ابتدا سخت به نظر بیاد، اما استثناهایی هم وجود دارن که از بقیه بهتر کار می‌کنن!</p>
-
-<p><img src="/weblog/downloads/2015/05/lmms.png" alt="LMMS Screenshot" /></p>
-
-<p><a href="https://lmms.io/">Linux Multimedia Studio</a> یکی از باحال‌ترین DAWها برای ساخت آهنگ‌های سبک الکترونیکه که از VST، MIDI، Soundfont و خیلی چیزهای دیگه پشتیبانی می‌کنه و <a href="https://lmms.io/lsp/">پلتفرمی</a> هم برای به اشتراک‌گذاری محتواش داره.
+    <p>ایمیج‌های دبیان(و طبیعتاً نوادگانش مثل اوبونتو) خیلی از بسته‌های پایه رو توی خودشون دارن که ساختاری دقیقا شبیه به مخزن‌های apt داره. DVDهای دبیان هم رایج‌ترین بسته‌ها(مثل میزکارها و …) رو به همراه دارن. برای کسی که دانلود شبانه داره یکی از راه‌ها دانلود کردن بسته‌ها از قبل برای نصب در آینده‌ست. مسلما خیلی‌ها بعد از نصب کردن برنامه‌ی مورد نیازشون بسته‌های دانلود شده رو حذف می‌کنن و بدی این روش اینه‌که هر برنامه‌ای که لازم دارین باید تا دانلودش توی ساعت رایگان صبر کنین. خب چرا اغلب بسته‌ها رو دانلود نکنیم تا لازم نباشه هر دفعه صبر کنیم؟
 <!-- ادامه --></p>
 
-<p>چند روش برای نصب این برنامه وجود داره:</p>
+<p><strong>توجه!</strong> همه‌ی فرمان‌های زیر به دسترسی روت نیاز دارن. این ایمیج‌ها شامل بسته‌های <code>non-free</code> نمی‌شن.</p>
 
-<ul>
-  <li>نصب از مخزن رسمی</li>
-  <li>نصب از مخزن غیر رسمی</li>
-  <li>دانلود از سایت خود برنامه</li>
-  <li>کامپایل و ازین حرفا</li>
-</ul>
+<h4 id="section">۱. دانلود ایمیج‌ها</h4>
+<p>من ۳ تا از DVDهای دبیان ۶۴بیتی رو دانلود کردم و توی پوشه‌ی خونگیم(یعنی <code>/root/</code>) ریختم:</p>
 
-<p>دوتای اول راحت‌تر از بقیه هستن.</p>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">root@debian:~# ls -sh1 /root/*.iso
+3.8G debian-8.0.0-amd64-DVD-1.iso
+4.4G debian-8.0.0-amd64-DVD-2.iso
+4.4G debian-8.0.0-amd64-DVD-3.iso</code></pre></div>
 
-<h4 id="lmms">۱. نصب LMMS</h4>
+<h4 id="section-1">۲. سوارکردن ایمیج‌ها</h4>
+<p>من ۳ تا ایمیج دارم، پس ۳ تا پوشه برای هرکدوم توی مسیر <code>/mnt/</code> درست می‌کنم:</p>
 
-<h5 id="section">از مخزن رسمی</h5>
-<p>فعلاً نسخه‌ی ۱.۰.۰ بدون پشتیبانی از VST توی <a href="apt://lmms">مخزن رسمی</a>‍ه:</p>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">root@debian:~# mkdir -p /mnt/debian/dvd<span class="o">{</span>1,2,3<span class="o">}</span></code></pre></div>
 
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">user@ubuntu:~<span class="nv">$ </span>sudo apt-get install lmms</code></pre></div>
+<p>برای این که کار راحت‌تر بشه و نیازی به تایپ دستورهای طولانی نداشته باشیم، یه اسکریپت می‌سازیم که خودش برامون ایمیج‌ها رو سوار کنه. ایمیج‌های من توی <code>/root/</code> هستن. شما باید با توجه به مسیری که ایمیج‌هاتون اونجا هستن خط <code>ISO_DIR=/root</code> رو تغییر بدین:</p>
 
-<h5 id="section-1">از مخزن غیر رسمی</h5>
-<p>نسخه‌ی ۱.۱.۰ هم با پشتیبانی از VST به همراه WINE توی مخزن <a href="https://launchpad.net/~irie">irie</a> هست:</p>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">root@debian:~# cat &gt; /usr/local/sbin/mount-repo
+<span class="c">#!/bin/sh</span>
+<span class="nv">ISO_DIR</span><span class="o">=</span>/root
+mount -o loop,ro -t iso9660 <span class="nv">$ISO_DIR</span>/debian-8.0.0-amd64-DVD-1.iso /mnt/debian/dvd1/
+mount -o loop,ro -t iso9660 <span class="nv">$ISO_DIR</span>/debian-8.0.0-amd64-DVD-2.iso /mnt/debian/dvd2/
+mount -o loop,ro -t iso9660 <span class="nv">$ISO_DIR</span>/debian-8.0.0-amd64-DVD-3.iso /mnt/debian/dvd3/
+^D
+root@debian:~# chmod <span class="m">744</span> /usr/local/sbin/mount-repo
+root@debian:~# /usr/local/sbin/mount-repo</code></pre></div>
 
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">user@ubuntu:~<span class="nv">$ </span>sudo add-apt-repository ppa:irie/lmms
-user@ubuntu:~<span class="nv">$ </span>sudo apt-get update
-user@ubuntu:~<span class="nv">$ </span>sudo apt-get install lmms</code></pre></div>
+<p>اگر اسکریپت <code>mount-repo</code> رو داخل <code>cron</code> قرار بدین دیگه نیازی نیست که هر دفعه خودتون اون رو فراخوانی کنین.</p>
 
-<h4 id="section-2">۲. افزودن بانک صدا</h4>
-<p>خود برنامه سمپل‌های خوبی داره ولی برای من کافی نبود. با توجه به این‌که fluidsynth یکی از بهترین سینثی‌سایزرهای متن‌بازه، ما از sf2ی اون استفاده می‌کنیم. حجم زیادی داره ولی صدای پیانو، گیتار(الکتریک، پلاستیک، بیس و …)، ویولن، درام‌ست و … رو به‌خوبی تولید می‌کنه.</p>
+<h4 id="apt">۳. تنظیم apt</h4>
+<p>چون بسته‌هایی که داخل ایمیج‌ها هستن نیاز من رو برطرف می‌کردن، مخزن‌های راه دور رو کلا حذف کردم؛ اگر شما به مخازن فعلی‌تون نیاز دارین خطوط زیر رو به فایل مخازن apt فقط اضافه کنین. این فایل <code>etc/apt/sources.list/</code> منه:</p>
 
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">user@ubuntu:~<span class="nv">$ </span>sudo apt-get install fluid-soundfont-gm
-user@ubuntu:~<span class="nv">$ </span>cp /usr/share/sounds/sf2/FluidR3_GM.sf2 ~/Soundbank.sf2</code></pre></div>
+<div class="highlight"><pre><code class="language-debsources" data-lang="debsources"><span class="k">deb</span> <span class="s">file:///mnt/debian/dvd1/</span> <span class="kp">jessie</span> <span class="kp">contrib</span> <span class="kp">main</span>
+<span class="k">deb</span> <span class="s">file:///mnt/debian/dvd2/</span> <span class="kp">jessie</span> <span class="kp">contrib</span> <span class="kp">main</span>
+<span class="k">deb</span> <span class="s">file:///mnt/debian/dvd3/</span> <span class="kp">jessie</span> <span class="kp">contrib</span> <span class="kp">main</span></code></pre></div>
 
-<p>حالا یک فایل به اسم <code>Soundbank.sf2</code> توی پوشه‌ی خانگی شما هست.</p>
+<p>و در آخر:</p>
 
-<h4 id="section-3">۳. نمونه</h4>
-<p>چون پلتفرم برنامه فقط اجازه‌ی اشتراک‌گذاری فایل پروژه‌ی برنامه رو می‌ده، همه‌ی فایل‌های موجود بدون هرگونه بانک صدا یا پلاگین خارجی آپلود می‌شن.
-سری به <a href="https://lmms.io/lsp/?action=browse&amp;user=mamins1376">نمونه‌ی کارهای من</a> هم بزنین.</p>
-
-<p>شما هم کارهای خودتون رو برای بقیه بذارین!</p>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">root@debian:~# apt-get update</code></pre></div>
 
 
   </article>
@@ -128,12 +125,8 @@ user@ubuntu:~<span class="nv">$ </span>cp /usr/share/sounds/sf2/FluidR3_GM.sf2 ~
     
     <span>
       قبلی: 
-        <a href='/weblog/2015/05/apt-get-aria2'>آریا۲ و اپت: سرعتی دوچندان</a></span><br/>
+        <a href='/weblog/2015/05/lmms'>LMMS: خلاقیت به خرج دهید!</a></span><br/>
     
-    
-      <span>
-      بعدی:
-        <a href='/weblog/2015/05/local-repo'>تبدیل ایمیج به مخزن محلی</a></span>
     
     
   </div>
@@ -143,7 +136,7 @@ user@ubuntu:~<span class="nv">$ </span>cp /usr/share/sounds/sf2/FluidR3_GM.sf2 ~
     /* * * CONFIGURATION VARIABLES * * */
     var disqus_shortname = 'geekylife';
     var disqus_config = function () { this.language = "fa"; };
-    var disqus_title = "LMMS: خلاقیت به خرج دهید!";
+    var disqus_title = "تبدیل ایمیج به مخزن محلی";
     
     /* * * DON'T EDIT BELOW THIS LINE * * */
     (function() {
