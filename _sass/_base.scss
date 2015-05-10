@@ -73,9 +73,18 @@ ul, ol, dl, figure,
  */
 img {
     max-width: 100%;
+    
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
  
-.post-container img {
+.post-container, .post-content {
+
+  img {
     max-width: 80%;
     vertical-align: middle;
     display: block;
@@ -84,13 +93,13 @@ img {
     -moz-box-shadow: 0 0 25px 0 $text-color;
     -webkit-box-shadow: 0 0 25px 0 $text-color;
     box-shadow: 0 0 25px 0 $text-color;
-    filter: contrast(80%);
-    transition: filter 3s;
+    filter: contrast(70%);
+    transition: filter 1s;
     
     &:hover {
-        filter: contrast(140%);
-        transition: filter 1s;
+        filter: contrast(120%);
     }
+  }
 }
 
 
