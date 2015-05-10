@@ -6,8 +6,8 @@
 </description>
     <link>http://mamins1376.github.io//weblog/</link>
     <atom:link href="http://mamins1376.github.io//weblog/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 10 May 2015 17:02:42 +0430</pubDate>
-    <lastBuildDate>Sun, 10 May 2015 17:02:42 +0430</lastBuildDate>
+    <pubDate>Sun, 10 May 2015 22:22:51 +0430</pubDate>
+    <lastBuildDate>Sun, 10 May 2015 22:22:51 +0430</lastBuildDate>
     <generator>Jekyll v2.5.3</generator>
     <language>fa-IR</language>
     
@@ -24,9 +24,15 @@
         <guid isPermaLink="true">http://mamins1376.github.io//weblog/2015/05/local-repo</guid>
         
         
-        <category>lmms</category>
+        <category>local</category>
         
-        <category>music</category>
+        <category>repo</category>
+        
+        <category>apt</category>
+        
+        <category>debian</category>
+        
+        <category>linux</category>
         
         <content>
         <p>ایمیج‌های دبیان(و طبیعتاً نوادگانش مثل اوبونتو) خیلی از بسته‌های پایه رو توی خودشون دارن که ساختاری دقیقا شبیه به مخزن‌های apt داره. DVDهای دبیان هم رایج‌ترین بسته‌ها(مثل میزکارها و …) رو به همراه دارن. برای کسی که دانلود شبانه داره یکی از راه‌ها دانلود کردن بسته‌ها از قبل برای نصب در آینده‌ست. مسلما خیلی‌ها بعد از نصب کردن برنامه‌ی مورد نیازشون بسته‌های دانلود شده رو حذف می‌کنن و بدی این روش اینه‌که هر برنامه‌ای که لازم دارین باید تا دانلودش توی ساعت رایگان صبر کنین. خب چرا اغلب بسته‌ها رو دانلود نکنیم تا لازم نباشه هر دفعه صبر کنیم؟
