@@ -6,10 +6,70 @@
 </description>
     <link>http://mamins1376.github.io//weblog/</link>
     <atom:link href="http://mamins1376.github.io//weblog/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 10 May 2015 22:22:51 +0430</pubDate>
-    <lastBuildDate>Sun, 10 May 2015 22:22:51 +0430</lastBuildDate>
+    <pubDate>Mon, 11 May 2015 20:46:28 +0430</pubDate>
+    <lastBuildDate>Mon, 11 May 2015 20:46:28 +0430</lastBuildDate>
     <generator>Jekyll v2.5.3</generator>
     <language>fa-IR</language>
+    
+      <item>
+        <title>دانلود شبانه برای Steam</title>
+        <description>
+          
+            &lt;p&gt;بزرگ‌ترین مشکل من با استیم، دانلود بازی‌هاش بود چون حجم خیلی خیلی زیادی دارن. ساعت دانلود رایگان داشتم ولی باید دستی دانلود رو شروع می‌کردم. خب شروع کردم به جستجو و تحقیق که به این روش رسیدم؛ این‌طوری میشه هر برنامه‌ای رو با استیم به راحتی دانلود کرد.
+
+          ...
+        </description>
+        <pubDate>Tue, 12 May 2015 01:07:40 +0430</pubDate>
+        <link>http://mamins1376.github.io//weblog/2015/05/steam-download</link>
+        <guid isPermaLink="true">http://mamins1376.github.io//weblog/2015/05/steam-download</guid>
+        
+        
+        <category>steam</category>
+        
+        <category>download</category>
+        
+        <category>linux</category>
+        
+        <content>
+        <p>بزرگ‌ترین مشکل من با استیم، دانلود بازی‌هاش بود چون حجم خیلی خیلی زیادی دارن. ساعت دانلود رایگان داشتم ولی باید دستی دانلود رو شروع می‌کردم. خب شروع کردم به جستجو و تحقیق که به این روش رسیدم؛ این‌طوری میشه هر برنامه‌ای رو با استیم به راحتی دانلود کرد.
+<!-- ادامه --></p>
+
+<p>من برای اجرای فرمان‌ها در ساعات مقرر از <code>cron</code> استفاده می‌کنم. وقتی که cron دستوری رو اجرا می‌کنه، خیلی از متغییرهای رایج از جمله <code>DISPLAY</code> ست نمی‌شن و اگر دستور داده‌شده نیازمند سیستم گرافیکی باشه با خطا روبرو می‌شه و کار نمی‌کنه. این‌جاست که <code>Xvfb</code> به کمکمون میاد: یه مانیتور غیر واقعی و قلابی!</p>
+
+<p>استیم برای اجرا شدن به محیط گرافیکی نیاز داره و اگر ما توی cron فراخوانیش کنیم کار نمی‌کنه. پس یه مانیتور مجازی می‌سازیم که این مشکل رفع بشه.</p>
+
+<h4 id="xvfb">۱. نصب Xvfb</h4>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">root@debian:~# apt-get install xvfb</code></pre></div>
+
+<h4 id="id-----">۲. به دست آوردن ID برنامه یا بازی مورد نظر</h4>
+<p>هر برنامه‌ای توی استیم یک ID داره. مثلا من می‌خوام ID بازی Dota2 رو به دست بیارم. اسمش رو جستجو می‌کنم و به همچین لینکی می‌رسم:</p>
+
+<div class="highlight"><pre><code class="language-text" data-lang="text">http://store.steampowered.com/app/570</code></pre></div>
+
+<p><strong>بینگو!</strong> یقیناً اون <code>570</code> انتهای لینک ID مورد نظر ماست.</p>
+
+<h4 id="section">۳. ساختن اسکریپت دانلود</h4>
+<p>این اسکریپت به ترتیب این کارها رو برامون انجام می‌ده:</p>
+
+<ul>
+  <li>ساختن یک صفحه‌نمایش مجازی</li>
+  <li>تنظیم <code>DISPLAY</code></li>
+  <li>رفتن به پوشه‌ی خانگی(استیم باید توی <code>PWD=$HOME</code> اجرا بشه)</li>
+  <li>اجرای خود استیم و لاگ کردن خروجیش</li>
+</ul>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">Xvfb :5 -screen <span class="m">0</span> 1280x720x24 +extension GLX +render -noreset &gt; /dev/null 2&gt;<span class="p">&amp;</span><span class="m">1</span> <span class="p">&amp;</span>
+<span class="nb">export </span><span class="nv">DISPLAY</span><span class="o">=</span><span class="s2">&quot;:5&quot;</span>
+<span class="nb">cd</span>
+/usr/games/steam -applaunch &lt;APPID&gt; &gt;&gt; steam.log 2&gt;<span class="p">&amp;</span>1</code></pre></div>
+
+<p><strong>نکته:</strong> یادتون نره که <code>&lt;APPID&gt;</code> رو با ID برنامه‌تون عوض کنین. مثلا همون <code>570</code> که مربوط می‌شه به Dota2.</p>
+
+<p>حالا هربار که اسکریپت رو اجرا کنین، دانلود برنامه شروع می‌شه. عملیات ادامه‌ی دانلود و توقفش و غیره به عهده‌ی خود استیمه پس خیالتون از ادامه دادن یا سالم بودن فایل‌های دانلود شده راحت باشه. در نهایت اسکریپت رو به cron عزیز بسپارید تا از بازیتون لذت ببرید.</p>
+
+        </content>
+      </item>
     
       <item>
         <title>تبدیل ایمیج به مخزن محلی</title>

@@ -6,11 +6,11 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>تبدیل ایمیج به مخزن محلی</title>
-  <meta name="description" content="ایمیج‌های دبیان(و طبیعتاً نوادگانش مثل اوبونتو) خیلی از بسته‌های پایه رو توی خودشون دارن که ساختاری دقیقا شبیه به مخزن‌های apt داره. DVDهای دبیان هم رایج‌تری...">
+  <title>دانلود شبانه برای Steam</title>
+  <meta name="description" content="بزرگ‌ترین مشکل من با استیم، دانلود بازی‌هاش بود چون حجم خیلی خیلی زیادی دارن. ساعت دانلود رایگان داشتم ولی باید دستی دانلود رو شروع می‌کردم. خب شروع کردم به ...">
 
   <link rel="stylesheet" href="/weblog/css/main.css">
-  <link rel="canonical" href="http://mamins1376.github.io//weblog/2015/05/local-repo">
+  <link rel="canonical" href="http://mamins1376.github.io//weblog/2015/05/steam-download">
   <link rel="alternate" type="application/rss+xml" title="زندگی خوره‌ای" href="http://mamins1376.github.io//weblog/feed.xml" />
 </head>
 
@@ -59,76 +59,59 @@
         <div class="post">
 
   <header class="post-header">
-    <h1 class="post-title">تبدیل ایمیج به مخزن محلی</h1>
-    <p class="post-meta">May 10, 2015</p>
+    <h1 class="post-title">دانلود شبانه برای Steam</h1>
+    <p class="post-meta">May 12, 2015</p>
   </header>
 
   <article class="post-content">
-    <p>ایمیج‌های دبیان(و طبیعتاً نوادگانش مثل اوبونتو) خیلی از بسته‌های پایه رو توی خودشون دارن که ساختاری دقیقا شبیه به مخزن‌های apt داره. DVDهای دبیان هم رایج‌ترین بسته‌ها(مثل میزکارها و …) رو به همراه دارن. برای کسی که دانلود شبانه داره یکی از راه‌ها دانلود کردن بسته‌ها از قبل برای نصب در آینده‌ست. مسلما خیلی‌ها بعد از نصب کردن برنامه‌ی مورد نیازشون بسته‌های دانلود شده رو حذف می‌کنن و بدی این روش اینه‌که هر برنامه‌ای که لازم دارین باید تا دانلودش توی ساعت رایگان صبر کنین. خب چرا اغلب بسته‌ها رو دانلود نکنیم تا لازم نباشه هر دفعه صبر کنیم؟
+    <p>بزرگ‌ترین مشکل من با استیم، دانلود بازی‌هاش بود چون حجم خیلی خیلی زیادی دارن. ساعت دانلود رایگان داشتم ولی باید دستی دانلود رو شروع می‌کردم. خب شروع کردم به جستجو و تحقیق که به این روش رسیدم؛ این‌طوری میشه هر برنامه‌ای رو با استیم به راحتی دانلود کرد.
 <!-- ادامه --></p>
 
-<p><strong>توجه!</strong> همه‌ی فرمان‌های زیر به دسترسی روت نیاز دارن. این ایمیج‌ها شامل بسته‌های <code>non-free</code> نمی‌شن.</p>
+<p>من برای اجرای فرمان‌ها در ساعات مقرر از <code>cron</code> استفاده می‌کنم. وقتی که cron دستوری رو اجرا می‌کنه، خیلی از متغییرهای رایج از جمله <code>DISPLAY</code> ست نمی‌شن و اگر دستور داده‌شده نیازمند سیستم گرافیکی باشه با خطا روبرو می‌شه و کار نمی‌کنه. این‌جاست که <code>Xvfb</code> به کمکمون میاد: یه مانیتور غیر واقعی و قلابی!</p>
 
-<h4 id="section">۱. دانلود ایمیج‌ها</h4>
-<p>من ۳ تا از DVDهای دبیان ۶۴بیتی رو دانلود کردم و توی پوشه‌ی خونگیم(یعنی <code>/root/</code>) ریختم:</p>
+<p>استیم برای اجرا شدن به محیط گرافیکی نیاز داره و اگر ما توی cron فراخوانیش کنیم کار نمی‌کنه. پس یه مانیتور مجازی می‌سازیم که این مشکل رفع بشه.</p>
 
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">root@debian:~# ls -sh1 /root/*.iso
-3.8G debian-8.0.0-amd64-DVD-1.iso
-4.4G debian-8.0.0-amd64-DVD-2.iso
-4.4G debian-8.0.0-amd64-DVD-3.iso</code></pre></div>
+<h4 id="xvfb">۱. نصب Xvfb</h4>
 
-<h4 id="section-1">۲. سوارکردن ایمیج‌ها</h4>
-<p>من ۳ تا ایمیج دارم، پس ۳ تا پوشه برای هرکدوم توی مسیر <code>/mnt/</code> درست می‌کنم:</p>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">root@debian:~# apt-get install xvfb</code></pre></div>
 
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">root@debian:~# mkdir -p /mnt/debian/dvd<span class="o">{</span>1,2,3<span class="o">}</span></code></pre></div>
+<h4 id="id-----">۲. به دست آوردن ID برنامه یا بازی مورد نظر</h4>
+<p>هر برنامه‌ای توی استیم یک ID داره. مثلا من می‌خوام ID بازی Dota2 رو به دست بیارم. اسمش رو جستجو می‌کنم و به همچین لینکی می‌رسم:</p>
 
-<p>برای این که کار راحت‌تر بشه و نیازی به تایپ دستورهای طولانی نداشته باشیم، یه اسکریپت می‌سازیم که خودش برامون ایمیج‌ها رو سوار کنه. ایمیج‌های من توی <code>/root/</code> هستن. شما باید با توجه به مسیری که ایمیج‌هاتون اونجا هستن خط <code>ISO_DIR=/root</code> رو تغییر بدین:</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">http://store.steampowered.com/app/570</code></pre></div>
 
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">root@debian:~# cat &gt; /usr/local/sbin/mount-repo
-<span class="c">#!/bin/sh</span>
-<span class="nv">ISO_DIR</span><span class="o">=</span>/root
-mount -o loop,ro -t iso9660 <span class="nv">$ISO_DIR</span>/debian-8.0.0-amd64-DVD-1.iso /mnt/debian/dvd1/
-mount -o loop,ro -t iso9660 <span class="nv">$ISO_DIR</span>/debian-8.0.0-amd64-DVD-2.iso /mnt/debian/dvd2/
-mount -o loop,ro -t iso9660 <span class="nv">$ISO_DIR</span>/debian-8.0.0-amd64-DVD-3.iso /mnt/debian/dvd3/
-^D
-root@debian:~# chmod <span class="m">744</span> /usr/local/sbin/mount-repo
-root@debian:~# /usr/local/sbin/mount-repo</code></pre></div>
+<p><strong>بینگو!</strong> یقیناً اون <code>570</code> انتهای لینک ID مورد نظر ماست.</p>
 
-<p>اگر اسکریپت <code>mount-repo</code> رو داخل <code>cron</code> قرار بدین دیگه نیازی نیست که هر دفعه خودتون اون رو فراخوانی کنین.</p>
+<h4 id="section">۳. ساختن اسکریپت دانلود</h4>
+<p>این اسکریپت به ترتیب این کارها رو برامون انجام می‌ده:</p>
 
-<h4 id="apt">۳. تنظیم apt</h4>
-<p>چون بسته‌هایی که داخل ایمیج‌ها هستن نیاز من رو برطرف می‌کردن، مخزن‌های راه دور رو کلا حذف کردم؛ اگر شما به مخازن فعلی‌تون نیاز دارین خطوط زیر رو به فایل مخازن apt فقط اضافه کنین. این فایل <code>etc/apt/sources.list/</code> منه:</p>
+<ul>
+  <li>ساختن یک صفحه‌نمایش مجازی</li>
+  <li>تنظیم <code>DISPLAY</code></li>
+  <li>رفتن به پوشه‌ی خانگی(استیم باید توی <code>PWD=$HOME</code> اجرا بشه)</li>
+  <li>اجرای خود استیم و لاگ کردن خروجیش</li>
+</ul>
 
-<div class="highlight"><pre><code class="language-debsources" data-lang="debsources"><span class="k">deb</span> <span class="s">file:///mnt/debian/dvd1/</span> <span class="kp">jessie</span> <span class="kp">contrib</span> <span class="kp">main</span>
-<span class="k">deb</span> <span class="s">file:///mnt/debian/dvd2/</span> <span class="kp">jessie</span> <span class="kp">contrib</span> <span class="kp">main</span>
-<span class="k">deb</span> <span class="s">file:///mnt/debian/dvd3/</span> <span class="kp">jessie</span> <span class="kp">contrib</span> <span class="kp">main</span></code></pre></div>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">Xvfb :5 -screen <span class="m">0</span> 1280x720x24 +extension GLX +render -noreset &gt; /dev/null 2&gt;<span class="p">&amp;</span><span class="m">1</span> <span class="p">&amp;</span>
+<span class="nb">export </span><span class="nv">DISPLAY</span><span class="o">=</span><span class="s2">&quot;:5&quot;</span>
+<span class="nb">cd</span>
+/usr/games/steam -applaunch &lt;APPID&gt; &gt;&gt; steam.log 2&gt;<span class="p">&amp;</span>1</code></pre></div>
 
-<p>و در آخر:</p>
+<p><strong>نکته:</strong> یادتون نره که <code>&lt;APPID&gt;</code> رو با ID برنامه‌تون عوض کنین. مثلا همون <code>570</code> که مربوط می‌شه به Dota2.</p>
 
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">root@debian:~# apt-get update</code></pre></div>
-
+<p>حالا هربار که اسکریپت رو اجرا کنین، دانلود برنامه شروع می‌شه. عملیات ادامه‌ی دانلود و توقفش و غیره به عهده‌ی خود استیمه پس خیالتون از ادامه دادن یا سالم بودن فایل‌های دانلود شده راحت باشه. در نهایت اسکریپت رو به cron عزیز بسپارید تا از بازیتون لذت ببرید.</p>
 
   </article>
   <span class='post-category'>
 در دسته‌های
     
       
-      local
+      steam
     
       
           ،
       
-      repo
-    
-      
-          ،
-      
-      apt
-    
-      
-          ،
-      
-      debian
+      download
     
       
           ،
@@ -140,12 +123,8 @@ root@debian:~# /usr/local/sbin/mount-repo</code></pre></div>
     
     <span>
       قبلی: 
-        <a href='/weblog/2015/05/lmms'>LMMS: خلاقیت به خرج دهید!</a></span><br/>
+        <a href='/weblog/2015/05/local-repo'>تبدیل ایمیج به مخزن محلی</a></span><br/>
     
-    
-      <span>
-      بعدی:
-        <a href='/weblog/2015/05/steam-download'>دانلود شبانه برای Steam</a></span>
     
     
   </div>
@@ -155,7 +134,7 @@ root@debian:~# /usr/local/sbin/mount-repo</code></pre></div>
     /* * * CONFIGURATION VARIABLES * * */
     var disqus_shortname = 'geekylife';
     var disqus_config = function () { this.language = "fa"; };
-    var disqus_title = "تبدیل ایمیج به مخزن محلی";
+    var disqus_title = "دانلود شبانه برای Steam";
     
     /* * * DON'T EDIT BELOW THIS LINE * * */
     (function() {
