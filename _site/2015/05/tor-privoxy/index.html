@@ -6,11 +6,11 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>LMMS: خلاقیت به خرج دهید!</title>
-  <meta name="description" content="معمولا وقتی کسی از جاهای ناجور به جمع آزادکارها می‌پیونده دنبال یک‌سری معادل برای برنامه‌هایی که قبلا با اون‌ها دمخور بوده می‌گرده؛ خب خیلی از آهنگ‌سازان امر...">
+  <title>کانفیگ tor و privoxy مثل آب خوردن</title>
+  <meta name="description" content="به مناسبت روز جهانی جامعه‌ی اطلاعاتی، از تور و لطف بزرگی که در حق ما می‌کنه و کانفیگش به همراه دوست عزیزش، privoxy می‌نویسم. چند وقتیه تور خوب وصل نمی‌شه (ال...">
 
   <link rel="stylesheet" href="/weblog/css/main.css">
-  <link rel="canonical" href="http://mamins1376.github.io//weblog/2015/05/lmms">
+  <link rel="canonical" href="http://mamins1376.github.io//weblog/2015/05/tor-privoxy">
   <link rel="alternate" type="application/rss+xml" title="زندگی خوره‌ای" href="http://mamins1376.github.io//weblog/feed.xml" />
 </head>
 
@@ -59,56 +59,52 @@
         <div class="post">
 
   <header class="post-header">
-    <h1 class="post-title">LMMS: خلاقیت به خرج دهید!</h1>
-    <p class="post-meta">May 7, 2015</p>
+    <h1 class="post-title">کانفیگ tor و privoxy مثل آب خوردن</h1>
+    <p class="post-meta">May 17, 2015</p>
   </header>
 
   <article class="post-content">
-    <p>معمولا وقتی کسی از <a href="http://windows.microsoft.com/en-us/windows/home">جاهای ناجور</a> به جمع آزادکارها می‌پیونده دنبال یک‌سری معادل برای برنامه‌هایی که قبلا با اون‌ها دمخور بوده می‌گرده؛ خب خیلی از آهنگ‌سازان امروزی از برنامه‌های آهنگ‌سازی با کامپیوتر مثل <a href="http://www.image-line.com/flstudio/">®FL Studio</a> برای ساخت ملودی‌هاشون استفاده می‌کنن. ممکنه استفاده از معادل یک برنامه در ابتدا سخت به نظر بیاد، اما استثناهایی هم وجود دارن که از بقیه بهتر کار می‌کنن!</p>
-
-<p><img src="/weblog/downloads/2015/05/lmms.png" alt="LMMS Screenshot" /></p>
-
-<p><a href="https://lmms.io/">Linux Multimedia Studio</a> یکی از باحال‌ترین DAWها برای ساخت آهنگ‌های سبک الکترونیکه که از VST، MIDI، Soundfont و خیلی چیزهای دیگه پشتیبانی می‌کنه و <a href="https://lmms.io/lsp/">پلتفرمی</a> هم برای به اشتراک‌گذاری محتواش داره.
+    <p>به مناسبت <a href="https://en.wikipedia.org/wiki/World_Information_Society_Day">روز جهانی جامعه‌ی اطلاعاتی</a>، از تور و لطف بزرگی که در حق ما می‌کنه و کانفیگش به همراه دوست عزیزش، privoxy می‌نویسم. چند وقتیه تور خوب وصل نمی‌شه (البته بیچاره تقصیر خودش نیست) ولی خب هر مشکلی راه حلی داره! privoxy هم کمکمون می‌کنه تا علاوه بر فیلتر تبلیغات، یه پروکسی http خوب از تور درست کنیم.
 <!-- ادامه --></p>
 
-<p>چند روش برای نصب این برنامه وجود داره:</p>
+<h4 id="obfsproxy">۱. نصب تور، پریواکسی و obfsproxy</h4>
+<p>هر سه‌تا توی مخازن رسمی موجودن:</p>
 
-<ul>
-  <li>نصب از مخزن رسمی</li>
-  <li>نصب از مخزن غیر رسمی</li>
-  <li>دانلود از سایت خود برنامه</li>
-  <li>کامپایل و ازین حرفا</li>
-</ul>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">root@debian:~# apt-get install tor obfsproxy privoxy</code></pre></div>
 
-<p>دوتای اول راحت‌تر از بقیه هستن.</p>
+<h4 id="section">۲. کانفیگ تور</h4>
+<p>قبل از این که فایل کانفیگ رو دستکاری کنیم، به تعدادی پل احتیاج داریم؛ obfsproxy موجود در مخزن رسمی فعلا فقط از obfs2 پشتیبانی می‌کنه وگرنه obfs4 توصیه می‌شه. روش خوب برای گرفتن پل‌ها <a href="&#109;&#097;&#105;&#108;&#116;&#111;:&#098;&#114;&#105;&#100;&#103;&#101;&#115;&#064;&#116;&#111;&#114;&#112;&#114;&#111;&#106;&#101;&#099;&#116;&#046;&#111;&#114;&#103;">فرستادن یک ایمیل به تور</a> بدون عنوان با محتوای زیره:</p>
 
-<h4 id="lmms">۱. نصب LMMS</h4>
+<div class="highlight"><pre><code class="language-text" data-lang="text">get transport obfs2</code></pre></div>
 
-<h5 id="section">از مخزن رسمی</h5>
-<p>فعلاً نسخه‌ی ۱.۰.۰ بدون پشتیبانی از VST توی <a href="apt://lmms">مخزن رسمی</a>‍ه:</p>
+<p><strong>توجه!</strong> فعلا فقط ایمیل از سرویس‌های یاهو، جیمیل و Riseup قابل قبول هستن.<br />
+در پاسخ یک ایمیل حاوی آدرس پل‌ها دریافت می‌کنین. در دستور زیر، به جای عبارت <transport> یکی از پل‌هایی رو که دریافت کردین رو قرار بدین.</transport></p>
 
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">user@ubuntu:~<span class="nv">$ </span>sudo apt-get install lmms</code></pre></div>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">root@debian:~# cat &lt;&lt; <span class="s2">&quot;EOF&quot;</span> &gt;&gt; /etc/tor/torrc
+UseBridges 1
+<span class="c"># e.g. Bridge obfs2 123.45.67.89:1011 UI373R...9238F98</span>
+Bridge &lt;TRANSPORT&gt;
+ClientTransportPlugin obfs2 <span class="nb">exec</span> /usr/bin/obfsproxy --managed
+EOF
+root@debian:~# service tor restart</code></pre></div>
 
-<h5 id="section-1">از مخزن غیر رسمی</h5>
-<p>نسخه‌ی ۱.۱.۰ هم با پشتیبانی از VST به همراه WINE توی مخزن <a href="https://launchpad.net/~irie">irie</a> هست:</p>
+<h4 id="section-1">۳. کانفیگ پریواکسی</h4>
 
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">user@ubuntu:~<span class="nv">$ </span>sudo add-apt-repository ppa:irie/lmms
-user@ubuntu:~<span class="nv">$ </span>sudo apt-get update
-user@ubuntu:~<span class="nv">$ </span>sudo apt-get install lmms</code></pre></div>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">root@debian:~# cat &lt;&lt; <span class="s2">&quot;EOF&quot;</span> &gt;&gt; /etc/privoxy/config
+forward-socks5   /    127.0.0.1:9050 .
+forward              192.168.*.*/  .
+forward   10.*.*.*/  .
+forward   127.*.*.*/  .
+forward   localhost/  .
+EOF
+root@debian:~# service tor restart</code></pre></div>
 
-<h4 id="section-2">۲. افزودن بانک صدا</h4>
-<p>خود برنامه سمپل‌های خوبی داره ولی برای من کافی نبود. با توجه به این‌که fluidsynth یکی از بهترین سینثی‌سایزرهای متن‌بازه، ما از sf2ی اون استفاده می‌کنیم. حجم زیادی داره ولی صدای پیانو، گیتار(الکتریک، پلاستیک، بیس و …)، ویولن، درام‌ست و … رو به‌خوبی تولید می‌کنه.</p>
+<h4 id="section-2">۴. سلام کردن به اینترنت</h4>
+<p>لاگ خود تور رو می‌شه با دستور زیر مانیتور کرد:</p>
 
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">user@ubuntu:~<span class="nv">$ </span>sudo apt-get install fluid-soundfont-gm
-user@ubuntu:~<span class="nv">$ </span>cp /usr/share/sounds/sf2/FluidR3_GM.sf2 ~/Soundbank.sf2</code></pre></div>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">root@debian:~# tail -f /var/log/tor/log</code></pre></div>
 
-<p>حالا یک فایل به اسم <code>Soundbank.sf2</code> توی پوشه‌ی خانگی شما هست.</p>
-
-<h4 id="section-3">۳. نمونه</h4>
-<p>چون پلتفرم برنامه فقط اجازه‌ی اشتراک‌گذاری فایل پروژه‌ی برنامه رو می‌ده، همه‌ی فایل‌های موجود بدون هرگونه بانک صدا یا پلاگین خارجی آپلود می‌شن.
-سری به <a href="https://lmms.io/lsp/?action=browse&amp;user=mamins1376">نمونه‌ی کارهای من</a> هم بزنین.</p>
-
-<p>شما هم کارهای خودتون رو برای بقیه بذارین!</p>
+<p>پریواکسی روی پورت 8118 با پروتکل‌های http، https و ftp آماده‌ی هدایت شما به اینترنته!</p>
 
 
   </article>
@@ -116,24 +112,25 @@ user@ubuntu:~<span class="nv">$ </span>cp /usr/share/sounds/sf2/FluidR3_GM.sf2 ~
 در دسته‌های
     
       
-      lmms
+      openvpn
     
       
           ،
       
-      music
+      network
+    
+      
+          ،
+      
+      manager
     
   </span>
   <div class='post-pager'>
     
     <span>
       قبلی: 
-        <a href='/weblog/2015/05/apt-get-aria2'>آریا۲ و اپت: سرعتی دوچندان</a></span><br/>
+        <a href='/weblog/2015/05/network-manager-ovpn'>راه اندازی OpenVPN برای NetworkManager</a></span><br/>
     
-    
-      <span>
-      بعدی:
-        <a href='/weblog/2015/05/local-repo'>تبدیل ایمیج به مخزن محلی</a></span>
     
     
   </div>
@@ -143,7 +140,7 @@ user@ubuntu:~<span class="nv">$ </span>cp /usr/share/sounds/sf2/FluidR3_GM.sf2 ~
     /* * * CONFIGURATION VARIABLES * * */
     var disqus_shortname = 'geekylife';
     var disqus_config = function () { this.language = "fa"; };
-    var disqus_title = "LMMS: خلاقیت به خرج دهید!";
+    var disqus_title = "کانفیگ tor و privoxy مثل آب خوردن";
     
     /* * * DON'T EDIT BELOW THIS LINE * * */
     (function() {

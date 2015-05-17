@@ -117,26 +117,26 @@ root@localhost:/#</code></pre></div>
 
 <p><strong>تبریک!</strong> توزیع ما آماده است؛ ولی هنوز کارهای کوچکی باقی‌مانده که می‌تواند کار ما را راحت‌تر کند. مثلا با اسکریپت زیر، هربار توزیع آماده و اجرا می‌شود و پس از اتمام کار خودبه‌خود جدا می‌شود. من <a href="/weblog/downloads/2015/05/debian">این اسکریپت</a> را در مسیر <code>system/bin/debian/</code> قرار دادم.</p>
 
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="lineno"> 1</span> <span class="nb">export </span><span class="nv">DEBMNT</span><span class="o">=</span>/data/debian
-<span class="lineno"> 2</span> busybox mount -t ext2 &lt;IMAGE&gt; <span class="nv">$DEBMNT</span>
-<span class="lineno"> 3</span> busybox mount -t proc none <span class="nv">$DEBMNT</span>/proc
-<span class="lineno"> 4</span> busybox mount -t sysfs none <span class="nv">$DEBMNT</span>/sys
-<span class="lineno"> 5</span> busybox mount -o <span class="nb">bind</span> /dev <span class="nv">$DEBMNT</span>/dev
-<span class="lineno"> 6</span> busybox mount -t devpts none <span class="nv">$DEBMNT</span>/dev/pts
-<span class="lineno"> 7</span> <span class="nb">unset </span>LD_PRELOAD
-<span class="lineno"> 8</span> <span class="nv">LAST_PATH</span><span class="o">=</span><span class="nv">$PATH</span>
-<span class="lineno"> 9</span> <span class="nb">export </span><span class="nv">PATH</span><span class="o">=</span>/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
-<span class="lineno">10</span> <span class="nb">export </span><span class="nv">USER</span><span class="o">=</span>root
-<span class="lineno">11</span> <span class="nb">export </span><span class="nv">HOME</span><span class="o">=</span>/root
-<span class="lineno">12</span> <span class="nb">export </span><span class="nv">TERM</span><span class="o">=</span>linux
-<span class="lineno">13</span> busybox chroot <span class="nv">$DEBMNT</span> /bin/bash
-<span class="lineno">14</span> <span class="nb">export </span><span class="nv">PATH</span><span class="o">=</span><span class="nv">$LAST_PATH</span>
-<span class="lineno">15</span> sync
-<span class="lineno">16</span> busybox umount <span class="nv">$DEBMNT</span>/dev/pts
-<span class="lineno">17</span> busybox umount <span class="nv">$DEBMNT</span>/dev
-<span class="lineno">18</span> busybox umount <span class="nv">$DEBMNT</span>/proc
-<span class="lineno">19</span> busybox umount <span class="nv">$DEBMNT</span>/sys
-<span class="lineno">20</span> busybox umount <span class="nv">$DEBMNT</span> <span class="o">||</span> sh -c <span class="s2">&quot;busybox umount -l $DEBMNT &amp;&amp; echo &#39;Force unmounted!&#39;&quot;</span></code></pre></div>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="lineno"> 1 </span><span class="nb">export </span><span class="nv">DEBMNT</span><span class="o">=</span>/data/debian
+<span class="lineno"> 2 </span>busybox mount -t ext2 &lt;IMAGE&gt; <span class="nv">$DEBMNT</span>
+<span class="lineno"> 3 </span>busybox mount -t proc none <span class="nv">$DEBMNT</span>/proc
+<span class="lineno"> 4 </span>busybox mount -t sysfs none <span class="nv">$DEBMNT</span>/sys
+<span class="lineno"> 5 </span>busybox mount -o <span class="nb">bind</span> /dev <span class="nv">$DEBMNT</span>/dev
+<span class="lineno"> 6 </span>busybox mount -t devpts none <span class="nv">$DEBMNT</span>/dev/pts
+<span class="lineno"> 7 </span><span class="nb">unset </span>LD_PRELOAD
+<span class="lineno"> 8 </span><span class="nv">LAST_PATH</span><span class="o">=</span><span class="nv">$PATH</span>
+<span class="lineno"> 9 </span><span class="nb">export </span><span class="nv">PATH</span><span class="o">=</span>/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+<span class="lineno">10 </span><span class="nb">export </span><span class="nv">USER</span><span class="o">=</span>root
+<span class="lineno">11 </span><span class="nb">export </span><span class="nv">HOME</span><span class="o">=</span>/root
+<span class="lineno">12 </span><span class="nb">export </span><span class="nv">TERM</span><span class="o">=</span>linux
+<span class="lineno">13 </span>busybox chroot <span class="nv">$DEBMNT</span> /bin/bash
+<span class="lineno">14 </span><span class="nb">export </span><span class="nv">PATH</span><span class="o">=</span><span class="nv">$LAST_PATH</span>
+<span class="lineno">15 </span>sync
+<span class="lineno">16 </span>busybox umount <span class="nv">$DEBMNT</span>/dev/pts
+<span class="lineno">17 </span>busybox umount <span class="nv">$DEBMNT</span>/dev
+<span class="lineno">18 </span>busybox umount <span class="nv">$DEBMNT</span>/proc
+<span class="lineno">19 </span>busybox umount <span class="nv">$DEBMNT</span>/sys
+<span class="lineno">20 </span>busybox umount <span class="nv">$DEBMNT</span> <span class="o">||</span> sh -c <span class="s2">&quot;busybox umount -l </span><span class="nv">$DEBMNT</span><span class="s2"> &amp;&amp; echo &#39;Force unmounted!&#39;&quot;</span></code></pre></div>
 
 <h4 id="apt">۶. تنظیم apt</h4>
 <p>لازم است که تغییراتی در <code>sources.list</code> مربوط به مدیر بسته‌ی <code>apt</code> به‌وجود آوریم تا بتوانیم بسته‌های مورد نیازمان را نصب کنیم.</p>
@@ -146,14 +146,14 @@ root@localhost:/#</code></pre></div>
 <p><strong>توجه!</strong> به جای ویرایش‌گر <code>vi</code>، هر ویرایشی که با آن راحت‌تر هستید استفاده کنید. <code>nano</code> به‌طور پیش‌فرض نصب است.<br />
 خطوط زیر را به آن اضافه کنید یا فایل آماده را <a href="/weblog/downloads/2015/05/sources.list">دریافت کنید</a>.</p>
 
-<div class="highlight"><pre><code class="language-debsources" data-lang="debsources"><span class="lineno">1</span> <span class="k">deb</span> <span class="s">http://ftp.ir.debian.org/debian/</span> <span class="kp">jessie</span> <span class="kp">contrib</span> <span class="kp">main</span> <span class="kp">non-free</span>
-<span class="lineno">2</span> <span class="k">deb-src</span> <span class="s">http://ftp.ir.debian.org/debian/</span> <span class="kp">jessie</span> <span class="kp">contrib</span> <span class="kp">main</span> <span class="kp">non-free</span>
-<span class="lineno">3</span> 
-<span class="lineno">4</span> <span class="k">deb</span> <span class="s">http://ftp.ir.debian.org/debian/</span> <span class="kp">jessie-backports</span> <span class="kp">contrib</span> <span class="kp">main</span> <span class="kp">non-free</span>
-<span class="lineno">5</span> <span class="k">deb-src</span> <span class="s">http://ftp.ir.debian.org/debian/</span> <span class="kp">jessie-backports</span> <span class="kp">contrib</span> <span class="kp">main</span> <span class="kp">non-free</span>
-<span class="lineno">6</span> 
-<span class="lineno">7</span> <span class="k">deb</span> <span class="s">http://ftp.ir.debian.org/debian/</span> <span class="kp">jessie-updates</span> <span class="kp">contrib</span> <span class="kp">main</span> <span class="kp">non-free</span>
-<span class="lineno">8</span> <span class="k">deb-src</span> <span class="s">http://ftp.ir.debian.org/debian/</span> <span class="kp">jessie-updates</span> <span class="kp">contrib</span> <span class="kp">main</span> <span class="kp">non-free</span></code></pre></div>
+<div class="highlight"><pre><code class="language-debsources" data-lang="debsources"><span class="lineno">1 </span><span class="k">deb</span> <span class="s">http://ftp.ir.debian.org/debian/</span> <span class="kp">jessie</span> <span class="kp">contrib</span> <span class="kp">main</span> <span class="kp">non-free</span>
+<span class="lineno">2 </span><span class="k">deb-src</span> <span class="s">http://ftp.ir.debian.org/debian/</span> <span class="kp">jessie</span> <span class="kp">contrib</span> <span class="kp">main</span> <span class="kp">non-free</span>
+<span class="lineno">3 </span>
+<span class="lineno">4 </span><span class="k">deb</span> <span class="s">http://ftp.ir.debian.org/debian/</span> <span class="kp">jessie-backports</span> <span class="kp">contrib</span> <span class="kp">main</span> <span class="kp">non-free</span>
+<span class="lineno">5 </span><span class="k">deb-src</span> <span class="s">http://ftp.ir.debian.org/debian/</span> <span class="kp">jessie-backports</span> <span class="kp">contrib</span> <span class="kp">main</span> <span class="kp">non-free</span>
+<span class="lineno">6 </span>
+<span class="lineno">7 </span><span class="k">deb</span> <span class="s">http://ftp.ir.debian.org/debian/</span> <span class="kp">jessie-updates</span> <span class="kp">contrib</span> <span class="kp">main</span> <span class="kp">non-free</span>
+<span class="lineno">8 </span><span class="k">deb-src</span> <span class="s">http://ftp.ir.debian.org/debian/</span> <span class="kp">jessie-updates</span> <span class="kp">contrib</span> <span class="kp">main</span> <span class="kp">non-free</span></code></pre></div>
 
 <p>و در آخر،‌ برای به‌روزرسانی کَش <code>apt</code>:</p>
 

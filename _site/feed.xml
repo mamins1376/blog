@@ -6,10 +6,103 @@
 </description>
     <link>http://mamins1376.github.io//weblog/</link>
     <atom:link href="http://mamins1376.github.io//weblog/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 11 May 2015 20:46:28 +0430</pubDate>
-    <lastBuildDate>Mon, 11 May 2015 20:46:28 +0430</lastBuildDate>
-    <generator>Jekyll v2.5.3</generator>
+    <pubDate>Sun, 17 May 2015 17:07:14 +0430</pubDate>
+    <lastBuildDate>Sun, 17 May 2015 17:07:14 +0430</lastBuildDate>
+    <generator>Jekyll v2.2.0</generator>
     <language>fa-IR</language>
+    
+      <item>
+        <title>کانفیگ tor و privoxy مثل آب خوردن</title>
+        <description>
+          
+            &lt;p&gt;به مناسبت &lt;a href=&quot;https://en.wikipedia.org/wiki/World_Information_Society_Day&quot;&gt;روز جهانی جامعه‌ی اطلاعاتی&lt;/a&gt;، از تور و لطف بزرگی که در حق ما می‌کنه و کانفیگش به همراه دوست عزیزش، privoxy می‌نویسم. چند وقتیه تور خوب وصل نمی‌شه (البته بیچاره تقصیر خودش نیست) ولی خب هر مشکلی راه حلی داره! privoxy هم کمکمون می‌کنه تا علاوه بر فیلتر تبلیغات، یه پروکسی http خوب از تور درست کنیم.
+
+          ...
+        </description>
+        <pubDate>Sun, 17 May 2015 22:05:13 +0430</pubDate>
+        <link>http://mamins1376.github.io//weblog/2015/05/tor-privoxy</link>
+        <guid isPermaLink="true">http://mamins1376.github.io//weblog/2015/05/tor-privoxy</guid>
+        
+        
+        <category>openvpn</category>
+        
+        <category>network</category>
+        
+        <category>manager</category>
+        
+        <content>
+        <p>به مناسبت <a href="https://en.wikipedia.org/wiki/World_Information_Society_Day">روز جهانی جامعه‌ی اطلاعاتی</a>، از تور و لطف بزرگی که در حق ما می‌کنه و کانفیگش به همراه دوست عزیزش، privoxy می‌نویسم. چند وقتیه تور خوب وصل نمی‌شه (البته بیچاره تقصیر خودش نیست) ولی خب هر مشکلی راه حلی داره! privoxy هم کمکمون می‌کنه تا علاوه بر فیلتر تبلیغات، یه پروکسی http خوب از تور درست کنیم.
+<!-- ادامه --></p>
+
+<h4 id="obfsproxy">۱. نصب تور، پریواکسی و obfsproxy</h4>
+<p>هر سه‌تا توی مخازن رسمی موجودن:</p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">root@debian:~# apt-get install tor obfsproxy privoxy</code></pre></div>
+
+<h4 id="section">۲. کانفیگ تور</h4>
+<p>قبل از این که فایل کانفیگ رو دستکاری کنیم، به تعدادی پل احتیاج داریم؛ obfsproxy موجود در مخزن رسمی فعلا فقط از obfs2 پشتیبانی می‌کنه وگرنه obfs4 توصیه می‌شه. روش خوب برای گرفتن پل‌ها <a href="&#109;&#097;&#105;&#108;&#116;&#111;:&#098;&#114;&#105;&#100;&#103;&#101;&#115;&#064;&#116;&#111;&#114;&#112;&#114;&#111;&#106;&#101;&#099;&#116;&#046;&#111;&#114;&#103;">فرستادن یک ایمیل به تور</a> بدون عنوان با محتوای زیره:</p>
+
+<div class="highlight"><pre><code class="language-text" data-lang="text">get transport obfs2</code></pre></div>
+
+<p><strong>توجه!</strong> فعلا فقط ایمیل از سرویس‌های یاهو، جیمیل و Riseup قابل قبول هستن.<br />
+در پاسخ یک ایمیل حاوی آدرس پل‌ها دریافت می‌کنین. در دستور زیر، به جای عبارت <transport> یکی از پل‌هایی رو که دریافت کردین رو قرار بدین.</transport></p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">root@debian:~# cat &lt;&lt; <span class="s2">&quot;EOF&quot;</span> &gt;&gt; /etc/tor/torrc
+UseBridges 1
+<span class="c"># e.g. Bridge obfs2 123.45.67.89:1011 UI373R...9238F98</span>
+Bridge &lt;TRANSPORT&gt;
+ClientTransportPlugin obfs2 <span class="nb">exec</span> /usr/bin/obfsproxy --managed
+EOF
+root@debian:~# service tor restart</code></pre></div>
+
+<h4 id="section-1">۳. کانفیگ پریواکسی</h4>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">root@debian:~# cat &lt;&lt; <span class="s2">&quot;EOF&quot;</span> &gt;&gt; /etc/privoxy/config
+forward-socks5   /    127.0.0.1:9050 .
+forward              192.168.*.*/  .
+forward   10.*.*.*/  .
+forward   127.*.*.*/  .
+forward   localhost/  .
+EOF
+root@debian:~# service tor restart</code></pre></div>
+
+<h4 id="section-2">۴. سلام کردن به اینترنت</h4>
+<p>لاگ خود تور رو می‌شه با دستور زیر مانیتور کرد:</p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">root@debian:~# tail -f /var/log/tor/log</code></pre></div>
+
+<p>پریواکسی روی پورت 8118 با پروتکل‌های http، https و ftp آماده‌ی هدایت شما به اینترنته!</p>
+
+
+        </content>
+      </item>
+    
+      <item>
+        <title>راه اندازی OpenVPN برای NetworkManager</title>
+        <description>
+          
+            &lt;p&gt;تقریبا همه‌ی توزیع‌های با محیط گرافیکی برای مدیریت شبکه از دایمون Network Manager استفاده می‌کنن. [VPN][vpn] هم که نیاز به معرفی نداره همه یه تجربه‌هایی باهاش داشتن ؛) یه راهی که جدیدا خیلی استفاده می‌شه گذاشتن certificate ها داخل خود فایل حاوی اطلاعات اتصاله. از اون‌جا که نتورک منیجر خودش 
+
+          ...
+        </description>
+        <pubDate>Sat, 16 May 2015 22:05:13 +0430</pubDate>
+        <link>http://mamins1376.github.io//weblog/2015/05/network-manager-ovpn</link>
+        <guid isPermaLink="true">http://mamins1376.github.io//weblog/2015/05/network-manager-ovpn</guid>
+        
+        
+        <category>openvpn</category>
+        
+        <category>network</category>
+        
+        <category>manager</category>
+        
+        <content>
+        <p>تقریبا همه‌ی توزیع‌های با محیط گرافیکی برای مدیریت شبکه از دایمون Network Manager استفاده می‌کنن. [VPN][vpn] هم که نیاز به معرفی نداره همه یه تجربه‌هایی باهاش داشتن ؛) یه راهی که جدیدا خیلی استفاده می‌شه گذاشتن certificate ها داخل خود فایل حاوی اطلاعات اتصاله. از اون‌جا که نتورک منیجر خودش 
+<!-- ادامه --></p>
+
+
+        </content>
+      </item>
     
       <item>
         <title>دانلود شبانه برای Steam</title>
@@ -381,7 +474,7 @@ Setting up guake <span class="o">(</span>0.4.4-1ubuntu1<span class="o">)</span> 
 <h4 id="cron">۲. افزودن به cron</h4>
 <p>خود cron یک‌سری کلمه داره که رویداد خاصی رو مشخص می‌کنه. مثلا <code>reboot</code> به معنی «هر وقت سیستم روشن شد»‍ه. <strong>چه خوب!</strong> ما از این قابلیت استفاده می‌کنیم و به cron می‌گیم که هروقت سیستم روشن شد برای دانلود شبانه تنظیمش کنه. این طوری دیگه نیازی به اجرای دستی rtcwake نیست.<br />
 معمولا چون cron خیلی از مسیرهای رایج رو توی متغییر محیطی <code>PATH</code> نداره مجبوریم خودمون دستی مسیر هر کدوم از اجرایی‌ها رو وارد کنیم.<br />
-<strong>توجه!</strong> مسیرهایی که این‌جا برای date و rtcwake استفاده شدن ممکنه روی سیستم شما فرق کنن. با دستور <code>which</code> می‌تونید از مسیر هر دستوری مطلع بشین.</p>
+<strong>توجه!</strong> مسیرهایی که این‌جا برای date و rtcwake استفاده شدن ممکنه روی سیستم شما فرق کنن. با دستور <code>which</code> می‌تونید از مسیر هر دستوری مطلع بشین.  </p>
 
 <p>اول cron مربوط به کاربر ریشه رو باز می‌کنیم:</p>
 
@@ -470,26 +563,26 @@ root@localhost:/#</code></pre></div>
 
 <p><strong>تبریک!</strong> توزیع ما آماده است؛ ولی هنوز کارهای کوچکی باقی‌مانده که می‌تواند کار ما را راحت‌تر کند. مثلا با اسکریپت زیر، هربار توزیع آماده و اجرا می‌شود و پس از اتمام کار خودبه‌خود جدا می‌شود. من <a href="/weblog/downloads/2015/05/debian">این اسکریپت</a> را در مسیر <code>system/bin/debian/</code> قرار دادم.</p>
 
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="lineno"> 1</span> <span class="nb">export </span><span class="nv">DEBMNT</span><span class="o">=</span>/data/debian
-<span class="lineno"> 2</span> busybox mount -t ext2 &lt;IMAGE&gt; <span class="nv">$DEBMNT</span>
-<span class="lineno"> 3</span> busybox mount -t proc none <span class="nv">$DEBMNT</span>/proc
-<span class="lineno"> 4</span> busybox mount -t sysfs none <span class="nv">$DEBMNT</span>/sys
-<span class="lineno"> 5</span> busybox mount -o <span class="nb">bind</span> /dev <span class="nv">$DEBMNT</span>/dev
-<span class="lineno"> 6</span> busybox mount -t devpts none <span class="nv">$DEBMNT</span>/dev/pts
-<span class="lineno"> 7</span> <span class="nb">unset </span>LD_PRELOAD
-<span class="lineno"> 8</span> <span class="nv">LAST_PATH</span><span class="o">=</span><span class="nv">$PATH</span>
-<span class="lineno"> 9</span> <span class="nb">export </span><span class="nv">PATH</span><span class="o">=</span>/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
-<span class="lineno">10</span> <span class="nb">export </span><span class="nv">USER</span><span class="o">=</span>root
-<span class="lineno">11</span> <span class="nb">export </span><span class="nv">HOME</span><span class="o">=</span>/root
-<span class="lineno">12</span> <span class="nb">export </span><span class="nv">TERM</span><span class="o">=</span>linux
-<span class="lineno">13</span> busybox chroot <span class="nv">$DEBMNT</span> /bin/bash
-<span class="lineno">14</span> <span class="nb">export </span><span class="nv">PATH</span><span class="o">=</span><span class="nv">$LAST_PATH</span>
-<span class="lineno">15</span> sync
-<span class="lineno">16</span> busybox umount <span class="nv">$DEBMNT</span>/dev/pts
-<span class="lineno">17</span> busybox umount <span class="nv">$DEBMNT</span>/dev
-<span class="lineno">18</span> busybox umount <span class="nv">$DEBMNT</span>/proc
-<span class="lineno">19</span> busybox umount <span class="nv">$DEBMNT</span>/sys
-<span class="lineno">20</span> busybox umount <span class="nv">$DEBMNT</span> <span class="o">||</span> sh -c <span class="s2">&quot;busybox umount -l $DEBMNT &amp;&amp; echo &#39;Force unmounted!&#39;&quot;</span></code></pre></div>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="lineno"> 1 </span><span class="nb">export </span><span class="nv">DEBMNT</span><span class="o">=</span>/data/debian
+<span class="lineno"> 2 </span>busybox mount -t ext2 &lt;IMAGE&gt; <span class="nv">$DEBMNT</span>
+<span class="lineno"> 3 </span>busybox mount -t proc none <span class="nv">$DEBMNT</span>/proc
+<span class="lineno"> 4 </span>busybox mount -t sysfs none <span class="nv">$DEBMNT</span>/sys
+<span class="lineno"> 5 </span>busybox mount -o <span class="nb">bind</span> /dev <span class="nv">$DEBMNT</span>/dev
+<span class="lineno"> 6 </span>busybox mount -t devpts none <span class="nv">$DEBMNT</span>/dev/pts
+<span class="lineno"> 7 </span><span class="nb">unset </span>LD_PRELOAD
+<span class="lineno"> 8 </span><span class="nv">LAST_PATH</span><span class="o">=</span><span class="nv">$PATH</span>
+<span class="lineno"> 9 </span><span class="nb">export </span><span class="nv">PATH</span><span class="o">=</span>/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+<span class="lineno">10 </span><span class="nb">export </span><span class="nv">USER</span><span class="o">=</span>root
+<span class="lineno">11 </span><span class="nb">export </span><span class="nv">HOME</span><span class="o">=</span>/root
+<span class="lineno">12 </span><span class="nb">export </span><span class="nv">TERM</span><span class="o">=</span>linux
+<span class="lineno">13 </span>busybox chroot <span class="nv">$DEBMNT</span> /bin/bash
+<span class="lineno">14 </span><span class="nb">export </span><span class="nv">PATH</span><span class="o">=</span><span class="nv">$LAST_PATH</span>
+<span class="lineno">15 </span>sync
+<span class="lineno">16 </span>busybox umount <span class="nv">$DEBMNT</span>/dev/pts
+<span class="lineno">17 </span>busybox umount <span class="nv">$DEBMNT</span>/dev
+<span class="lineno">18 </span>busybox umount <span class="nv">$DEBMNT</span>/proc
+<span class="lineno">19 </span>busybox umount <span class="nv">$DEBMNT</span>/sys
+<span class="lineno">20 </span>busybox umount <span class="nv">$DEBMNT</span> <span class="o">||</span> sh -c <span class="s2">&quot;busybox umount -l </span><span class="nv">$DEBMNT</span><span class="s2"> &amp;&amp; echo &#39;Force unmounted!&#39;&quot;</span></code></pre></div>
 
 <h4 id="apt">۶. تنظیم apt</h4>
 <p>لازم است که تغییراتی در <code>sources.list</code> مربوط به مدیر بسته‌ی <code>apt</code> به‌وجود آوریم تا بتوانیم بسته‌های مورد نیازمان را نصب کنیم.</p>
@@ -499,14 +592,14 @@ root@localhost:/#</code></pre></div>
 <p><strong>توجه!</strong> به جای ویرایش‌گر <code>vi</code>، هر ویرایشی که با آن راحت‌تر هستید استفاده کنید. <code>nano</code> به‌طور پیش‌فرض نصب است.<br />
 خطوط زیر را به آن اضافه کنید یا فایل آماده را <a href="/weblog/downloads/2015/05/sources.list">دریافت کنید</a>.</p>
 
-<div class="highlight"><pre><code class="language-debsources" data-lang="debsources"><span class="lineno">1</span> <span class="k">deb</span> <span class="s">http://ftp.ir.debian.org/debian/</span> <span class="kp">jessie</span> <span class="kp">contrib</span> <span class="kp">main</span> <span class="kp">non-free</span>
-<span class="lineno">2</span> <span class="k">deb-src</span> <span class="s">http://ftp.ir.debian.org/debian/</span> <span class="kp">jessie</span> <span class="kp">contrib</span> <span class="kp">main</span> <span class="kp">non-free</span>
-<span class="lineno">3</span> 
-<span class="lineno">4</span> <span class="k">deb</span> <span class="s">http://ftp.ir.debian.org/debian/</span> <span class="kp">jessie-backports</span> <span class="kp">contrib</span> <span class="kp">main</span> <span class="kp">non-free</span>
-<span class="lineno">5</span> <span class="k">deb-src</span> <span class="s">http://ftp.ir.debian.org/debian/</span> <span class="kp">jessie-backports</span> <span class="kp">contrib</span> <span class="kp">main</span> <span class="kp">non-free</span>
-<span class="lineno">6</span> 
-<span class="lineno">7</span> <span class="k">deb</span> <span class="s">http://ftp.ir.debian.org/debian/</span> <span class="kp">jessie-updates</span> <span class="kp">contrib</span> <span class="kp">main</span> <span class="kp">non-free</span>
-<span class="lineno">8</span> <span class="k">deb-src</span> <span class="s">http://ftp.ir.debian.org/debian/</span> <span class="kp">jessie-updates</span> <span class="kp">contrib</span> <span class="kp">main</span> <span class="kp">non-free</span></code></pre></div>
+<div class="highlight"><pre><code class="language-debsources" data-lang="debsources"><span class="lineno">1 </span><span class="k">deb</span> <span class="s">http://ftp.ir.debian.org/debian/</span> <span class="kp">jessie</span> <span class="kp">contrib</span> <span class="kp">main</span> <span class="kp">non-free</span>
+<span class="lineno">2 </span><span class="k">deb-src</span> <span class="s">http://ftp.ir.debian.org/debian/</span> <span class="kp">jessie</span> <span class="kp">contrib</span> <span class="kp">main</span> <span class="kp">non-free</span>
+<span class="lineno">3 </span>
+<span class="lineno">4 </span><span class="k">deb</span> <span class="s">http://ftp.ir.debian.org/debian/</span> <span class="kp">jessie-backports</span> <span class="kp">contrib</span> <span class="kp">main</span> <span class="kp">non-free</span>
+<span class="lineno">5 </span><span class="k">deb-src</span> <span class="s">http://ftp.ir.debian.org/debian/</span> <span class="kp">jessie-backports</span> <span class="kp">contrib</span> <span class="kp">main</span> <span class="kp">non-free</span>
+<span class="lineno">6 </span>
+<span class="lineno">7 </span><span class="k">deb</span> <span class="s">http://ftp.ir.debian.org/debian/</span> <span class="kp">jessie-updates</span> <span class="kp">contrib</span> <span class="kp">main</span> <span class="kp">non-free</span>
+<span class="lineno">8 </span><span class="k">deb-src</span> <span class="s">http://ftp.ir.debian.org/debian/</span> <span class="kp">jessie-updates</span> <span class="kp">contrib</span> <span class="kp">main</span> <span class="kp">non-free</span></code></pre></div>
 
 <p>و در آخر،‌ برای به‌روزرسانی کَش <code>apt</code>:</p>
 
@@ -570,7 +663,7 @@ root@localhost:/#</code></pre></div>
 <h4 id="debootstrap">۱. نصب debootstrap</h4>
 <p>برای نصب گنو/لینوکس از گنو/لینوکس، <code>debootstrap</code> گزینه‌ی خوبی‌ست، ایجاد یکی دیگر از صفر مطلق؛ بدون کرنل، بوت‌لودر و هرگونه بسته‌ی اختیاری.<br />
 فایل‌های تولیدشده <strong>فقط</strong> شامل بسته‌های پایه‌ی سیستم می‌شود.<br />
-ابتدا آن را نصب می‌کنیم:</p>
+ابتدا آن را نصب می‌کنیم:  </p>
 
 <div class="highlight"><pre><code class="language-bash" data-lang="bash">root@host:~# apt-get install debootstrap</code></pre></div>
 
