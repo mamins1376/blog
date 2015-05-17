@@ -198,6 +198,7 @@ code {
 pre {
     padding: 8px 12px;
     overflow-x: scroll;
+    border-bottom: $spacing-unit / 6 solid #FF8000;
 
     > code {
         border: 0;
