@@ -143,7 +143,9 @@ code {
 pre {
   padding: 8px 12px;
   overflow-x: scroll;
-  border-bottom: 5px solid #FF8000; }
+  border-left: 5px solid #FF8000;
+  border-right: 5px solid #FF8000;
+  margin: 5px 0; }
   pre > code {
     border: 0;
     padding-right: 0;
