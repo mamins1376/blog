@@ -6,8 +6,8 @@
 </description>
     <link>http://mamins1376.github.io//weblog/</link>
     <atom:link href="http://mamins1376.github.io//weblog/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 17 May 2015 17:07:14 +0430</pubDate>
-    <lastBuildDate>Sun, 17 May 2015 17:07:14 +0430</lastBuildDate>
+    <pubDate>Sun, 17 May 2015 17:08:45 +0430</pubDate>
+    <lastBuildDate>Sun, 17 May 2015 17:08:45 +0430</lastBuildDate>
     <generator>Jekyll v2.2.0</generator>
     <language>fa-IR</language>
     
@@ -72,33 +72,6 @@ root@debian:~# service tor restart</code></pre></div>
 <div class="highlight"><pre><code class="language-bash" data-lang="bash">root@debian:~# tail -f /var/log/tor/log</code></pre></div>
 
 <p>پریواکسی روی پورت 8118 با پروتکل‌های http، https و ftp آماده‌ی هدایت شما به اینترنته!</p>
-
-
-        </content>
-      </item>
-    
-      <item>
-        <title>راه اندازی OpenVPN برای NetworkManager</title>
-        <description>
-          
-            &lt;p&gt;تقریبا همه‌ی توزیع‌های با محیط گرافیکی برای مدیریت شبکه از دایمون Network Manager استفاده می‌کنن. [VPN][vpn] هم که نیاز به معرفی نداره همه یه تجربه‌هایی باهاش داشتن ؛) یه راهی که جدیدا خیلی استفاده می‌شه گذاشتن certificate ها داخل خود فایل حاوی اطلاعات اتصاله. از اون‌جا که نتورک منیجر خودش 
-
-          ...
-        </description>
-        <pubDate>Sat, 16 May 2015 22:05:13 +0430</pubDate>
-        <link>http://mamins1376.github.io//weblog/2015/05/network-manager-ovpn</link>
-        <guid isPermaLink="true">http://mamins1376.github.io//weblog/2015/05/network-manager-ovpn</guid>
-        
-        
-        <category>openvpn</category>
-        
-        <category>network</category>
-        
-        <category>manager</category>
-        
-        <content>
-        <p>تقریبا همه‌ی توزیع‌های با محیط گرافیکی برای مدیریت شبکه از دایمون Network Manager استفاده می‌کنن. [VPN][vpn] هم که نیاز به معرفی نداره همه یه تجربه‌هایی باهاش داشتن ؛) یه راهی که جدیدا خیلی استفاده می‌شه گذاشتن certificate ها داخل خود فایل حاوی اطلاعات اتصاله. از اون‌جا که نتورک منیجر خودش 
-<!-- ادامه --></p>
 
 
         </content>
