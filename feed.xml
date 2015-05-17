@@ -32,7 +32,7 @@ layout: null
         <category>{{ cat | xml_escape }}</category>
         {% endfor %}
         <content>
-        {{ post.content }}
+        {{ post.content | xml_escape }}
         </content>
       </item>
     {% endfor %}
