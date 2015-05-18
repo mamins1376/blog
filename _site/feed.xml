@@ -6,8 +6,8 @@
 </description>
     <link>http://mamins1376.github.io//weblog/</link>
     <atom:link href="http://mamins1376.github.io//weblog/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 17 May 2015 17:42:47 +0430</pubDate>
-    <lastBuildDate>Sun, 17 May 2015 17:42:47 +0430</lastBuildDate>
+    <pubDate>Mon, 18 May 2015 16:11:23 +0430</pubDate>
+    <lastBuildDate>Mon, 18 May 2015 16:11:23 +0430</lastBuildDate>
     <generator>Jekyll v2.2.0</generator>
     <language>fa-IR</language>
     
@@ -24,11 +24,19 @@
         <guid isPermaLink="true">http://mamins1376.github.io//weblog/2015/05/tor-privoxy</guid>
         
         
-        <category>openvpn</category>
+        <category>tor</category>
         
-        <category>network</category>
+        <category>config</category>
         
-        <category>manager</category>
+        <category>configuration</category>
+        
+        <category>privoxy</category>
+        
+        <category>obfsproxy</category>
+        
+        <category>debian</category>
+        
+        <category>linux</category>
         
         <content>
         &lt;p&gt;به مناسبت &lt;a href=&quot;https://en.wikipedia.org/wiki/World_Information_Society_Day&quot;&gt;روز جهانی جامعه‌ی اطلاعاتی&lt;/a&gt;، از تور و لطف بزرگی که در حق ما می‌کنه و کانفیگش به همراه دوست عزیزش، privoxy می‌نویسم. چند وقتیه تور خوب وصل نمی‌شه (البته بیچاره تقصیر خودش نیست) ولی خب هر مشکلی راه حلی داره! privoxy هم کمکمون می‌کنه تا علاوه بر فیلتر تبلیغات، یه پروکسی http خوب از تور درست کنیم.

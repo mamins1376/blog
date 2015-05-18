@@ -2,7 +2,7 @@
 layout: post
 title:  "کانفیگ tor و privoxy مثل آب خوردن"
 date:   2015-05-17 17:35:13
-categories: openvpn network manager
+categories: tor config configuration privoxy obfsproxy debian linux
 ---
 به مناسبت [روز جهانی جامعه‌ی اطلاعاتی][WISDay]، از تور و لطف بزرگی که در حق ما می‌کنه و کانفیگش به همراه دوست عزیزش، privoxy می‌نویسم. چند وقتیه تور خوب وصل نمی‌شه (البته بیچاره تقصیر خودش نیست) ولی خب هر مشکلی راه حلی داره! privoxy هم کمکمون می‌کنه تا علاوه بر فیلتر تبلیغات، یه پروکسی http خوب از تور درست کنیم.
 <!-- ادامه -->
