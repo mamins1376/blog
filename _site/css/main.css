@@ -105,12 +105,14 @@ h1, h2, h3, h4, h5, h6 {
  * Links
  */
 a {
-  color: #0000ff;
-  text-decoration: none; }
+  color: #0277bd;
+  text-decoration: none;
+  transition: color 0.3s; }
   a:visited {
-    color: #0000b3; }
+    color: #0277bd; }
   a:hover {
-    color: #101010; }
+    color: #78909c;
+    transition: color 0.2s; }
 
 /**
  * Blockquotes
@@ -217,7 +219,7 @@ pre {
       position: absolute;
       top: 9px;
       left: 30px;
-      background-color: #d1c4e9;
+      background-color: #FFFFFF;
       border: 0 solid #3e2723;
       text-align: right;
       border-radius: 3px; }
@@ -256,7 +258,8 @@ pre {
 
 .footer-heading {
   font-size: 18px;
-  margin-bottom: 15px; }
+  margin-bottom: 15px;
+  color: #FFFFFF; }
 
 .contact-list,
 .social-media-list {
@@ -278,7 +281,7 @@ pre {
 
 .footer-col-wrapper {
   font-size: 15px;
-  color: #d1c4e9;
+  color: #FFFFFF;
   margin-left: -15px; }
   .footer-col-wrapper a, .footer-col-wrapper a:hover {
     color: #efebe9; }
@@ -324,7 +327,7 @@ pre {
  */
 .page-content {
   padding: 30px 0;
-  background-color: #d1c4e9; }
+  background-color: #FFFFFF; }
 
 .page-heading {
   font-size: 20px; }
@@ -388,7 +391,7 @@ pre {
   padding-bottom: 30px; }
   .pagination a {
     background-color: #7e57c2;
-    color: #d1c4e9;
+    color: #FFFFFF;
     padding: 5px;
     border-radius: 6px;
     box-shadow: 0 5px 8px -6px black;
@@ -410,7 +413,7 @@ pre {
 
 .pages-nav {
   background-color: #7e57c2;
-  color: #d1c4e9;
+  color: #FFFFFF;
   border-radius: 6px;
   box-shadow: 0 5px 8px -6px black;
   transition: background-color 0.3s; }
@@ -418,7 +421,7 @@ pre {
     padding: 0 4px;
     font-style: normal; }
   .pages-nav a:hover {
-    background-color: #d1c4e9;
+    background-color: #FFFFFF;
     color: #7e57c2;
     box-shadow: 0 0 12px -4px black; }
 
