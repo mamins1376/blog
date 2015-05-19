@@ -6,84 +6,10 @@
 </description>
     <link>http://mamins1376.github.io//weblog/</link>
     <atom:link href="http://mamins1376.github.io//weblog/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 19 May 2015 18:54:27 +0430</pubDate>
-    <lastBuildDate>Tue, 19 May 2015 18:54:27 +0430</lastBuildDate>
+    <pubDate>Tue, 19 May 2015 19:19:24 +0430</pubDate>
+    <lastBuildDate>Tue, 19 May 2015 19:19:24 +0430</lastBuildDate>
     <generator>Jekyll v2.2.0</generator>
     <language>fa-IR</language>
-    
-      <item>
-        <title>کانفیگ tor و privoxy مثل آب خوردن</title>
-        <description>
-          
-            &lt;p&gt;به مناسبت &lt;a href=&quot;https://en.wikipedia.org/wiki/World_Information_Society_Day&quot;&gt;روز جهانی جامعه‌ی اطلاعاتی&lt;/a&gt;، از تور و لطف بزرگی که در حق ما می‌کنه و کانفیگش به همراه دوست عزیزش، privoxy می‌نویسم. چند وقتیه تور خوب وصل نمی‌شه (البته بیچاره تقصیر خودش نیست) ولی خب هر مشکلی راه حلی داره! privoxy هم کمکمون می‌کنه تا علاوه بر فیلتر تبلیغات، یه پروکسی http خوب از تور درست کنیم.
-
-          ...
-        </description>
-        <pubDate>Sun, 17 May 2015 22:05:13 +0430</pubDate>
-        <link>http://mamins1376.github.io//weblog/2015/05/tor-privoxy</link>
-        <guid isPermaLink="true">http://mamins1376.github.io//weblog/2015/05/tor-privoxy</guid>
-        
-        
-        <category>tor</category>
-        
-        <category>config</category>
-        
-        <category>configuration</category>
-        
-        <category>privoxy</category>
-        
-        <category>obfsproxy</category>
-        
-        <category>debian</category>
-        
-        <category>linux</category>
-        
-        <content>
-        &lt;p&gt;به مناسبت &lt;a href=&quot;https://en.wikipedia.org/wiki/World_Information_Society_Day&quot;&gt;روز جهانی جامعه‌ی اطلاعاتی&lt;/a&gt;، از تور و لطف بزرگی که در حق ما می‌کنه و کانفیگش به همراه دوست عزیزش، privoxy می‌نویسم. چند وقتیه تور خوب وصل نمی‌شه (البته بیچاره تقصیر خودش نیست) ولی خب هر مشکلی راه حلی داره! privoxy هم کمکمون می‌کنه تا علاوه بر فیلتر تبلیغات، یه پروکسی http خوب از تور درست کنیم.
-&lt;!-- ادامه --&gt;&lt;/p&gt;
-
-&lt;h4 id=&quot;obfsproxy&quot;&gt;۱. نصب تور، پریواکسی و obfsproxy&lt;/h4&gt;
-&lt;p&gt;هر سه‌تا توی مخازن رسمی موجودن:&lt;/p&gt;
-
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;root@debian:~# apt-get install tor obfsproxy privoxy&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;h4 id=&quot;section&quot;&gt;۲. کانفیگ تور&lt;/h4&gt;
-&lt;p&gt;قبل از این که فایل کانفیگ رو دستکاری کنیم، به تعدادی پل احتیاج داریم؛ obfsproxy موجود در مخزن رسمی فعلا فقط از obfs2 پشتیبانی می‌کنه وگرنه obfs4 توصیه می‌شه. روش خوب برای گرفتن پل‌ها &lt;a href=&quot;&amp;#109;&amp;#097;&amp;#105;&amp;#108;&amp;#116;&amp;#111;:&amp;#098;&amp;#114;&amp;#105;&amp;#100;&amp;#103;&amp;#101;&amp;#115;&amp;#064;&amp;#116;&amp;#111;&amp;#114;&amp;#112;&amp;#114;&amp;#111;&amp;#106;&amp;#101;&amp;#099;&amp;#116;&amp;#046;&amp;#111;&amp;#114;&amp;#103;&quot;&gt;فرستادن یک ایمیل به تور&lt;/a&gt; بدون عنوان با محتوای زیره:&lt;/p&gt;
-
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;get transport obfs2&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;strong&gt;توجه!&lt;/strong&gt; فعلا فقط ایمیل از سرویس‌های یاهو، جیمیل و Riseup قابل قبول هستن.&lt;br /&gt;
-در پاسخ یک ایمیل حاوی آدرس پل‌ها دریافت می‌کنین. در دستور زیر، به جای عبارت &lt;transport&gt; یکی از پل‌هایی رو که دریافت کردین رو قرار بدین.&lt;/transport&gt;&lt;/p&gt;
-
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;root@debian:~# cat &amp;lt;&amp;lt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;EOF&amp;quot;&lt;/span&gt; &amp;gt;&amp;gt; /etc/tor/torrc
-UseBridges 1
-&lt;span class=&quot;c&quot;&gt;# e.g. Bridge obfs2 123.45.67.89:1011 UI373R...9238F98&lt;/span&gt;
-Bridge &amp;lt;TRANSPORT&amp;gt;
-ClientTransportPlugin obfs2 &lt;span class=&quot;nb&quot;&gt;exec&lt;/span&gt; /usr/bin/obfsproxy --managed
-EOF
-root@debian:~# service tor restart&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;h4 id=&quot;section-1&quot;&gt;۳. کانفیگ پریواکسی&lt;/h4&gt;
-
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;root@debian:~# cat &amp;lt;&amp;lt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;EOF&amp;quot;&lt;/span&gt; &amp;gt;&amp;gt; /etc/privoxy/config
-forward-socks5   /    127.0.0.1:9050 .
-forward              192.168.*.*/  .
-forward   10.*.*.*/  .
-forward   127.*.*.*/  .
-forward   localhost/  .
-EOF
-root@debian:~# service tor restart&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;h4 id=&quot;section-2&quot;&gt;۴. سلام کردن به اینترنت&lt;/h4&gt;
-&lt;p&gt;لاگ خود تور رو می‌شه با دستور زیر مانیتور کرد:&lt;/p&gt;
-
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;root@debian:~# tail -f /var/log/tor/log&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;پریواکسی روی پورت 8118 با پروتکل‌های http، https و ftp آماده‌ی هدایت شما به اینترنته!&lt;/p&gt;
-
-
-        </content>
-      </item>
     
       <item>
         <title>دانلود شبانه برای Steam</title>
