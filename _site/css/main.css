@@ -396,12 +396,31 @@ pre {
     .pagination a:hover {
       background-color: #5e35b1;
       box-shadow: 0 5px 8px -7px black; }
+  .pagination .disabled,
+  .pagination .disabled:hover {
+    background-color: #808080;
+    color: #D0D0D0;
+    box-shadow: 0 5px 8px -6px black; }
 
 .pagination .previous {
   float: right; }
 
 .pagination .next {
   float: left; }
+
+.pages-nav {
+  background-color: #7e57c2;
+  color: #d1c4e9;
+  border-radius: 6px;
+  box-shadow: 0 5px 8px -6px black;
+  transition: background-color 0.3s; }
+  .pages-nav em {
+    padding: 0 4px;
+    font-style: normal; }
+  .pages-nav a:hover {
+    background-color: #d1c4e9;
+    color: #7e57c2;
+    box-shadow: 0 0 12px -4px black; }
 
 /**
  * Syntax highlighting styles

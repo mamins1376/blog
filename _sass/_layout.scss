@@ -300,10 +300,36 @@
       box-shadow: 0 5px 8px -7px black;
     }
   }
+  
+  .disabled,
+  .disabled:hover {
+    background-color: #808080;
+    color: #D0D0D0;
+    box-shadow: 0 5px 8px -6px black;
+  }
 }
 .pagination .previous {
   float: right;
 }
 .pagination .next {
   float: left;
+}
+.pages-nav {
+  background-color: #7e57c2;
+  color: $background-color;
+  
+  border-radius: 6px;
+  box-shadow: 0 5px 8px -6px black;
+  transition: background-color 0.3s;
+    
+  & em {
+    padding: 0 4px;
+    font-style: normal;
+  }
+  
+  & a:hover {
+    background-color: $background-color;
+    color: #7e57c2;
+    box-shadow: 0 0 12px -4px black;
+  }
 }
