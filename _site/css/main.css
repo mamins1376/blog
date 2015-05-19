@@ -235,7 +235,7 @@ pre {
           width: 18px;
           height: 15px; }
           .site-nav .menu-icon > svg path {
-            fill: #efebe9; }
+            fill: #009688; }
       .site-nav .trigger {
         clear: both;
         display: none;
@@ -246,7 +246,7 @@ pre {
       .site-nav .page-link {
         display: block;
         padding: 5px 10px;
-        color: #3e2723; } }
+        color: #009688; } }
 
 /**
  * Site footer
