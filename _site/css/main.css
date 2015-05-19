@@ -201,7 +201,7 @@ pre {
   margin-bottom: 0;
   float: right;
   white-space: nowrap; }
-  .site-title, .site-title:visited {
+  .site-title, .site-title:visited, .site-title:hover {
     color: #efebe9; }
 
 .site-nav {
@@ -361,12 +361,13 @@ pre {
   margin-bottom: 30px; }
 
 .post-title {
-  font-size: 42px;
+  font-size: 36px;
   letter-spacing: -1px;
-  line-height: 1; }
+  line-height: 1;
+  color: #0277bd; }
   @media screen and (max-width: 800px) {
     .post-title {
-      font-size: 36px; } }
+      font-size: 24px; } }
 
 .post-content {
   margin-bottom: 30px; }

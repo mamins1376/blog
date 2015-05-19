@@ -6,8 +6,8 @@
 </description>
     <link>http://mamins1376.github.io//weblog/</link>
     <atom:link href="http://mamins1376.github.io//weblog/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 19 May 2015 12:50:05 +0430</pubDate>
-    <lastBuildDate>Tue, 19 May 2015 12:50:05 +0430</lastBuildDate>
+    <pubDate>Tue, 19 May 2015 13:03:56 +0430</pubDate>
+    <lastBuildDate>Tue, 19 May 2015 13:03:56 +0430</lastBuildDate>
     <generator>Jekyll v2.2.0</generator>
     <language>fa-IR</language>
     
@@ -664,7 +664,7 @@ root@localhost:/#&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
       &lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;نسخه‌ی توزیع&lt;/strong&gt;: ما از توزیع &lt;a href=&quot;https://www.debian.org/&quot;&gt;دبیان&lt;/a&gt; نسخه‌ی &lt;a href=&quot;https://www.debian.org/News/2015/20150426&quot;&gt;۸(جسی)&lt;/a&gt; استفاده می‌کنیم. شما می‌توانید از هرنسخه‌ی دیگری(&lt;code&gt;stable&lt;/code&gt;، &lt;code&gt;testing&lt;/code&gt;، &lt;code&gt;wheezy&lt;/code&gt;، …) استفاده کرده یا حتی به جای دبیان، &lt;a href=&quot;http://www.ubuntu.com/&quot;&gt;اوبونتو&lt;/a&gt; را امتحان کنید.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;نسخه‌ی توزیع&lt;/strong&gt;: ما از توزیع &lt;a href=&quot;https://www.debian.org/&quot;&gt;دبیان&lt;/a&gt; نسخه‌ی &lt;a href=&quot;https://www.debian.org/News/2015/20150426.fa.html&quot;&gt;۸(جسی)&lt;/a&gt; استفاده می‌کنیم. شما می‌توانید از هرنسخه‌ی دیگری(&lt;code&gt;stable&lt;/code&gt;، &lt;code&gt;testing&lt;/code&gt;، &lt;code&gt;wheezy&lt;/code&gt;، …) استفاده کرده یا حتی به جای دبیان، &lt;a href=&quot;http://www.ubuntu.com/&quot;&gt;اوبونتو&lt;/a&gt; را امتحان کنید.&lt;/li&gt;
   &lt;li&gt;&lt;strong&gt;آینه‌ی بسته‌ها&lt;/strong&gt;: برای بارگیری بسته‌های اصلی سیستم از یک آینه استفاده می‌شود؛ این آینه می‌تواند محلی بوده یا روی ماشین دیگری باشد. فاصله‌ی جغرافیایی کمتر بین شما و آینه‌ی منتخبتان معمولاً سرعت بیش‌تری را به همراه دارد. نوع محلی از تصویر توزیع بهره می‌برد که توضیح نحوه‌ی استفاده از آن خارج از حوصله‌ی این مطلب است. ما از مخزن ایران استفاده خواهیم کرد.&lt;/li&gt;
 &lt;/ul&gt;
 
