@@ -2,9 +2,9 @@
  * Site header
  */
 .site-header {
-    border-top: 5px solid $grey-color-dark;
-    border-bottom: 1px solid $grey-color-light;
     min-height: 56px;
+    box-shadow: 0 5px 8px -6px black;
+    background-color: $foder-color;
     
     // Positioning context for the mobile navigation icon
     position: relative;
@@ -48,9 +48,9 @@
         left: 30px;
         background-color: $background-color;
         border: 0 solid $grey-color-light;
-        text-align: left;
+        text-align: right;
         border-radius: 3px;
-        
+                
         .menu-icon {
             display: block;
             float: left;
@@ -73,6 +73,7 @@
         .trigger {
             clear: both;
             display: none;
+            box-shadow: 0 5px 8px -6px black;
         }
 
         &:hover .trigger {
@@ -83,6 +84,7 @@
         .page-link {
             display: block;
             padding: 5px 10px;
+            color: $grey-color-light;
         }
     }
 }
@@ -93,8 +95,9 @@
  * Site footer
  */
 .site-footer {
-    border-top: 1px solid $grey-color-light;
     padding: $spacing-unit 0;
+    box-shadow: 0 -6px 13px -10px black;
+    background-color: $foder-color;
 }
 
 .footer-heading {
@@ -129,9 +132,13 @@
 
 .footer-col-wrapper {
     font-size: 15px;
-    color: $grey-color;
+    color: $background-color;
     margin-left: -$spacing-unit / 2;
     @extend %clearfix;
+    
+    a, a:hover {
+      color: $grey-color-dark;
+    }
 }
 
 .footer-col {
@@ -193,6 +200,7 @@
  */
 .page-content {
     padding: $spacing-unit 0;
+    background-color: $background-color;
 }
 
 .page-heading {
@@ -277,6 +285,21 @@
 
 .pagination {
   text-align: center;
+  padding-bottom: $spacing-unit;
+  
+  a {
+    background-color: #7e57c2;
+    color: $background-color;
+    padding: $spacing-unit / 6;
+    border-radius: 6px;
+    box-shadow: 0 5px 8px -6px black;
+    transition: background-color 0.3s;
+    
+    &:hover {
+      background-color: #5e35b1;
+      box-shadow: 0 5px 8px -7px black;
+    }
+  }
 }
 .pagination .previous {
   float: right;

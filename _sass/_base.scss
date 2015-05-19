@@ -49,7 +49,7 @@ body {
     line-height: $base-line-height;
     font-weight: 300;
     color: $text-color;
-    background-color: $background-color;
+    background-color: $foder-color;
     -webkit-text-size-adjust: 100%;
     direction: rtl;
 }
@@ -155,7 +155,6 @@ a {
 
     &:hover {
         color: $text-color;
-        transition: color 1s;
     }
 }
 
@@ -185,7 +184,7 @@ blockquote {
 pre,
 code {
     font-size: 15px;
-    border: 1px solid $grey-color-light;
+    border: 1px solid $grey-color;
     border-radius: 3px;
     background-color: #eef;
 }
@@ -198,8 +197,6 @@ code {
 pre {
     padding: 8px 12px;
     overflow-x: scroll;
-    border-left: $spacing-unit / 8 solid #FF8000;
-    border-right: $spacing-unit / 8 solid #FF8000;
     margin: $spacing-unit / 8 0;
 
     > code {
