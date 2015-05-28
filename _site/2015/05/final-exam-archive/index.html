@@ -6,11 +6,11 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>دانلود شبانه برای Steam</title>
-  <meta name="description" content="بزرگ‌ترین مشکل من با استیم، دانلود بازی‌هاش بود چون حجم خیلی خیلی زیادی دارن. ساعت دانلود رایگان داشتم ولی باید دستی دانلود رو شروع می‌کردم. خب شروع کردم به ...">
+  <title>آرشیو کردن نمونه سوالات امتحان نهایی</title>
+  <meta name="description" content="الآن فصل امتحاناته و منم خیلی کمتر اینجا می‌نویسم. اخیرا خواستم سوالات امتحانات نهایی رو کامل و یکجا داشته باشم: تمیز و مرتب. سایت کنکور سوالات رو برای دانلو...">
 
   <link rel="stylesheet" href="/weblog/css/main.css">
-  <link rel="canonical" href="http://mamins1376.github.io//weblog/2015/05/steam-download">
+  <link rel="canonical" href="http://mamins1376.github.io//weblog/2015/05/final-exam-archive">
   <link rel="alternate" type="application/rss+xml" title="زندگی خوره‌ای" href="http://mamins1376.github.io//weblog/feed.xml" />
 </head>
 
@@ -59,76 +59,99 @@
         <div class="post">
 
   <header class="post-header">
-    <h1 class="post-title">دانلود شبانه برای Steam</h1>
-    <p class="post-meta">May 12, 2015</p>
+    <h1 class="post-title">آرشیو کردن نمونه سوالات امتحان نهایی</h1>
+    <p class="post-meta">May 28, 2015</p>
   </header>
 
   <article class="post-content">
-    <p>بزرگ‌ترین مشکل من با استیم، دانلود بازی‌هاش بود چون حجم خیلی خیلی زیادی دارن. ساعت دانلود رایگان داشتم ولی باید دستی دانلود رو شروع می‌کردم. خب شروع کردم به جستجو و تحقیق که به این روش رسیدم؛ این‌طوری میشه هر برنامه‌ای رو با استیم به راحتی دانلود کرد.
-<!-- ادامه --></p>
+    <p>الآن فصل امتحاناته و منم خیلی کمتر اینجا می‌نویسم. اخیرا خواستم سوالات امتحانات نهایی رو کامل و یکجا داشته باشم: تمیز و مرتب. سایت <a href="http://konkur.in/">کنکور</a> سوالات رو برای دانلود گذاشته ولی چند تا مشکل دارن:</p>
 
-<p>من برای اجرای فرمان‌ها در ساعات مقرر از <code>cron</code> استفاده می‌کنم. وقتی که cron دستوری رو اجرا می‌کنه، خیلی از متغییرهای رایج از جمله <code>DISPLAY</code> ست نمی‌شن و اگر دستور داده‌شده نیازمند سیستم گرافیکی باشه با خطا روبرو می‌شه و کار نمی‌کنه. این‌جاست که <code>Xvfb</code> به کمکمون میاد: یه مانیتور غیر واقعی و قلابی!</p>
+<p>۱- فایل‌های اضافه داره(لینک و تصویر تبلیغاتی و …)
+۲- همه‌ی فایل‌ها با فرمت rar هستن که پسورد هم دارن
+۳- خیلی زیادن!</p>
 
-<p>استیم برای اجرا شدن به محیط گرافیکی نیاز داره و اگر ما توی cron فراخوانیش کنیم کار نمی‌کنه. پس یه مانیتور مجازی می‌سازیم که این مشکل رفع بشه.</p>
+<p>از اونجا که من هم وقت استخراج تک‌تک اونها رو ندارم هم حالشو، یه اسکریپت نوشتم که این‌کارها رو برام انجام بده. خوش‌بختانه فایل‌های روی سرور اسماشون قاعده داره و منم از همین استفاده می‌کنم تا با داشتن قالب کلی هر لینک، کل فایل‌ها رو در اختیار داشته باشم.</p>
 
-<h4 id="xvfb">۱. نصب Xvfb</h4>
+<p>این اسکریپت بش، کارهای زیر رو برامون انجام میده:</p>
 
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">root@debian:~# apt-get install xvfb</code></pre></div>
+<p>۱- دانلود فایل‌ها
+۲- استخراجشون. متأسفانه نتونستم با unrar-free کنار بیام و unrar-nonfree رو به کار بردم
+۳- حذف فایل‌های اضافه
+۴- تغییر نام فایل‌ها. تمیز بودن کلا برای من خیلی اهمیت داره ؛)
+۵- و در نهایت آرشیو کردنشون توی یه فایل zip.</p>
 
-<h4 id="id-----">۲. به دست آوردن ID برنامه یا بازی مورد نظر</h4>
-<p>هر برنامه‌ای توی استیم یک ID داره. مثلا من می‌خوام ID بازی Dota2 رو به دست بیارم. اسمش رو جستجو می‌کنم و به همچین لینکی می‌رسم:</p>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="c">#!/bin/bash</span>
+<span class="nv">EXAM</span><span class="o">=</span><span class="nv">$1</span>
 
-<div class="highlight"><pre><code class="language-text" data-lang="text">http://store.steampowered.com/app/570</code></pre></div>
+<span class="k">if</span> <span class="o">[</span> <span class="s2">&quot;x</span><span class="nv">$EXAM</span><span class="s2">&quot;</span> <span class="o">=</span> <span class="s2">&quot;x&quot;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+  <span class="nb">echo</span> <span class="s1">&#39;Please give a name! e.g. Adabiyat&#39;</span>
+  <span class="nb">exit </span>1
+<span class="k">fi</span>
 
-<p><strong>بینگو!</strong> یقیناً اون <code>570</code> انتهای لینک ID مورد نظر ماست.</p>
+<span class="c"># 1st: Download</span>
+<span class="k">for</span> YEAR in <span class="sb">`</span>seq <span class="m">87</span> 93<span class="sb">`</span>
+<span class="k">do</span>
+  <span class="nv">KHORDAD</span><span class="o">=</span><span class="s2">&quot;http://dl.konkur.in/post/Exam/3/</span><span class="nv">$EXAM</span><span class="s2">/Khordad-</span><span class="nv">$YEAR</span><span class="s2">-</span><span class="nv">$EXAM</span><span class="s2">-%5Bwww.konkur.in%5D.rar&quot;</span>
+  <span class="nv">SHAHRIVAR</span><span class="o">=</span><span class="s2">&quot;http://dl.konkur.in/post/Exam/3/</span><span class="nv">$EXAM</span><span class="s2">/Shahrivar-</span><span class="nv">$YEAR</span><span class="s2">-</span><span class="nv">$EXAM</span><span class="s2">-%5Bwww.konkur.in%5D.rar&quot;</span>
+  <span class="nv">DEY</span><span class="o">=</span><span class="s2">&quot;http://dl.konkur.in/post/Exam/3/</span><span class="nv">$EXAM</span><span class="s2">/Dey-</span><span class="nv">$YEAR</span><span class="s2">-</span><span class="nv">$EXAM</span><span class="s2">-%5Bwww.konkur.in%5D.rar&quot;</span>
+  wget -c <span class="s2">&quot;</span><span class="nv">$KHORDAD</span><span class="s2">&quot;</span> <span class="s2">&quot;</span><span class="nv">$SHAHRIVAR</span><span class="s2">&quot;</span> <span class="s2">&quot;</span><span class="nv">$DEY</span><span class="s2">&quot;</span>
+<span class="k">done</span>
 
-<h4 id="section">۳. ساختن اسکریپت دانلود</h4>
-<p>این اسکریپت به ترتیب این کارها رو برامون انجام می‌ده:</p>
+<span class="c"># 2nd: Extract them</span>
+<span class="k">for</span> RAR in *.rar
+<span class="k">do</span>
+  unrar e -pwww.konkur.in -o+ -y <span class="s2">&quot;</span><span class="nv">$RAR</span><span class="s2">&quot;</span>
+<span class="k">done</span>
 
-<ul>
-  <li>ساختن یک صفحه‌نمایش مجازی</li>
-  <li>تنظیم <code>DISPLAY</code></li>
-  <li>رفتن به پوشه‌ی خانگی(استیم باید توی <code>PWD=$HOME</code> اجرا بشه)</li>
-  <li>اجرای خود استیم و لاگ کردن خروجیش</li>
-</ul>
+<span class="c"># 3rd: Clear area</span>
+rm *.rar *.URL *.png
 
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">Xvfb :5 -screen <span class="m">0</span> 1280x720x24 +extension GLX +render -noreset &gt; /dev/null 2&gt;<span class="p">&amp;</span><span class="m">1</span> <span class="p">&amp;</span>
-<span class="nb">export </span><span class="nv">DISPLAY</span><span class="o">=</span><span class="s2">&quot;:5&quot;</span>
-<span class="nb">cd</span>
-/usr/games/steam -applaunch &lt;APPID&gt; &gt;&gt; steam.log 2&gt;<span class="p">&amp;</span>1</code></pre></div>
+<span class="c"># 4th: Clear filenames</span>
+rename s/<span class="s1">&#39;-\[www.konkur.in\]&#39;</span>//g *
+rename s/-/<span class="se">\ </span>/g *
+rename s/<span class="se">\ </span><span class="nv">$EXAM</span>//g *
 
-<p><strong>نکته:</strong> یادتون نره که <code>&lt;APPID&gt;</code> رو با ID برنامه‌تون عوض کنین. مثلا همون <code>570</code> که مربوط می‌شه به Dota2.</p>
+<span class="c"># finally archive them in zip format</span>
+<span class="k">for</span> ITEM in Khordad Shahrivar Dey
+<span class="k">do</span>
+  mkdir <span class="nv">$ITEM</span>
+  mv <span class="si">${</span><span class="nv">ITEM</span><span class="si">}</span>*.pdf <span class="nv">$ITEM</span>
+<span class="k">done</span>
 
-<p>حالا هربار که اسکریپت رو اجرا کنین، دانلود برنامه شروع می‌شه. عملیات ادامه‌ی دانلود و توقفش و غیره به عهده‌ی خود استیمه پس خیالتون از ادامه دادن یا سالم بودن فایل‌های دانلود شده راحت باشه. در نهایت اسکریپت رو به cron عزیز بسپارید تا از بازیتون لذت ببرید.</p>
+zip -r <span class="si">${</span><span class="nv">EXAM</span><span class="si">}</span>.zip Khordad Shahrivar Dey
+
+rm -rf Khordad Shahrivar Dey</code></pre></div>
+
 
   </article>
   <span class='post-category'>
 در دسته‌های
     
       
-      steam
+      final
     
       
           ،
       
-      download
+      exam
     
       
           ،
       
-      linux
+      bash
+    
+      
+          ،
+      
+      script
     
   </span>
   <div class='post-pager'>
     
     <span>
       قبلی: 
-        <a href='/weblog/2015/05/local-repo'>تبدیل ایمیج به مخزن محلی</a></span><br/>
+        <a href='/weblog/2015/05/steam-download'>دانلود شبانه برای Steam</a></span><br/>
     
-    
-      <span>
-      بعدی:
-        <a href='/weblog/2015/05/final-exam-archive'>آرشیو کردن نمونه سوالات امتحان نهایی</a></span>
     
     
   </div>
@@ -138,7 +161,7 @@
     /* * * CONFIGURATION VARIABLES * * */
     var disqus_shortname = 'geekylife';
     var disqus_config = function () { this.language = "fa"; };
-    var disqus_title = "دانلود شبانه برای Steam";
+    var disqus_title = "آرشیو کردن نمونه سوالات امتحان نهایی";
     
     /* * * DON'T EDIT BELOW THIS LINE * * */
     (function() {
