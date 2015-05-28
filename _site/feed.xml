@@ -6,8 +6,8 @@
 </description>
     <link>http://mamins1376.github.io//weblog/</link>
     <atom:link href="http://mamins1376.github.io//weblog/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 28 May 2015 15:59:26 +0430</pubDate>
-    <lastBuildDate>Thu, 28 May 2015 15:59:26 +0430</lastBuildDate>
+    <pubDate>Thu, 28 May 2015 16:01:25 +0430</pubDate>
+    <lastBuildDate>Thu, 28 May 2015 16:01:25 +0430</lastBuildDate>
     <generator>Jekyll v2.2.0</generator>
     <language>fa-IR</language>
     
@@ -15,7 +15,7 @@
         <title>آرشیو کردن نمونه سوالات امتحان نهایی</title>
         <description>
           
-            &lt;p&gt;الآن فصل امتحاناته و منم خیلی کمتر اینجا می‌نویسم. اخیرا خواستم سوالات امتحانات نهایی رو کامل و یکجا داشته باشم؛ تمیز و مرتب. سایت &lt;a href=&quot;http://konkur.in/&quot;&gt;کنکور&lt;/a&gt; سوالات رو برای دانلود گذاشته ولی چند تا مشکل دارن:&lt;/p&gt; &lt;p&gt;۱- فایل‌های اضافه داره(لینک و تصویر تبلیغاتی و …) ۲- همه‌ی فایل‌ها با فرمت rar هستن که پسورد هم دارن ۳- خیلی زیادن!&lt;/p&gt; &lt;p&gt;از اونجا که من هم وقت استخراج تک‌تک اونها رو ندارم هم حالشو، یه اسکریپت نوشتم...
+            &lt;p&gt;الآن فصل امتحاناته و منم خیلی کمتر اینجا می‌نویسم. اخیرا خواستم سوالات امتحانات نهایی رو کامل و یکجا داشته باشم؛ تمیز و مرتب. سایت &lt;a href=&quot;http://konkur.in/&quot;&gt;کنکور&lt;/a&gt; سوالات رو برای دانلود گذاشته ولی چند تا مشکل دارن:&lt;/p&gt; &lt;ul&gt; &lt;li&gt;فایل‌های اضافه داره(لینک و تصویر تبلیغاتی و …)&lt;/li&gt; &lt;li&gt;همه‌ی فایل‌ها با فرمت rar هستن که پسورد هم دارن&lt;/li&gt; &lt;li&gt;خیلی زیادن!&lt;/li&gt; &lt;/ul&gt; &lt;p&gt;از اونجا که من هم وقت استخراج تک‌تک اونها رو ندارم هم حالشو، یه اسکریپت نوشتم که...
           ...
         </description>
         <pubDate>Thu, 28 May 2015 20:20:08 +0430</pubDate>
@@ -34,19 +34,23 @@
         <content>
         &lt;p&gt;الآن فصل امتحاناته و منم خیلی کمتر اینجا می‌نویسم. اخیرا خواستم سوالات امتحانات نهایی رو کامل و یکجا داشته باشم؛ تمیز و مرتب. سایت &lt;a href=&quot;http://konkur.in/&quot;&gt;کنکور&lt;/a&gt; سوالات رو برای دانلود گذاشته ولی چند تا مشکل دارن:&lt;/p&gt;
 
-&lt;p&gt;۱- فایل‌های اضافه داره(لینک و تصویر تبلیغاتی و …)
-۲- همه‌ی فایل‌ها با فرمت rar هستن که پسورد هم دارن
-۳- خیلی زیادن!&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;فایل‌های اضافه داره(لینک و تصویر تبلیغاتی و …)&lt;/li&gt;
+  &lt;li&gt;همه‌ی فایل‌ها با فرمت rar هستن که پسورد هم دارن&lt;/li&gt;
+  &lt;li&gt;خیلی زیادن!&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;p&gt;از اونجا که من هم وقت استخراج تک‌تک اونها رو ندارم هم حالشو، یه اسکریپت نوشتم که این‌کارها رو برام انجام بده. خوش‌بختانه فایل‌های روی سرور اسماشون قاعده داره و منم از همین استفاده می‌کنم تا با داشتن قالب کلی هر لینک، کل فایل‌ها رو در اختیار داشته باشم.&lt;/p&gt;
 
 &lt;p&gt;این اسکریپت بش، کارهای زیر رو برامون انجام میده:&lt;/p&gt;
 
-&lt;p&gt;۱- دانلود فایل‌ها
-۲- استخراجشون. متأسفانه نتونستم با unrar-free کنار بیام و unrar-nonfree رو به کار بردم
-۳- حذف فایل‌های اضافه
-۴- تغییر نام فایل‌ها. تمیز بودن کلا برای من خیلی اهمیت داره ؛)
-۵- و در نهایت آرشیو کردنشون توی یه فایل zip.&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;دانلود فایل‌ها&lt;/li&gt;
+  &lt;li&gt;استخراجشون. متأسفانه نتونستم با unrar-free کنار بیام و unrar-nonfree رو به کار بردم&lt;/li&gt;
+  &lt;li&gt;حذف فایل‌های اضافه&lt;/li&gt;
+  &lt;li&gt;تغییر نام فایل‌ها. تمیز بودن کلا برای من خیلی اهمیت داره ؛)&lt;/li&gt;
+  &lt;li&gt;و در نهایت آرشیو کردنشون توی یه فایل zip.&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;c&quot;&gt;#!/bin/bash&lt;/span&gt;
 &lt;span class=&quot;nv&quot;&gt;EXAM&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$1&lt;/span&gt;
