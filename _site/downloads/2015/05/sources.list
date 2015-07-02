@@ -1,8 +1,0 @@
-deb http://ftp.ir.debian.org/debian/ jessie contrib main non-free
-deb-src http://ftp.ir.debian.org/debian/ jessie contrib main non-free
-
-deb http://ftp.ir.debian.org/debian/ jessie-backports contrib main non-free
-deb-src http://ftp.ir.debian.org/debian/ jessie-backports contrib main non-free
-
-deb http://ftp.ir.debian.org/debian/ jessie-updates contrib main non-free
-deb-src http://ftp.ir.debian.org/debian/ jessie-updates contrib main non-free

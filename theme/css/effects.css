@@ -1,0 +1,3 @@
+.page-content a, .content a { transition: 0.3s; }
+.page-content a:visited, .content a:visited { color: #0277bd; }
+.page-content a:hover, .content a:hover { color: #bd7702; }

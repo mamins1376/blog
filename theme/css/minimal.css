@@ -1,0 +1,67 @@
+.warpper {
+	max-width: 100%;
+	padding: 0 20px;
+}
+.button {
+	padding: 1px;
+}
+.site-navigation {
+	position: absolute;
+  top: 9px;
+  left: 30px;
+  background-color: #FFF;
+  border: 0px solid #3E2723;
+  text-align: right;
+  border-radius: 3px;
+}
+.site-navigation {
+  position: absolute;
+  top: 9px;
+  left: 30px;
+  background-color: #FFFFFF;
+  border: 0 solid #3e2723;
+  text-align: right;
+  border-radius: 3px;
+}
+.site-navigation .menu-icon {
+  display: block;
+  float: left;
+  width: 36px;
+  height: 26px;
+  line-height: 0;
+  padding-top: 10px;
+  text-align: center;
+}
+.site-navigation .menu-icon > svg {
+  width: 18px;
+  height: 15px;
+}
+.site-navigation .menu-icon > svg path {
+  fill: #009688;
+}
+.site-navigation .trigger {
+  clear: both;
+  display: none;
+  box-shadow: 0 5px 8px -6px black;
+}
+.site-navigation:hover .trigger {
+  display: block;
+  padding-bottom: 5px;
+}
+.site-navigation .page-link {
+  display: block;
+  padding: 5px 10px;
+  color: #009688;
+  transition: 0s;
+}
+
+.footer-col-1, .footer-col-2 {
+  width: calc(50% - 15px);
+}
+.footer-col-3 {
+  width: calc(100% - 15px);
+}
+.footer-col {
+  float: none;
+  width: calc(100% - 15px);
+}

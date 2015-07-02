@@ -1,0 +1,18 @@
+@font-face {
+  font-family: "Droid Arabic Naskh";
+  font-style: normal;
+  font-weight: 400;
+  src: local("Droid Arabic Naskh"), url("/blog/theme/fonts/DroidNaskh-Regular.woff") format("woff");
+}
+@font-face {
+  font-family: "Iranian Sans";
+  src: url("/blog/theme/fonts/irsans.ttf");
+}
+@font-face {
+  font-family: "Ubuntu";
+  src: local("Ubuntu"), url("/blog/theme/fonts/Ubuntu-R.ttf");
+}
+@font-face {
+  font-family: "Ubuntu Mono";
+  src: local("Ubuntu Mono"), url("/blog/theme/fonts/UbuntuMono-R.ttf");
+}
