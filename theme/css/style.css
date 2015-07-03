@@ -63,6 +63,10 @@ img {
 	min-height: 56px;
 	position: relative;
 }
+.site-logo {
+	float: right;
+	max-height: 56px;
+}
 .site-title {
 	margin: 0;
 	padding: 0;
