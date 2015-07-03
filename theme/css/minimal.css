@@ -8,6 +8,9 @@
 .site-header {
 	position: relative;
 }
+.site-logo {
+	display: none;
+}
 .site-navigation {
 	position: absolute;
   top: 9px;
