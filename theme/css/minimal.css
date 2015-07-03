@@ -57,7 +57,9 @@
   color: #009688;
   transition: 0s;
 }
-
+.spacer {
+	display: none;
+}
 .footer-col-1, .footer-col-2 {
   width: calc(50% - 15px);
 }

@@ -91,6 +91,9 @@ img {
 .site-navigation .page-link:not(:first-child) {
   margin-left: 20px;
 }
+.spacer {
+	height: 56px;
+}
 .content {
 	padding: 0;
 	margin: 0.05em auto;
