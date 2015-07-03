@@ -5,6 +5,9 @@
 .button {
 	padding: 1px;
 }
+.site-header {
+	position: relative;
+}
 .site-navigation {
 	position: absolute;
   top: 9px;
