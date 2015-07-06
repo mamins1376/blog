@@ -43,7 +43,7 @@
   height: 15px;
 }
 .site-navigation .menu-icon > svg path {
-  fill: #2AA198;
+  fill: #009688;
 }
 .site-navigation .trigger {
   clear: both;
@@ -57,18 +57,11 @@
 .site-navigation .page-link {
   display: block;
   padding: 5px 10px;
-  color: #2AA198;
+  color: #009688;
   transition: 0s;
-  text-shadow: 0 0 8px;
 }
 .spacer {
 	display: none;
-}
-.content, .page-content {
-	font-size: 14px;
-}
-.post-info {
-	font-size: 1.2em;
 }
 .footer-col-1, .footer-col-2 {
   width: calc(50% - 15px);
