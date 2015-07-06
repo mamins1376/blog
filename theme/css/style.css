@@ -176,6 +176,7 @@ img {
 .contact-list, .social-media-list {
   list-style: none;
   margin-left: 0;
+  padding-right: 0;
 }
 .contact-list a {
   transition: padding 0.6s;
