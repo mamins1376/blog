@@ -13,7 +13,7 @@ a, a:visited {
 	text-decoration: none;
 	color: #268BD2;
 }
-h1, h2, h3, h4, h5, h6 {	
+h1, h2, h3, h4, h5, h6 {
 	font-weight: normal;
 	margin: 0.6em 0;
 }
@@ -129,6 +129,16 @@ img {
 .post-content {
 	padding: 0;
 	display: block;
+}
+.tags-list, .categories-list {
+	list-style-type: none;
+	padding: 0;
+	margin: 0;
+	margin-right: 1.5em;
+}
+.tags-list li, .categories-list li {
+	display: inline-block;
+	width: 30%;
 }
 
 /* Posts' content styling  */
