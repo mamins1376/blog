@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="fa">
 <head>
-    <title>تم Super Flat Solarized برای گنوم شل[آپدیت] - زندگی خوره‌ای</title>
+    <title>ضبط تلویزیون دیجیتال با mplayer - زندگی خوره‌ای</title>
   <meta charset="utf-8" />
   <link rel="icon" type="image/png" href="http://mamins1376.github.io/weblog/favicon.png">
   
@@ -13,9 +13,11 @@
       <link href="http://mamins1376.github.io/weblog/theme/css/minimal.css" media="screen and (max-width: 800px)" rel="stylesheet" />
 
     <meta name="tags" content="linux" />
-    <meta name="tags" content="gnome" />
-    <meta name="tags" content="theme" />
-    <meta name="tags" content="gnome-shell" />
+    <meta name="tags" content="mplayer" />
+    <meta name="tags" content="dvb" />
+    <meta name="tags" content="dvb-t" />
+    <meta name="tags" content="تلویزیون دیجیتال" />
+    <meta name="tags" content="ضبط" />
 </head>
 <body>
 <header class="site-header">
@@ -40,12 +42,12 @@
 <section class="page-content">
   <header class="post-header">
     <h2 class="post-title">
-      <a href="http://mamins1376.github.io/weblog/2015/07/tm-super-flat-solarized-bry-gnwm-shl/" rel="bookmark"
-         title="تم Super Flat Solarized برای گنوم شل[آپدیت]">تم Super Flat Solarized برای گنوم شل[آپدیت]</a></h2>
+      <a href="http://mamins1376.github.io/weblog/2015/07/dbt-tlwyzywn-dyjytl-b-mplayer/" rel="bookmark"
+         title="ضبط تلویزیون دیجیتال با mplayer">ضبط تلویزیون دیجیتال با mplayer</a></h2>
  
   </header>
   <div class="post-info">
-      <abbr class="publish-date" title="تاریخ انتشار">انتشار: Sun 12 July 2015</abbr>
+      <abbr class="publish-date" title="تاریخ انتشار">انتشار: Mon 27 July 2015</abbr>
     <address class="vcard author">از
         <a class="url fn" href="http://mamins1376.github.io/weblog/author/mhmdmyn-smty.html">محمدامین صامتی</a>
     </address>
@@ -53,14 +55,48 @@
     <a title='لینوکس' href='http://mamins1376.github.io/weblog/category/lynwkhs.html'>لینوکس</a>
   </div>
   <div class="post-content">
-    <p>و پس از چندین روز کار متوالی و ادیت استایل‌شیت و اصلاحات ریز <a href="http://mamins1376.github.io/Super-Flat-Solarized/">تم Super Flat Solarized برای پوسته‌ی گنوم</a> و وبسایتش به مرحله‌ی معقولی رسیدن تا آماده‌ی ارائه و استفاده‌ی کاربران گنوم باشن. امیدوارم هرکسی این پست رو می‌خونه و گنوم نصب داره این تم رو حتی شده فقط برای یک دقیقه امتحان کنه و نظرشو بگه. خوش‌حال می‌شم از این که هر انتقاد و پیشنهاد و Pull Request و ... در کل هرچیزی که فکر می‌کنین باعث بهبود این تم می‌شه رو به اطلاعم برسونین ؛)</p>
-<p>آپدیت: <a href="http://mamins1376.github.io/Super-Flat-Solarized/screenshots.html">قسمت اسکرین‌شات‌ها</a> به وبسایت اصلی اضافه شد.</p>
+    <p>پخش شبکه‌های تلویزیون دیجیتال به آسونی با VLC Media Player انجام می‌شه و به خوبی از پسش برمیاد ولی ممکنه برای ضبط اون به مشکل بخورید یا حداقل کمی اذیت بشید. همچنین با مشکلات کرشی که توی سرور X وجود داره متوقف شدن عملیات ضبط به معنی از دست رفتن برنامه‌ی مورد نظرتونه. برای همین من سراغ mplayer و خط فرمان رفتم. <a href="https://en.wikipedia.org/wiki/Mplayer">mplayer</a> یکی از بهترین پخش کننده‌های آزاده که بی‌شک می‌شه لقب قدرتمندترین پخش کننده رو بهش نسبت داد و البته کارهای بسیار بیش‌تری از یک «پخش‌کننده»ی ساده انجام می‌ده.</p>
+<h2>اسکن شبکه‌ها</h2>
+<p>برای این کار از برنامه‌ی <a href="http://www.linuxtv.org/wiki/index.php/W_scan">w_scan</a> استفاده می‌کنیم. البته فرض بر اینه که قبلش راه‌اندازهای DVBتون رو نصب کردید.</p>
+<div class="highlight"><pre><span class="nv">$ </span>sudo apt-get install w-scan mplayer
+</pre></div>
+
+
+<p>و بعدش، شبکه ها رو اسکن می‌کنیم و اونها رو توی فایل <code>etc/mplayer/channels.conf/</code> می‌ریزیم.</p>
+<div class="highlight"><pre><span class="nv">$ </span>w_scan -ft -c IR -M &gt; channels.conf
+<span class="nv">$ </span>sudo mv channels.conf /etc/mplayer/
+</pre></div>
+
+
+<p><strong>توجه</strong>: اسکن شبکه‌ها برای من حدود ۴ دقیقه طول کشید.</p>
+<h2>لیست شبکه‌ها</h2>
+<p>با دستور زیر می‌تونید لیست شبکه‌های موجود رو ببینید:</p>
+<div class="highlight"><pre><span class="nv">$ </span>cut -d<span class="se">\:</span> -f1 /etc/mplayer/channels.conf
+</pre></div>
+
+
+<h2>ضبط</h2>
+<p>شبکه‌ی مورد نظرتون رو از لیست بالا انتخاب کنید، برای مثال من شبکه‌ی نمایش (<code>IRIB NAMAYESH</code>) رو انتخاب می‌کنم. چون توی اسم این شبکه فاصله وجود داره، ما مستقیما نمی‌تونیم اون رو بعنوان <em>یک آرگومان</em> به برنامه پاس کنیم. پس یا باید قبل هر فاصله یک اسکیپ (<code>\</code>) قرار بدیم یا کل عبارت رو داخل یک جفت <code>'</code> قرار بدیم. من راه دوم رو انتخاب می‌کنم:</p>
+<div class="highlight"><pre><span class="nv">$ </span>mplayer -dumpstream <span class="s1">&#39;dvb://IRIB NAMAYESH&#39;</span> -dumpfile Stream.ts
+</pre></div>
+
+
+<p>حالا mplayer شروع می‌کنه به ذخیره‌ی اطلاعات دریافت شده از دانگل DVB در فایلی با فرمت TS. این فرمت شامل داده‌های کاملا خام می‌شه و ذاتا حجم خیلی زیادی رو به خودش اختصاص می‌ده.</p>
+<h2>پخش Stream.ts</h2>
+<p>از اون‌جایی که TS حاوی داده‌های خام و غیر فشرده‌ست، باید به یک فرمت پخش خوب تبدیلش کنیم تا با پلیرهای عادی روی هر پلتفرمی قابل پخش بشه؛ من mkv رو که یک فرمت آزاده انتخاب و برای تبدیل از <code>avconv</code> استفاده می‌کنم. لازم به ذکره که پروژه‌ی <code>ffmpeg</code>مدت زیادیه که متوقف شده و به avconv ملحق شده. avconv رو می‌تونید توی بسته‌ی <a href="apt://libav-tools">libav-tools</a> پیدا کنین.</p>
+<div class="highlight"><pre><span class="nv">$ </span>avconv -i Stream.ts Stream.mkv
+</pre></div>
+
+
+<p>از برنامه‌های با کیفیت، مفید و فوق‌العاده جدید و ارزشمند IRIB لذت ببرید D:</p>
   </div>
   <div class='post-tags'>برچسب‌ها:
     <a class='tag-link' href='http://mamins1376.github.io/weblog/tag/linux.html' title='linux'>linux</a>
-    <a class='tag-link' href='http://mamins1376.github.io/weblog/tag/gnome.html' title='gnome'>gnome</a>
-    <a class='tag-link' href='http://mamins1376.github.io/weblog/tag/theme.html' title='theme'>theme</a>
-    <a class='tag-link' href='http://mamins1376.github.io/weblog/tag/gnome-shell.html' title='gnome-shell'>gnome-shell</a>
+    <a class='tag-link' href='http://mamins1376.github.io/weblog/tag/mplayer.html' title='mplayer'>mplayer</a>
+    <a class='tag-link' href='http://mamins1376.github.io/weblog/tag/dvb.html' title='dvb'>dvb</a>
+    <a class='tag-link' href='http://mamins1376.github.io/weblog/tag/dvb-t.html' title='dvb-t'>dvb-t</a>
+    <a class='tag-link' href='http://mamins1376.github.io/weblog/tag/tlwyzywn-dyjytl.html' title='تلویزیون دیجیتال'>تلویزیون دیجیتال</a>
+    <a class='tag-link' href='http://mamins1376.github.io/weblog/tag/dbt.html' title='ضبط'>ضبط</a>
   </div>
 </section>
 <div id="disqus_thread"></div>
@@ -68,7 +104,7 @@
     /* * * CONFIGURATION VARIABLES * * */
     var disqus_shortname = 'geekylife';
     var disqus_config = function () { this.language = "fa"; };
-    var disqus_title = "تم Super Flat Solarized برای گنوم شل[آپدیت]";
+    var disqus_title = "ضبط تلویزیون دیجیتال با mplayer";
     
     /* * * DON'T EDIT BELOW THIS LINE * * */
     (function() {

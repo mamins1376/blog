@@ -1,5 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>زندگی خوره‌ای</title><link>http://mamins1376.github.io/weblog/</link><description></description><atom:link href="http://mamins1376.github.io/weblog/feed.xml" rel="self"></atom:link><lastBuildDate>Tue, 21 Jul 2015 12:57:00 +0430</lastBuildDate><item><title>معرفی QuickLyric: اشعار همراه</title><link>http://mamins1376.github.io/weblog/2015/07/mrfy-quicklyric-shr-hmrh/</link><description>&lt;p&gt;&lt;img alt="Banner" src="https://raw.githubusercontent.com/geecko86/QuickLyric/master/banner.png" /&gt;
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>زندگی خوره‌ای</title><link>http://mamins1376.github.io/weblog/</link><description></description><atom:link href="http://mamins1376.github.io/weblog/feed.xml" rel="self"></atom:link><lastBuildDate>Mon, 27 Jul 2015 10:11:00 +0430</lastBuildDate><item><title>ضبط تلویزیون دیجیتال با mplayer</title><link>http://mamins1376.github.io/weblog/2015/07/dbt-tlwyzywn-dyjytl-b-mplayer/</link><description>&lt;p&gt;پخش شبکه‌های تلویزیون دیجیتال به آسونی با VLC Media Player انجام می‌شه و به خوبی از پسش برمیاد ولی ممکنه برای ضبط اون به مشکل بخورید یا حداقل کمی اذیت بشید. همچنین با مشکلات کرشی که توی سرور X وجود داره متوقف شدن عملیات ضبط به معنی از دست رفتن برنامه‌ی مورد نظرتونه. برای همین من سراغ mplayer و خط فرمان رفتم. &lt;a href="https://en.wikipedia.org/wiki/Mplayer"&gt;mplayer&lt;/a&gt; یکی از بهترین پخش کننده‌های آزاده که بی‌شک می‌شه لقب قدرتمندترین پخش کننده رو بهش نسبت داد و البته کارهای بسیار بیش‌تری از یک «پخش‌کننده»ی ساده انجام می‌ده.&lt;/p&gt;
+&lt;h2&gt;اسکن شبکه‌ها&lt;/h2&gt;
+&lt;p&gt;برای این کار از برنامه‌ی &lt;a href="http://www.linuxtv.org/wiki/index.php/W_scan"&gt;w_scan&lt;/a&gt; استفاده می‌کنیم. البته فرض بر اینه که قبلش راه‌اندازهای DVBتون رو نصب کردید.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;sudo apt-get install w-scan mplayer
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;و بعدش، شبکه ها رو اسکن می‌کنیم و اونها رو توی فایل &lt;code&gt;etc/mplayer/channels.conf/&lt;/code&gt; می‌ریزیم.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;w_scan -ft -c IR -M &amp;gt; channels.conf
+&lt;span class="nv"&gt;$ &lt;/span&gt;sudo mv channels.conf /etc/mplayer/
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;strong&gt;توجه&lt;/strong&gt;: اسکن شبکه‌ها برای من حدود ۴ دقیقه طول کشید.&lt;/p&gt;
+&lt;h2&gt;لیست شبکه‌ها&lt;/h2&gt;
+&lt;p&gt;با دستور زیر می‌تونید لیست شبکه‌های موجود رو ببینید:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;cut -d&lt;span class="se"&gt;\:&lt;/span&gt; -f1 /etc/mplayer/channels.conf
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h2&gt;ضبط&lt;/h2&gt;
+&lt;p&gt;شبکه‌ی مورد نظرتون رو از لیست بالا انتخاب کنید، برای مثال من شبکه‌ی نمایش (&lt;code&gt;IRIB NAMAYESH&lt;/code&gt;) رو انتخاب می‌کنم. چون توی اسم این شبکه فاصله وجود داره، ما مستقیما نمی‌تونیم اون رو بعنوان &lt;em&gt;یک آرگومان&lt;/em&gt; به برنامه پاس کنیم. پس یا باید قبل هر فاصله یک اسکیپ (&lt;code&gt;\&lt;/code&gt;) قرار بدیم یا کل عبارت رو داخل یک جفت &lt;code&gt;'&lt;/code&gt; قرار بدیم. من راه دوم رو انتخاب می‌کنم:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;mplayer -dumpstream &lt;span class="s1"&gt;&amp;#39;dvb://IRIB NAMAYESH&amp;#39;&lt;/span&gt; -dumpfile Stream.ts
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;حالا mplayer شروع می‌کنه به ذخیره‌ی اطلاعات دریافت شده از دانگل DVB در فایلی با فرمت TS. این فرمت شامل داده‌های کاملا خام می‌شه و ذاتا حجم خیلی زیادی رو به خودش اختصاص می‌ده.&lt;/p&gt;
+&lt;h2&gt;پخش Stream.ts&lt;/h2&gt;
+&lt;p&gt;از اون‌جایی که TS حاوی داده‌های خام و غیر فشرده‌ست، باید به یک فرمت پخش خوب تبدیلش کنیم تا با پلیرهای عادی روی هر پلتفرمی قابل پخش بشه؛ من mkv رو که یک فرمت آزاده انتخاب و برای تبدیل از &lt;code&gt;avconv&lt;/code&gt; استفاده می‌کنم. لازم به ذکره که پروژه‌ی &lt;code&gt;ffmpeg&lt;/code&gt;مدت زیادیه که متوقف شده و به avconv ملحق شده. avconv رو می‌تونید توی بسته‌ی &lt;a href="apt://libav-tools"&gt;libav-tools&lt;/a&gt; پیدا کنین.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;avconv -i Stream.ts Stream.mkv
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;از برنامه‌های با کیفیت، مفید و فوق‌العاده جدید و ارزشمند IRIB لذت ببرید D:&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">محمدامین صامتی</dc:creator><pubDate>Mon, 27 Jul 2015 10:11:00 +0430</pubDate><guid>tag:mamins1376.github.io,2015-07-27:weblog/2015/07/dbt-tlwyzywn-dyjytl-b-mplayer/</guid><category>linux</category><category>mplayer</category><category>dvb</category><category>dvb-t</category><category>تلویزیون دیجیتال</category><category>ضبط</category></item><item><title>معرفی QuickLyric: اشعار همراه</title><link>http://mamins1376.github.io/weblog/2015/07/mrfy-quicklyric-shr-hmrh/</link><description>&lt;p&gt;&lt;img alt="Banner" src="https://raw.githubusercontent.com/geecko86/QuickLyric/master/banner.png" /&gt;
 برنامه‌هایی که براتون اشعار یه آهنگ رو دریافت می‌کنن توی اندروید بسیار اند و بی شک QuickLyric یکی از بهترین‌هاست؛ چون:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;متن‌بازه&lt;/li&gt;
@@ -11,8 +44,8 @@
 &lt;li&gt;در ضمن، &lt;a href="https://github.com/geecko86/QuickLyric/wiki/Expanding-the-catalog"&gt;می‌شه ارائه‌دهنده‌های بیش‌تری هم بهش اضافه کرد&lt;/a&gt;  مثلا &lt;a href="https://www.radiojavan.com/"&gt;رادیوجوان&lt;/a&gt;.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;&lt;a href="https://fossdroid.com/a/quicklyric-2.html"&gt;صفحه‌ی برنامه روی Fossdroid&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href="https://github.com/geecko86/QuickLyric"&gt;سورس برنامه روی گیت‌هاب&lt;/a&gt; به همراه اسکرین‌شات‌ها&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">محمدامین صامتی</dc:creator><pubDate>Tue, 21 Jul 2015 12:57:00 +0430</pubDate><guid>tag:mamins1376.github.io,2015-07-21:weblog/2015/07/mrfy-quicklyric-shr-hmrh/</guid><category>اندروید</category><category>موسیقی</category><category>اشعار</category></item><item><title>تم Super Flat Solarized برای گنوم شل[آپدیت]</title><link>http://mamins1376.github.io/weblog/2015/07/tm-super-flat-solarized-bry-gnwm-shl/</link><description>&lt;p&gt;و پس از چندین روز کار متوالی و ادیت استایل‌شیت و اصلاحات ریز تم Super Flat Solarized برای پوسته‌ی گنوم و &lt;a href="http://mamins1376.github.io/Super-Flat-Solarized/"&gt;وبسایتش&lt;/a&gt; به مرحله‌ی معقولی رسیدن تا آماده‌ی ارائه و استفاده‌ی کاربران گنوم باشن. امیدوارم هرکسی این پست رو می‌خونه و گنوم نصب داره این تم رو حتی شده فقط برای یک دقیقه امتحان کنه و نظرشو بگه. خوش‌حال می‌شم از این که هر انتقاد و پیشنهاد و Pull Request و ... در کل هرچیزی که فکر می‌کنین باعث بهبود این تم می‌شه رو به اطلاعم برسونین ؛)&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;آپدیت&lt;/strong&gt;: &lt;a href="http://mamins1376.github.io/Super-Flat-Solarized/screenshots.html"&gt;قسمت اسکرین‌شات‌ها&lt;/a&gt; به وبسایت اصلی اضافه شد.&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">محمدامین صامتی</dc:creator><pubDate>Sun, 12 Jul 2015 17:02:00 +0430</pubDate><guid>tag:mamins1376.github.io,2015-07-12:weblog/2015/07/tm-super-flat-solarized-bry-gnwm-shl/</guid><category>linux</category><category>gnome</category><category>theme</category><category>gnome-shell</category></item><item><title>خداحافظ جکیل، سلام پلیکان!</title><link>http://mamins1376.github.io/weblog/2015/07/khdhfz-jkhyl-slm-plykhn/</link><description>&lt;p&gt;متنی که الآن در حال خوندنش هستید، حاصل پردازش پلیکانه. &lt;a href="http://blog.getpelican.com/"&gt;پلیکان&lt;/a&gt; یک &lt;a href="https://www.staticgen.com/"&gt;Static Site Generator&lt;/a&gt; محسوب می‌شه که با پایتون نوشته شده و برای Template Engine از &lt;a href="http://jinja.pocoo.org/"&gt;Jinja2&lt;/a&gt; استفاده می‌کنه. وبلاگ قبلی حاصل &lt;a href="http://jekyllrb.com/"&gt;Jekyll&lt;/a&gt; بود که تحت زبان روبی توسعه داده می‌شه و خیلی هم طرفدار داره. بعضی از تفاوت‌های این دو سیستم این‌ها هستن:&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://github.com/geecko86/QuickLyric"&gt;سورس برنامه روی گیت‌هاب&lt;/a&gt; به همراه اسکرین‌شات‌ها&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">محمدامین صامتی</dc:creator><pubDate>Tue, 21 Jul 2015 12:57:00 +0430</pubDate><guid>tag:mamins1376.github.io,2015-07-21:weblog/2015/07/mrfy-quicklyric-shr-hmrh/</guid><category>اندروید</category><category>موسیقی</category><category>اشعار</category></item><item><title>تم Super Flat Solarized برای گنوم شل[آپدیت]</title><link>http://mamins1376.github.io/weblog/2015/07/tm-super-flat-solarized-bry-gnwm-shl/</link><description>&lt;p&gt;و پس از چندین روز کار متوالی و ادیت استایل‌شیت و اصلاحات ریز &lt;a href="http://mamins1376.github.io/Super-Flat-Solarized/"&gt;تم Super Flat Solarized برای پوسته‌ی گنوم&lt;/a&gt; و وبسایتش به مرحله‌ی معقولی رسیدن تا آماده‌ی ارائه و استفاده‌ی کاربران گنوم باشن. امیدوارم هرکسی این پست رو می‌خونه و گنوم نصب داره این تم رو حتی شده فقط برای یک دقیقه امتحان کنه و نظرشو بگه. خوش‌حال می‌شم از این که هر انتقاد و پیشنهاد و Pull Request و ... در کل هرچیزی که فکر می‌کنین باعث بهبود این تم می‌شه رو به اطلاعم برسونین ؛)&lt;/p&gt;
+&lt;p&gt;آپدیت: &lt;a href="http://mamins1376.github.io/Super-Flat-Solarized/screenshots.html"&gt;قسمت اسکرین‌شات‌ها&lt;/a&gt; به وبسایت اصلی اضافه شد.&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">محمدامین صامتی</dc:creator><pubDate>Sun, 12 Jul 2015 08:50:00 +0430</pubDate><guid>tag:mamins1376.github.io,2015-07-12:weblog/2015/07/tm-super-flat-solarized-bry-gnwm-shl/</guid><category>linux</category><category>gnome</category><category>theme</category><category>gnome-shell</category></item><item><title>خداحافظ جکیل، سلام پلیکان!</title><link>http://mamins1376.github.io/weblog/2015/07/khdhfz-jkhyl-slm-plykhn/</link><description>&lt;p&gt;متنی که الآن در حال خوندنش هستید، حاصل پردازش پلیکانه. &lt;a href="http://blog.getpelican.com/"&gt;پلیکان&lt;/a&gt; یک &lt;a href="https://www.staticgen.com/"&gt;Static Site Generator&lt;/a&gt; محسوب می‌شه که با پایتون نوشته شده و برای Template Engine از &lt;a href="http://jinja.pocoo.org/"&gt;Jinja2&lt;/a&gt; استفاده می‌کنه. وبلاگ قبلی حاصل &lt;a href="http://jekyllrb.com/"&gt;Jekyll&lt;/a&gt; بود که تحت زبان روبی توسعه داده می‌شه و خیلی هم طرفدار داره. بعضی از تفاوت‌های این دو سیستم این‌ها هستن:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;سینتکس هایلایتینگ&lt;/strong&gt;: هر دو از این کار پشتیبانی می‌کنن ولی در جکیل تحت مارک‌داون باید از سیستم اختصاصی خود جکیل استفاده کنین ولی در پلیکان برای این کار از استاندارد خود مارک‌داون استفاده می‌شه&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;تم‌ها&lt;/strong&gt;: ساختار تم‌ها در این دو برنامه کاملا متفاوت هستن. من برای این که بتونم شکل وبلاگ رو حفظ کنم مجبور شدم از اول تمش رو طراحی کنم&lt;/li&gt;
@@ -305,34 +338,4 @@ Setting up guake &lt;span class="o"&gt;(&lt;/span&gt;0.4.4-1ubuntu1&lt;span clas
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;موفق باشین.&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">محمدامین صامتی</dc:creator><pubDate>Tue, 05 May 2015 14:04:00 +0430</pubDate><guid>tag:mamins1376.github.io,2015-05-05:weblog/2015/05/ary2-w-pt-srty-dwchndn/</guid><category>aria2</category><category>apt-get</category><category>دبیان</category><category>آریا۲</category></item><item><title>cron و rtcwake: خواب راحت</title><link>http://mamins1376.github.io/weblog/2015/05/cron-w-rtcwake-khwb-rht/</link><description>&lt;p&gt;دانلود شبانه یکی از باحال‌ترین کارهاست ولی دردسرهایی داره: باید سیستم رو روشن بذارین تا سر ساعت شروع کنه. &lt;a href="http://forum.ubuntu.ir/index.php?topic=59242.0"&gt;rtcwake&lt;/a&gt; قراره به کمک cron این مشکل رو برای همیشه برامون حل کنه تا به‌خاطر چند گیگ ناقابل از خواب‌مون نزنیم!
-&lt;!-- ادامه --&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href="http://forum.ubuntu.ir/index.php/topic,40582.0.html"&gt;راهنماهای خوبی&lt;/a&gt; برای دانلود شبانه وجود دارن پس ما از اول شروع نمی‌کنیم و فقط تنظیم سیستم رو این‌جا شرح می‌دیم.&lt;br /&gt;
-&lt;strong&gt;نکته:&lt;/strong&gt; rtcwake و cron هردو روی توزیع دبیان به‌طور پیش‌فرض نصبن. برای نصبش روی توزیع خودتون از مدیربسته استفاده کنین. این روش به نوع توزیع وابسته نیست.&lt;/p&gt;
-&lt;h4&gt;۱. کار با rtcwake&lt;/h4&gt;
-&lt;p&gt;چون کار با بسیاری از سخت‌افزارهای سیستم نیازمند دسترسی روت هست، rtcwake که از ساعت سخت‌افزاری سیستم استفاده می‌کنه طبیعتاً از این قاعده مستثنی نیست. پس باید کارهای مربوط به rtcwake رو با این سطح دسترسی انجام بدیم. قالب مورد نیاز ما برای روشن کردن سیستم سر ساعت &lt;code&gt;&amp;lt;TIME&amp;gt;&lt;/code&gt; که بر حسب زمان محلی وارد می‌شه( سوییچ &lt;code&gt;l-&lt;/code&gt; این کار رو انجام می‌ده) به این صورته:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;root@debian:~# rtcwake -l -m no -t &lt;span class="k"&gt;$(&lt;/span&gt; date +%s -d &amp;lt;TIME&amp;gt; &lt;span class="k"&gt;)&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;سوئیچ &lt;code&gt;m&lt;/code&gt; به rtcwake می‌گه بعد از این که سیستم رو تنظیم کردی، هیچ‌کاری نکن(مثل خاموش کردن، حالت خواب و ...). date خروجی‌ش رو به rtcwake می‌ده که واحدش ثانیه‌ست و فاصله‌ی زمان داده‌شده رو با مبدأ زمانی یونیکس مشخص می‌کنه. مثلا ما می‌خوایم ساعت ۱ شب سیستم روشن بشه:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;root@debian:~# rtcwake -l -m no -t &lt;span class="k"&gt;$(&lt;/span&gt; date +%s -d &lt;span class="s1"&gt;&amp;#39;tomorrow 01:00&amp;#39;&lt;/span&gt; &lt;span class="k"&gt;)&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;کلمه‌ی &lt;code&gt;tomorrow‍&lt;/code&gt; به date می‌فهمونه که منظور ما ساعت ۱‍ شبی‌‍ه که از ساعت ۲۴ گذشته باشه؛ یعنی اگر این دستور بعد از ساعت ۱۲ شب اجرا بشه روشن کردن سیستم رو به فردا شب موکول می‌کنه! پس دقت کنین که الان ساعت چنده.&lt;/p&gt;
-&lt;h4&gt;۲. افزودن به cron&lt;/h4&gt;
-&lt;p&gt;خود cron یک‌سری کلمه داره که رویداد خاصی رو مشخص می‌کنه. مثلا &lt;code&gt;reboot&lt;/code&gt; به معنی «هر وقت سیستم روشن شد»‍ه. &lt;strong&gt;چه خوب!&lt;/strong&gt; ما از این قابلیت استفاده می‌کنیم و به cron می‌گیم که هروقت سیستم روشن شد برای دانلود شبانه تنظیمش کنه. این طوری دیگه نیازی به اجرای دستی rtcwake نیست.&lt;br /&gt;
-معمولا چون cron خیلی از مسیرهای رایج رو توی متغییر محیطی &lt;code&gt;PATH&lt;/code&gt; نداره مجبوریم خودمون دستی مسیر هر کدوم از اجرایی‌ها رو وارد کنیم.&lt;br /&gt;
-&lt;strong&gt;توجه!&lt;/strong&gt; مسیرهایی که این‌جا برای date و rtcwake استفاده شدن ممکنه روی سیستم شما فرق کنن. با دستور &lt;code&gt;which&lt;/code&gt; می‌تونید از مسیر هر دستوری مطلع بشین.  &lt;/p&gt;
-&lt;p&gt;اول cron مربوط به کاربر ریشه رو باز می‌کنیم:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;root@debian:~# crontab -u root -e
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;حالا خط زیر رو واردش می‌کنیم. توجه داشته باشین که &lt;code&gt;&amp;lt;TIME&amp;gt;&lt;/code&gt; رو با زمان دلخواهتون عوض کنین:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;@reboot /usr/sbin/rtcwake -l -m no -t &lt;span class="k"&gt;$(&lt;/span&gt; /bin/date +&lt;span class="se"&gt;\%&lt;/span&gt;s -d &amp;lt;TIME&amp;gt; &lt;span class="k"&gt;)&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;و در انتها سیستم رو ریبوت کنین تا rtcwake ساعت رو تنظیم کنه.&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">محمدامین صامتی</dc:creator><pubDate>Mon, 04 May 2015 15:30:00 +0430</pubDate><guid>tag:mamins1376.github.io,2015-05-04:weblog/2015/05/cron-w-rtcwake-khwb-rht/</guid><category>cron</category><category>rtcwake</category><category>دانلود</category></item></channel></rss>
+&lt;p&gt;موفق باشین.&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">محمدامین صامتی</dc:creator><pubDate>Tue, 05 May 2015 14:04:00 +0430</pubDate><guid>tag:mamins1376.github.io,2015-05-05:weblog/2015/05/ary2-w-pt-srty-dwchndn/</guid><category>aria2</category><category>apt-get</category><category>دبیان</category><category>آریا۲</category></item></channel></rss>
