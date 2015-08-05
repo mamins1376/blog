@@ -151,6 +151,12 @@ img {
 .page-content a:hover, .content a:hover {
 	color: #D33682;
 }
+.post-content img {
+	box-shadow: 0 0 8px #2AA198;
+	border: solid 1px #2AA198;
+	max-width: calc(100% - 12px);
+	border-radius: 8px;
+}
 .highlighttable, .highlight, pre, code {
 	direction: ltr;
 }
