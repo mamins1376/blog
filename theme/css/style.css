@@ -176,6 +176,12 @@ code {
     font-family: "Ubuntu Mono";
     padding: 0px 4px;
 }
+.youtube-embed {
+	display: block;
+	margin: 1.5em auto;
+	width: 560px;
+	height: 315px;
+}
 .pagination {
   text-align: center;
   padding-bottom: 30px;
