@@ -65,7 +65,7 @@
 <span class="c"># this function converts given filename</span>
 convert_to_mkv<span class="o">()</span> <span class="o">{</span>
   <span class="nv">INPUT</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$1</span><span class="s2">&quot;</span>
-  <span class="nv">OUTPUT</span><span class="o">=</span><span class="s2">&quot;</span><span class="k">$(</span><span class="nb">echo</span> <span class="nv">$1</span> <span class="p">|</span> sed -r -e <span class="s1">&#39;s/\.\S+$/.mkv/&#39;</span><span class="k">)</span><span class="s2">&quot;</span>
+  <span class="nv">OUTPUT</span><span class="o">=</span><span class="s2">&quot;</span><span class="k">$(</span><span class="nb">echo</span> <span class="nv">$1</span> <span class="p">|</span> sed -r -e <span class="s1">&#39;s/\.\w+$/.mkv/&#39;</span><span class="k">)</span><span class="s2">&quot;</span>
   avconv -v info -i <span class="s2">&quot;</span><span class="nv">$INPUT</span><span class="s2">&quot;</span> -c:v libx264 -f matroska <span class="s2">&quot;</span><span class="nv">$OUTPUT</span><span class="s2">&quot;</span>
 <span class="o">}</span>
 
