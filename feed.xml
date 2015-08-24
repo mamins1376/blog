@@ -1,5 +1,96 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>زندگی خوره‌ای</title><link>http://mamins1376.github.io/weblog/</link><description></description><atom:link href="http://mamins1376.github.io/weblog/feed.xml" rel="self"></atom:link><lastBuildDate>Thu, 20 Aug 2015 22:27:00 +0430</lastBuildDate><item><title>مهاجرت به قالب ماتروسکا</title><link>http://mamins1376.github.io/weblog/2015/08/mhjrt-bh-qlb-mtrwskh/</link><description>&lt;p&gt;به قصد پاکسازی سیستمم، تصمیم گرفتم تا جای ممکن از قالب‌ها، نرم‌افزارها و مجوزهای آزاد استفاده کنم. در راستای این مهم، &lt;a href="https://fa.wikipedia.org/wiki/%D9%85%D8%A7%D8%AA%D8%B1%D9%88%D8%B3%DA%A9%D8%A7"&gt;ماتروسکا&lt;/a&gt; رو برای پرونده‌های تصویری انتخاب کردم. قالب خیلی جالبیه و همه‌جا هم به راحتی قابل پخشه و البته شناخته شده(با پسوند mkv). یکی از مزایایی هم که داره کم‌تر بودن حجمش نسبت به امپگ هست. اسکریپتی برای پاکسازی سیستم از قالب منحوس و شوم(!) MP4 نوشتم که تقریبا هوشمندانه عمل می‌کنه. البته به قول &lt;a href="http://jadi.net/"&gt;جادی&lt;/a&gt;، ما هر چیزی رو که براش if می‌ذاریم بهش می‌گیم هوشمند :)&lt;/p&gt;
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>زندگی خوره‌ای</title><link>http://mamins1376.github.io/weblog/</link><description></description><atom:link href="http://mamins1376.github.io/weblog/feed.xml" rel="self"></atom:link><lastBuildDate>Mon, 24 Aug 2015 00:00:00 +0430</lastBuildDate><item><title>شروع وبلاگ‌نویسی با پلیکان - قسمت صفرم</title><link>http://mamins1376.github.io/weblog/2015/08/shrw-wblgnwysy-b-plykhn-qsmt-sfrm/</link><description>&lt;p&gt;دوستی از من درخواست کردن که آموزشی برای شروع کار با سیستم بلاگینگ استاتیک پلیکان رو تهیه کنم. این قسمت صفرم این آموزش هست و ادامه خواهد داشت.&lt;/p&gt;
+&lt;h2&gt;نصب&lt;/h2&gt;
+&lt;p&gt;پلیکان هم در پایتون ۲ کار می‌کنه و هم در پایتون ۳. نسخه‌ی پایتون ۲ توسعه داده نمی‌شه و تمرکز بر روی پایتون ۳ هست. پس، اول پایتون ۳ و پیپ رو اگر ندارید، نصب کنید:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;sudo apt-get install python3 python3-pip
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;و خود پلیکان رو نصب کنید:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;sudo pip3 install pelican
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h2&gt;انتخاب قالب محتوای خام&lt;/h2&gt;
+&lt;p&gt;پلیکان برای ورودی داده‌هایی که قراره به صورت یک صفحه‌ی مجزا ساخته بشن، دو قالب کلی رو پشتیبانی می‌کنه:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;reStructuredText&lt;/li&gt;
+&lt;li&gt;Markdown&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;اگر شما تصمیم گرفتید که از قالب مارک‌داون استفاده کنید، باید markdown رو هم نصب کنید:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;sudo pip3 install markdown
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h2&gt;آماده‌سازی پوشه‌ی ریشه‌ی وبلاگ&lt;/h2&gt;
+&lt;p&gt;پوشه‌ای درست می‌کنیم. این پوشه، ریشه‌ی وبلاگ ما خواهد بود: همه‌ی مطالب، مضمون‌ها، تنظیمات، سایت تولید شده و ... این‌جا قرار خواهند داشت.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;mkdir -p MyBlog
+&lt;span class="nv"&gt;$ &lt;/span&gt;&lt;span class="nb"&gt;cd &lt;/span&gt;MyBlog
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;پلیکان، پرونده‌های اولیه‌ی مورد نیاز رو ایجاد می‌کنه:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;pelican-quickstart 
+Welcome to pelican-quickstart.
+
+This script will &lt;span class="nb"&gt;help &lt;/span&gt;you create a new Pelican-based website.
+
+Please answer the following questions so this script can generate the files needed by Pelican.
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;تک تک سؤالاتی که می‌شوند را بررسی می‌کنیم:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;Where do you want to create your new web site? [.] .
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;نشانی پوشه‌ای که قرار است پرونده‌ها در آن ایجاد شوند درخواست می‌شود. &lt;code&gt;.&lt;/code&gt;، به پوشه‌ای که هم‌اکنون آن را درست کردیم اشاره می‌کند.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;What will be the title of this web site?
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;عنوانی که برای وبلاگ استفاده خواهد شد پرسیده می‌شود. دقت کنید که وبلاگ شما با این نام شناخته خواهد شد و در سرتاسر آن به‌کار خواهد رفت.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;Who will be the author of this web site?
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;نام نویسنده(معمولا شما). در صورتی که در ابرداده‌های مطلب‌ها نام نویسنده درج نشود، از این نام استفاده می‌شود.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;What will be the default language of this web site? [en]
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;زبان پیش‌فرض وبلاگ. برای انتخاب زبان پارسی، &lt;code&gt;fa&lt;/code&gt; را وارد کنید.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;Do you want to specify a URL prefix? e.g., http://example.com   (Y/n)
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;می‌پرسد که می‌خواهید یک دامنه به این وبلاگ اختصاص دهم؟ این دامنه زمانی استفاده می‌شود که بخواهید از پیوندهای مطلق به جای نسبی استفاده کنید. توصیه می‌شود بله گفته و نشانی ریشه‌ی وبلاگ‌تان را وارد کنید. مثلا برای وبلاگ من:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;http://mamins1376.github.io/weblog
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;نکته‌ای که باید مد نظر داشته باشید، این است که پایان عبارت به &lt;code&gt;/&lt;/code&gt; ختم نشود زیرا هنگام تولید سایت، موجب می‌شود که دوتا &lt;code&gt;/&lt;/code&gt; پشت هم قرار گیرند. پلیکان در صورت نیاز خودش &lt;code&gt;/&lt;/code&gt; را قرار می‌دهد.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;Do you want to enable article pagination? (Y/n)
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;می‌خواهید صفحه‌بندی ایجاد شود؟ در صورتی که به این پرسش نه بگویید، همه‌ی پست‌ها در صفحه‌ی اول وبلاگ قرار می‌گیرند. در غیر این صورت، به ازای هر ده پست، یک صفحه‌ی جدید ایجاد می‌شود.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;How many articles per page do you want? [10]
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;بیش‌ترین تعداد مطلب‌هایی که در یک صفحه قرار خواهند داشت این‌جا مشخص می‌شود.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;What is your time zone? [Europe/Paris]
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;منطقه‌ی زمانی نویسنده که تمام زمان‌بندی‌ها بر اساس آن تعیین می‌شود. برای تهران، عبارت &lt;code&gt;Asia/Tehran&lt;/code&gt; را وارد کنید.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;Do you want to generate a Fabfile/Makefile to automate generation and publishing? (Y/n)
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Makefileها به ما کمک می‌کنند تا از نوشتن عبارت‌های طولانی پرهیز کنیم و خلاصه‌ای برای هر دستور در حالت‌های عمومی و خاص درست می‌کند.&lt;/p&gt;
+&lt;p&gt;در قسمت‌های بعدی، به ادامه‌ی این مجموعه می‌پردازم.&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">محمدامین صامتی</dc:creator><pubDate>Mon, 24 Aug 2015 00:00:00 +0430</pubDate><guid>tag:mamins1376.github.io,2015-08-24:weblog/2015/08/shrw-wblgnwysy-b-plykhn-qsmt-sfrm/</guid><category>پلیکان، وبلاگ‌نویسی، pelican</category></item><item><title>مهاجرت به قالب ماتروسکا</title><link>http://mamins1376.github.io/weblog/2015/08/mhjrt-bh-qlb-mtrwskh/</link><description>&lt;p&gt;به قصد پاکسازی سیستمم، تصمیم گرفتم تا جای ممکن از قالب‌ها، نرم‌افزارها و مجوزهای آزاد استفاده کنم. در راستای این مهم، &lt;a href="https://fa.wikipedia.org/wiki/%D9%85%D8%A7%D8%AA%D8%B1%D9%88%D8%B3%DA%A9%D8%A7"&gt;ماتروسکا&lt;/a&gt; رو برای پرونده‌های تصویری انتخاب کردم. قالب خیلی جالبیه و همه‌جا هم به راحتی قابل پخشه و البته شناخته شده(با پسوند mkv). یکی از مزایایی هم که داره کم‌تر بودن حجمش نسبت به امپگ هست. اسکریپتی برای پاکسازی سیستم از قالب منحوس و شوم(!) MP4 نوشتم که تقریبا هوشمندانه عمل می‌کنه. البته به قول &lt;a href="http://jadi.net/"&gt;جادی&lt;/a&gt;، ما هر چیزی رو که براش if می‌ذاریم بهش می‌گیم هوشمند :)&lt;/p&gt;
 &lt;p&gt;نحوه‌ی کار به این صورته که &lt;code&gt;find&lt;/code&gt;، پرونده‌هایی رو که پسوند MP4 دارند رو داخل پوشه‌ی Videos در پوشه‌ی خانگی کاربر جاری پیدا می‌کنه و با یه حلقه‌ی &lt;code&gt;for&lt;/code&gt; مانند (که با &lt;code&gt;while&lt;/code&gt; پیاده شده)، تابع &lt;code&gt;convert_to_mkv&lt;/code&gt; رو به ازای هر کدوم از این پرونده‌ها صدا می‌زنه. این تابع، موظفه که برنامه‌ی &lt;code&gt;avconv&lt;/code&gt; رو اجرا کنه که عمل اصلی تبدیل رو انجام می‌ده. بقیه‌ی کارها هم مختص فرستادن نامه به کاربره که گزارش تبدیل رو به کاربر جاری ایمیل می‌کنه.&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;#!/bin/sh&lt;/span&gt;
 &lt;span class="c"&gt;# make cron usage easy :)&lt;/span&gt;
@@ -155,36 +246,4 @@ rename s/&lt;span class="se"&gt;\ &lt;/span&gt;&lt;span class="nv"&gt;$EXAM&lt;/
 zip -r &lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;EXAM&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;.zip Khordad Shahrivar Dey
 
 rm -rf Khordad Shahrivar Dey
-&lt;/pre&gt;&lt;/div&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">محمدامین صامتی</dc:creator><pubDate>Thu, 28 May 2015 15:50:08 +0430</pubDate><guid>tag:mamins1376.github.io,2015-05-28:weblog/2015/05/arshyw-khrdn-nmwnh-swlt-mthn-nhyy/</guid><category>امتحان نهایی</category><category>اسکریپت</category></item><item><title>دانلود شبانه برای Steam</title><link>http://mamins1376.github.io/weblog/2015/05/dnlwd-shbnh-bry-steam/</link><description>&lt;p&gt;بزرگ‌ترین مشکل من با استیم، دانلود بازی‌هاش بود چون حجم خیلی خیلی زیادی دارن. ساعت دانلود رایگان داشتم ولی باید دستی دانلود رو شروع می‌کردم. خب شروع کردم به جستجو و تحقیق که به این روش رسیدم؛ این‌طوری میشه هر برنامه‌ای رو با استیم به راحتی دانلود کرد.
-&lt;!-- ادامه --&gt;&lt;/p&gt;
-&lt;p&gt;من برای اجرای فرمان‌ها در ساعات مقرر از &lt;code&gt;cron&lt;/code&gt; استفاده می‌کنم. وقتی که cron دستوری رو اجرا می‌کنه، خیلی از متغییرهای رایج از جمله &lt;code&gt;DISPLAY&lt;/code&gt; ست نمی‌شن و اگر دستور داده‌شده نیازمند سیستم گرافیکی باشه با خطا روبرو می‌شه و کار نمی‌کنه. این‌جاست که &lt;code&gt;Xvfb&lt;/code&gt; به کمکمون میاد: یه مانیتور غیر واقعی و قلابی!&lt;/p&gt;
-&lt;p&gt;استیم برای اجرا شدن به محیط گرافیکی نیاز داره و اگر ما توی cron فراخوانیش کنیم کار نمی‌کنه. پس یه مانیتور مجازی می‌سازیم که این مشکل رفع بشه.&lt;/p&gt;
-&lt;h4&gt;۱. نصب Xvfb&lt;/h4&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;root@debian:~# apt-get install xvfb
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;h4&gt;۲. به دست آوردن ID برنامه یا بازی مورد نظر&lt;/h4&gt;
-&lt;p&gt;هر برنامه‌ای توی استیم یک ID داره. مثلا من می‌خوام ID بازی Dota2 رو به دست بیارم. اسمش رو جستجو می‌کنم و به همچین لینکی می‌رسم:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;http://store.steampowered.com/app/570
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;&lt;strong&gt;بینگو!&lt;/strong&gt; یقیناً اون &lt;code&gt;570&lt;/code&gt; انتهای لینک ID مورد نظر ماست.&lt;/p&gt;
-&lt;h4&gt;۳. ساختن اسکریپت دانلود&lt;/h4&gt;
-&lt;p&gt;این اسکریپت به ترتیب این کارها رو برامون انجام می‌ده:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;ساختن یک صفحه‌نمایش مجازی&lt;/li&gt;
-&lt;li&gt;تنظیم &lt;code&gt;DISPLAY&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;رفتن به پوشه‌ی خانگی(استیم باید توی &lt;code&gt;PWD=$HOME&lt;/code&gt; اجرا بشه)&lt;/li&gt;
-&lt;li&gt;اجرای خود استیم و لاگ کردن خروجیش&lt;/li&gt;
-&lt;/ul&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;Xvfb :5 -screen &lt;span class="m"&gt;0&lt;/span&gt; 1280x720x24 +extension GLX +render -noreset &amp;gt; /dev/null 2&amp;gt;&lt;span class="p"&gt;&amp;amp;&lt;/span&gt;&lt;span class="m"&gt;1&lt;/span&gt; &lt;span class="p"&gt;&amp;amp;&lt;/span&gt;
-&lt;span class="nb"&gt;export &lt;/span&gt;&lt;span class="nv"&gt;DISPLAY&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;:5
-&lt;span class="nb"&gt;cd&lt;/span&gt;
-/usr/games/steam -applaunch &amp;lt;APPID&amp;gt; &amp;gt;&amp;gt; steam.log 2&amp;gt;&lt;span class="p"&gt;&amp;amp;&lt;/span&gt;1
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;&lt;strong&gt;نکته:&lt;/strong&gt; یادتون نره که &lt;code&gt;&amp;lt;APPID&amp;gt;&lt;/code&gt; رو با ID برنامه‌تون عوض کنین. مثلا همون &lt;code&gt;570&lt;/code&gt; که مربوط می‌شه به Dota2.&lt;/p&gt;
-&lt;p&gt;حالا هربار که اسکریپت رو اجرا کنین، دانلود برنامه شروع می‌شه. عملیات ادامه‌ی دانلود و توقفش و غیره به عهده‌ی خود استیمه پس خیالتون از ادامه دادن یا سالم بودن فایل‌های دانلود شده راحت باشه. در نهایت اسکریپت رو به cron عزیز بسپارید تا از بازیتون لذت ببرید.&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">محمدامین صامتی</dc:creator><pubDate>Mon, 11 May 2015 20:37:40 +0430</pubDate><guid>tag:mamins1376.github.io,2015-05-11:weblog/2015/05/dnlwd-shbnh-bry-steam/</guid></item></channel></rss>
+&lt;/pre&gt;&lt;/div&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">محمدامین صامتی</dc:creator><pubDate>Thu, 28 May 2015 15:50:08 +0430</pubDate><guid>tag:mamins1376.github.io,2015-05-28:weblog/2015/05/arshyw-khrdn-nmwnh-swlt-mthn-nhyy/</guid><category>امتحان نهایی</category><category>اسکریپت</category></item></channel></rss>
