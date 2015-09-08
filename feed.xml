@@ -1,5 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>زندگی خوره‌ای</title><link>http://mamins1376.github.io/weblog/</link><description></description><atom:link href="http://mamins1376.github.io/weblog/feed.xml" rel="self"></atom:link><lastBuildDate>Wed, 02 Sep 2015 00:27:00 +0430</lastBuildDate><item><title>API برای سایت Subscene</title><link>http://mamins1376.github.io/weblog/2015/09/api-bry-syt-subscene/</link><description>&lt;p&gt;سایت Subscene منبع خوب و جامعی برای دریافت زیرنویس‌ها به اکثر زبان‌هاست و اکثرا زیرنویس فیلم یا سریالی که دنبالش هستم رو توش پیدا می‌کنم. برای انجام پروژه‌ای به یک API برای دریافت زیرنویس‌ها از این سایت نیازمند شدم و بعد از کمی جستجو، به &lt;a href="https://github.com/andy-pham/subscene-api"&gt;این&lt;/a&gt; رسیدم.&lt;/p&gt;
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>زندگی خوره‌ای</title><link>http://mamins1376.github.io/weblog/</link><description></description><atom:link href="http://mamins1376.github.io/weblog/feed.xml" rel="self"></atom:link><lastBuildDate>Tue, 08 Sep 2015 21:29:00 +0430</lastBuildDate><item><title>مدیر بارگیری آریا۲: این بار، اندروید!</title><link>http://mamins1376.github.io/weblog/2015/09/mdyr-brgyry-ary2-yn-br-ndrwyd/</link><description>&lt;p&gt;از عنوان مطلب مشخصه که این مدیر بارگیری قدرتمند، حالا نسخه‌ی اندروید داره و تمام ویژگی‌هاش رو هم به اندروید میاره.&lt;/p&gt;
+&lt;h2&gt;نصب&lt;/h2&gt;
+&lt;p&gt;بسته به این که دیوایس شما روت شده باشه یا نه، محل نصب فرق می‌کنه. نصب با روش دسترسی روت این خوبی رو داره که باینری برنامه توی &lt;code&gt;$PATH&lt;/code&gt; شما قرار می‌گیره و نیازی به وارد کردن مسیر کامل ندارید؛ ولی در این صورت باید توی پارتیشن سیستم بنویسید که ممکنه علاقه‌ای به این کار نداشته باشید. در هر صورت، نتیجه‌ی نهایی یکیه. تمام دستورها روی گوشی اجرا می‌شن. هم می‌تونید از &lt;code&gt;adb shell&lt;/code&gt; استفاده کنید و هم از یک برنامه‌ی شبیه‌ساز ترمینال.&lt;/p&gt;
+&lt;h3&gt;با دسترسی روت&lt;/h3&gt;
+&lt;p&gt;امیدوارم که روی گوشیتون، [busybox][http://busybox.net] نصب داشته باشید؛ چون ممکنه باینری mount خود گوشی مشکل ایجاد کنه.&lt;/p&gt;
+&lt;p&gt;پارتیشن سیستم رو برای خارج کردن از حالت فقط خواندنی، دوباره سوار می‌کنیم:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;su -c &lt;span class="s1"&gt;&amp;#39;busybox mount -o remount,rw /&amp;#39;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;حالا، &lt;a href="http://sourceforge.net/projects/aria2/files/stable/aria2-1.19.0/aria2-1.19.0-android-build1.zip/download"&gt;پرونده‌ی فشرده‌ی برنامه&lt;/a&gt; رو دریافت کنید و باینری aria2c رو ازش استخراج کنید و منتقلش کنید به گوشی، مثلا &lt;code&gt;/sdcard/&lt;/code&gt;. با بقیه‌ی محتویات پرونده‌ی فشرده کاری نداریم، می‌تونید پاکش کنید.&lt;/p&gt;
+&lt;p&gt;باینری aria2c رو به یکی از مسیرهایی که توی متغیر محیطی PATH هستن کپی می‌کنیم، معمولا &lt;code&gt;/system/bin&lt;/code&gt; توی این متغیر هست. بعدش بهش دسترسی‌های لازم رو می‌دیم و سیستم رو به حالت فقط خواندنی برمی‌گردونیم.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;su
+&lt;span class="c"&gt;# cp /sdcard/aria2c /system/bin/aria2c&lt;/span&gt;
+&lt;span class="c"&gt;# chmod 755 /system/bin/aria2c&lt;/span&gt;
+&lt;span class="c"&gt;# mount -o remount,ro /&lt;/span&gt;
+&lt;span class="c"&gt;# ^D&lt;/span&gt;
+&lt;span class="nv"&gt;$ &lt;/span&gt;rm /sdcard/aria2c
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;بدون دسترسی روت&lt;/h3&gt;
+&lt;p&gt;مثل روشی که دسترسی روت نیاز داشت، پرونده‌ی فشرده رو دریافت و باینری رو استخراج کنین و به گوشی کپی کنین. مثلا &lt;code&gt;/sdcard/&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;باینری رو کپی می‌کنیم و دسترسی اون رو هم درست می‌کنیم:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;cp /sdcard/aria2c /data/local/tmp/aria2c
+&lt;span class="nv"&gt;$ &lt;/span&gt;chmod &lt;span class="m"&gt;755&lt;/span&gt; /data/local/tmp/aria2c
+&lt;span class="nv"&gt;$ &lt;/span&gt;rm /sdcard/aria2c
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h2&gt;استفاده&lt;/h2&gt;
+&lt;p&gt;اگر با دسترسی روت نصب کردید، فقط بزنید &lt;code&gt;aria2c&lt;/code&gt; و برنامه رو به کار بگیرید. در غیر این صورت، هر بار باید مسیر کامل رو وارد کنید، مگر این که پوشه‌ی حاوی باینری رو به PATH اضافه کنید:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;/data/local/tmp/aria2c
+&lt;span class="c"&gt;# OR&lt;/span&gt;
+&lt;span class="nv"&gt;$ &lt;/span&gt;&lt;span class="nb"&gt;export &lt;/span&gt;&lt;span class="nv"&gt;PATH&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt; /data/local/tmp/:&lt;span class="nv"&gt;$PATH&lt;/span&gt;
+&lt;span class="nv"&gt;$ &lt;/span&gt;aria2c
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;دانلود خوبی داشته باشید :))&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">محمدامین صامتی</dc:creator><pubDate>Tue, 08 Sep 2015 21:29:00 +0430</pubDate><guid>tag:mamins1376.github.io,2015-09-08:weblog/2015/09/mdyr-brgyry-ary2-yn-br-ndrwyd/</guid><category>aria2</category><category>آریا۲</category><category>android</category><category>اندروید</category><category>دانلود</category></item><item><title>API برای سایت Subscene</title><link>http://mamins1376.github.io/weblog/2015/09/api-bry-syt-subscene/</link><description>&lt;p&gt;سایت Subscene منبع خوب و جامعی برای دریافت زیرنویس‌ها به اکثر زبان‌هاست و اکثرا زیرنویس فیلم یا سریالی که دنبالش هستم رو توش پیدا می‌کنم. برای انجام پروژه‌ای به یک API برای دریافت زیرنویس‌ها از این سایت نیازمند شدم و بعد از کمی جستجو، به &lt;a href="https://github.com/andy-pham/subscene-api"&gt;این&lt;/a&gt; رسیدم.&lt;/p&gt;
 &lt;p&gt;دموی خودش مشکل داخلی سرور داشت؛ از این که خود مخزن رو کلون کنم و جداگانه اجراش کنم به علت مشکلات دیگه‌ای(از جمله سیستم Google App Engine) صرف نظر شد و خودم با استفاده از کتابخونه‌ی BeautifulSoup4٬ یک API برای سایت Subscene به زبان پایتون(نسخه‌ی ۳) درست کردم.&lt;/p&gt;
 &lt;p&gt;&lt;a href="https://github.com/mamins1376/Subscene-API"&gt;پیوند به مخزن گیت‌هاب&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;پروژه‌ای که قرار بود از این API استفاده کنه رو طی چند روز آینده معرفی خواهم کرد.&lt;/p&gt;
@@ -182,16 +221,4 @@ find . -type f -name &lt;span class="s1"&gt;&amp;#39;*.mp4&amp;#39;&lt;/span&gt;
 &lt;li&gt;&lt;strong&gt;پایتون۳&lt;/strong&gt;: پلیکان از پایتون۳ پشتیبانی می‌کنه. نمی‌دونم این که دارم همچین عبارتی رو می‌گم خوبه یا بد چون روبی‌کارها اصلا از این دنگ و فنگ‌ها ندارن که بخوان برنامه‌شون رو دوباره پورت کنن :دی ولی به نظر من اگر یه برنامه‌ی پایتون با نسخه‌ی ۳ سازگار نباشه براش نقطه ضعف محسوب می‌شه نه این که اگر با پایتون ۳ کار می‌کنه داره در حق کاربر لطف می‌کنه&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;طراحی ریسپانسیو&lt;/strong&gt;: تم اولیه‌ی جکیل کاملا ریسپانسیو طراحی شده در حالی که تم پلیکان خیلی خشک به نظر می‌رسه و این نقطه ضعف بزرگی برای یه سایت/وبلاگ در حال حاضر محسوب می‌شه&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;در هر صورت، من قانع شدم که به پلیکان مهاجرت کنم و الآن هم خیلی خوش‌حالم که همچین تصمیمی گرفتم. شما هم امتحانش کنید ؛)&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">محمدامین صامتی</dc:creator><pubDate>Tue, 07 Jul 2015 00:43:00 +0430</pubDate><guid>tag:mamins1376.github.io,2015-07-03:weblog/2015/07/khdhfz-jkhyl-slm-plykhn/</guid><category>جکیل</category><category>پلیکان</category><category>پایتون</category><category>گیت‌هاب</category></item><item><title>دانلود آخرین قسمت دیرین دیرین از یوتیوب</title><link>http://mamins1376.github.io/weblog/2015/06/dnlwd-akhryn-qsmt-dyryn-dyryn-z-ywtywb/</link><description>&lt;p&gt;&lt;a href="http://dirindirin.ir"&gt;دیرین دیرین&lt;/a&gt; یکی از انیمیشن‌های محبوب این روزهاست. طنزی  که معضل‌های رایج رو به شکل خنده‌داری نمایش می‌ده. یکی از کارهای رایج من این شده بود که چون در حال حاضر روزانه مرتبا یه انیمیشن دو-سه دقیقه‌ای آپلود می‌کنن، هر روز به &lt;a href="https://www.youtube.com/user/dirindirincartoon"&gt;کانال یوتیوب‌شون&lt;/a&gt; سر بزنم و ویدئوی جدید رو بگیرم. بیاین این &lt;em&gt;فرآیند تکراری&lt;/em&gt; رو اتوماتیکش کنیم!&lt;/p&gt;
-&lt;p&gt;یکی از برنامه‌های باحال و مفید &lt;a href="http://youtube-dl.org/"&gt;youtube-dl&lt;/a&gt;‍ه که با پایتون نوشته شده و فیچرهای بسیاری داره. مثلا می‌شه باهاش کل ویدئوهای یک کانال یا کاربر رو روی اکثر سایت‌های اشتراک ویدئو دانلود کرد یا یه پلی لیست رو جداگانه دانلود کرد، کیفیت رو مشخص کرد و خیلی کارای دیگه.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;youtube-dl --no-progress --max-downloads &lt;span class="m"&gt;1&lt;/span&gt; --proxy &lt;span class="nv"&gt;$http_proxy&lt;/span&gt; -c -o &lt;span class="s1"&gt;&amp;#39;DirinDirin/%(id)s-%(title)s.%(ext)s&amp;#39;&lt;/span&gt; --dateafter now-1day &lt;span class="s1"&gt;&amp;#39;https://www.youtube.com/user/dirindirincartoon&amp;#39;&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;&lt;strong&gt;توضیح&lt;/strong&gt;: &lt;code&gt;no-progress&lt;/code&gt; که می‌گه نوار پیشرفت رو نشون نده. چون من این فرمان رو توی cron اجرا می‌کنم، متن خروجیش ایمیل می‌شه و اگر نوار پیشرفت فعال باشه، لاگی سرشار از خط های شبیه به هم و بدرد نخور خواهیم داشت :دی &lt;code&gt;max-downloads&lt;/code&gt; می‌گه که فقط یه فیلم رو بگیر. وگرنه همه‌ی کانال رو دانلود می‌کنه! پروکسی هم که نیاز به شرح اضافه نداره. &lt;code&gt;c&lt;/code&gt; می‌گه اگر فایلی وجود داشت ادامه بده. این دوتا کار برامون انجام می‌ده:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;اگر ویدئویی ناقص دانلود شده بود yt-dl ادامه‌ش می‌ده&lt;/li&gt;
-&lt;li&gt;اگر یه ویدئو کامل دانلود شده بود دوباره دانلودش نکنه&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;آپشن &lt;code&gt;o&lt;/code&gt; قالب و مسیر فایل دانلود شده رو تعیین می‌کنه. مثلا این‌جا، همه‌‌ی دانلودها توی پوشه‌ی DirinDirin ریخته می‌شن که هر فایل با id یوتیوبش شروع می‌شه، یه خط فاصله،‌ عنوان فیلم، نقطه و با پسوند فایل تموم می‌شه. &lt;code&gt;dateafter&lt;/code&gt; تقریبا کار اصلی رو انجام می‌ده. می‌گه فقط اگر تاریخ آپلود ویدئو بعد از این تاریخی که مشخص کردم بود دانلودش کن. این تاریخ می‌تونه نسبی یا مطلق باشه. ما گفتیم &lt;code&gt;now-1day&lt;/code&gt;، یعنی اگر بین بازه‌ی دیروز تا امروز آپلود شده بود دانلودش کن. و در آخر هم لینک کاربری دیرین دیرین.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;آپدیت&lt;/strong&gt;: &lt;a href="https://github.com/rasubuntu/"&gt;رسول&lt;/a&gt; عزیز زحمت کشیده و این عملیات رو با دیالوگ‌های زنیتی ترکیب کرده و &lt;a href="https://github.com/rasubuntu/yt-dl-script/"&gt;روی گیت‌هاب قرار داده&lt;/a&gt;.&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">محمدامین صامتی</dc:creator><pubDate>Tue, 30 Jun 2015 02:25:00 +0430</pubDate><guid>tag:mamins1376.github.io,2015-06-30:weblog/2015/06/dnlwd-akhryn-qsmt-dyryn-dyryn-z-ywtywb/</guid><category>دیرین دیرین</category><category>یوتیوب</category></item></channel></rss>
+&lt;p&gt;در هر صورت، من قانع شدم که به پلیکان مهاجرت کنم و الآن هم خیلی خوش‌حالم که همچین تصمیمی گرفتم. شما هم امتحانش کنید ؛)&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">محمدامین صامتی</dc:creator><pubDate>Tue, 07 Jul 2015 00:43:00 +0430</pubDate><guid>tag:mamins1376.github.io,2015-07-03:weblog/2015/07/khdhfz-jkhyl-slm-plykhn/</guid><category>جکیل</category><category>پلیکان</category><category>پایتون</category><category>گیت‌هاب</category></item></channel></rss>
