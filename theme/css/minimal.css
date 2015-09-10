@@ -1,15 +1,19 @@
+.container {
+  min-height: calc(100% - 260px); /* just footer height */
+  padding: 0 0 260px 0; /* like above */
+}
 .warpper {
-	max-width: 100%;
-	padding: 0 20px;
+  max-width: 100%;
+  padding: 0 20px;
 }
 .button {
-	padding: 1px;
+  padding: 1px;
 }
 .site-header {
-	position: relative;
+  position: relative;
 }
 .site-logo {
-	display: none;
+  display: none;
 }
 .site-navigation {
 	position: absolute;
@@ -61,11 +65,11 @@
   transition: 0s;
   text-shadow: 0 0 8px;
 }
-.spacer {
-	display: none;
-}
 .post-info {
 	font-size: 1.2em;
+}
+.site-footer {
+  height: 260px;
 }
 .footer-col-1, .footer-col-2 {
   width: calc(50% - 15px);
