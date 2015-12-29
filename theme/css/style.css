@@ -194,21 +194,13 @@ code {
 	max-width: 40px;
 }
 .button {
-  background-color: #7e57c2;
+  background-color: transparent;
   color: #FFFFFF;
   padding: 5px;
-  box-shadow: 0 5px 8px -6px black;
-  transition: background-color 0.3s;
+  box-shadow: none;
 }
-.pagination a:hover {
-  background-color: #5e35b1;
-  box-shadow: 0 5px 8px -7px black;
-}
-.pagination .disabled,
-.pagination .disabled:hover {
-  background-color: #808080;
+.pagination .disabled {
   color: #D0D0D0;
-  box-shadow: 0 5px 8px -6px black;
 }
 .site-footer {
   position: absolute;
