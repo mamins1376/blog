@@ -94,8 +94,8 @@ img {
   line-height: 1.65;
   color: #efebe9;
 }
-.site-navigation .page-link:not(:first-child) {
-  margin-left: 20px;
+.site-navigation .page-link {
+  margin-left: 12px;
 }
 .content {
 	padding: 0;
@@ -133,11 +133,15 @@ img {
 	padding: 0;
 	display: block;
 }
+.tag-seprator:last-child {
+    display: none;
+}
 .tags-list, .categories-list {
 	list-style-type: none;
 	padding: 0;
 	margin: 0;
 	margin-right: 1.5em;
+    margin-bottom: 1.5em;
 }
 .tags-list li, .categories-list li {
 	display: inline-block;
@@ -198,9 +202,17 @@ code {
   color: #FFFFFF;
   padding: 5px;
   box-shadow: none;
+  text-shadow: none;
 }
-.pagination .disabled {
-  color: #D0D0D0;
+.button:focus, .button:hover {
+  color: #FFFFFF !important;
+  text-shadow: 0 0 4px #FFFFFF;
+}
+.pagination .disabled,
+.pagination .disabled:hover,
+.pagination .disabled:focus {
+  color: #CCC !important;
+  text-shadow: none;
 }
 .site-footer {
   position: absolute;
@@ -227,6 +239,11 @@ code {
   padding-right: 10px;
   padding-left: 10px;
   transition: padding 0.2s;
+}
+.rss-subscribe a,
+.rss-subscribe a:focus,
+.rss-subscribe a:hover {
+    color: #CB4B16 !important;
 }
 .social-media-list li {
   transition: padding 0.6s;

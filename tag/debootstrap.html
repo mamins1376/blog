@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="fa">
 <head>
-  <title>برچسب debootstrap - زندگی خوره‌ای</title>
+  <title>زندگی خوره‌ای</title>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width">
   <link rel="icon" type="image/png" href="http://mamins1376.github.io/weblog/favicon.png">
 
-  <link href="http://mamins1376.github.io/weblog/feed.xml" type="application/rss+xml" rel="alternate" title="زندگی خوره‌ای Full RSS Feed" />
+  <link href="http://mamins1376.github.io/weblog/atom.xml" type="application/atom+xml" rel="alternate" title="زندگی خوره‌ای Full Atom Feed" />
+  <link href="http://mamins1376.github.io/weblog/rss.xml" type="application/rss+xml" rel="alternate" title="زندگی خوره‌ای Full RSS Feed" />
 
       <link href="http://mamins1376.github.io/weblog/theme/css/style.css" rel="stylesheet" />
       <link href="http://mamins1376.github.io/weblog/theme/css/syntax.css" rel="stylesheet" />
@@ -28,18 +29,50 @@
         </svg>
       </a>
       <div class="trigger">
+        <a class="page-link" href="http://mamins1376.github.io/weblog/categories.html">دسته‌ها</a>
+        <a class="page-link" href="http://mamins1376.github.io/weblog/tags.html">برچسب‌ها</a>
           <a class="page-link" href="http://mamins1376.github.io/weblog/pages/drbrh/">درباره</a>
       </div>
     </ul></nav>
   </div>
 </header>    <div class="warpper">
-    <h1>نوشته‌های مربوط به debootstrap</h1>
-    <h2>2 نوشته</h2>
-    <ul class='post-list'>
-      <li><a href='http://mamins1376.github.io/weblog/2015/05/dbyn-br-bstr-ndrwyd-pysh-bh-swy-jsyqsmt-dwm/'>دبیان بر بستر اندروید: پیش به سوی جسی!(قسمت دوم)</a></li>
-      <li><a href='http://mamins1376.github.io/weblog/2015/05/dbyn-br-bstr-ndrwyd-pysh-bh-swy-jsyqsmt-wl/'>دبیان بر بستر اندروید: پیش به سوی جسی!(قسمت اول)</a></li>
-    </ul>
-    <a href='http://mamins1376.github.io/weblog/tags.html' title='همه‌ی برچسب‌ها'>همه‌ی برچسب‌ها</a>
+<section class="content">
+<h2>نوشته‌های دارای برچسب debootstrap</h2>
+
+<ul class="post-list">
+    <li><article class="post">
+      <header class="post-header"><h2 class="post-title"><a href="http://mamins1376.github.io/weblog/2015/05/dbyn-br-bstr-ndrwyd-pysh-bh-swy-jsyqsmt-dwm/" rel="bookmark" title="دبیان بر بستر اندروید: پیش به سوی جسی!(قسمت دوم)">دبیان بر بستر اندروید: پیش به سوی جسی!(قسمت دوم)</a></h2>
+        <abbr class="publish-date" title="تاریخ انتشار"> Sun 03 May 2015</abbr>
+        <address class="vcard author">از
+            <a class="url fn" href="http://mamins1376.github.io/weblog/author/mhmdmyn-smty.html">محمدامین صامتی</a>
+        </address>
+      </header>
+      <div class="post-content"><p>در پست قبل، بسته‌ها بارگیری و به پوشه‌ی <code>debroot</code> منتقل شدند. حالا ادامه‌ی مراحل را انجام می‌دهیم.
+<!-- ادامه --></p>
+<h4>۳. ساخت تصویر توزیع</h4>
+<p>یک ایمیج خالی با استفاده از <code>dd</code> درست می‌کنیم:</p>
+<div class="highlight"><pre>root@host:~# dd <span class="k">if</span><span class="o">=</span>/dev/zero <span class="nv">of</span><span class="o">=</span>Debian.img <span class="nv">count</span><span class="o">=</span><span class="m">0</span> <span class="nv">bs</span><span class="o">=</span>1M <span class="nv">seek</span><span class="o">=</span>1K ...</pre></div></div>
+      <a href="http://mamins1376.github.io/weblog/2015/05/dbyn-br-bstr-ndrwyd-pysh-bh-swy-jsyqsmt-dwm/" title="دبیان بر بستر اندروید: پیش به سوی جسی!(قسمت دوم)">بیش‌تر بخوانید...</a>
+    </article></li>
+    <li><article class="post">
+      <header class="post-header"><h2 class="post-title"><a href="http://mamins1376.github.io/weblog/2015/05/dbyn-br-bstr-ndrwyd-pysh-bh-swy-jsyqsmt-wl/" rel="bookmark" title="دبیان بر بستر اندروید: پیش به سوی جسی!(قسمت اول)">دبیان بر بستر اندروید: پیش به سوی جسی!(قسمت اول)</a></h2>
+        <abbr class="publish-date" title="تاریخ انتشار"> Sat 02 May 2015</abbr>
+        <address class="vcard author">از
+            <a class="url fn" href="http://mamins1376.github.io/weblog/author/mhmdmyn-smty.html">محمدامین صامتی</a>
+        </address>
+      </header>
+      <div class="post-content"><p>بسیاری از افراد پس از خرید یک تلفن هوشمند یا تبلت، اقدام به روت کردن آن می‌کنند. مفهوم «روت» در اندروید همانند مفهوم روت در دیگر سیستم‌های گنو/لینوکسی‌ست. دلایل زیادی برای روت‌کردن وجود دارد: شخصی‌سازی بیش‌تر، حذف برنامه‌های سیستمی، اصلاح سیستم و ...</p></div>
+      <a href="http://mamins1376.github.io/weblog/2015/05/dbyn-br-bstr-ndrwyd-pysh-bh-swy-jsyqsmt-wl/" title="دبیان بر بستر اندروید: پیش به سوی جسی!(قسمت اول)">بیش‌تر بخوانید...</a>
+    </article></li>
+</ul>
+<div class="pagination">
+    <span class="disabled button">▷</span>
+
+  <span class="pagination-count">صفحه‌ی 1 از 1</span>
+
+    <span class="disabled button">◁</span>
+</div>
+</section>
     </div>
 <footer class="site-footer">
   <div class="warpper">
@@ -47,7 +80,7 @@
     <div class="footer-col-wrapper">
       <div class="footer-col  footer-col-1">
         <ul class="contact-list">
-          <li class="rss-subscribe">مشترک <a href="http://mamins1376.github.io/weblog/feed.xml">خوراک خبری</a> شوید!</li>
+          <li class="rss-subscribe">مشترک <a href="http://mamins1376.github.io/weblog/rss.xml">خوراک خبری</a> شوید!</li>
           <li><a href="mailto:mamins1376@gmail.com">mamins1376@gmail.com</a></li>
         </ul>
       </div>
@@ -72,9 +105,18 @@
               <span class="username">تلگرام</span>
             </a>
           </li>
-          
 
 
+
+          <li>
+            <a href="https://twitter.com/mamins1376">
+              <span class="icon">
+                <img src='https://upload.wikimedia.org/wikipedia/en/9/9f/Twitter_bird_logo_2012.svg' />
+              </span>
+
+              <span class="username">توئیتر</span>
+            </a>
+          </li>
         </ul>
       </div>
       <div class="footer-col  footer-col-3">
