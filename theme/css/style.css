@@ -193,7 +193,7 @@ code {
 .pagination-count {
 	max-width: 40px;
 }
-.button {
+.button, .button:visited {
   background-color: transparent;
   color: #FFFFFF;
   padding: 5px;
