@@ -5,18 +5,25 @@
 .warpper {
   max-width: 100%;
   padding: 0 20px;
+  padding: 36px 20px 0px 20px;
 }
 .button {
   padding: 1px;
 }
 .site-header {
-  position: relative;
+  min-height: 48px;
+}
+.site-header .warpper, .site-footer .warpper {
+  padding-top: 0;
 }
 .site-logo {
   display: none;
 }
+.site-title {
+  font-size: 1.4em;
+}
 .site-navigation {
-	position: absolute;
+  position: fixed;
   top: 9px;
   left: 30px;
   background-color: #FFF;
@@ -24,22 +31,13 @@
   text-align: right;
   border-radius: 3px;
 }
-.site-navigation {
-  position: absolute;
-  top: 9px;
-  left: 30px;
-  background-color: #FFFFFF;
-  border: 0 solid #3e2723;
-  text-align: right;
-  border-radius: 3px;
-}
 .site-navigation .menu-icon {
   display: block;
   float: left;
-  width: 36px;
-  height: 26px;
+  width: 32px;
+  height: 23px;
   line-height: 0;
-  padding-top: 10px;
+  padding-top: 9px;
   text-align: center;
 }
 .site-navigation .menu-icon > svg {
