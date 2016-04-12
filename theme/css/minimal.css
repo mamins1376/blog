@@ -26,8 +26,8 @@
   position: fixed;
   top: 9px;
   left: 30px;
-  background-color: #FFF;
-  border: 0px solid #3E2723;
+  background-color: #b8e1dd;
+  border: 0px solid #044a42;
   text-align: right;
   border-radius: 3px;
 }
@@ -45,7 +45,7 @@
   height: 15px;
 }
 .site-navigation .menu-icon > svg path {
-  fill: #2AA198;
+  fill: #044a42;
 }
 .site-navigation .trigger {
   clear: both;
@@ -59,17 +59,17 @@
 .site-navigation .page-link {
   display: block;
   padding: 5px 10px;
-  color: #2AA198;
+  color: #044a42;
   transition: 0s;
   text-shadow: 0 0 8px;
 }
 .post-info {
-	font-size: 1.2em;
+  font-size: 1.2em;
 }
 .youtube-embed {
-	margin: 1em auto;
-	width: 100%;
-	height: auto;
+  margin: 1em auto;
+  width: 100%;
+  height: auto;
 }
 .site-footer {
   height: 260px;
