@@ -77,6 +77,14 @@
   filter: none;
   transition: none;
 }
+.postnav-prev, .postnav-next {
+  display: block;
+  width: unset;
+}
+.postnav a:hover span,
+.postnav a:focus span {
+  margin: 0;
+}
 .site-footer {
   height: 260px;
 }

@@ -71,6 +71,7 @@ img {
   position: fixed;
   top: 0;
   width: 100%;
+  transition: filter 0.1s;
 }
 .site-logo {
   float: right;
@@ -104,7 +105,7 @@ img {
   margin: 0.05em auto;
 }
 .page-content {
-  margin-bottom: 3em;
+  margin-bottom: 2em;
 }
 .post-list {
   margin: 0;
@@ -154,9 +155,6 @@ img {
 .post-content ul, .post-content li {
   margin: 1em 0;
 }
-.post-content a, .post-content a:hover {
-  text-decoration: underline dashed;
-}
 .page-content a, .content a {
   text-decoration-color:#3a9188;
   transition: 0.3s;
@@ -179,7 +177,7 @@ pre, code {
   border: 1px solid #3a9188;
   border-radius: 3px;
   background-color: #044a42;
-  color: #3a9188;
+  color: #b8e1dd;
 }
 pre {
   padding: 8px 12px;
@@ -196,22 +194,65 @@ code {
   width: 560px;
   height: 315px;
 }
+
 .share-message-normal { display: inline; }
 .share-message-small { display: none; }
-.share-button a {
-  width: 24px;
-  height: 17px;
-  position: relative;
+
+.share-button {
   display: inline-block;
+  height: 27px;
+  vertical-align: bottom;
+}
+.share-button img, .share-button a {
+  height: 100%;
+  width: 100%;
+  display: block;
 }
 .share-button img {
-  position: absolute;
   filter: brightness(60%);
   transition: filter 0.6s;
+  z-index: -1;
 }
-.share-button img:hover {
+.share-button a:hover img,
+.share-button a:focus img {
   filter: brightness(100%);
   transition: filter 0.1s;
+}
+.postnav {
+  text-align: center;
+  display: block;
+  width: 100%;
+  margin-bottom: 2em;
+  border-style: dashed;
+  border-color: #044a42;
+  border-width: 2px 0;
+  padding: 0.6em 0px;
+}
+.postnav-prev, .postnav-next {
+  display: inline-block;
+  width: 49%;
+}
+.postnav-prev {
+  text-align: right;
+}
+.postnav-next {
+  text-align: left;
+}
+.postnav span {
+  display: block;
+  transition: 0.4s;
+}
+.postnav-caption {
+  color: white;
+  font-size: 1.2em;
+}
+.postnav a:hover .postnav-title,
+.postnav a:focus .postnav-title {
+  color: #b8e1dd;
+}
+.postnav a:hover span,
+.postnav a:focus span {
+  margin: 0 12px;
 }
 .pagination {
   text-align: center;
@@ -284,7 +325,6 @@ code {
 }
 .footer-col-wrapper a, .footer-col-wrapper a:hover {
   color: #b8e1dd;
-  text-decoration: underline dashed #b8e1dd;
 }
 .footer-col {
   float: left;
