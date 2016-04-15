@@ -71,6 +71,12 @@
   width: 100%;
   height: auto;
 }
+.share-message-normal { display: none; }
+.share-message-small { display: inline; }
+.share-button img, .share-button img:hover {
+  filter: none;
+  transition: none;
+}
 .site-footer {
   height: 260px;
 }

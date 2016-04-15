@@ -196,6 +196,23 @@ code {
   width: 560px;
   height: 315px;
 }
+.share-message-normal { display: inline; }
+.share-message-small { display: none; }
+.share-button a {
+  width: 24px;
+  height: 17px;
+  position: relative;
+  display: inline-block;
+}
+.share-button img {
+  position: absolute;
+  filter: brightness(60%);
+  transition: filter 0.6s;
+}
+.share-button img:hover {
+  filter: brightness(100%);
+  transition: filter 0.1s;
+}
 .pagination {
   text-align: center;
   padding-bottom: 30px;
