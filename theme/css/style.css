@@ -178,21 +178,21 @@ code {
 
 .button, .button:visited {
   background-color: transparent;
-  color: #3a9188;
+  color: #00adb5;
   padding: 5px;
   box-shadow: none;
   text-shadow: none;
 }
 
 .button:focus, .button:hover {
-  color: #b8e1dd !important;
-  text-shadow: 0 0 4px #b8e1dd;
+  color: #eeeeee !important;
+  text-shadow: 0 0 4px #eeeeee;
 }
 
 .pagination .disabled,
 .pagination .disabled:hover,
 .pagination .disabled:focus {
-  color: #044a42 !important;
+  color: #393e46 !important;
   text-shadow: none;
 }
 
