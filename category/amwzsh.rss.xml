@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>زندگی خوره‌ای</title><link>https://mamins1376.github.io/weblog/</link><description></description><atom:link href="https://mamins1376.github.io/weblog/category/amwzsh.rss.xml" rel="self"></atom:link><lastBuildDate>Tue, 01 Sep 2015 19:19:00 +0430</lastBuildDate><item><title>شروع وبلاگ‌نویسی با پلیکان - قسمت صفرم</title><link>https://mamins1376.github.io/weblog/2015/09/shrw-wblgnwysy-b-plykhn-qsmt-sfrm/</link><description>&lt;p&gt;دوستی از من درخواست کردن که آموزشی برای شروع کار با سیستم بلاگینگ استاتیک پلیکان رو تهیه کنم. این قسمت صفرم این آموزش هست و ادامه خواهد داشت.&lt;/p&gt;
+<rss version="2.0"><channel><title>زندگی خوره‌ای</title><link>https://mamins1376.github.io/weblog/</link><description></description><lastBuildDate>Tue, 01 Sep 2015 19:19:00 +0430</lastBuildDate><item><title>شروع وبلاگ‌نویسی با پلیکان - قسمت صفرم</title><link>https://mamins1376.github.io/weblog/2015/09/shrw-wblgnwysy-b-plykhn-qsmt-sfrm/</link><description>&lt;p&gt;دوستی از من درخواست کردن که آموزشی برای شروع کار با سیستم بلاگینگ استاتیک پلیکان رو تهیه کنم. این قسمت صفرم این آموزش هست و ادامه خواهد داشت.&lt;/p&gt;
 &lt;h2&gt;نصب&lt;/h2&gt;
 &lt;p&gt;پلیکان هم در پایتون ۲ کار می‌کنه و هم در پایتون ۳. نسخه‌ی پایتون ۲ توسعه داده نمی‌شه و تمرکز بر روی پایتون ۳ هست. پس، اول پایتون ۳ و پیپ رو اگر ندارید، نصب کنید:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;sudo apt-get install python3 python3-pip
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ sudo apt-get install python3 python3-pip
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;و خود پلیکان رو نصب کنید:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;sudo pip3 install pelican
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ sudo pip3 install pelican
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -18,76 +18,76 @@
 &lt;li&gt;Markdown&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;اگر شما تصمیم گرفتید که از قالب مارک‌داون استفاده کنید، باید markdown رو هم نصب کنید:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;sudo pip3 install markdown
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ sudo pip3 install markdown
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;h2&gt;آماده‌سازی پوشه‌ی ریشه‌ی وبلاگ&lt;/h2&gt;
 &lt;p&gt;پوشه‌ای درست می‌کنیم. این پوشه، ریشه‌ی وبلاگ ما خواهد بود: همه‌ی مطالب، مضمون‌ها، تنظیمات، سایت تولید شده و ... این‌جا قرار خواهند داشت.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;mkdir -p MyBlog
-&lt;span class="nv"&gt;$ &lt;/span&gt;&lt;span class="nb"&gt;cd &lt;/span&gt;MyBlog
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ mkdir -p MyBlog
+$ &lt;span class="nb"&gt;cd&lt;/span&gt; MyBlog
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;پلیکان، پرونده‌های اولیه‌ی مورد نیاز رو ایجاد می‌کنه:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;pelican-quickstart 
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ pelican-quickstart 
 Welcome to pelican-quickstart.
 
-This script will &lt;span class="nb"&gt;help &lt;/span&gt;you create a new Pelican-based website.
+This script will &lt;span class="nb"&gt;help&lt;/span&gt; you create a new Pelican-based website.
 
 Please answer the following questions so this script can generate the files needed by Pelican.
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;تک تک سؤالاتی که می‌شوند را بررسی می‌کنیم:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;Where do you want to create your new web site? [.] .
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;Where do you want to create your new web site? [.] .
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;نشانی پوشه‌ای که قرار است پرونده‌ها در آن ایجاد شوند درخواست می‌شود. &lt;code&gt;.&lt;/code&gt;، به پوشه‌ای که هم‌اکنون آن را درست کردیم اشاره می‌کند.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;What will be the title of this web site?
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;What will be the title of this web site?
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;عنوانی که برای وبلاگ استفاده خواهد شد پرسیده می‌شود. دقت کنید که وبلاگ شما با این نام شناخته خواهد شد و در سرتاسر آن به‌کار خواهد رفت.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;Who will be the author of this web site?
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;Who will be the author of this web site?
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;نام نویسنده(معمولا شما). در صورتی که در ابرداده‌های مطلب‌ها نام نویسنده درج نشود، از این نام استفاده می‌شود.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;What will be the default language of this web site? [en]
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;What will be the default language of this web site? [en]
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;زبان پیش‌فرض وبلاگ. برای انتخاب زبان پارسی، &lt;code&gt;fa&lt;/code&gt; را وارد کنید.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;Do you want to specify a URL prefix? e.g., http://example.com   (Y/n)
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;Do you want to specify a URL prefix? e.g., http://example.com   (Y/n)
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;می‌پرسد که می‌خواهید یک دامنه به این وبلاگ اختصاص دهم؟ این دامنه زمانی استفاده می‌شود که بخواهید از پیوندهای مطلق به جای نسبی استفاده کنید. توصیه می‌شود بله گفته و نشانی ریشه‌ی وبلاگ‌تان را وارد کنید. مثلا برای وبلاگ من:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;http://mamins1376.github.io/weblog
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;http://mamins1376.github.io/weblog
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;نکته‌ای که باید مد نظر داشته باشید، این است که پایان عبارت به &lt;code&gt;/&lt;/code&gt; ختم نشود زیرا هنگام تولید سایت، موجب می‌شود که دوتا &lt;code&gt;/&lt;/code&gt; پشت هم قرار گیرند. پلیکان در صورت نیاز خودش &lt;code&gt;/&lt;/code&gt; را قرار می‌دهد.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;Do you want to enable article pagination? (Y/n)
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;Do you want to enable article pagination? (Y/n)
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;می‌خواهید صفحه‌بندی ایجاد شود؟ در صورتی که به این پرسش نه بگویید، همه‌ی پست‌ها در صفحه‌ی اول وبلاگ قرار می‌گیرند. در غیر این صورت، به ازای هر ده پست، یک صفحه‌ی جدید ایجاد می‌شود.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;How many articles per page do you want? [10]
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;How many articles per page do you want? [10]
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;بیش‌ترین تعداد مطلب‌هایی که در یک صفحه قرار خواهند داشت این‌جا مشخص می‌شود.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;What is your time zone? [Europe/Paris]
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;What is your time zone? [Europe/Paris]
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;منطقه‌ی زمانی نویسنده که تمام زمان‌بندی‌ها بر اساس آن تعیین می‌شود. برای تهران، عبارت &lt;code&gt;Asia/Tehran&lt;/code&gt; را وارد کنید.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;Do you want to generate a Fabfile/Makefile to automate generation and publishing? (Y/n)
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;Do you want to generate a Fabfile/Makefile to automate generation and publishing? (Y/n)
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Makefileها به ما کمک می‌کنند تا از نوشتن عبارت‌های طولانی پرهیز کنیم و خلاصه‌ای برای هر دستور در حالت‌های عمومی و خاص درست می‌کند.&lt;/p&gt;
-&lt;p&gt;در قسمت‌های بعدی، به ادامه‌ی این مجموعه می‌پردازم.&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">محمدامین صامتی</dc:creator><pubDate>Tue, 01 Sep 2015 19:19:00 +0430</pubDate><guid>tag:mamins1376.github.io,2015-09-01:weblog/2015/09/shrw-wblgnwysy-b-plykhn-qsmt-sfrm/</guid><category>پلیکان</category><category>وبلاگ‌نویسی</category><category>pelican</category></item></channel></rss>
+&lt;p&gt;در قسمت‌های بعدی، به ادامه‌ی این مجموعه می‌پردازم.&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">محمدامین</dc:creator><pubDate>Tue, 01 Sep 2015 19:19:00 +0430</pubDate><guid isPermaLink="false">tag:mamins1376.github.io,2015-09-01:weblog/2015/09/shrw-wblgnwysy-b-plykhn-qsmt-sfrm/</guid><category>پلیکان</category><category>وبلاگ‌نویسی</category><category>pelican</category></item></channel></rss>

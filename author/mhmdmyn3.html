@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="fa">
 <head>
-  <title>زندگی خوره‌ای</title>
+  <title>نوشته‌ي محمدامین - زندگی خوره‌ای</title>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width">
   <link rel="icon" type="image/png" href="https://mamins1376.github.io/weblog/favicon.png">
@@ -39,69 +39,9 @@
 </header>
     <div class="wrapper">
 <section class="content">
-<h2>نوشته‌های دارای برچسب لینوکس</h2>
+<h2>نوشته‌ی محمدامین</h2>
 
 <ul class="post-list">
-    <li><article class="post">
-      <header class="post-header"><h2 class="post-title"><a href="https://mamins1376.github.io/weblog/2015/10/khlyp-rwz-azdy-nrmfzr-thrn-2015/" rel="bookmark" title="کلیپ روز آزادی نرم‌افزار تهران ۲۰۱۵">کلیپ روز آزادی نرم‌افزار تهران ۲۰۱۵</a></h2>
-        <abbr class="publish-date" title="تاریخ انتشار"> شنبه ۱۱ مهر ۱۳۹۴</abbr>
-        <address class="vcard author">
-            <a class="url fn" href="https://mamins1376.github.io/weblog/author/mhmdmyn.html">محمدامین</a>
-        </address>
-      </header>
-      <div class="post-content"><p>دریافت با کیفیت 1080p از <a href="https://drive.google.com/file/d/0B2_tmNlUxrT-WVU1UlVrY0l2alU/view?usp=sharing">گوگل درایو</a></p>
-<p>مشاهده روی <a href="https://youtu.be/B9wS56uipUA">یوتیوب</a></p>
-<iframe class="youtube-embed" max-width=100% src="https://www.youtube.com/embed/B9wS56uipUA" frameborder="0" allowfullscreen></iframe></div>
-    </article></li>
-    <li><article class="post">
-      <header class="post-header"><h2 class="post-title"><a href="https://mamins1376.github.io/weblog/2015/08/mhjrt-bh-qlb-mtrwskh/" rel="bookmark" title="مهاجرت به قالب ماتروسکا">مهاجرت به قالب ماتروسکا</a></h2>
-        <abbr class="publish-date" title="تاریخ انتشار"> پنج‌شنبه ۲۹ مرداد ۱۳۹۴</abbr>
-        <address class="vcard author">
-            <a class="url fn" href="https://mamins1376.github.io/weblog/author/mhmdmyn.html">محمدامین</a>
-        </address>
-      </header>
-      <div class="post-content"><p>به قصد پاکسازی سیستمم، تصمیم گرفتم تا جای ممکن از قالب‌ها، نرم‌افزارها و مجوزهای آزاد استفاده کنم. در راستای این مهم، <a href="https://fa.wikipedia.org/wiki/%D9%85%D8%A7%D8%AA%D8%B1%D9%88%D8%B3%DA%A9%D8%A7">ماتروسکا</a> رو برای پرونده‌های تصویری انتخاب کردم. قالب خیلی جالبیه و همه‌جا هم به راحتی قابل پخشه و البته شناخته شده(با پسوند mkv). یکی از مزایایی هم که داره کم‌تر بودن حجمش نسبت به امپگ هست. اسکریپتی برای پاکسازی سیستم از قالب منحوس و شوم(!) MP4 نوشتم که تقریبا هوشمندانه عمل می‌کنه. البته به قول <a href="http://jadi.net/">جادی</a>، ما هر چیزی رو که براش if می‌ذاریم بهش می‌گیم هوشمند :)</p>
-<p>نحوه‌ی کار به این صورته که <code>find</code>، پرونده‌هایی رو که پسوند MP4 دارند رو داخل پوشه‌ی Videos در پوشه‌ی خانگی کاربر جاری پیدا می‌کنه و با یه حلقه‌ی <code>for</code> مانند (که با <code>while</code> پیاده شده)، تابع <code>convert_to_mkv</code> رو به ازای هر کدوم از این پرونده‌ها صدا می‌زنه. این تابع، موظفه که برنامه‌ی <code>avconv</code> رو اجرا کنه که عمل اصلی تبدیل رو انجام می‌ده. بقیه‌ی کارها هم مختص فرستادن نامه به کاربره که گزارش تبدیل رو به کاربر جاری ایمیل می‌کنه.</p>
-<div class="highlight"><pre><span></span><span class="ch">#!/bin/sh</span>
-<span class="c1"># make cron usage easy :)</span>
-<span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span>/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
-<span class="c1"># go to the user&#39;s videos directory</span>
-<span class="nb">cd</span> /home/<span class="nv">$USER</span>/Videos/
-
-<span class="c1"># this function converts given filename</span>
-convert_to_mkv<span class="o">()</span> <span class="o">{</span>
-  <span class="nv">INPUT</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$1</span><span class="s2">&quot;</span>
-  <span class="nv">OUTPUT</span><span class="o">=</span><span class="s2">&quot;</span><span class="k">$(</span><span class="nb">echo</span> <span class="nv">$1</span> <span class="p">|</span> sed -r -e <span class="s1">&#39;s/\.\w+$/.mkv/&#39;</span><span class="k">)</span><span class="s2">&quot;</span>
-  avconv -v info -i <span class="s2">&quot;</span><span class="nv">$INPUT</span><span class="s2">&quot;</span> -c:v libx264 -f matroska <span class="s2">&quot;</span><span class="nv">$OUTPUT</span><span class="s2">&quot;</span>
-<span class="o">}</span>
-
-<span class="c1"># find any mp4 and kill it!</span>
-find . -type f -name <span class="s1">&#39;*.mp4&#39;</span> <span class="p">|</span> <span class="k">while</span> <span class="nb">read</span> FULL_PATH<span class="p">;</span> <span class="k">do</span>
-  <span class="nv">FILE</span><span class="o">=</span><span class="s2">&quot;</span><span class="k">$(</span><span class="nb">echo</span> <span class="s2">&quot;</span><span class="nv">$FULL_PATH</span><span class="s2">&quot;</span> <span class="p">|</span> sed <span class="s1">&#39;s/\.\///&#39;</span><span class="k">)</span><span class="s2">&quot;</span>
-  <span class="nv">LOGFILE</span><span class="o">=</span><span class="s2">&quot;</span><span class="k">$(</span>basename <span class="s2">&quot;</span><span class="si">${</span><span class="nv">FILE</span><span class="si">}</span><span class="s2">&quot;</span> <span class="p">|</span> sed -e <span class="s1">&#39;s/ /_/g&#39;</span> -e <span class="s1">&#39;s/mp4$/log/&#39;</span><span class="k">)</span><span class="s2">&quot;</span>
-  <span class="k">if</span> convert_to_mkv <span class="s2">&quot;</span><span class="nv">$FILE</span><span class="s2">&quot;</span> &lt; /dev/null &gt;&gt; <span class="s2">&quot;</span><span class="nv">$LOGFILE</span><span class="s2">&quot;</span> 2&gt;<span class="p">&amp;</span>1<span class="p">;</span> <span class="k">then</span>
-    <span class="nb">echo</span> <span class="s2">&quot;</span><span class="nv">$FILE</span><span class="s2"> converting successfully finished. see attachment for details.&quot;</span> <span class="p">|</span> mail -A <span class="s2">&quot;</span><span class="nv">$LOGFILE</span><span class="s2">&quot;</span> -s <span class="s1">&#39;Converting Finished&#39;</span> <span class="nv">$USER</span>
-    rm <span class="s2">&quot;</span><span class="nv">$LOGFILE</span><span class="s2">&quot;</span> <span class="s2">&quot;</span><span class="si">${</span><span class="nv">FILE</span><span class="si">}</span><span class="s2">&quot;</span>
-  <span class="k">else</span>
-    <span class="nb">echo</span> <span class="s2">&quot;</span><span class="nv">$FILE</span><span class="s2"> converting faild. see attachment for details.&quot;</span> <span class="p">|</span> mail -A <span class="s2">&quot;</span><span class="nv">$LOGFILE</span><span class="s2">&quot;</span> -s <span class="s1">&#39;Error While Converting&#39;</span> <span class="nv">$USER</span>
-  <span class="k">fi</span>
-<span class="k">done</span>
-</pre></div>
-
-
-<p>در پست‌های بعدی، درباره‌ی مهاجرت به قالب‌های آزاد دیگه (نظیر Vorbis و ...) خواهم نوشت.</p></div>
-    </article></li>
-    <li><article class="post">
-      <header class="post-header"><h2 class="post-title"><a href="https://mamins1376.github.io/weblog/2015/08/gnwm-hjdh-slh-shd/" rel="bookmark" title="گنوم، هجده ساله شد">گنوم، هجده ساله شد</a></h2>
-        <abbr class="publish-date" title="تاریخ انتشار"> یک‌شنبه ۲۵ مرداد ۱۳۹۴</abbr>
-        <address class="vcard author">
-            <a class="url fn" href="https://mamins1376.github.io/weblog/author/mhmdmyn.html">محمدامین</a>
-        </address>
-      </header>
-      <div class="post-content"><p>دیروز، میزکار گنوم هجدهمین سالش رو پشت سر گذاشت. میزکاری که در ابتدا به علت مشکلات مجوز کتابخونه‌ی Qt به وجود اومد و پس از متن‌باز شدن این کتابخونه، باز هم به توسعه‌ی خودش ادامه داد و الآن یکی از پرطرفدارترین میزکارهای گنو به حساب میاد و در رقابتی سخت با KDE. برنامه‌هایی که این سیستم رو تشکیل می‌دن، کاملا یکپارچه با همدیگه و خود سیستم هستن که باعث می‌شه هماهنگی بی نظیری رو شاهد باشیم. در ادامه، ویدئوی معرفی گنوم ۳.۱۶ رو قرار دادم.
-خوش باشید.</p>
-<iframe class="youtube-embed" src="https://www.youtube.com/embed/WxRLa5hTGkg" frameborder="0" allowfullscreen></iframe></div>
-    </article></li>
     <li><article class="post">
       <header class="post-header"><h2 class="post-title"><a href="https://mamins1376.github.io/weblog/2015/05/dbyn-br-bstr-ndrwyd-pysh-bh-swy-jsyqsmt-dwm/" rel="bookmark" title="دبیان بر بستر اندروید: پیش به سوی جسی!(قسمت دوم)">دبیان بر بستر اندروید: پیش به سوی جسی!(قسمت دوم)</a></h2>
         <abbr class="publish-date" title="تاریخ انتشار"> یک‌شنبه ۱۳ اردی‌بهشت ۱۳۹۴</abbr>
@@ -296,9 +236,9 @@ busybox umount <span class="nv">$DEBMNT</span> <span class="o">||</span> sh -c b
     </article></li>
 </ul>
 <div class="pagination">
-    <span class="disabled button">▷</span>
+    <a href="https://mamins1376.github.io/weblog/author/mhmdmyn2.html" class="button">▶</a>
 
-  <span class="pagination-count">صفحه ۱ از ۱</span>
+  <span class="pagination-count">صفحه ۳ از ۳</span>
 
     <span class="disabled button">◁</span>
 </div>

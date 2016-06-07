@@ -1,81 +1,20 @@
-.container {
-  min-height: calc(100% - 260px); /* just footer height */
-  padding: 0 0 260px 0; /* like above */
-}
-.warpper {
-  max-width: 100%;
-  padding: 0 20px;
-  padding: 36px 20px 0px 20px;
-}
-.button {
-  padding: 1px;
-}
-.site-header {
-  min-height: 48px;
-}
-.site-header .warpper, .site-footer .warpper {
-  padding-top: 0;
-}
-.site-logo {
-  display: none;
-}
-.site-title {
-  font-size: 1.4em;
-}
-.site-navigation {
-  position: fixed;
-  top: 9px;
-  left: 30px;
-  background-color: #b8e1dd;
-  border: 0px solid #044a42;
-  text-align: right;
-  border-radius: 3px;
-}
-.site-navigation .menu-icon {
+.site-title, .site-desc, .site-navigation {
   display: block;
-  float: left;
-  width: 32px;
-  height: 23px;
-  line-height: 0;
-  padding-top: 9px;
   text-align: center;
 }
-.site-navigation .menu-icon > svg {
-  width: 18px;
-  height: 15px;
+
+.site-navigation {
+  float: none;
+  padding: 0;
+  margin: 0 auto;
+  width: 90%;
+  max-width: 300px;
 }
-.site-navigation .menu-icon > svg path {
-  fill: #044a42;
-}
-.site-navigation .trigger {
-  clear: both;
-  display: none;
-  box-shadow: 0 5px 8px -6px black;
-}
-.site-navigation:hover .trigger {
-  display: block;
-  padding-bottom: 5px;
-}
-.site-navigation .page-link {
-  display: block;
-  padding: 5px 10px;
-  color: #044a42;
-  transition: 0s;
-  text-shadow: 0 0 8px;
-}
-.post-info {
-  font-size: 1.2em;
-}
+
 .youtube-embed {
   margin: 1em auto;
   width: 100%;
   height: auto;
-}
-.share-message-normal { display: none; }
-.share-message-small { display: inline; }
-.share-button img, .share-button img:hover {
-  filter: none;
-  transition: none;
 }
 .postnav-prev, .postnav-next {
   display: block;
@@ -85,16 +24,24 @@
 .postnav a:focus span {
   margin: 0;
 }
-.site-footer {
-  height: 260px;
-}
-.footer-col-1, .footer-col-2 {
-  width: calc(50% - 15px);
-}
-.footer-col-3 {
-  width: calc(100% - 15px);
-}
-.footer-col {
-  float: none;
-  width: calc(100% - 15px);
+
+@media screen and (max-width: 560px) {
+
+  .container {
+    min-height: calc(100% - 196px);
+    padding-bottom: 196px;
+  }
+
+  .site-footer {
+    height: 196px;
+  }
+
+  .column-1, .column-2, .column-3 {
+    width: unset;
+    margin: 0 auto;
+    text-align: center;
+    display: block;
+    padding: 8px 0;
+  }
+
 }

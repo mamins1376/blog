@@ -1,15 +1,13 @@
 <!DOCTYPE html>
 <html lang="fa">
 <head>
-  <title>زندگی خوره‌ای</title>
+  <title>نوشته‌ي محمدامین - زندگی خوره‌ای</title>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width">
   <link rel="icon" type="image/png" href="https://mamins1376.github.io/weblog/favicon.png">
 
   <link href="https://mamins1376.github.io/weblog/atom.xml" type="application/atom+xml" rel="alternate" title="خوراک اتم کامل زندگی خوره‌ای" />
   <link href="https://mamins1376.github.io/weblog/rss.xml" type="application/rss+xml" rel="alternate" title="خوراک آراس‌اس کامل زندگی خوره‌ای" />
-  <link href="https://mamins1376.github.io/weblog/category/lynwkhs.atom.xml" type="application/atom+xml" rel="alternate" title="خوراک اتم دسته لینوکس - زندگی خوره‌ای" />
-  <link href="https://mamins1376.github.io/weblog/category/lynwkhs.rss.xml" type="application/rss+xml" rel="alternate" title="خوراک آراس‌اس دسته لینوکس - زندگی خوره‌ای" />
 
       <link href="https://mamins1376.github.io/weblog/theme/css/style.css" rel="stylesheet" />
       <link href="https://mamins1376.github.io/weblog/theme/css/syntax.css" rel="stylesheet" />
@@ -41,93 +39,29 @@
 </header>
     <div class="wrapper">
 <section class="content">
-<h2>نوشته‌های دسته‌ی لینوکس</h2>
-<div class='category-subcribe'>
-    اشتراک در
-    <a href="https://mamins1376.github.io/weblog/category/lynwkhs.rss.xml" title="خوراک خبری دسته‌ی لینوکس">خوراک خبری</a>
-    این دسته
-</div>
+<h2>نوشته‌ی محمدامین</h2>
 
 <ul class="post-list">
     <li><article class="post">
-      <header class="post-header"><h2 class="post-title"><a href="https://mamins1376.github.io/weblog/2015/08/mhjrt-bh-qlb-mtrwskh/" rel="bookmark" title="مهاجرت به قالب ماتروسکا">مهاجرت به قالب ماتروسکا</a></h2>
-        <abbr class="publish-date" title="تاریخ انتشار"> پنج‌شنبه ۲۹ مرداد ۱۳۹۴</abbr>
+      <header class="post-header"><h2 class="post-title"><a href="https://mamins1376.github.io/weblog/2015/07/mrfy-quicklyric-shr-hmrh/" rel="bookmark" title="معرفی QuickLyric: اشعار همراه">معرفی QuickLyric: اشعار همراه</a></h2>
+        <abbr class="publish-date" title="تاریخ انتشار"> سه‌شنبه ۳۰ تیر ۱۳۹۴</abbr>
         <address class="vcard author">
             <a class="url fn" href="https://mamins1376.github.io/weblog/author/mhmdmyn.html">محمدامین</a>
         </address>
       </header>
-      <div class="post-content"><p>به قصد پاکسازی سیستمم، تصمیم گرفتم تا جای ممکن از قالب‌ها، نرم‌افزارها و مجوزهای آزاد استفاده کنم. در راستای این مهم، <a href="https://fa.wikipedia.org/wiki/%D9%85%D8%A7%D8%AA%D8%B1%D9%88%D8%B3%DA%A9%D8%A7">ماتروسکا</a> رو برای پرونده‌های تصویری انتخاب کردم. قالب خیلی جالبیه و همه‌جا هم به راحتی قابل پخشه و البته شناخته شده(با پسوند mkv). یکی از مزایایی هم که داره کم‌تر بودن حجمش نسبت به امپگ هست. اسکریپتی برای پاکسازی سیستم از قالب منحوس و شوم(!) MP4 نوشتم که تقریبا هوشمندانه عمل می‌کنه. البته به قول <a href="http://jadi.net/">جادی</a>، ما هر چیزی رو که براش if می‌ذاریم بهش می‌گیم هوشمند :)</p>
-<p>نحوه‌ی کار به این صورته که <code>find</code>، پرونده‌هایی رو که پسوند MP4 دارند رو داخل پوشه‌ی Videos در پوشه‌ی خانگی کاربر جاری پیدا می‌کنه و با یه حلقه‌ی <code>for</code> مانند (که با <code>while</code> پیاده شده)، تابع <code>convert_to_mkv</code> رو به ازای هر کدوم از این پرونده‌ها صدا می‌زنه. این تابع، موظفه که برنامه‌ی <code>avconv</code> رو اجرا کنه که عمل اصلی تبدیل رو انجام می‌ده. بقیه‌ی کارها هم مختص فرستادن نامه به کاربره که گزارش تبدیل رو به کاربر جاری ایمیل می‌کنه.</p>
-<div class="highlight"><pre><span></span><span class="ch">#!/bin/sh</span>
-<span class="c1"># make cron usage easy :)</span>
-<span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span>/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
-<span class="c1"># go to the user&#39;s videos directory</span>
-<span class="nb">cd</span> /home/<span class="nv">$USER</span>/Videos/
-
-<span class="c1"># this function converts given filename</span>
-convert_to_mkv<span class="o">()</span> <span class="o">{</span>
-  <span class="nv">INPUT</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$1</span><span class="s2">&quot;</span>
-  <span class="nv">OUTPUT</span><span class="o">=</span><span class="s2">&quot;</span><span class="k">$(</span><span class="nb">echo</span> <span class="nv">$1</span> <span class="p">|</span> sed -r -e <span class="s1">&#39;s/\.\w+$/.mkv/&#39;</span><span class="k">)</span><span class="s2">&quot;</span>
-  avconv -v info -i <span class="s2">&quot;</span><span class="nv">$INPUT</span><span class="s2">&quot;</span> -c:v libx264 -f matroska <span class="s2">&quot;</span><span class="nv">$OUTPUT</span><span class="s2">&quot;</span>
-<span class="o">}</span>
-
-<span class="c1"># find any mp4 and kill it!</span>
-find . -type f -name <span class="s1">&#39;*.mp4&#39;</span> <span class="p">|</span> <span class="k">while</span> <span class="nb">read</span> FULL_PATH<span class="p">;</span> <span class="k">do</span>
-  <span class="nv">FILE</span><span class="o">=</span><span class="s2">&quot;</span><span class="k">$(</span><span class="nb">echo</span> <span class="s2">&quot;</span><span class="nv">$FULL_PATH</span><span class="s2">&quot;</span> <span class="p">|</span> sed <span class="s1">&#39;s/\.\///&#39;</span><span class="k">)</span><span class="s2">&quot;</span>
-  <span class="nv">LOGFILE</span><span class="o">=</span><span class="s2">&quot;</span><span class="k">$(</span>basename <span class="s2">&quot;</span><span class="si">${</span><span class="nv">FILE</span><span class="si">}</span><span class="s2">&quot;</span> <span class="p">|</span> sed -e <span class="s1">&#39;s/ /_/g&#39;</span> -e <span class="s1">&#39;s/mp4$/log/&#39;</span><span class="k">)</span><span class="s2">&quot;</span>
-  <span class="k">if</span> convert_to_mkv <span class="s2">&quot;</span><span class="nv">$FILE</span><span class="s2">&quot;</span> &lt; /dev/null &gt;&gt; <span class="s2">&quot;</span><span class="nv">$LOGFILE</span><span class="s2">&quot;</span> 2&gt;<span class="p">&amp;</span>1<span class="p">;</span> <span class="k">then</span>
-    <span class="nb">echo</span> <span class="s2">&quot;</span><span class="nv">$FILE</span><span class="s2"> converting successfully finished. see attachment for details.&quot;</span> <span class="p">|</span> mail -A <span class="s2">&quot;</span><span class="nv">$LOGFILE</span><span class="s2">&quot;</span> -s <span class="s1">&#39;Converting Finished&#39;</span> <span class="nv">$USER</span>
-    rm <span class="s2">&quot;</span><span class="nv">$LOGFILE</span><span class="s2">&quot;</span> <span class="s2">&quot;</span><span class="si">${</span><span class="nv">FILE</span><span class="si">}</span><span class="s2">&quot;</span>
-  <span class="k">else</span>
-    <span class="nb">echo</span> <span class="s2">&quot;</span><span class="nv">$FILE</span><span class="s2"> converting faild. see attachment for details.&quot;</span> <span class="p">|</span> mail -A <span class="s2">&quot;</span><span class="nv">$LOGFILE</span><span class="s2">&quot;</span> -s <span class="s1">&#39;Error While Converting&#39;</span> <span class="nv">$USER</span>
-  <span class="k">fi</span>
-<span class="k">done</span>
-</pre></div>
-
-
-<p>در پست‌های بعدی، درباره‌ی مهاجرت به قالب‌های آزاد دیگه (نظیر Vorbis و ...) خواهم نوشت.</p></div>
-    </article></li>
-    <li><article class="post">
-      <header class="post-header"><h2 class="post-title"><a href="https://mamins1376.github.io/weblog/2015/07/dbt-tlwyzywn-dyjytl-b-mplayer/" rel="bookmark" title="ضبط تلویزیون دیجیتال با mplayer">ضبط تلویزیون دیجیتال با mplayer</a></h2>
-        <abbr class="publish-date" title="تاریخ انتشار"> دوشنبه ۵ مرداد ۱۳۹۴</abbr>
-        <address class="vcard author">
-            <a class="url fn" href="https://mamins1376.github.io/weblog/author/mhmdmyn.html">محمدامین</a>
-        </address>
-      </header>
-      <div class="post-content"><p>پخش شبکه‌های تلویزیون دیجیتال به آسونی با VLC Media Player انجام می‌شه و به خوبی از پسش برمیاد ولی ممکنه برای ضبط اون به مشکل بخورید یا حداقل کمی اذیت بشید. همچنین با مشکلات کرشی که توی سرور X وجود داره متوقف شدن عملیات ضبط به معنی از دست رفتن برنامه‌ی مورد نظرتونه. برای همین من سراغ mplayer و خط فرمان رفتم. <a href="https://en.wikipedia.org/wiki/Mplayer">mplayer</a> یکی از بهترین پخش کننده‌های آزاده که بی‌شک می‌شه لقب قدرتمندترین پخش کننده رو بهش نسبت داد و البته کارهای بسیار بیش‌تری از یک «پخش‌کننده»ی ساده انجام می‌ده.</p>
-<h2>اسکن شبکه‌ها</h2>
-<p>برای این کار از برنامه‌ی <a href="http://www.linuxtv.org/wiki/index.php/W_scan">w_scan</a> استفاده می‌کنیم. البته فرض بر اینه که قبلش راه‌اندازهای DVBتون رو نصب کردید.</p>
-<div class="highlight"><pre><span></span>$ sudo apt-get install w-scan mplayer
-</pre></div>
-
-
-<p>و بعدش، شبکه ها رو اسکن می‌کنیم و اونها رو توی فایل <code>etc/mplayer/channels.conf/</code> می‌ریزیم.</p>
-<div class="highlight"><pre><span></span>$ w_scan -ft -c IR -M &gt; channels.conf
-$ sudo mv channels.conf /etc/mplayer/
-</pre></div>
-
-
-<p><strong>توجه</strong>: اسکن شبکه‌ها برای من حدود ۴ دقیقه طول کشید.</p>
-<h2>لیست شبکه‌ها</h2>
-<p>با دستور زیر می‌تونید لیست شبکه‌های موجود رو ببینید:</p>
-<div class="highlight"><pre><span></span>$ cut -d<span class="se">\:</span> -f1 /etc/mplayer/channels.conf
-</pre></div>
-
-
-<h2>ضبط</h2>
-<p>شبکه‌ی مورد نظرتون رو از لیست بالا انتخاب کنید، برای مثال من شبکه‌ی نمایش (<code>IRIB NAMAYESH</code>) رو انتخاب می‌کنم. چون توی اسم این شبکه فاصله وجود داره، ما مستقیما نمی‌تونیم اون رو بعنوان <em>یک آرگومان</em> به برنامه پاس کنیم. پس یا باید قبل هر فاصله یک اسکیپ (<code>\</code>) قرار بدیم یا کل عبارت رو داخل یک جفت <code>'</code> قرار بدیم. من راه دوم رو انتخاب می‌کنم:</p>
-<div class="highlight"><pre><span></span>$ mplayer -dumpstream <span class="s1">&#39;dvb://IRIB NAMAYESH&#39;</span> -dumpfile Stream.ts
-</pre></div>
-
-
-<p>حالا mplayer شروع می‌کنه به ذخیره‌ی اطلاعات دریافت شده از دانگل DVB در فایلی با فرمت TS. این فرمت شامل داده‌های کاملا خام می‌شه و ذاتا حجم خیلی زیادی رو به خودش اختصاص می‌ده.</p>
-<h2>پخش Stream.ts</h2>
-<p>از اون‌جایی که TS حاوی داده‌های خام و غیر فشرده‌ست، باید به یک فرمت پخش خوب تبدیلش کنیم تا با پلیرهای عادی روی هر پلتفرمی قابل پخش بشه؛ من mkv رو که یک فرمت آزاده انتخاب و برای تبدیل از <code>avconv</code> استفاده می‌کنم. لازم به ذکره که پروژه‌ی <code>ffmpeg</code>مدت زیادیه که متوقف شده و به avconv ملحق شده. avconv رو می‌تونید توی بسته‌ی <a href="apt://libav-tools">libav-tools</a> پیدا کنین.</p>
-<div class="highlight"><pre><span></span>$ avconv -i Stream.ts Stream.mkv
-</pre></div>
-
-
-<p>از برنامه‌های با کیفیت، مفید و فوق‌العاده جدید و ارزشمند IRIB لذت ببرید D:</p></div>
+      <div class="post-content"><p><img alt="QuickLyric" src="https://raw.githubusercontent.com/geecko86/QuickLyric/master/banner.png" />
+برنامه‌هایی که براتون اشعار یه آهنگ رو دریافت می‌کنن توی اندروید بسیار اند و بی شک QuickLyric یکی از بهترین‌هاست؛ چون:</p>
+<ul>
+<li>متن‌بازه</li>
+<li>منبع خاصی نداره، در عوض از یک موتور جستجو برای تهیه‌ی متن‌ها استفاده می‌کنه. این باعث می‌شه که محدود به یه وبسایت بخصوص نباشه و از هرجایی که ممکن بود اشعار رو به دست بیاره</li>
+<li>رابط کاربری فوق العاده زیبایی داره، به لطف Material Design.</li>
+<li>با اکثر موزیک پلیرها سازگاره؛ یعنی لازم نیست اسم آهنگ رو دستی وارد کنید. خود برنامه این کار رو برای شما می‌کنه. بعضی از برنامه‌هایی که توی گوگل‌پلی دیدم همچین کاری می‌کردن ولی باید اجازه‌ی خوندن مستقیم اعلان رو از شما بگیرن که شدیدا حریم خصوصی رو در معرض خطر قرار می‌ده. این برنامه بدون این کار ها به خوبی آهنگ رو شناسایی می‌کنه.</li>
+<li>می‌تونه متن آهنگ‌ها رو ذخیره کنه و هنگامی که آفلاین هستین هم اون‌ها رو داشته باشین.</li>
+<li>بازم بگم؟ باشه میگم... حالت شب هم داره که دیگه فکر نکنم نیازی به توضیح داشته باشه.</li>
+<li>در ضمن، <a href="https://github.com/geecko86/QuickLyric/wiki/Expanding-the-catalog">می‌شه ارائه‌دهنده‌های بیش‌تری هم بهش اضافه کرد</a>  مثلا <a href="https://www.radiojavan.com/">رادیوجوان</a>.</li>
+</ul>
+<p><a href="https://fossdroid.com/a/quicklyric-2.html">صفحه‌ی برنامه روی Fossdroid</a></p>
+<p><a href="https://github.com/geecko86/QuickLyric">سورس برنامه روی گیت‌هاب</a> به همراه اسکرین‌شات‌ها</p></div>
     </article></li>
     <li><article class="post">
       <header class="post-header"><h2 class="post-title"><a href="https://mamins1376.github.io/weblog/2015/07/tm-super-flat-solarized-bry-gnwm-shl/" rel="bookmark" title="تم Super Flat Solarized برای گنوم شل[آپدیت]">تم Super Flat Solarized برای گنوم شل[آپدیت]</a></h2>
@@ -494,13 +428,52 @@ Setting up guake <span class="o">(</span>0.4.4-1ubuntu1<span class="o">)</span> 
 
 <p>موفق باشین.</p></div>
     </article></li>
+    <li><article class="post">
+      <header class="post-header"><h2 class="post-title"><a href="https://mamins1376.github.io/weblog/2015/05/cron-w-rtcwake-khwb-rht/" rel="bookmark" title="cron و rtcwake: خواب راحت">cron و rtcwake: خواب راحت</a></h2>
+        <abbr class="publish-date" title="تاریخ انتشار"> دوشنبه ۱۴ اردی‌بهشت ۱۳۹۴</abbr>
+        <address class="vcard author">
+            <a class="url fn" href="https://mamins1376.github.io/weblog/author/mhmdmyn.html">محمدامین</a>
+        </address>
+      </header>
+      <div class="post-content"><p>دانلود شبانه یکی از باحال‌ترین کارهاست ولی دردسرهایی داره: باید سیستم رو روشن بذارین تا سر ساعت شروع کنه. <a href="http://forum.ubuntu.ir/index.php?topic=59242.0">rtcwake</a> قراره به کمک cron این مشکل رو برای همیشه برامون حل کنه تا به‌خاطر چند گیگ ناقابل از خواب‌مون نزنیم!
+<!-- ادامه --></p>
+<p><a href="http://forum.ubuntu.ir/index.php/topic,40582.0.html">راهنماهای خوبی</a> برای دانلود شبانه وجود دارن پس ما از اول شروع نمی‌کنیم و فقط تنظیم سیستم رو این‌جا شرح می‌دیم.<br />
+<strong>نکته:</strong> rtcwake و cron هردو روی توزیع دبیان به‌طور پیش‌فرض نصبن. برای نصبش روی توزیع خودتون از مدیربسته استفاده کنین. این روش به نوع توزیع وابسته نیست.</p>
+<h4>۱. کار با rtcwake</h4>
+<p>چون کار با بسیاری از سخت‌افزارهای سیستم نیازمند دسترسی روت هست، rtcwake که از ساعت سخت‌افزاری سیستم استفاده می‌کنه طبیعتاً از این قاعده مستثنی نیست. پس باید کارهای مربوط به rtcwake رو با این سطح دسترسی انجام بدیم. قالب مورد نیاز ما برای روشن کردن سیستم سر ساعت <code>&lt;TIME&gt;</code> که بر حسب زمان محلی وارد می‌شه( سوییچ <code>l-</code> این کار رو انجام می‌ده) به این صورته:</p>
+<div class="highlight"><pre><span></span>root@debian:~# rtcwake -l -m no -t <span class="k">$(</span> date +%s -d &lt;TIME&gt; <span class="k">)</span>
+</pre></div>
+
+
+<p>سوئیچ <code>m</code> به rtcwake می‌گه بعد از این که سیستم رو تنظیم کردی، هیچ‌کاری نکن(مثل خاموش کردن، حالت خواب و ...). date خروجی‌ش رو به rtcwake می‌ده که واحدش ثانیه‌ست و فاصله‌ی زمان داده‌شده رو با مبدأ زمانی یونیکس مشخص می‌کنه. مثلا ما می‌خوایم ساعت ۱ شب سیستم روشن بشه:</p>
+<div class="highlight"><pre><span></span>root@debian:~# rtcwake -l -m no -t <span class="k">$(</span> date +%s -d <span class="s1">&#39;tomorrow 01:00&#39;</span> <span class="k">)</span>
+</pre></div>
+
+
+<p>کلمه‌ی <code>tomorrow‍</code> به date می‌فهمونه که منظور ما ساعت ۱‍ شبی‌‍ه که از ساعت ۲۴ گذشته باشه؛ یعنی اگر این دستور بعد از ساعت ۱۲ شب اجرا بشه روشن کردن سیستم رو به فردا شب موکول می‌کنه! پس دقت کنین که الان ساعت چنده.</p>
+<h4>۲. افزودن به cron</h4>
+<p>خود cron یک‌سری کلمه داره که رویداد خاصی رو مشخص می‌کنه. مثلا <code>reboot</code> به معنی «هر وقت سیستم روشن شد»‍ه. <strong>چه خوب!</strong> ما از این قابلیت استفاده می‌کنیم و به cron می‌گیم که هروقت سیستم روشن شد برای دانلود شبانه تنظیمش کنه. این طوری دیگه نیازی به اجرای دستی rtcwake نیست.<br />
+معمولا چون cron خیلی از مسیرهای رایج رو توی متغییر محیطی <code>PATH</code> نداره مجبوریم خودمون دستی مسیر هر کدوم از اجرایی‌ها رو وارد کنیم.<br />
+<strong>توجه!</strong> مسیرهایی که این‌جا برای date و rtcwake استفاده شدن ممکنه روی سیستم شما فرق کنن. با دستور <code>which</code> می‌تونید از مسیر هر دستوری مطلع بشین.  </p>
+<p>اول cron مربوط به کاربر ریشه رو باز می‌کنیم:</p>
+<div class="highlight"><pre><span></span>root@debian:~# crontab -u root -e
+</pre></div>
+
+
+<p>حالا خط زیر رو واردش می‌کنیم. توجه داشته باشین که <code>&lt;TIME&gt;</code> رو با زمان دلخواهتون عوض کنین:</p>
+<div class="highlight"><pre><span></span>@reboot /usr/sbin/rtcwake -l -m no -t <span class="k">$(</span> /bin/date +<span class="se">\%</span>s -d &lt;TIME&gt; <span class="k">)</span>
+</pre></div>
+
+
+<p>و در انتها سیستم رو ریبوت کنین تا rtcwake ساعت رو تنظیم کنه.</p></div>
+    </article></li>
 </ul>
 <div class="pagination">
-    <span class="disabled button">▷</span>
+    <a href="https://mamins1376.github.io/weblog/author/mhmdmyn.html" class="button">▶</a>
 
-  <span class="pagination-count">صفحه ۱ از ۲</span>
+  <span class="pagination-count">صفحه ۲ از ۳</span>
 
-    <a href="https://mamins1376.github.io/weblog/category/lynwkhs2.html" class="button">◀</a>
+    <a href="https://mamins1376.github.io/weblog/author/mhmdmyn3.html" class="button">◀</a>
 </div>
 </section>
     </div>
