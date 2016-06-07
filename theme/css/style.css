@@ -5,6 +5,10 @@ html, body {
 }
 
 body {
+  font-family: "Iranian Sans", "Ubuntu", "Droid Arabic Naskh", "Helvetica", "sans-serif", "Arial";
+  font-size: 16px;
+  line-height: 1.65;
+  font-weight: 300;
   margin: 0;
   background: radial-gradient(circle at 50% 0, #393e46, #222831 18em), #222831;
   background-repeat: no-repeat;
