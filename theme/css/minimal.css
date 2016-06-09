@@ -18,7 +18,7 @@
 }
 .postnav-prev, .postnav-next {
   display: block;
-  width: unset;
+  width: 100%;
 }
 .postnav a:hover span,
 .postnav a:focus span {
@@ -37,9 +37,8 @@
   }
 
   .column-1, .column-2, .column-3 {
-    width: unset;
+    width: 100%;
     margin: 0 auto;
-    text-align: center;
     display: block;
     padding: 8px 0;
   }
