@@ -42,6 +42,45 @@
 
 <ul class="post-list">
     <li><article class="post">
+      <header class="post-header"><h2 class="post-title"><a href="https://mamins1376.github.io/weblog/2015/05/cron-w-rtcwake-khwb-rht/" rel="bookmark" title="cron و rtcwake: خواب راحت">cron و rtcwake: خواب راحت</a></h2>
+        <abbr class="publish-date" title="تاریخ انتشار"> دوشنبه ۱۴ اردی‌بهشت ۱۳۹۴</abbr>
+        <address class="vcard author">
+            <a class="url fn" href="https://mamins1376.github.io/weblog/author/mhmdmyn.html">محمدامین</a>
+        </address>
+      </header>
+      <div class="post-content"><p>دانلود شبانه یکی از باحال‌ترین کارهاست ولی دردسرهایی داره: باید سیستم رو روشن بذارین تا سر ساعت شروع کنه. <a href="http://forum.ubuntu.ir/index.php?topic=59242.0">rtcwake</a> قراره به کمک cron این مشکل رو برای همیشه برامون حل کنه تا به‌خاطر چند گیگ ناقابل از خواب‌مون نزنیم!
+<!-- ادامه --></p>
+<p><a href="http://forum.ubuntu.ir/index.php/topic,40582.0.html">راهنماهای خوبی</a> برای دانلود شبانه وجود دارن پس ما از اول شروع نمی‌کنیم و فقط تنظیم سیستم رو این‌جا شرح می‌دیم.<br />
+<strong>نکته:</strong> rtcwake و cron هردو روی توزیع دبیان به‌طور پیش‌فرض نصبن. برای نصبش روی توزیع خودتون از مدیربسته استفاده کنین. این روش به نوع توزیع وابسته نیست.</p>
+<h4>۱. کار با rtcwake</h4>
+<p>چون کار با بسیاری از سخت‌افزارهای سیستم نیازمند دسترسی روت هست، rtcwake که از ساعت سخت‌افزاری سیستم استفاده می‌کنه طبیعتاً از این قاعده مستثنی نیست. پس باید کارهای مربوط به rtcwake رو با این سطح دسترسی انجام بدیم. قالب مورد نیاز ما برای روشن کردن سیستم سر ساعت <code>&lt;TIME&gt;</code> که بر حسب زمان محلی وارد می‌شه( سوییچ <code>l-</code> این کار رو انجام می‌ده) به این صورته:</p>
+<div class="highlight"><pre><span></span>root@debian:~# rtcwake -l -m no -t <span class="k">$(</span> date +%s -d &lt;TIME&gt; <span class="k">)</span>
+</pre></div>
+
+
+<p>سوئیچ <code>m</code> به rtcwake می‌گه بعد از این که سیستم رو تنظیم کردی، هیچ‌کاری نکن(مثل خاموش کردن، حالت خواب و ...). date خروجی‌ش رو به rtcwake می‌ده که واحدش ثانیه‌ست و فاصله‌ی زمان داده‌شده رو با مبدأ زمانی یونیکس مشخص می‌کنه. مثلا ما می‌خوایم ساعت ۱ شب سیستم روشن بشه:</p>
+<div class="highlight"><pre><span></span>root@debian:~# rtcwake -l -m no -t <span class="k">$(</span> date +%s -d <span class="s1">&#39;tomorrow 01:00&#39;</span> <span class="k">)</span>
+</pre></div>
+
+
+<p>کلمه‌ی <code>tomorrow‍</code> به date می‌فهمونه که منظور ما ساعت ۱‍ شبی‌‍ه که از ساعت ۲۴ گذشته باشه؛ یعنی اگر این دستور بعد از ساعت ۱۲ شب اجرا بشه روشن کردن سیستم رو به فردا شب موکول می‌کنه! پس دقت کنین که الان ساعت چنده.</p>
+<h4>۲. افزودن به cron</h4>
+<p>خود cron یک‌سری کلمه داره که رویداد خاصی رو مشخص می‌کنه. مثلا <code>reboot</code> به معنی «هر وقت سیستم روشن شد»‍ه. <strong>چه خوب!</strong> ما از این قابلیت استفاده می‌کنیم و به cron می‌گیم که هروقت سیستم روشن شد برای دانلود شبانه تنظیمش کنه. این طوری دیگه نیازی به اجرای دستی rtcwake نیست.<br />
+معمولا چون cron خیلی از مسیرهای رایج رو توی متغییر محیطی <code>PATH</code> نداره مجبوریم خودمون دستی مسیر هر کدوم از اجرایی‌ها رو وارد کنیم.<br />
+<strong>توجه!</strong> مسیرهایی که این‌جا برای date و rtcwake استفاده شدن ممکنه روی سیستم شما فرق کنن. با دستور <code>which</code> می‌تونید از مسیر هر دستوری مطلع بشین.  </p>
+<p>اول cron مربوط به کاربر ریشه رو باز می‌کنیم:</p>
+<div class="highlight"><pre><span></span>root@debian:~# crontab -u root -e
+</pre></div>
+
+
+<p>حالا خط زیر رو واردش می‌کنیم. توجه داشته باشین که <code>&lt;TIME&gt;</code> رو با زمان دلخواهتون عوض کنین:</p>
+<div class="highlight"><pre><span></span>@reboot /usr/sbin/rtcwake -l -m no -t <span class="k">$(</span> /bin/date +<span class="se">\%</span>s -d &lt;TIME&gt; <span class="k">)</span>
+</pre></div>
+
+
+<p>و در انتها سیستم رو ریبوت کنین تا rtcwake ساعت رو تنظیم کنه.</p></div>
+    </article></li>
+    <li><article class="post">
       <header class="post-header"><h2 class="post-title"><a href="https://mamins1376.github.io/weblog/2015/05/dbyn-br-bstr-ndrwyd-pysh-bh-swy-jsyqsmt-dwm/" rel="bookmark" title="دبیان بر بستر اندروید: پیش به سوی جسی!(قسمت دوم)">دبیان بر بستر اندروید: پیش به سوی جسی!(قسمت دوم)</a></h2>
         <abbr class="publish-date" title="تاریخ انتشار"> یک‌شنبه ۱۳ اردی‌بهشت ۱۳۹۴</abbr>
         <address class="vcard author">
