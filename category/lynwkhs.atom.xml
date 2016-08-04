@@ -1,5 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>زندگی خوره‌ای</title><link href="https://mamins1376.github.io/weblog/" rel="alternate"></link><link href="https://mamins1376.github.io/weblog/category/lynwkhs.atom.xml" rel="self"></link><id>https://mamins1376.github.io/weblog/</id><updated>2015-08-20T22:27:00+04:30</updated><entry><title>مهاجرت به قالب ماتروسکا</title><link href="https://mamins1376.github.io/weblog/2015/08/mhjrt-bh-qlb-mtrwskh/" rel="alternate"></link><published>2015-08-20T22:27:00+04:30</published><author><name>محمدامین</name></author><id>tag:mamins1376.github.io,2015-08-20:weblog/2015/08/mhjrt-bh-qlb-mtrwskh/</id><summary type="html">&lt;p&gt;به قصد پاکسازی سیستمم، تصمیم گرفتم تا جای ممکن از قالب‌ها، نرم‌افزارها و مجوزهای آزاد استفاده کنم. در راستای این مهم، &lt;a href="https://fa.wikipedia.org/wiki/%D9%85%D8%A7%D8%AA%D8%B1%D9%88%D8%B3%DA%A9%D8%A7"&gt;ماتروسکا&lt;/a&gt; رو برای پرونده‌های تصویری انتخاب کردم. قالب خیلی جالبیه و همه‌جا هم به راحتی قابل پخشه و البته شناخته شده(با پسوند mkv). یکی از مزایایی هم که داره کم‌تر بودن حجمش نسبت به امپگ هست. اسکریپتی برای پاکسازی سیستم از قالب منحوس و شوم(!) MP4 نوشتم که تقریبا هوشمندانه عمل می‌کنه. البته به قول &lt;a href="http://jadi.net/"&gt;جادی&lt;/a&gt;، ما هر چیزی رو که براش if می‌ذاریم بهش می‌گیم هوشمند :)&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>زندگی خوره‌ای</title><link href="https://mamins1376.github.io/weblog/" rel="alternate"></link><link href="https://mamins1376.github.io/weblog/category/lynwkhs.atom.xml" rel="self"></link><id>https://mamins1376.github.io/weblog/</id><updated>2016-08-05T01:38:21-05:00</updated><entry><title>وصل کردن صفحه نمایش چند کامپیوتر با x2vnc</title><link href="https://mamins1376.github.io/weblog/2016/08/wsl-khrdn-sfhh-nmysh-chnd-khmpywtr-b-x2vnc/" rel="alternate"></link><published>2016-08-05T01:38:21-05:00</published><author><name>محمدامین</name></author><id>tag:mamins1376.github.io,2016-08-05:weblog/2016/08/wsl-khrdn-sfhh-nmysh-chnd-khmpywtr-b-x2vnc/</id><summary type="html">&lt;p&gt;یه رزبری‌پای داشتم، یه رایانه شخصی و دوتا مانیتور. با خودم فکر کردم که اگر اینا رو بتونم به هم وصل کنم و یه صفحه نمایش خیلی بزرگتر داشته باشم خیلی خوب می‌شه و می‌تونم مانیتور کوچکتر(۱۰۲۴×۷۶۸ و ۱۴ اینچ) رو در کنار بزرگتر(۱۲۸۰×۷۲۰ و ۲۸ اینچ) استفاده کنم، روی بزرگه بنویسم و روی کوچیکه نتیجه رو ببینم. حس خفنی داره :)&lt;/p&gt;
+&lt;h2&gt;مشکل&lt;/h2&gt;
+&lt;p&gt;مشکل اصلی اینجاست که من دوتا ماوس و دوتا کیبورد ندارم. پس باید به طریقی دوتا سیستم رو به هم وصل کنم. روی کامپیوترم &lt;a href="http://qtile.org"&gt;qtile&lt;/a&gt; دارم و روی رزبری‌پای openbox. دقت کنید که من یه کامپیوتر با دوتا مانیتور ندارم، دراون صورت نیاز به انجام هیچ کاری نبود و خود Xorg قابلیت چند-نمایشگر هزمان رو داره. این دو سیستم روی یه شبکه هستن و می‌تونن راحت همدیگر رو ببینن. پس خط ارتباط مشخص شد. حالا یه برنامه لازم دارم که اطلاعات رو از ماوس و کیبورد یه سیستم(اسمش رو می‌ذاریم هاست) بگیره و به دیگری(به این می‌گیم ریموت) بفرسته ولی نه همیشه، چون در اون صورت هر چیزی که روی یک سیستم انجام میدین روی دومی هم تکرار می‌شه.&lt;/p&gt;
+&lt;h2&gt;راه حل&lt;/h2&gt;
+&lt;p&gt;راه حل خیلی خیلی ساده تر از اون چیزی بود که من فکر می‌کردم: &lt;em&gt;x2vnc&lt;/em&gt;&lt;br /&gt;
+این برنامه رویدادهای ماوس و کیبورد رو می‌گیره، و اگر ماوستون رو به لبه نمایشگر هاست بردید، ماوس سیستم ریموت رو با پروتکل VNC حرکت می‌ده، دقیقا مثل این که این ماوس و کیبورد به همون سیستم وصله.&lt;/p&gt;
+&lt;h2&gt;نصب و راه اندازی&lt;/h2&gt;
+&lt;p&gt;روی هاست(سیستمی که ماوس و کیبورد بهش وصله) x2vnc رو نصب کنید و روی ریموت، x11vnc رو. مواظب باشید عددها رو جابه‌جا وارد نکنید :)&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;host:~$ sudo apt install x2vnc
+remote:~$ sudo apt install x11vnc
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;من به ریموت از طریق ssh دسترسی پیدا کردم. این که چطوری فرمان‌ها رو روی ریموت وارد و اجرا می‌کنید به خودتون و روش دسترسی‌تون بستگی داره. وقتی با ssh به یه سیستم که Xorg روش اجرا می‌شه وصل می‌شید، باید دستی متغییر محیطی &lt;code&gt;DISPLAY&lt;/code&gt; رو ست کنید. بعدش VNC Server رو روش اجرا کنید(همین x11vnc) تا در دسترس باشه.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;remote~:$ &lt;span class="nb"&gt;export&lt;/span&gt; &lt;span class="nv"&gt;DISPLAY&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;:0
+remote~:$ x11vnc -forever
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;ممکنه بهتون بگه که بدون پسورد سرور اجرا کردن خطر امنیتی داره. من چون روی یه شبکه خانگی بودم نیازی ندیدم که پسورد بذارم. اگر شرایط شما این طور نبود و یه لایه امنیتی لازم داشتید می‌تونید از پورت فورواردینگی که ssh ارائه می‌ده استفاده کنین.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;host~:$ ssh -N -L 5900:localhost:5900
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;این، پورت ۵۹۰۰ سرور رو که &lt;code&gt;x11vnc&lt;/code&gt; بازش کرده روی هاست خودمون «فوروارد» می‌کنه، یعنی انگار اون برنامه روی هاست داره اجرا می‌شه و نه روی ریموت. با این کار، تمام داده‌های بین دو سیستم از تونل امن ssh می‌گذرن. فراموش نکنید که سوئیچ &lt;code&gt;-localhost&lt;/code&gt; رو به x11vnc بدید تا فقط به تونل ssh گوش بده. در این صورت جای &lt;code&gt;&amp;lt;IP&amp;gt;&lt;/code&gt; دستور پایین، &lt;code&gt;localhost&lt;/code&gt; بذارید و اگر مثل من از تونل ssh استفاده نمی‌کنید، آی‌پی ریموت رو وارد کنید.&lt;/p&gt;
+&lt;p&gt;حالا، روی هاست باید x2vnc رو اجرا کنیم. در حالت پیشفرض این طوره که مانیتور هاست، سمت چپ مانیتور ریموت قرار داره. اگر جای اون‌ها برعکسه، از &lt;code&gt;-west&lt;/code&gt; استفاده کنید.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;host:~$ x2vnc &lt;span class="o"&gt;[&lt;/span&gt;-west&lt;span class="o"&gt;]&lt;/span&gt; &amp;lt;IP&amp;gt; :0
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;تمام! برای امتحان کردن برنامه، ماوستون رو به سمت مانیتور ریموت ببرید و نتیجه رو ببینید.&lt;/p&gt;
+&lt;p&gt;اینم یه پست پر و پیمون بعد از مدت‌ها. شاد باشید تا بعد :)&lt;/p&gt;</summary><category term="x2vnc"></category><category term="linux"></category><category term="x11"></category></entry><entry><title>مهاجرت به قالب ماتروسکا</title><link href="https://mamins1376.github.io/weblog/2015/08/mhjrt-bh-qlb-mtrwskh/" rel="alternate"></link><published>2015-08-20T22:27:00+04:30</published><author><name>محمدامین</name></author><id>tag:mamins1376.github.io,2015-08-20:weblog/2015/08/mhjrt-bh-qlb-mtrwskh/</id><summary type="html">&lt;p&gt;به قصد پاکسازی سیستمم، تصمیم گرفتم تا جای ممکن از قالب‌ها، نرم‌افزارها و مجوزهای آزاد استفاده کنم. در راستای این مهم، &lt;a href="https://fa.wikipedia.org/wiki/%D9%85%D8%A7%D8%AA%D8%B1%D9%88%D8%B3%DA%A9%D8%A7"&gt;ماتروسکا&lt;/a&gt; رو برای پرونده‌های تصویری انتخاب کردم. قالب خیلی جالبیه و همه‌جا هم به راحتی قابل پخشه و البته شناخته شده(با پسوند mkv). یکی از مزایایی هم که داره کم‌تر بودن حجمش نسبت به امپگ هست. اسکریپتی برای پاکسازی سیستم از قالب منحوس و شوم(!) MP4 نوشتم که تقریبا هوشمندانه عمل می‌کنه. البته به قول &lt;a href="http://jadi.net/"&gt;جادی&lt;/a&gt;، ما هر چیزی رو که براش if می‌ذاریم بهش می‌گیم هوشمند :)&lt;/p&gt;
 &lt;p&gt;نحوه‌ی کار به این صورته که &lt;code&gt;find&lt;/code&gt;، پرونده‌هایی رو که پسوند MP4 دارند رو داخل پوشه‌ی Videos در پوشه‌ی خانگی کاربر جاری پیدا می‌کنه و با یه حلقه‌ی &lt;code&gt;for&lt;/code&gt; مانند (که با &lt;code&gt;while&lt;/code&gt; پیاده شده)، تابع &lt;code&gt;convert_to_mkv&lt;/code&gt; رو به ازای هر کدوم از این پرونده‌ها صدا می‌زنه. این تابع، موظفه که برنامه‌ی &lt;code&gt;avconv&lt;/code&gt; رو اجرا کنه که عمل اصلی تبدیل رو انجام می‌ده. بقیه‌ی کارها هم مختص فرستادن نامه به کاربره که گزارش تبدیل رو به کاربر جاری ایمیل می‌کنه.&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="ch"&gt;#!/bin/sh&lt;/span&gt;
 &lt;span class="c1"&gt;# make cron usage easy :)&lt;/span&gt;
@@ -251,107 +282,4 @@ user@ubuntu:~$ cp /usr/share/sounds/sf2/FluidR3_GM.sf2 ~/Soundbank.sf2
 &lt;h4&gt;۳. نمونه&lt;/h4&gt;
 &lt;p&gt;چون پلتفرم برنامه فقط اجازه‌ی اشتراک‌گذاری فایل پروژه‌ی برنامه رو می‌ده، همه‌ی فایل‌های موجود بدون هرگونه بانک صدا یا پلاگین خارجی آپلود می‌شن.
 سری به &lt;a href="https://lmms.io/lsp/?action=browse&amp;amp;user=mamins1376"&gt;نمونه‌ی کارهای من&lt;/a&gt; هم بزنین.&lt;/p&gt;
-&lt;p&gt;شما هم کارهای خودتون رو برای بقیه بذارین!&lt;/p&gt;</summary><category term="موسیقی"></category><category term="LMMS"></category></entry><entry><title>آریا۲ و اپت: سرعتی دوچندان</title><link href="https://mamins1376.github.io/weblog/2015/05/ary2-w-pt-srty-dwchndn/" rel="alternate"></link><published>2015-05-05T14:04:00+04:30</published><author><name>محمدامین</name></author><id>tag:mamins1376.github.io,2015-05-05:weblog/2015/05/ary2-w-pt-srty-dwchndn/</id><summary type="html">&lt;p&gt;یکی از مشکلات کاربران دبیان-بیس‌ها، سرعت apt در امر طاقت‌فرسای دانلوده که باعث می‌شه خیلی‌ها سراغ مواردی مثل apt-fast برن. ما با ترکیب آریا۲ و اپت، یه دانلود کننده‌ی توپ می‌سازیم.
-&lt;!-- ادامه --&gt;&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;نکته مهم:&lt;/strong&gt; هر دستوری که اولش علامت &lt;code&gt;#&lt;/code&gt; رو می‌بینید به دسترسی روت نیاز داره و هر دستوری که اولش علامت &lt;code&gt;$&lt;/code&gt; رو داره،‌ یعنی هر کاربری توانایی اجراش رو داره و دسترسی روت لازم نیست.&lt;/p&gt;
-&lt;h4&gt;۱. استخراج لینک‌ها&lt;/h4&gt;
-&lt;p&gt;مسلماً بسته‌های دبیان چیزی جز فایل نیستن و apt هم این «فایل»ها رو دانلود می‌کنه. خب وقتی خودش می‌تونه دانلود کنه،‌ چرا ما نتونیم؟ خوش‌بختانه برای همچین‌کاری یه سوئیچ خوب وجود داره:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;root@debian:~# apt-get -y --print-uris &lt;span class="o"&gt;{&lt;/span&gt; install &amp;lt;PACKAGE&amp;gt; &lt;span class="p"&gt;|&lt;/span&gt; upgrade &lt;span class="p"&gt;|&lt;/span&gt; ... &lt;span class="o"&gt;}&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;این سوئیچ به apt می‌گه که فقط لینک رو بنویس و بی‌خیال دانلود شو. سوئیچ &lt;code&gt;y&lt;/code&gt; هم می‌گه که خودت تائید کن.
-مثلا من guake رو امتحان می‌کنم:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;root@debian:~# apt-get -y --print-uris install guake 
-Reading package lists... Done
-Building dependency tree
-Reading state information... Done
-The following extra packages will be installed:
-  python-glade2 python-vte
-Suggested packages:
-  python-gtk2-doc
-The following NEW packages will be installed:
-  guake python-glade2 python-vte
-&lt;span class="m"&gt;0&lt;/span&gt; upgraded, &lt;span class="m"&gt;3&lt;/span&gt; newly installed, &lt;span class="m"&gt;0&lt;/span&gt; to remove and &lt;span class="m"&gt;0&lt;/span&gt; not upgraded.
-Need to get &lt;span class="m"&gt;201&lt;/span&gt; kB of archives.
-After this operation, 1,381 kB of additional disk space will be used.
-&lt;span class="s1"&gt;&amp;#39;http://ir.archive.ubuntu.com/ubuntu/pool/main/v/vte/python-vte_0.28.2-5ubuntu1_amd64.deb&amp;#39;&lt;/span&gt; python-vte_1%3a0.28.2-5ubuntu1_amd64.deb &lt;span class="m"&gt;21726&lt;/span&gt; MD5Sum:a0b9e19f09fa001ca3e75534a5298c51
-&lt;span class="s1"&gt;&amp;#39;http://ir.archive.ubuntu.com/ubuntu/pool/main/p/pygtk/python-glade2_2.24.0-3ubuntu3_amd64.deb&amp;#39;&lt;/span&gt; python-glade2_2.24.0-3ubuntu3_amd64.deb &lt;span class="m"&gt;8744&lt;/span&gt; MD5Sum:1aef0e4a843eac23ffc619bc02382f03
-&lt;span class="s1"&gt;&amp;#39;http://ir.archive.ubuntu.com/ubuntu/pool/universe/g/guake/guake_0.4.4-1ubuntu1_amd64.deb&amp;#39;&lt;/span&gt; guake_0.4.4-1ubuntu1_amd64.deb &lt;span class="m"&gt;171024&lt;/span&gt; MD5Sum:a24f28469f7a83debc4aed2ec6ea1515
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;اطلاعاتی که ما لازم داریم سه خط آخر هستن که وجه اشتراکشون &lt;code&gt;//:http&lt;/code&gt; ابتداشونه. پس با &lt;code&gt;grep&lt;/code&gt; فیلترشون می‌کنیم:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;root@debian:~# apt-get --print-uris -y install guake &lt;span class="p"&gt;|&lt;/span&gt; grep &lt;span class="s1"&gt;&amp;#39;http://&amp;#39;&lt;/span&gt;
-&lt;span class="s1"&gt;&amp;#39;http://ir.archive.ubuntu.com/ubuntu/pool/main/v/vte/python-vte_0.28.2-5ubuntu1_amd64.deb&amp;#39;&lt;/span&gt; python-vte_1%3a0.28.2-5ubuntu1_amd64.deb &lt;span class="m"&gt;21726&lt;/span&gt; MD5Sum:a0b9e19f09fa001ca3e75534a5298c51
-&lt;span class="s1"&gt;&amp;#39;http://ir.archive.ubuntu.com/ubuntu/pool/main/p/pygtk/python-glade2_2.24.0-3ubuntu3_amd64.deb&amp;#39;&lt;/span&gt; python-glade2_2.24.0-3ubuntu3_amd64.deb &lt;span class="m"&gt;8744&lt;/span&gt; MD5Sum:1aef0e4a843eac23ffc619bc02382f03
-&lt;span class="s1"&gt;&amp;#39;http://ir.archive.ubuntu.com/ubuntu/pool/universe/g/guake/guake_0.4.4-1ubuntu1_amd64.deb&amp;#39;&lt;/span&gt; guake_0.4.4-1ubuntu1_amd64.deb &lt;span class="m"&gt;171024&lt;/span&gt; MD5Sum:a24f28469f7a83debc4aed2ec6ea1515
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;ولی ما فقط اون قسمتی که لینک فایل توش هست رو نیاز داریم؛ پس اون‌رو هم با &lt;code&gt;cut&lt;/code&gt; فیلتر می‌کنیم:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;root@debian:~# apt-get --print-uris -y install guake &lt;span class="p"&gt;|&lt;/span&gt; grep &lt;span class="s1"&gt;&amp;#39;http://&amp;#39;&lt;/span&gt; &lt;span class="p"&gt;|&lt;/span&gt; cut -d&lt;span class="se"&gt;\&amp;#39;&lt;/span&gt; -f2
-http://ir.archive.ubuntu.com/ubuntu/pool/main/v/vte/python-vte_0.28.2-5ubuntu1_amd64.deb
-http://ir.archive.ubuntu.com/ubuntu/pool/main/p/pygtk/python-glade2_2.24.0-3ubuntu3_amd64.deb
-http://ir.archive.ubuntu.com/ubuntu/pool/universe/g/guake/guake_0.4.4-1ubuntu1_amd64.deb
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;این‌جا &lt;code&gt;cut&lt;/code&gt; متن رو بر اساس کاراکتر ‍&lt;code&gt;'&lt;/code&gt; تقسیم می‌کنه. لینکی که ما لازم داریم میشه ستون دوم.&lt;br /&gt;
-حالا لینک ها رو داریم. می‌ریزیمشون توی یه فایل به اسم &lt;code&gt;Links.txt&lt;/code&gt;:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;root@debian:~# apt-get --print-uris -y install guake &lt;span class="p"&gt;|&lt;/span&gt; grep &lt;span class="s1"&gt;&amp;#39;http://&amp;#39;&lt;/span&gt; &lt;span class="p"&gt;|&lt;/span&gt; cut -d&lt;span class="se"&gt;\&amp;#39;&lt;/span&gt; -f2 &amp;gt; Links.txt
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;h4&gt;۲. دانلود بسته‌ها&lt;/h4&gt;
-&lt;p&gt;برای این کار از &lt;code&gt;aria2&lt;/code&gt; استفاده می‌کنیم.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;root@debian:~# aria2c -d /var/cache/apt/archives/ -i Links.txt -s &lt;span class="m"&gt;16&lt;/span&gt; -x &lt;span class="m"&gt;16&lt;/span&gt; -c
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;سوئیچ &lt;code&gt;d&lt;/code&gt; مسیری که فایل‌های دانلود شده در اون ریخته می‌شن رو مشخص می‌کنه. ‍&lt;code&gt;i&lt;/code&gt; هم مسیر لینک‌ها رو. بقیه‌ی سوئیچ‌ها هم که رایج هستن و مربوط تعداد اتصال‌ها و سرعت دانلود می‌شن.&lt;/p&gt;
-&lt;h4&gt;۳. نصب بسته ها&lt;/h4&gt;
-&lt;p&gt;همیشه اپت بسته‌ها رو توی مسیر &lt;code&gt;/var/cache/apt/archives/&lt;/code&gt; می‌ریزه. خب، ما که خودمون این کار رو با aria2 کردیم! پس دیگه apt نیازی به دانلود نداره.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;root@debian:~# apt-get -y install guake
-Reading package lists... Done
-Building dependency tree
-Reading state information... Done
-The following extra packages will be installed:
-  python-glade2 python-vte
-Suggested packages:
-  python-gtk2-doc
-The following NEW packages will be installed:
-  guake python-glade2 python-vte
-&lt;span class="m"&gt;0&lt;/span&gt; upgraded, &lt;span class="m"&gt;3&lt;/span&gt; newly installed, &lt;span class="m"&gt;0&lt;/span&gt; to remove and &lt;span class="m"&gt;0&lt;/span&gt; not upgraded.
-Need to get &lt;span class="m"&gt;0&lt;/span&gt; B/201 kB of archives.
-After this operation, 1,381 kB of additional disk space will be used.
-Selecting previously unselected package python-vte.
-&lt;span class="o"&gt;(&lt;/span&gt;Reading database ... &lt;span class="m"&gt;240702&lt;/span&gt; files and directories currently installed.&lt;span class="o"&gt;)&lt;/span&gt;
-Preparing to unpack .../python-vte_0.28.2-5ubuntu1_amd64.deb ...
-Unpacking python-vte &lt;span class="o"&gt;(&lt;/span&gt;1:0.28.2-5ubuntu1&lt;span class="o"&gt;)&lt;/span&gt; ...
-Selecting previously unselected package python-glade2.
-Preparing to unpack .../python-glade2_2.24.0-3ubuntu3_amd64.deb ...
-Unpacking python-glade2 &lt;span class="o"&gt;(&lt;/span&gt;2.24.0-3ubuntu3&lt;span class="o"&gt;)&lt;/span&gt; ...
-Selecting previously unselected package guake.
-Preparing to unpack .../guake_0.4.4-1ubuntu1_amd64.deb ...
-Unpacking guake &lt;span class="o"&gt;(&lt;/span&gt;0.4.4-1ubuntu1&lt;span class="o"&gt;)&lt;/span&gt; ...
-Processing triggers &lt;span class="k"&gt;for&lt;/span&gt; gconf2 &lt;span class="o"&gt;(&lt;/span&gt;3.2.6-0ubuntu2&lt;span class="o"&gt;)&lt;/span&gt; ...
-Processing triggers &lt;span class="k"&gt;for&lt;/span&gt; man-db &lt;span class="o"&gt;(&lt;/span&gt;2.6.7.1-1ubuntu1&lt;span class="o"&gt;)&lt;/span&gt; ...
-Processing triggers &lt;span class="k"&gt;for&lt;/span&gt; gnome-menus &lt;span class="o"&gt;(&lt;/span&gt;3.10.1-0ubuntu2&lt;span class="o"&gt;)&lt;/span&gt; ...
-Processing triggers &lt;span class="k"&gt;for&lt;/span&gt; desktop-file-utils &lt;span class="o"&gt;(&lt;/span&gt;0.22-1ubuntu1&lt;span class="o"&gt;)&lt;/span&gt; ...
-Processing triggers &lt;span class="k"&gt;for&lt;/span&gt; bamfdaemon &lt;span class="o"&gt;(&lt;/span&gt;0.5.1+14.04.20140409-0ubuntu1&lt;span class="o"&gt;)&lt;/span&gt; ...
-Rebuilding /usr/share/applications/bamf-2.index...
-Processing triggers &lt;span class="k"&gt;for&lt;/span&gt; mime-support &lt;span class="o"&gt;(&lt;/span&gt;3.54ubuntu1.1&lt;span class="o"&gt;)&lt;/span&gt; ...
-Processing triggers &lt;span class="k"&gt;for&lt;/span&gt; hicolor-icon-theme &lt;span class="o"&gt;(&lt;/span&gt;0.13-1&lt;span class="o"&gt;)&lt;/span&gt; ...
-Setting up python-vte &lt;span class="o"&gt;(&lt;/span&gt;1:0.28.2-5ubuntu1&lt;span class="o"&gt;)&lt;/span&gt; ...
-Setting up python-glade2 &lt;span class="o"&gt;(&lt;/span&gt;2.24.0-3ubuntu3&lt;span class="o"&gt;)&lt;/span&gt; ...
-Setting up guake &lt;span class="o"&gt;(&lt;/span&gt;0.4.4-1ubuntu1&lt;span class="o"&gt;)&lt;/span&gt; ...
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;در ضمن اگر دیدین بسته‌های زیادی دانلود کردین و حجم زیادی رو اشغال، از شرشون خلاص بشین!&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;root@debian:~# apt-get clean
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;موفق باشین.&lt;/p&gt;</summary><category term="aria2"></category><category term="apt-get"></category><category term="دبیان"></category><category term="آریا۲"></category></entry></feed>
+&lt;p&gt;شما هم کارهای خودتون رو برای بقیه بذارین!&lt;/p&gt;</summary><category term="موسیقی"></category><category term="LMMS"></category></entry></feed>

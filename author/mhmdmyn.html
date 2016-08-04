@@ -43,6 +43,46 @@
 
 <ul class="post-list">
     <li><article class="post">
+      <header class="post-header"><h2 class="post-title"><a href="https://mamins1376.github.io/weblog/2016/08/wsl-khrdn-sfhh-nmysh-chnd-khmpywtr-b-x2vnc/" rel="bookmark" title="وصل کردن صفحه نمایش چند کامپیوتر با x2vnc">وصل کردن صفحه نمایش چند کامپیوتر با x2vnc</a></h2>
+        <abbr class="publish-date" title="تاریخ انتشار"> جمعه ۱۵ مرداد ۱۳۹۵</abbr>
+        <address class="vcard author">
+            <a class="url fn" href="https://mamins1376.github.io/weblog/author/mhmdmyn.html">محمدامین</a>
+        </address>
+      </header>
+      <div class="post-content"><p>یه رزبری‌پای داشتم، یه رایانه شخصی و دوتا مانیتور. با خودم فکر کردم که اگر اینا رو بتونم به هم وصل کنم و یه صفحه نمایش خیلی بزرگتر داشته باشم خیلی خوب می‌شه و می‌تونم مانیتور کوچکتر(۱۰۲۴×۷۶۸ و ۱۴ اینچ) رو در کنار بزرگتر(۱۲۸۰×۷۲۰ و ۲۸ اینچ) استفاده کنم، روی بزرگه بنویسم و روی کوچیکه نتیجه رو ببینم. حس خفنی داره :)</p>
+<h2>مشکل</h2>
+<p>مشکل اصلی اینجاست که من دوتا ماوس و دوتا کیبورد ندارم. پس باید به طریقی دوتا سیستم رو به هم وصل کنم. روی کامپیوترم <a href="http://qtile.org">qtile</a> دارم و روی رزبری‌پای openbox. دقت کنید که من یه کامپیوتر با دوتا مانیتور ندارم، دراون صورت نیاز به انجام هیچ کاری نبود و خود Xorg قابلیت چند-نمایشگر هزمان رو داره. این دو سیستم روی یه شبکه هستن و می‌تونن راحت همدیگر رو ببینن. پس خط ارتباط مشخص شد. حالا یه برنامه لازم دارم که اطلاعات رو از ماوس و کیبورد یه سیستم(اسمش رو می‌ذاریم هاست) بگیره و به دیگری(به این می‌گیم ریموت) بفرسته ولی نه همیشه، چون در اون صورت هر چیزی که روی یک سیستم انجام میدین روی دومی هم تکرار می‌شه.</p>
+<h2>راه حل</h2>
+<p>راه حل خیلی خیلی ساده تر از اون چیزی بود که من فکر می‌کردم: <em>x2vnc</em><br />
+این برنامه رویدادهای ماوس و کیبورد رو می‌گیره، و اگر ماوستون رو به لبه نمایشگر هاست بردید، ماوس سیستم ریموت رو با پروتکل VNC حرکت می‌ده، دقیقا مثل این که این ماوس و کیبورد به همون سیستم وصله.</p>
+<h2>نصب و راه اندازی</h2>
+<p>روی هاست(سیستمی که ماوس و کیبورد بهش وصله) x2vnc رو نصب کنید و روی ریموت، x11vnc رو. مواظب باشید عددها رو جابه‌جا وارد نکنید :)</p>
+<div class="highlight"><pre><span></span>host:~$ sudo apt install x2vnc
+remote:~$ sudo apt install x11vnc
+</pre></div>
+
+
+<p>من به ریموت از طریق ssh دسترسی پیدا کردم. این که چطوری فرمان‌ها رو روی ریموت وارد و اجرا می‌کنید به خودتون و روش دسترسی‌تون بستگی داره. وقتی با ssh به یه سیستم که Xorg روش اجرا می‌شه وصل می‌شید، باید دستی متغییر محیطی <code>DISPLAY</code> رو ست کنید. بعدش VNC Server رو روش اجرا کنید(همین x11vnc) تا در دسترس باشه.</p>
+<div class="highlight"><pre><span></span>remote~:$ <span class="nb">export</span> <span class="nv">DISPLAY</span><span class="o">=</span>:0
+remote~:$ x11vnc -forever
+</pre></div>
+
+
+<p>ممکنه بهتون بگه که بدون پسورد سرور اجرا کردن خطر امنیتی داره. من چون روی یه شبکه خانگی بودم نیازی ندیدم که پسورد بذارم. اگر شرایط شما این طور نبود و یه لایه امنیتی لازم داشتید می‌تونید از پورت فورواردینگی که ssh ارائه می‌ده استفاده کنین.</p>
+<div class="highlight"><pre><span></span>host~:$ ssh -N -L 5900:localhost:5900
+</pre></div>
+
+
+<p>این، پورت ۵۹۰۰ سرور رو که <code>x11vnc</code> بازش کرده روی هاست خودمون «فوروارد» می‌کنه، یعنی انگار اون برنامه روی هاست داره اجرا می‌شه و نه روی ریموت. با این کار، تمام داده‌های بین دو سیستم از تونل امن ssh می‌گذرن. فراموش نکنید که سوئیچ <code>-localhost</code> رو به x11vnc بدید تا فقط به تونل ssh گوش بده. در این صورت جای <code>&lt;IP&gt;</code> دستور پایین، <code>localhost</code> بذارید و اگر مثل من از تونل ssh استفاده نمی‌کنید، آی‌پی ریموت رو وارد کنید.</p>
+<p>حالا، روی هاست باید x2vnc رو اجرا کنیم. در حالت پیشفرض این طوره که مانیتور هاست، سمت چپ مانیتور ریموت قرار داره. اگر جای اون‌ها برعکسه، از <code>-west</code> استفاده کنید.</p>
+<div class="highlight"><pre><span></span>host:~$ x2vnc <span class="o">[</span>-west<span class="o">]</span> &lt;IP&gt; :0
+</pre></div>
+
+
+<p>تمام! برای امتحان کردن برنامه، ماوستون رو به سمت مانیتور ریموت ببرید و نتیجه رو ببینید.</p>
+<p>اینم یه پست پر و پیمون بعد از مدت‌ها. شاد باشید تا بعد :)</p></div>
+    </article></li>
+    <li><article class="post">
       <header class="post-header"><h2 class="post-title"><a href="https://mamins1376.github.io/weblog/2016/07/slm-bh-hmh/" rel="bookmark" title="سلام به همه!">سلام به همه!</a></h2>
         <abbr class="publish-date" title="تاریخ انتشار"> پنج‌شنبه ۲۴ تیر ۱۳۹۵</abbr>
         <address class="vcard author">
@@ -309,17 +349,6 @@ find . -type f -name <span class="s1">&#39;*.mp4&#39;</span> <span class="p">|</
       <div class="post-content"><p>دیروز، میزکار گنوم هجدهمین سالش رو پشت سر گذاشت. میزکاری که در ابتدا به علت مشکلات مجوز کتابخونه‌ی Qt به وجود اومد و پس از متن‌باز شدن این کتابخونه، باز هم به توسعه‌ی خودش ادامه داد و الآن یکی از پرطرفدارترین میزکارهای گنو به حساب میاد و در رقابتی سخت با KDE. برنامه‌هایی که این سیستم رو تشکیل می‌دن، کاملا یکپارچه با همدیگه و خود سیستم هستن که باعث می‌شه هماهنگی بی نظیری رو شاهد باشیم. در ادامه، ویدئوی معرفی گنوم ۳.۱۶ رو قرار دادم.
 خوش باشید.</p>
 <iframe class="youtube-embed" src="https://www.youtube.com/embed/WxRLa5hTGkg" frameborder="0" allowfullscreen></iframe></div>
-    </article></li>
-    <li><article class="post">
-      <header class="post-header"><h2 class="post-title"><a href="https://mamins1376.github.io/weblog/2015/08/mrfy-bananabread-nn-mwzy-khwnyn/" rel="bookmark" title="معرفی BananaBread: نان موزی خونین">معرفی BananaBread: نان موزی خونین</a></h2>
-        <abbr class="publish-date" title="تاریخ انتشار"> چهارشنبه ۱۴ مرداد ۱۳۹۴</abbr>
-        <address class="vcard author">
-            <a class="url fn" href="https://mamins1376.github.io/weblog/author/mhmdmyn.html">محمدامین</a>
-        </address>
-      </header>
-      <div class="post-content"><p><img alt="BananaBread" src="https://developer.cdn.mozilla.net/media/uploads/demos/a/z/azakai/3baf4ad7e600cbda06ec46efec5ec3b8/bananabread_1424465008_demo_package/assets/screenshots/02.jpg" /></p>
-<p><a href="https://www.mozilla.org">بنیاد غیر انتفاعی موزیلا</a> یکی از فعال‌ترین مؤسسه‌ها در زمینه‌ی وب و تکنولوژی‌های مرتبط با اونه و بخشی داره به نام <a href="https://developer.mozilla.org/en-US/demos/">Mozilla Demo Studio</a> که اتفاقات خارق‌العاده‌ای در اون رخ می‌ده و چیزهای بسیار عجیب و غریبی(البته بیشتر از نظر من) ازش بیرون میاد و دموهاش بسیار جالب توجه هستند. یکی از این دموها، <a href="https://developer.mozilla.org/en-US/demos/detail/bananabread">BananaBread</a> نام داره که یک بازی <a href="https://fa.wikipedia.org/wiki/%D8%AA%DB%8C%D8%B1%D8%A7%D9%86%D8%AF%D8%A7%D8%B2%DB%8C_%D8%A7%D9%88%D9%84_%D8%B4%D8%AE%D8%B5">اول شخص ژانر شوتر(FPS)</a> بوده و روی <a href="https://en.wikipedia.org/wiki/Cube_2:_Sauerbraten">موتور Cube 2: Sauerbraten</a> سوار شده. نکته‌ی جالب این بازی اینه که فقط نیاز به یک مرورگر HTML5 داره و <a href="https://en.wikipedia.org/wiki/WebGL">قابلیت WebGL</a>. دارای گرافیک قابل توجهی هست که اگر روی آخرین کیفیت بذارین و حداکثر جلوه‌ها رو فعال کنین ممکنه سیستمی که کمی ضعیف باشه کم هم بیاره! در کل حجم کمی داره(برای مرحله‌ی اول حدود ۱۵مبی‌بایت) و من رو حدود یک ساعت و نیم مشغول خودش کرد.</p>
-<p>در <a href="https://developer.mozilla.org/en-US/demos/detail/bananabread/launch">صفحه‌ی این بازی</a> می‌تونید اسکرین‌شات‌ها رو هم ببینید. <a href="https://developer.cdn.mozilla.net/media/uploads/demos/a/z/azakai/3baf4ad7e600cbda06ec46efec5ec3b8/bananabread_1424465008_demo_package/game.html?low,low">خوش بگذره</a>!</p></div>
     </article></li>
 </ul>
 <div class="pagination">

@@ -39,7 +39,7 @@
 </header>
     <div class="wrapper">
 <section class="content">
-<h2>نوشته‌های دارای برچسب linux</h2>
+<h2>نوشته‌های دارای برچسب x11</h2>
 
 <ul class="post-list">
     <li><article class="post">
@@ -81,71 +81,6 @@ remote~:$ x11vnc -forever
 
 <p>تمام! برای امتحان کردن برنامه، ماوستون رو به سمت مانیتور ریموت ببرید و نتیجه رو ببینید.</p>
 <p>اینم یه پست پر و پیمون بعد از مدت‌ها. شاد باشید تا بعد :)</p></div>
-    </article></li>
-    <li><article class="post">
-      <header class="post-header"><h2 class="post-title"><a href="https://mamins1376.github.io/weblog/2015/09/api-bry-syt-subscene/" rel="bookmark" title="API برای سایت Subscene">API برای سایت Subscene</a></h2>
-        <abbr class="publish-date" title="تاریخ انتشار"> چهارشنبه ۱۱ شهریور ۱۳۹۴</abbr>
-        <address class="vcard author">
-            <a class="url fn" href="https://mamins1376.github.io/weblog/author/mhmdmyn.html">محمدامین</a>
-        </address>
-      </header>
-      <div class="post-content"><p>سایت Subscene منبع خوب و جامعی برای دریافت زیرنویس‌ها به اکثر زبان‌هاست و اکثرا زیرنویس فیلم یا سریالی که دنبالش هستم رو توش پیدا می‌کنم. برای انجام پروژه‌ای به یک API برای دریافت زیرنویس‌ها از این سایت نیازمند شدم و بعد از کمی جستجو، به <a href="https://github.com/andy-pham/subscene-api">این</a> رسیدم.</p>
-<p>دموی خودش مشکل داخلی سرور داشت؛ از این که خود مخزن رو کلون کنم و جداگانه اجراش کنم به علت مشکلات دیگه‌ای(از جمله سیستم Google App Engine) صرف نظر شد و خودم با استفاده از کتابخونه‌ی BeautifulSoup4٬ یک API برای سایت Subscene به زبان پایتون(نسخه‌ی ۳) درست کردم.</p>
-<p><a href="https://github.com/mamins1376/Subscene-API">پیوند به مخزن گیت‌هاب</a></p>
-<p>پروژه‌ای که قرار بود از این API استفاده کنه رو طی چند روز آینده معرفی خواهم کرد.</p>
-<p>لذت ببرید و البته Pull Requestهاتون رو هم فراموش نکنید :))</p></div>
-    </article></li>
-    <li><article class="post">
-      <header class="post-header"><h2 class="post-title"><a href="https://mamins1376.github.io/weblog/2015/07/dbt-tlwyzywn-dyjytl-b-mplayer/" rel="bookmark" title="ضبط تلویزیون دیجیتال با mplayer">ضبط تلویزیون دیجیتال با mplayer</a></h2>
-        <abbr class="publish-date" title="تاریخ انتشار"> دوشنبه ۵ مرداد ۱۳۹۴</abbr>
-        <address class="vcard author">
-            <a class="url fn" href="https://mamins1376.github.io/weblog/author/mhmdmyn.html">محمدامین</a>
-        </address>
-      </header>
-      <div class="post-content"><p>پخش شبکه‌های تلویزیون دیجیتال به آسونی با VLC Media Player انجام می‌شه و به خوبی از پسش برمیاد ولی ممکنه برای ضبط اون به مشکل بخورید یا حداقل کمی اذیت بشید. همچنین با مشکلات کرشی که توی سرور X وجود داره متوقف شدن عملیات ضبط به معنی از دست رفتن برنامه‌ی مورد نظرتونه. برای همین من سراغ mplayer و خط فرمان رفتم. <a href="https://en.wikipedia.org/wiki/Mplayer">mplayer</a> یکی از بهترین پخش کننده‌های آزاده که بی‌شک می‌شه لقب قدرتمندترین پخش کننده رو بهش نسبت داد و البته کارهای بسیار بیش‌تری از یک «پخش‌کننده»ی ساده انجام می‌ده.</p>
-<h2>اسکن شبکه‌ها</h2>
-<p>برای این کار از برنامه‌ی <a href="http://www.linuxtv.org/wiki/index.php/W_scan">w_scan</a> استفاده می‌کنیم. البته فرض بر اینه که قبلش راه‌اندازهای DVBتون رو نصب کردید.</p>
-<div class="highlight"><pre><span></span>$ sudo apt-get install w-scan mplayer
-</pre></div>
-
-
-<p>و بعدش، شبکه ها رو اسکن می‌کنیم و اونها رو توی فایل <code>etc/mplayer/channels.conf/</code> می‌ریزیم.</p>
-<div class="highlight"><pre><span></span>$ w_scan -ft -c IR -M &gt; channels.conf
-$ sudo mv channels.conf /etc/mplayer/
-</pre></div>
-
-
-<p><strong>توجه</strong>: اسکن شبکه‌ها برای من حدود ۴ دقیقه طول کشید.</p>
-<h2>لیست شبکه‌ها</h2>
-<p>با دستور زیر می‌تونید لیست شبکه‌های موجود رو ببینید:</p>
-<div class="highlight"><pre><span></span>$ cut -d<span class="se">\:</span> -f1 /etc/mplayer/channels.conf
-</pre></div>
-
-
-<h2>ضبط</h2>
-<p>شبکه‌ی مورد نظرتون رو از لیست بالا انتخاب کنید، برای مثال من شبکه‌ی نمایش (<code>IRIB NAMAYESH</code>) رو انتخاب می‌کنم. چون توی اسم این شبکه فاصله وجود داره، ما مستقیما نمی‌تونیم اون رو بعنوان <em>یک آرگومان</em> به برنامه پاس کنیم. پس یا باید قبل هر فاصله یک اسکیپ (<code>\</code>) قرار بدیم یا کل عبارت رو داخل یک جفت <code>'</code> قرار بدیم. من راه دوم رو انتخاب می‌کنم:</p>
-<div class="highlight"><pre><span></span>$ mplayer -dumpstream <span class="s1">&#39;dvb://IRIB NAMAYESH&#39;</span> -dumpfile Stream.ts
-</pre></div>
-
-
-<p>حالا mplayer شروع می‌کنه به ذخیره‌ی اطلاعات دریافت شده از دانگل DVB در فایلی با فرمت TS. این فرمت شامل داده‌های کاملا خام می‌شه و ذاتا حجم خیلی زیادی رو به خودش اختصاص می‌ده.</p>
-<h2>پخش Stream.ts</h2>
-<p>از اون‌جایی که TS حاوی داده‌های خام و غیر فشرده‌ست، باید به یک فرمت پخش خوب تبدیلش کنیم تا با پلیرهای عادی روی هر پلتفرمی قابل پخش بشه؛ من mkv رو که یک فرمت آزاده انتخاب و برای تبدیل از <code>avconv</code> استفاده می‌کنم. لازم به ذکره که پروژه‌ی <code>ffmpeg</code>مدت زیادیه که متوقف شده و به avconv ملحق شده. avconv رو می‌تونید توی بسته‌ی <a href="apt://libav-tools">libav-tools</a> پیدا کنین.</p>
-<div class="highlight"><pre><span></span>$ avconv -i Stream.ts Stream.mkv
-</pre></div>
-
-
-<p>از برنامه‌های با کیفیت، مفید و فوق‌العاده جدید و ارزشمند IRIB لذت ببرید D:</p></div>
-    </article></li>
-    <li><article class="post">
-      <header class="post-header"><h2 class="post-title"><a href="https://mamins1376.github.io/weblog/2015/07/tm-super-flat-solarized-bry-gnwm-shl/" rel="bookmark" title="تم Super Flat Solarized برای گنوم شل[آپدیت]">تم Super Flat Solarized برای گنوم شل[آپدیت]</a></h2>
-        <abbr class="publish-date" title="تاریخ انتشار"> یک‌شنبه ۲۱ تیر ۱۳۹۴</abbr>
-        <address class="vcard author">
-            <a class="url fn" href="https://mamins1376.github.io/weblog/author/mhmdmyn.html">محمدامین</a>
-        </address>
-      </header>
-      <div class="post-content"><p>و پس از چندین روز کار متوالی و ادیت استایل‌شیت و اصلاحات ریز <a href="http://mamins1376.github.io/Super-Flat-Solarized/">تم Super Flat Solarized برای پوسته‌ی گنوم</a> و وبسایتش به مرحله‌ی معقولی رسیدن تا آماده‌ی ارائه و استفاده‌ی کاربران گنوم باشن. امیدوارم هرکسی این پست رو می‌خونه و گنوم نصب داره این تم رو حتی شده فقط برای یک دقیقه امتحان کنه و نظرشو بگه. خوش‌حال می‌شم از این که هر انتقاد و پیشنهاد و Pull Request و ... در کل هرچیزی که فکر می‌کنین باعث بهبود این تم می‌شه رو به اطلاعم برسونین ؛)</p>
-<p>آپدیت: <a href="http://mamins1376.github.io/Super-Flat-Solarized/screenshots.html">قسمت اسکرین‌شات‌ها</a> به وبسایت اصلی اضافه شد.</p></div>
     </article></li>
 </ul>
 <div class="pagination">
