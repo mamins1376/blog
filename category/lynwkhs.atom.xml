@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>زندگی خوره‌ای</title><link href="https://mamins1376.github.io/weblog/" rel="alternate"></link><link href="https://mamins1376.github.io/weblog/category/lynwkhs.atom.xml" rel="self"></link><id>https://mamins1376.github.io/weblog/</id><updated>2016-09-26T16:18:06+03:30</updated><entry><title>چرا دبیان رو ترک کردم</title><link href="https://mamins1376.github.io/weblog/2016/09/chr-dbyn-rw-trkh-khrdm/" rel="alternate"></link><published>2016-09-26T16:18:06+03:30</published><author><name>محمدامین</name></author><id>tag:mamins1376.github.io,2016-09-26:weblog/2016/09/chr-dbyn-rw-trkh-khrdm/</id><summary type="html">&lt;p&gt;حدود دو هفته پیش دیجیکالا &lt;a href="http://www.digikala.com/Product/DKP-54752"&gt;لپ‌تاپ لنوو جی۵۰۴۵&lt;/a&gt; رو توی فهرست فروش ویژه قرار داده بود و منم که به شدت دنبال همچین موردی بودم تونستم بخرم. سیستم‌عامل از پیش نصب شده‌اش FreeDOS بود و خب اصلا بدرد من نمی‌خورد. موقعی که می‌خواستم دبیان روش نصب کنم، لحظه‌ای درنگ کردم؛ گفتم چرا چیزی رو که دائم باهاش کار کردم و برام تکراری شده دوباره در دستگاه دیگه‌ای امتحان کنم؟ ولی حالا به این پی بردم که تنها دلیل این انتخاب تنوع طلبی نبود. در ادامه می‌نویسم که چرا &lt;em&gt;آرچ لینوکس&lt;/em&gt; رو انتخاب کردم.&lt;/p&gt;
+&lt;h3&gt;چرا دبیان استیبل(stable) نه؟&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;نرم‌افزارهای قدیمی&lt;/strong&gt;: فقط کافیه نسخه گنوم دبیان جسی رو نگاه کنید :)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;عدم پشتیبانی رسمی از مخازن شخصی&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;چرا دبیان سید(sid) نه؟&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;ناپایداری، مخصوصا وابستگی بسته‌ها&lt;/strong&gt;: من چندین بار به این مشکل خوردم. در چنین شرایطی هیچ کاری از دستتون برنمیاد، مجبورید صبر کنید تا نگهدارنده‌ها(Maintainers) مخزن رو درست کنن.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;آپدیت‌های زیاد&lt;/strong&gt;: در کشور ما، هزینه حجم مصرفی بالاست. این یکی مشکلیه که آرچ هم داره، ولی تا اونجایی که یادم میاد حجم آپدیت‌های آرچ کمتره (شایدم اشتباه می‌کنم چون دقیق یادم نیست).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;کماکان بدون پشتیبانی از مخزن شخصی&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;چرا آرچ؟&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;نرم‌افزارهای همیشه به‌روز&lt;/strong&gt;: جالبه بدونین همین چند روز پیش &lt;a href="https://github.com/vim/vim/releases/tag/v8.0.0000"&gt;ویم هشت منتشر شد&lt;/a&gt;، و من فرداش اون رو با مدیر بسته از مخزن رسمی نصب کردم!&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;ویکی غیر قابل توصیف&lt;/strong&gt;: موقعی که دبیان داشتم هم از ویکی آرچ خیلی کمک می‌گرفتم.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;حالا خب که چی؟&lt;/h2&gt;
+&lt;p&gt;اگر دقت کنید، همه دلایل مورد ترجیح بودن یک توزیع برمی‌گرده به دو عامل(به ترتیب اهمیت):&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;دانش کاربر&lt;/li&gt;
+&lt;li&gt;مدیر بسته توزیع&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;یعنی برای منی که تجربه چندین سال برنامه‌نویسی و کار با خط فرمان دارم، توزیع‌هایی مثل Zorin OS یا لینوکس مینت جذابیت خاصی ندارن چون آماده استفاده هستن. در سمت مقابل، حوصله و وقت انجام دادن همه کارها(LFS و...) رو هم ندارم. از طرفی، اگر به مشخصات سیستم من هم نگاهی بندازید میبینید که یه لپ‌تاپ دو هسته‌ای توانایی این همه کامپایل کردن(جنتو و ...) رو نداره. شاید اگر یه سیستم قوی تر نصیبم شد گوشه چشمی هم به این توزیع ها داشته باشم ولی فعلا نه. با شرایط من که می‌خوام سیستم رو یبار &lt;em&gt;دقیقا همون طور که می‌خوام&lt;/em&gt; پیکربندی و نصب کنم و بابت تاریخ انقضای برنامه‌هام هم نگران نباشم، آرچ بهترین گزینه‌ست. خوبی دیگه‌ای که آرچ داره برای منی که برنامه‌نویس پایتون ۳ هستم اینه که نسخه پیش‌فرض پایتون این توزیع ۳ است (یعنی python یک symlink است به python3، نه python2 مثل دبیان یا اوبونتو).&lt;/p&gt;
+&lt;p&gt;توی آرچ AUR رو هم داریم که شما رو از فرآیند دردناک نصب دستی برنامه‌هایی که توی مخزن رسمی نیستن خلاص می‌کنه. برای کسایی که با اپت یا اپت-گت آشناترند pacman یکم عجیب و غریب به نظر میاد و -به نظر من- واقعاً هم هست.&lt;/p&gt;
+&lt;h3&gt;بالاخره کدوم؟&lt;/h3&gt;
+&lt;p&gt;یه فرمول کلی فکر کنم خیلی از مشکلات رو حل کنه.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;یه سیستم‌عامل می‌خوام که فقط کار کنه!&lt;/strong&gt; دبیان استیبل با میزکار گنوم.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;می‌خوام از سیستمم دقیقا همون طور که می‌خوام کار بکشم!&lt;/strong&gt; آرچ لینوکس با همون چیزی که می‌خواید!&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;وقت زیاد دارم. می‌خوام یاد بگیرم!&lt;/strong&gt; اوبونتو با میزکار LXDE.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;یه سیستم قوی دارم و می‌خوام قشنگی رابط کاربری رو حس کنم!&lt;/strong&gt; اوبونتو با میزکار کی‌دی‌ای پلاسما(۵).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;از این به بعد بیش‌تر از شخصی سازی آرچ می‌نویسم و خودتون متوجه می‌شید که با یه مخزن بسته به‌روز چه کارهایی می‌شه کرد!&lt;/p&gt;</summary><category term="دبیان"></category><category term="آرچ"></category><category term="لینوکس"></category><category term="تغییر"></category></entry><entry><title>مهاجرت به قالب ماتروسکا</title><link href="https://mamins1376.github.io/weblog/2015/08/mhjrt-bh-qlb-mtrwskh/" rel="alternate"></link><published>2015-08-20T22:27:00+04:30</published><author><name>محمدامین</name></author><id>tag:mamins1376.github.io,2015-08-20:weblog/2015/08/mhjrt-bh-qlb-mtrwskh/</id><summary type="html">&lt;p&gt;به قصد پاکسازی سیستمم، تصمیم گرفتم تا جای ممکن از قالب‌ها، نرم‌افزارها و مجوزهای آزاد استفاده کنم. در راستای این مهم، &lt;a href="https://fa.wikipedia.org/wiki/%D9%85%D8%A7%D8%AA%D8%B1%D9%88%D8%B3%DA%A9%D8%A7"&gt;ماتروسکا&lt;/a&gt; رو برای پرونده‌های تصویری انتخاب کردم. قالب خیلی جالبیه و همه‌جا هم به راحتی قابل پخشه و البته شناخته شده(با پسوند mkv). یکی از مزایایی هم که داره کم‌تر بودن حجمش نسبت به امپگ هست. اسکریپتی برای پاکسازی سیستم از قالب منحوس و شوم(!) MP4 نوشتم که تقریبا هوشمندانه عمل می‌کنه. البته به قول &lt;a href="http://jadi.net/"&gt;جادی&lt;/a&gt;، ما هر چیزی رو که براش if می‌ذاریم بهش می‌گیم هوشمند :)&lt;/p&gt;
+&lt;p&gt;نحوه‌ی کار به این صورته که &lt;code&gt;find&lt;/code&gt;، پرونده‌هایی رو که پسوند MP4 دارند رو داخل پوشه‌ی Videos در پوشه‌ی خانگی کاربر جاری پیدا می‌کنه و با یه حلقه‌ی &lt;code&gt;for&lt;/code&gt; مانند (که با &lt;code&gt;while&lt;/code&gt; پیاده شده)، تابع &lt;code&gt;convert_to_mkv&lt;/code&gt; رو به ازای هر کدوم از این پرونده‌ها صدا می‌زنه. این تابع، موظفه که برنامه‌ی &lt;code&gt;avconv&lt;/code&gt; رو اجرا کنه که عمل اصلی تبدیل رو انجام می‌ده. بقیه‌ی کارها هم مختص فرستادن نامه به کاربره که گزارش تبدیل رو به کاربر جاری ایمیل می‌کنه.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="ch"&gt;#!/bin/sh&lt;/span&gt;
+&lt;span class="c1"&gt;# make cron usage easy :)&lt;/span&gt;
+&lt;span class="nb"&gt;export&lt;/span&gt; &lt;span class="nv"&gt;PATH&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+&lt;span class="c1"&gt;# go to the user&amp;#39;s videos directory&lt;/span&gt;
+&lt;span class="nb"&gt;cd&lt;/span&gt; /home/&lt;span class="nv"&gt;$USER&lt;/span&gt;/Videos/
+
+&lt;span class="c1"&gt;# this function converts given filename&lt;/span&gt;
+convert_to_mkv&lt;span class="o"&gt;()&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
+  &lt;span class="nv"&gt;INPUT&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$1&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;
+  &lt;span class="nv"&gt;OUTPUT&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="k"&gt;$(&lt;/span&gt;&lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="nv"&gt;$1&lt;/span&gt; &lt;span class="p"&gt;|&lt;/span&gt; sed -r -e &lt;span class="s1"&gt;&amp;#39;s/\.\w+$/.mkv/&amp;#39;&lt;/span&gt;&lt;span class="k"&gt;)&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;
+  avconv -v info -i &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$INPUT&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt; -c:v libx264 -f matroska &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$OUTPUT&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;
+&lt;span class="o"&gt;}&lt;/span&gt;
+
+&lt;span class="c1"&gt;# find any mp4 and kill it!&lt;/span&gt;
+find . -type f -name &lt;span class="s1"&gt;&amp;#39;*.mp4&amp;#39;&lt;/span&gt; &lt;span class="p"&gt;|&lt;/span&gt; &lt;span class="k"&gt;while&lt;/span&gt; &lt;span class="nb"&gt;read&lt;/span&gt; FULL_PATH&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="k"&gt;do&lt;/span&gt;
+  &lt;span class="nv"&gt;FILE&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="k"&gt;$(&lt;/span&gt;&lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$FULL_PATH&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt; &lt;span class="p"&gt;|&lt;/span&gt; sed &lt;span class="s1"&gt;&amp;#39;s/\.\///&amp;#39;&lt;/span&gt;&lt;span class="k"&gt;)&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;
+  &lt;span class="nv"&gt;LOGFILE&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="k"&gt;$(&lt;/span&gt;basename &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;FILE&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt; &lt;span class="p"&gt;|&lt;/span&gt; sed -e &lt;span class="s1"&gt;&amp;#39;s/ /_/g&amp;#39;&lt;/span&gt; -e &lt;span class="s1"&gt;&amp;#39;s/mp4$/log/&amp;#39;&lt;/span&gt;&lt;span class="k"&gt;)&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;
+  &lt;span class="k"&gt;if&lt;/span&gt; convert_to_mkv &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$FILE&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt; &amp;lt; /dev/null &amp;gt;&amp;gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$LOGFILE&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt; 2&amp;gt;&lt;span class="p"&gt;&amp;amp;&lt;/span&gt;1&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="k"&gt;then&lt;/span&gt;
+    &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$FILE&lt;/span&gt;&lt;span class="s2"&gt; converting successfully finished. see attachment for details.&amp;quot;&lt;/span&gt; &lt;span class="p"&gt;|&lt;/span&gt; mail -A &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$LOGFILE&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt; -s &lt;span class="s1"&gt;&amp;#39;Converting Finished&amp;#39;&lt;/span&gt; &lt;span class="nv"&gt;$USER&lt;/span&gt;
+    rm &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$LOGFILE&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;FILE&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;
+  &lt;span class="k"&gt;else&lt;/span&gt;
+    &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$FILE&lt;/span&gt;&lt;span class="s2"&gt; converting faild. see attachment for details.&amp;quot;&lt;/span&gt; &lt;span class="p"&gt;|&lt;/span&gt; mail -A &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$LOGFILE&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt; -s &lt;span class="s1"&gt;&amp;#39;Error While Converting&amp;#39;&lt;/span&gt; &lt;span class="nv"&gt;$USER&lt;/span&gt;
+  &lt;span class="k"&gt;fi&lt;/span&gt;
+&lt;span class="k"&gt;done&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;در پست‌های بعدی، درباره‌ی مهاجرت به قالب‌های آزاد دیگه (نظیر Vorbis و ...) خواهم نوشت.&lt;/p&gt;</summary><category term="mkv"></category><category term="Matroska"></category><category term="ماتروسکا"></category><category term="لینوکس"></category><category term="اسکریپت"></category></entry><entry><title>ضبط تلویزیون دیجیتال با mplayer</title><link href="https://mamins1376.github.io/weblog/2015/07/dbt-tlwyzywn-dyjytl-b-mplayer/" rel="alternate"></link><published>2015-07-27T10:11:00+04:30</published><author><name>محمدامین</name></author><id>tag:mamins1376.github.io,2015-07-27:weblog/2015/07/dbt-tlwyzywn-dyjytl-b-mplayer/</id><summary type="html">&lt;p&gt;پخش شبکه‌های تلویزیون دیجیتال به آسونی با VLC Media Player انجام می‌شه و به خوبی از پسش برمیاد ولی ممکنه برای ضبط اون به مشکل بخورید یا حداقل کمی اذیت بشید. همچنین با مشکلات کرشی که توی سرور X وجود داره متوقف شدن عملیات ضبط به معنی از دست رفتن برنامه‌ی مورد نظرتونه. برای همین من سراغ mplayer و خط فرمان رفتم. &lt;a href="https://en.wikipedia.org/wiki/Mplayer"&gt;mplayer&lt;/a&gt; یکی از بهترین پخش کننده‌های آزاده که بی‌شک می‌شه لقب قدرتمندترین پخش کننده رو بهش نسبت داد و البته کارهای بسیار بیش‌تری از یک «پخش‌کننده»ی ساده انجام می‌ده.&lt;/p&gt;
+&lt;h2&gt;اسکن شبکه‌ها&lt;/h2&gt;
+&lt;p&gt;برای این کار از برنامه‌ی &lt;a href="http://www.linuxtv.org/wiki/index.php/W_scan"&gt;w_scan&lt;/a&gt; استفاده می‌کنیم. البته فرض بر اینه که قبلش راه‌اندازهای DVBتون رو نصب کردید.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ sudo apt-get install w-scan mplayer
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;و بعدش، شبکه ها رو اسکن می‌کنیم و اونها رو توی فایل &lt;code&gt;etc/mplayer/channels.conf/&lt;/code&gt; می‌ریزیم.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ w_scan -ft -c IR -M &amp;gt; channels.conf
+$ sudo mv channels.conf /etc/mplayer/
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;strong&gt;توجه&lt;/strong&gt;: اسکن شبکه‌ها برای من حدود ۴ دقیقه طول کشید.&lt;/p&gt;
+&lt;h2&gt;لیست شبکه‌ها&lt;/h2&gt;
+&lt;p&gt;با دستور زیر می‌تونید لیست شبکه‌های موجود رو ببینید:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ cut -d&lt;span class="se"&gt;\:&lt;/span&gt; -f1 /etc/mplayer/channels.conf
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h2&gt;ضبط&lt;/h2&gt;
+&lt;p&gt;شبکه‌ی مورد نظرتون رو از لیست بالا انتخاب کنید، برای مثال من شبکه‌ی نمایش (&lt;code&gt;IRIB NAMAYESH&lt;/code&gt;) رو انتخاب می‌کنم. چون توی اسم این شبکه فاصله وجود داره، ما مستقیما نمی‌تونیم اون رو بعنوان &lt;em&gt;یک آرگومان&lt;/em&gt; به برنامه پاس کنیم. پس یا باید قبل هر فاصله یک اسکیپ (&lt;code&gt;\&lt;/code&gt;) قرار بدیم یا کل عبارت رو داخل یک جفت &lt;code&gt;'&lt;/code&gt; قرار بدیم. من راه دوم رو انتخاب می‌کنم:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ mplayer -dumpstream &lt;span class="s1"&gt;&amp;#39;dvb://IRIB NAMAYESH&amp;#39;&lt;/span&gt; -dumpfile Stream.ts
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;حالا mplayer شروع می‌کنه به ذخیره‌ی اطلاعات دریافت شده از دانگل DVB در فایلی با فرمت TS. این فرمت شامل داده‌های کاملا خام می‌شه و ذاتا حجم خیلی زیادی رو به خودش اختصاص می‌ده.&lt;/p&gt;
+&lt;h2&gt;پخش Stream.ts&lt;/h2&gt;
+&lt;p&gt;از اون‌جایی که TS حاوی داده‌های خام و غیر فشرده‌ست، باید به یک فرمت پخش خوب تبدیلش کنیم تا با پلیرهای عادی روی هر پلتفرمی قابل پخش بشه؛ من mkv رو که یک فرمت آزاده انتخاب و برای تبدیل از &lt;code&gt;avconv&lt;/code&gt; استفاده می‌کنم. لازم به ذکره که پروژه‌ی &lt;code&gt;ffmpeg&lt;/code&gt;مدت زیادیه که متوقف شده و به avconv ملحق شده. avconv رو می‌تونید توی بسته‌ی &lt;a href="apt://libav-tools"&gt;libav-tools&lt;/a&gt; پیدا کنین.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ avconv -i Stream.ts Stream.mkv
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;از برنامه‌های با کیفیت، مفید و فوق‌العاده جدید و ارزشمند IRIB لذت ببرید D:&lt;/p&gt;</summary><category term="linux"></category><category term="mplayer"></category><category term="dvb"></category><category term="dvb-t"></category><category term="تلویزیون دیجیتال"></category><category term="ضبط"></category></entry><entry><title>تم Super Flat Solarized برای گنوم شل[آپدیت]</title><link href="https://mamins1376.github.io/weblog/2015/07/tm-super-flat-solarized-bry-gnwm-shl/" rel="alternate"></link><published>2015-07-12T08:50:00+04:30</published><author><name>محمدامین</name></author><id>tag:mamins1376.github.io,2015-07-12:weblog/2015/07/tm-super-flat-solarized-bry-gnwm-shl/</id><summary type="html">&lt;p&gt;و پس از چندین روز کار متوالی و ادیت استایل‌شیت و اصلاحات ریز &lt;a href="http://mamins1376.github.io/Super-Flat-Solarized/"&gt;تم Super Flat Solarized برای پوسته‌ی گنوم&lt;/a&gt; و وبسایتش به مرحله‌ی معقولی رسیدن تا آماده‌ی ارائه و استفاده‌ی کاربران گنوم باشن. امیدوارم هرکسی این پست رو می‌خونه و گنوم نصب داره این تم رو حتی شده فقط برای یک دقیقه امتحان کنه و نظرشو بگه. خوش‌حال می‌شم از این که هر انتقاد و پیشنهاد و Pull Request و ... در کل هرچیزی که فکر می‌کنین باعث بهبود این تم می‌شه رو به اطلاعم برسونین ؛)&lt;/p&gt;
+&lt;p&gt;آپدیت: &lt;a href="http://mamins1376.github.io/Super-Flat-Solarized/screenshots.html"&gt;قسمت اسکرین‌شات‌ها&lt;/a&gt; به وبسایت اصلی اضافه شد.&lt;/p&gt;</summary><category term="linux"></category><category term="gnome"></category><category term="theme"></category><category term="gnome-shell"></category></entry><entry><title>خداحافظ جکیل، سلام پلیکان!</title><link href="https://mamins1376.github.io/weblog/2015/07/khdhfz-jkhyl-slm-plykhn/" rel="alternate"></link><published>2015-07-07T00:43:00+04:30</published><author><name>محمدامین</name></author><id>tag:mamins1376.github.io,2015-07-03:weblog/2015/07/khdhfz-jkhyl-slm-plykhn/</id><summary type="html">&lt;p&gt;متنی که الآن در حال خوندنش هستید، حاصل پردازش پلیکانه. &lt;a href="http://blog.getpelican.com/"&gt;پلیکان&lt;/a&gt; یک &lt;a href="https://www.staticgen.com/"&gt;Static Site Generator&lt;/a&gt; محسوب می‌شه که با پایتون نوشته شده و برای Template Engine از &lt;a href="http://jinja.pocoo.org/"&gt;Jinja2&lt;/a&gt; استفاده می‌کنه. وبلاگ قبلی حاصل &lt;a href="http://jekyllrb.com/"&gt;Jekyll&lt;/a&gt; بود که تحت زبان روبی توسعه داده می‌شه و خیلی هم طرفدار داره. بعضی از تفاوت‌های این دو سیستم این‌ها هستن:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;سینتکس هایلایتینگ&lt;/strong&gt;: هر دو از این کار پشتیبانی می‌کنن ولی در جکیل تحت مارک‌داون باید از سیستم اختصاصی خود جکیل استفاده کنین ولی در پلیکان برای این کار از استاندارد خود مارک‌داون استفاده می‌شه&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;تم‌ها&lt;/strong&gt;: ساختار تم‌ها در این دو برنامه کاملا متفاوت هستن. من برای این که بتونم شکل وبلاگ رو حفظ کنم مجبور شدم از اول تمش رو طراحی کنم&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Makefile&lt;/strong&gt;: پلیکان به‌صورت پیش‌فرض Makefile داره که عملیات ساخت خروجی، تمیزکردن، انتشار و حتی پوش کردن خودکار روی برنچ‌های مشخص از یک مخزن گیت رو داره و کاربر می‌تونه با یه خط دستور دو کلمه‌ای(&lt;code&gt;make github&lt;/code&gt;) وبلاگ رو بسازه و منتشر کنه. درسته که می‌شه برای جکیل هم این رو درست کرد، اما پیش‌فرض بودنه که امتیاز محسوب می‌شه&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;چندزبانه&lt;/strong&gt;: پلیکان از متون چند زبانه پشتیبانی کامل داره؛ یعنی نویسنده امکان این رو داره که یک مطلب رو به چند زبان مختلف منتشر کنه&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;پایتون۳&lt;/strong&gt;: پلیکان از پایتون۳ پشتیبانی می‌کنه. نمی‌دونم این که دارم همچین عبارتی رو می‌گم خوبه یا بد چون روبی‌کارها اصلا از این دنگ و فنگ‌ها ندارن که بخوان برنامه‌شون رو دوباره پورت کنن :دی ولی به نظر من اگر یه برنامه‌ی پایتون با نسخه‌ی ۳ سازگار نباشه براش نقطه ضعف محسوب می‌شه نه این که اگر با پایتون ۳ کار می‌کنه داره در حق کاربر لطف می‌کنه&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;طراحی ریسپانسیو&lt;/strong&gt;: تم اولیه‌ی جکیل کاملا ریسپانسیو طراحی شده در حالی که تم پلیکان خیلی خشک به نظر می‌رسه و این نقطه ضعف بزرگی برای یه سایت/وبلاگ در حال حاضر محسوب می‌شه&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;در هر صورت، من قانع شدم که به پلیکان مهاجرت کنم و الآن هم خیلی خوش‌حالم که همچین تصمیمی گرفتم. شما هم امتحانش کنید ؛)&lt;/p&gt;</summary><category term="جکیل"></category><category term="پلیکان"></category><category term="پایتون"></category><category term="گیت‌هاب"></category></entry><entry><title>دانلود آخرین قسمت دیرین دیرین از یوتیوب</title><link href="https://mamins1376.github.io/weblog/2015/06/dnlwd-akhryn-qsmt-dyryn-dyryn-z-ywtywb/" rel="alternate"></link><published>2015-06-30T02:25:00+04:30</published><author><name>محمدامین</name></author><id>tag:mamins1376.github.io,2015-06-30:weblog/2015/06/dnlwd-akhryn-qsmt-dyryn-dyryn-z-ywtywb/</id><summary type="html">&lt;p&gt;&lt;a href="http://dirindirin.ir"&gt;دیرین دیرین&lt;/a&gt; یکی از انیمیشن‌های محبوب این روزهاست. طنزی  که معضل‌های رایج رو به شکل خنده‌داری نمایش می‌ده. یکی از کارهای رایج من این شده بود که چون در حال حاضر روزانه مرتبا یه انیمیشن دو-سه دقیقه‌ای آپلود می‌کنن، هر روز به &lt;a href="https://www.youtube.com/user/dirindirincartoon"&gt;کانال یوتیوب‌شون&lt;/a&gt; سر بزنم و ویدئوی جدید رو بگیرم. بیاین این &lt;em&gt;فرآیند تکراری&lt;/em&gt; رو اتوماتیکش کنیم!&lt;/p&gt;
+&lt;p&gt;یکی از برنامه‌های باحال و مفید &lt;a href="http://youtube-dl.org/"&gt;youtube-dl&lt;/a&gt;‍ه که با پایتون نوشته شده و فیچرهای بسیاری داره. مثلا می‌شه باهاش کل ویدئوهای یک کانال یا کاربر رو روی اکثر سایت‌های اشتراک ویدئو دانلود کرد یا یه پلی لیست رو جداگانه دانلود کرد، کیفیت رو مشخص کرد و خیلی کارای دیگه.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;youtube-dl --no-progress --max-downloads &lt;span class="m"&gt;1&lt;/span&gt; --proxy &lt;span class="nv"&gt;$http_proxy&lt;/span&gt; -c -o &lt;span class="s1"&gt;&amp;#39;DirinDirin/%(id)s-%(title)s.%(ext)s&amp;#39;&lt;/span&gt; --dateafter now-1day &lt;span class="s1"&gt;&amp;#39;https://www.youtube.com/user/dirindirincartoon&amp;#39;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;strong&gt;توضیح&lt;/strong&gt;: &lt;code&gt;no-progress&lt;/code&gt; که می‌گه نوار پیشرفت رو نشون نده. چون من این فرمان رو توی cron اجرا می‌کنم، متن خروجیش ایمیل می‌شه و اگر نوار پیشرفت فعال باشه، لاگی سرشار از خط های شبیه به هم و بدرد نخور خواهیم داشت :دی &lt;code&gt;max-downloads&lt;/code&gt; می‌گه که فقط یه فیلم رو بگیر. وگرنه همه‌ی کانال رو دانلود می‌کنه! پروکسی هم که نیاز به شرح اضافه نداره. &lt;code&gt;c&lt;/code&gt; می‌گه اگر فایلی وجود داشت ادامه بده. این دوتا کار برامون انجام می‌ده:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;اگر ویدئویی ناقص دانلود شده بود yt-dl ادامه‌ش می‌ده&lt;/li&gt;
+&lt;li&gt;اگر یه ویدئو کامل دانلود شده بود دوباره دانلودش نکنه&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;آپشن &lt;code&gt;o&lt;/code&gt; قالب و مسیر فایل دانلود شده رو تعیین می‌کنه. مثلا این‌جا، همه‌‌ی دانلودها توی پوشه‌ی DirinDirin ریخته می‌شن که هر فایل با id یوتیوبش شروع می‌شه، یه خط فاصله،‌ عنوان فیلم، نقطه و با پسوند فایل تموم می‌شه. &lt;code&gt;dateafter&lt;/code&gt; تقریبا کار اصلی رو انجام می‌ده. می‌گه فقط اگر تاریخ آپلود ویدئو بعد از این تاریخی که مشخص کردم بود دانلودش کن. این تاریخ می‌تونه نسبی یا مطلق باشه. ما گفتیم &lt;code&gt;now-1day&lt;/code&gt;، یعنی اگر بین بازه‌ی دیروز تا امروز آپلود شده بود دانلودش کن. و در آخر هم لینک کاربری دیرین دیرین.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;آپدیت&lt;/strong&gt;: &lt;a href="https://github.com/rasubuntu/"&gt;رسول&lt;/a&gt; عزیز زحمت کشیده و این عملیات رو با دیالوگ‌های زنیتی ترکیب کرده و &lt;a href="https://github.com/rasubuntu/yt-dl-script/"&gt;روی گیت‌هاب قرار داده&lt;/a&gt;.&lt;/p&gt;</summary><category term="دیرین دیرین"></category><category term="یوتیوب"></category></entry><entry><title>آرشیو کردن نمونه سوالات امتحان نهایی</title><link href="https://mamins1376.github.io/weblog/2015/05/arshyw-khrdn-nmwnh-swlt-mthn-nhyy/" rel="alternate"></link><published>2015-05-28T15:50:08+04:30</published><author><name>محمدامین</name></author><id>tag:mamins1376.github.io,2015-05-28:weblog/2015/05/arshyw-khrdn-nmwnh-swlt-mthn-nhyy/</id><summary type="html">&lt;p&gt;الآن فصل امتحاناته و منم خیلی کمتر اینجا می‌نویسم. اخیرا خواستم سوالات امتحانات نهایی رو کامل و یکجا داشته باشم؛ تمیز و مرتب. سایت &lt;a href="http://konkur.in/"&gt;کنکور&lt;/a&gt; سوالات رو برای دانلود گذاشته ولی چند تا مشکل دارن:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;فایل‌های اضافه داره(لینک و تصویر تبلیغاتی و ...)&lt;/li&gt;
+&lt;li&gt;همه‌ی فایل‌ها با فرمت rar هستن که پسورد هم دارن&lt;/li&gt;
+&lt;li&gt;خیلی زیادن!&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;از اونجا که من هم وقت استخراج تک‌تک اونها رو ندارم هم حالشو، یه اسکریپت نوشتم که این‌کارها رو برام انجام بده. خوش‌بختانه فایل‌های روی سرور اسماشون قاعده داره و منم از همین استفاده می‌کنم تا با داشتن قالب کلی هر لینک، کل فایل‌ها رو در اختیار داشته باشم.&lt;/p&gt;
+&lt;p&gt;این اسکریپت بش، کارهای زیر رو برامون انجام میده:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;دانلود فایل‌ها&lt;/li&gt;
+&lt;li&gt;استخراجشون. متأسفانه نتونستم با unrar-free کنار بیام و unrar-nonfree رو به کار بردم&lt;/li&gt;
+&lt;li&gt;حذف فایل‌های اضافه&lt;/li&gt;
+&lt;li&gt;تغییر نام فایل‌ها. تمیز بودن کلا برای من خیلی اهمیت داره ؛)&lt;/li&gt;
+&lt;li&gt;و در نهایت آرشیو کردنشون توی یه فایل zip.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="ch"&gt;#!/bin/bash&lt;/span&gt;
+&lt;span class="nv"&gt;EXAM&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nv"&gt;$1&lt;/span&gt;
+
+&lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="o"&gt;[&lt;/span&gt; x&lt;span class="nv"&gt;$EXAM&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;x&amp;quot;&lt;/span&gt; &lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="k"&gt;then&lt;/span&gt;
+  &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;Please give a name! e.g. Adabiyat&amp;#39;&lt;/span&gt;
+  &lt;span class="nb"&gt;exit&lt;/span&gt; 1
+&lt;span class="k"&gt;fi&lt;/span&gt;
+
+&lt;span class="c1"&gt;# 1st: Download&lt;/span&gt;
+&lt;span class="k"&gt;for&lt;/span&gt; YEAR in &lt;span class="sb"&gt;`&lt;/span&gt;seq &lt;span class="m"&gt;87&lt;/span&gt; 93&lt;span class="sb"&gt;`&lt;/span&gt;
+&lt;span class="k"&gt;do&lt;/span&gt;
+  &lt;span class="nv"&gt;KHORDAD&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;http://dl.konkur.in/post/Exam/3/&lt;span class="nv"&gt;$EXAM&lt;/span&gt;/Khordad-&lt;span class="nv"&gt;$YEAR&lt;/span&gt;-&lt;span class="nv"&gt;$EXAM&lt;/span&gt;-%5Bwww.konkur.in%5D.rar
+  &lt;span class="nv"&gt;SHAHRIVAR&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;http://dl.konkur.in/post/Exam/3/&lt;span class="nv"&gt;$EXAM&lt;/span&gt;/Shahrivar-&lt;span class="nv"&gt;$YEAR&lt;/span&gt;-&lt;span class="nv"&gt;$EXAM&lt;/span&gt;-%5Bwww.konkur.in%5D.rar
+  &lt;span class="nv"&gt;DEY&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;http://dl.konkur.in/post/Exam/3/&lt;span class="nv"&gt;$EXAM&lt;/span&gt;/Dey-&lt;span class="nv"&gt;$YEAR&lt;/span&gt;-&lt;span class="nv"&gt;$EXAM&lt;/span&gt;-%5Bwww.konkur.in%5D.rar
+  wget -c &lt;span class="nv"&gt;$KHORDAD&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$SHAHRIVAR&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$DEY&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;
+&lt;span class="k"&gt;done&lt;/span&gt;
+
+&lt;span class="c1"&gt;# 2nd: Extract them&lt;/span&gt;
+&lt;span class="k"&gt;for&lt;/span&gt; RAR in *.rar
+&lt;span class="k"&gt;do&lt;/span&gt;
+  unrar e -pwww.konkur.in -o+ -y &lt;span class="nv"&gt;$RAR&lt;/span&gt;
+&lt;span class="k"&gt;done&lt;/span&gt;
+
+&lt;span class="c1"&gt;# 3rd: Clear area&lt;/span&gt;
+rm *.rar *.URL *.png
+
+&lt;span class="c1"&gt;# 4th: Clear filenames&lt;/span&gt;
+rename s/&lt;span class="s1"&gt;&amp;#39;-\[www.konkur.in\]&amp;#39;&lt;/span&gt;//g *
+rename s/-/&lt;span class="se"&gt;\ &lt;/span&gt;/g *
+rename s/&lt;span class="se"&gt;\ &lt;/span&gt;&lt;span class="nv"&gt;$EXAM&lt;/span&gt;//g *
+
+&lt;span class="c1"&gt;# finally archive them in zip format&lt;/span&gt;
+&lt;span class="k"&gt;for&lt;/span&gt; ITEM in Khordad Shahrivar Dey
+&lt;span class="k"&gt;do&lt;/span&gt;
+  mkdir &lt;span class="nv"&gt;$ITEM&lt;/span&gt;
+  mv &lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;ITEM&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;*.pdf &lt;span class="nv"&gt;$ITEM&lt;/span&gt;
+&lt;span class="k"&gt;done&lt;/span&gt;
+
+zip -r &lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;EXAM&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;.zip Khordad Shahrivar Dey
+
+rm -rf Khordad Shahrivar Dey
+&lt;/pre&gt;&lt;/div&gt;</summary><category term="امتحان نهایی"></category><category term="اسکریپت"></category></entry><entry><title>دانلود شبانه برای Steam</title><link href="https://mamins1376.github.io/weblog/2015/05/dnlwd-shbnh-bry-steam/" rel="alternate"></link><published>2015-05-11T20:37:40+04:30</published><author><name>محمدامین</name></author><id>tag:mamins1376.github.io,2015-05-11:weblog/2015/05/dnlwd-shbnh-bry-steam/</id><summary type="html">&lt;p&gt;بزرگ‌ترین مشکل من با استیم، دانلود بازی‌هاش بود چون حجم خیلی خیلی زیادی دارن. ساعت دانلود رایگان داشتم ولی باید دستی دانلود رو شروع می‌کردم. خب شروع کردم به جستجو و تحقیق که به این روش رسیدم؛ این‌طوری میشه هر برنامه‌ای رو با استیم به راحتی دانلود کرد.
+&lt;!-- ادامه --&gt;&lt;/p&gt;
+&lt;p&gt;من برای اجرای فرمان‌ها در ساعات مقرر از &lt;code&gt;cron&lt;/code&gt; استفاده می‌کنم. وقتی که cron دستوری رو اجرا می‌کنه، خیلی از متغییرهای رایج از جمله &lt;code&gt;DISPLAY&lt;/code&gt; ست نمی‌شن و اگر دستور داده‌شده نیازمند سیستم گرافیکی باشه با خطا روبرو می‌شه و کار نمی‌کنه. این‌جاست که &lt;code&gt;Xvfb&lt;/code&gt; به کمکمون میاد: یه مانیتور غیر واقعی و قلابی!&lt;/p&gt;
+&lt;p&gt;استیم برای اجرا شدن به محیط گرافیکی نیاز داره و اگر ما توی cron فراخوانیش کنیم کار نمی‌کنه. پس یه مانیتور مجازی می‌سازیم که این مشکل رفع بشه.&lt;/p&gt;
+&lt;h4&gt;۱. نصب Xvfb&lt;/h4&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;root@debian:~# apt-get install xvfb
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h4&gt;۲. به دست آوردن ID برنامه یا بازی مورد نظر&lt;/h4&gt;
+&lt;p&gt;هر برنامه‌ای توی استیم یک ID داره. مثلا من می‌خوام ID بازی Dota2 رو به دست بیارم. اسمش رو جستجو می‌کنم و به همچین لینکی می‌رسم:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;http://store.steampowered.com/app/570
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;strong&gt;بینگو!&lt;/strong&gt; یقیناً اون &lt;code&gt;570&lt;/code&gt; انتهای لینک ID مورد نظر ماست.&lt;/p&gt;
+&lt;h4&gt;۳. ساختن اسکریپت دانلود&lt;/h4&gt;
+&lt;p&gt;این اسکریپت به ترتیب این کارها رو برامون انجام می‌ده:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;ساختن یک صفحه‌نمایش مجازی&lt;/li&gt;
+&lt;li&gt;تنظیم &lt;code&gt;DISPLAY&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;رفتن به پوشه‌ی خانگی(استیم باید توی &lt;code&gt;PWD=$HOME&lt;/code&gt; اجرا بشه)&lt;/li&gt;
+&lt;li&gt;اجرای خود استیم و لاگ کردن خروجیش&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;Xvfb :5 -screen &lt;span class="m"&gt;0&lt;/span&gt; 1280x720x24 +extension GLX +render -noreset &amp;gt; /dev/null 2&amp;gt;&lt;span class="p"&gt;&amp;amp;&lt;/span&gt;&lt;span class="m"&gt;1&lt;/span&gt; &lt;span class="p"&gt;&amp;amp;&lt;/span&gt;
+&lt;span class="nb"&gt;export&lt;/span&gt; &lt;span class="nv"&gt;DISPLAY&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;:5
+&lt;span class="nb"&gt;cd&lt;/span&gt;
+/usr/games/steam -applaunch &amp;lt;APPID&amp;gt; &amp;gt;&amp;gt; steam.log 2&amp;gt;&lt;span class="p"&gt;&amp;amp;&lt;/span&gt;1
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;strong&gt;نکته:&lt;/strong&gt; یادتون نره که &lt;code&gt;&amp;lt;APPID&amp;gt;&lt;/code&gt; رو با ID برنامه‌تون عوض کنین. مثلا همون &lt;code&gt;570&lt;/code&gt; که مربوط می‌شه به Dota2.&lt;/p&gt;
+&lt;p&gt;حالا هربار که اسکریپت رو اجرا کنین، دانلود برنامه شروع می‌شه. عملیات ادامه‌ی دانلود و توقفش و غیره به عهده‌ی خود استیمه پس خیالتون از ادامه دادن یا سالم بودن فایل‌های دانلود شده راحت باشه. در نهایت اسکریپت رو به cron عزیز بسپارید تا از بازیتون لذت ببرید.&lt;/p&gt;</summary></entry><entry><title>تبدیل ایمیج به مخزن محلی</title><link href="https://mamins1376.github.io/weblog/2015/05/tbdyl-ymyj-bh-mkhzn-mhly/" rel="alternate"></link><published>2015-05-10T16:37:40+04:30</published><author><name>محمدامین</name></author><id>tag:mamins1376.github.io,2015-05-10:weblog/2015/05/tbdyl-ymyj-bh-mkhzn-mhly/</id><summary type="html">&lt;p&gt;ایمیج‌های دبیان(و طبیعتاً نوادگانش مثل اوبونتو) خیلی از بسته‌های پایه رو توی خودشون دارن که ساختاری دقیقا شبیه به مخزن‌های apt داره. DVDهای دبیان هم رایج‌ترین بسته‌ها(مثل میزکارها و ...) رو به همراه دارن. برای کسی که دانلود شبانه داره یکی از راه‌ها دانلود کردن بسته‌ها از قبل برای نصب در آینده‌ست. مسلما خیلی‌ها بعد از نصب کردن برنامه‌ی مورد نیازشون بسته‌های دانلود شده رو حذف می‌کنن و بدی این روش اینه‌که هر برنامه‌ای که لازم دارین باید تا دانلودش توی ساعت رایگان صبر کنین. خب چرا اغلب بسته‌ها رو دانلود نکنیم تا لازم نباشه هر دفعه صبر کنیم؟
+&lt;!-- ادامه --&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;توجه!&lt;/strong&gt; همه‌ی فرمان‌های زیر به دسترسی روت نیاز دارن. این ایمیج‌ها شامل بسته‌های &lt;code&gt;non-free&lt;/code&gt; نمی‌شن.&lt;/p&gt;
+&lt;h4&gt;۱. دانلود ایمیج‌ها&lt;/h4&gt;
+&lt;p&gt;من ۳ تا از DVDهای دبیان ۶۴بیتی رو دانلود کردم و توی پوشه‌ی خونگیم(یعنی &lt;code&gt;/root/&lt;/code&gt;) ریختم:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;root@debian:~# ls -sh1 /root/*.iso
+3.8G debian-8.0.0-amd64-DVD-1.iso
+4.4G debian-8.0.0-amd64-DVD-2.iso
+4.4G debian-8.0.0-amd64-DVD-3.iso
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h4&gt;۲. سوارکردن ایمیج‌ها&lt;/h4&gt;
+&lt;p&gt;من ۳ تا ایمیج دارم، پس ۳ تا پوشه برای هرکدوم توی مسیر &lt;code&gt;/mnt/&lt;/code&gt; درست می‌کنم:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;root@debian:~# mkdir -p /mnt/debian/dvd&lt;span class="o"&gt;{&lt;/span&gt;1,2,3&lt;span class="o"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;برای این که کار راحت‌تر بشه و نیازی به تایپ دستورهای طولانی نداشته باشیم، یه اسکریپت می‌سازیم که خودش برامون ایمیج‌ها رو سوار کنه. ایمیج‌های من توی &lt;code&gt;/root/&lt;/code&gt; هستن. شما باید با توجه به مسیری که ایمیج‌هاتون اونجا هستن خط &lt;code&gt;ISO_DIR=/root&lt;/code&gt; رو تغییر بدین:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;root@debian:~# cat &amp;gt; /usr/local/sbin/mount-repo
+&lt;span class="c1"&gt;#!/bin/sh&lt;/span&gt;
+&lt;span class="nv"&gt;ISO_DIR&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;/root
+mount -o loop,ro -t iso9660 &lt;span class="nv"&gt;$ISO_DIR&lt;/span&gt;/debian-8.0.0-amd64-DVD-1.iso /mnt/debian/dvd1/
+mount -o loop,ro -t iso9660 &lt;span class="nv"&gt;$ISO_DIR&lt;/span&gt;/debian-8.0.0-amd64-DVD-2.iso /mnt/debian/dvd2/
+mount -o loop,ro -t iso9660 &lt;span class="nv"&gt;$ISO_DIR&lt;/span&gt;/debian-8.0.0-amd64-DVD-3.iso /mnt/debian/dvd3/
+^D
+root@debian:~# chmod &lt;span class="m"&gt;744&lt;/span&gt; /usr/local/sbin/mount-repo
+root@debian:~# /usr/local/sbin/mount-repo
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;اگر اسکریپت &lt;code&gt;mount-repo&lt;/code&gt; رو داخل &lt;code&gt;cron&lt;/code&gt; قرار بدین دیگه نیازی نیست که هر دفعه خودتون اون رو فراخوانی کنین.&lt;/p&gt;
+&lt;h4&gt;۳. تنظیم apt&lt;/h4&gt;
+&lt;p&gt;چون بسته‌هایی که داخل ایمیج‌ها هستن نیاز من رو برطرف می‌کردن، مخزن‌های راه دور رو کلا حذف کردم؛ اگر شما به مخازن فعلی‌تون نیاز دارین خطوط زیر رو به فایل مخازن apt فقط اضافه کنین. این فایل &lt;code&gt;etc/apt/sources.list/&lt;/code&gt; منه:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;deb&lt;/span&gt; &lt;span class="s"&gt;file:///mnt/debian/dvd1/&lt;/span&gt; &lt;span class="kp"&gt;jessie&lt;/span&gt; &lt;span class="kp"&gt;contrib&lt;/span&gt; &lt;span class="kp"&gt;main&lt;/span&gt;
+&lt;span class="k"&gt;deb&lt;/span&gt; &lt;span class="s"&gt;file:///mnt/debian/dvd2/&lt;/span&gt; &lt;span class="kp"&gt;jessie&lt;/span&gt; &lt;span class="kp"&gt;contrib&lt;/span&gt; &lt;span class="kp"&gt;main&lt;/span&gt;
+&lt;span class="k"&gt;deb&lt;/span&gt; &lt;span class="s"&gt;file:///mnt/debian/dvd3/&lt;/span&gt; &lt;span class="kp"&gt;jessie&lt;/span&gt; &lt;span class="kp"&gt;contrib&lt;/span&gt; &lt;span class="kp"&gt;main&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;و در آخر:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;root@debian:~# apt-get update
+&lt;/pre&gt;&lt;/div&gt;</summary><category term="مخزن"></category><category term="دبیان"></category><category term="اوبونتو"></category></entry><entry><title>LMMS: خلاقیت به خرج دهید!</title><link href="https://mamins1376.github.io/weblog/2015/05/lmms-khlqyt-bh-khrj-dhyd/" rel="alternate"></link><published>2015-05-07T11:07:45+04:30</published><author><name>محمدامین</name></author><id>tag:mamins1376.github.io,2015-05-07:weblog/2015/05/lmms-khlqyt-bh-khrj-dhyd/</id><summary type="html">&lt;p&gt;معمولا وقتی کسی از &lt;a href="http://windows.microsoft.com/en-us/windows/home"&gt;جاهای ناجور&lt;/a&gt; به جمع آزادکارها می‌پیونده دنبال یک‌سری معادل برای برنامه‌هایی که قبلا با اون‌ها دمخور بوده می‌گرده؛ خب خیلی از آهنگ‌سازان امروزی از برنامه‌های آهنگ‌سازی با کامپیوتر مثل &lt;a href="http://www.image-line.com/flstudio/"&gt;®FL Studio&lt;/a&gt; برای ساخت ملودی‌هاشون استفاده می‌کنن. ممکنه استفاده از معادل یک برنامه در ابتدا سخت به نظر بیاد، اما استثناهایی هم وجود دارن که از بقیه بهتر کار می‌کنن!&lt;/p&gt;
+&lt;p&gt;&lt;img alt="LMMS Screenshot" src="https://mamins1376.github.io/weblog/2015/05/lmms-khlqyt-bh-khrj-dhyd/attachments/lmms.png" /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://lmms.io/"&gt;Linux Multimedia Studio&lt;/a&gt; یکی از باحال‌ترین DAWها برای ساخت آهنگ‌های سبک الکترونیکه که از VST، MIDI، Soundfont و خیلی چیزهای دیگه پشتیبانی می‌کنه و &lt;a href="https://lmms.io/lsp/"&gt;پلتفرمی&lt;/a&gt; هم برای به اشتراک‌گذاری محتواش داره.
+&lt;!-- ادامه --&gt;&lt;/p&gt;
+&lt;p&gt;چند روش برای نصب این برنامه وجود داره:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;نصب از مخزن رسمی&lt;/li&gt;
+&lt;li&gt;نصب از مخزن غیر رسمی&lt;/li&gt;
+&lt;li&gt;دانلود از سایت خود برنامه&lt;/li&gt;
+&lt;li&gt;کامپایل و ازین حرفا&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;دوتای اول راحت‌تر از بقیه هستن.&lt;/p&gt;
+&lt;h4&gt;۱. نصب LMMS&lt;/h4&gt;
+&lt;h5&gt;از مخزن رسمی&lt;/h5&gt;
+&lt;p&gt;فعلاً نسخه‌ی ۱.۰.۰ بدون پشتیبانی از VST توی &lt;a href="apt://lmms"&gt;مخزن رسمی&lt;/a&gt;‍ه:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;user@ubuntu:~$ sudo apt-get install lmms
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h5&gt;از مخزن غیر رسمی&lt;/h5&gt;
+&lt;p&gt;نسخه‌ی ۱.۱.۰ هم با پشتیبانی از VST به همراه WINE توی مخزن &lt;a href="https://launchpad.net/~irie"&gt;irie&lt;/a&gt; هست:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;user@ubuntu:~$ sudo add-apt-repository ppa:irie/lmms
+user@ubuntu:~$ sudo apt-get update
+user@ubuntu:~$ sudo apt-get install lmms
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h4&gt;۲. افزودن بانک صدا&lt;/h4&gt;
+&lt;p&gt;خود برنامه سمپل‌های خوبی داره ولی برای من کافی نبود. با توجه به این‌که fluidsynth یکی از بهترین سینثی‌سایزرهای متن‌بازه، ما از sf2ی اون استفاده می‌کنیم. حجم زیادی داره ولی صدای پیانو، گیتار(الکتریک، پلاستیک، بیس و ...)، ویولن، درام‌ست و ... رو به‌خوبی تولید می‌کنه.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;user@ubuntu:~$ sudo apt-get install fluid-soundfont-gm
+user@ubuntu:~$ cp /usr/share/sounds/sf2/FluidR3_GM.sf2 ~/Soundbank.sf2
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;حالا یک فایل به اسم &lt;code&gt;Soundbank.sf2&lt;/code&gt; توی پوشه‌ی خانگی شما هست.&lt;/p&gt;
+&lt;h4&gt;۳. نمونه&lt;/h4&gt;
+&lt;p&gt;چون پلتفرم برنامه فقط اجازه‌ی اشتراک‌گذاری فایل پروژه‌ی برنامه رو می‌ده، همه‌ی فایل‌های موجود بدون هرگونه بانک صدا یا پلاگین خارجی آپلود می‌شن.
+سری به &lt;a href="https://lmms.io/lsp/?action=browse&amp;amp;user=mamins1376"&gt;نمونه‌ی کارهای من&lt;/a&gt; هم بزنین.&lt;/p&gt;
+&lt;p&gt;شما هم کارهای خودتون رو برای بقیه بذارین!&lt;/p&gt;</summary><category term="موسیقی"></category><category term="LMMS"></category></entry></feed>

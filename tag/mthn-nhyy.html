@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+  <title>زندگی خوره‌ای</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width">
+  <link rel="icon" type="image/png" href="https://mamins1376.github.io/weblog/favicon.png">
+
+  <link href="https://mamins1376.github.io/weblog/atom.xml" type="application/atom+xml" rel="alternate" title="خوراک اتم کامل زندگی خوره‌ای" />
+  <link href="https://mamins1376.github.io/weblog/rss.xml" type="application/rss+xml" rel="alternate" title="خوراک آراس‌اس کامل زندگی خوره‌ای" />
+
+      <link href="https://mamins1376.github.io/weblog/theme/css/style.css" rel="stylesheet" />
+      <link href="https://mamins1376.github.io/weblog/theme/css/syntax.css" rel="stylesheet" />
+      <link href="https://mamins1376.github.io/weblog/theme/css/fonts.css" rel="stylesheet" />
+      <link href="https://mamins1376.github.io/weblog/theme/css/minimal.css" media="(max-width: 800px)" rel="stylesheet" />
+</head>
+<body class='rtl'>
+  <div class='container'>
+
+<header class="site-header">
+<div class="wrapper">
+  <a class="site-title" href="https://mamins1376.github.io/weblog">زندگی خوره‌ای</a>
+  <span class="site-desc">نتیجه یکسری تعادل شیمیایی</span>
+  <nav class="site-navigation">
+    <!--a class="page-link" href="https://mamins1376.github.io/weblog/categories.html">دسته‌ها</a-->
+    <!--a class="page-link" href="https://mamins1376.github.io/weblog/tags.html">برچسب‌ها</a-->
+
+    <a href="https://github.com/mamins1376">گیت‌هاب</a>
+
+    <a href="http://telegram.me/mamins1376">تلگرام</a>
+
+
+
+    <a href="https://twitter.com/mamins1376">توئیتر</a>
+
+    <a class="page-link" href="https://mamins1376.github.io/weblog/pages/drbrh/">درباره</a>
+  </nav>
+</div>
+</header>
+    <div class="wrapper">
+<section class="content">
+<h2>نوشته‌های دارای برچسب امتحان نهایی</h2>
+
+<ul class="post-list">
+    <li><article class="post">
+      <header class="post-header"><h2 class="post-title"><a href="https://mamins1376.github.io/weblog/2015/05/arshyw-khrdn-nmwnh-swlt-mthn-nhyy/" rel="bookmark" title="آرشیو کردن نمونه سوالات امتحان نهایی">آرشیو کردن نمونه سوالات امتحان نهایی</a></h2>
+        <abbr class="publish-date" title="تاریخ انتشار"> پنج‌شنبه ۷ خرداد ۱۳۹۴</abbr>
+        <address class="vcard author">
+            <a class="url fn" href="https://mamins1376.github.io/weblog/author/mhmdmyn.html">محمدامین</a>
+        </address>
+      </header>
+      <div class="post-content"><p>الآن فصل امتحاناته و منم خیلی کمتر اینجا می‌نویسم. اخیرا خواستم سوالات امتحانات نهایی رو کامل و یکجا داشته باشم؛ تمیز و مرتب. سایت <a href="http://konkur.in/">کنکور</a> سوالات رو برای دانلود گذاشته ولی چند تا مشکل دارن:</p>
+<ul>
+<li>فایل‌های اضافه داره(لینک و تصویر تبلیغاتی و ...)</li>
+<li>همه‌ی فایل‌ها با فرمت rar هستن که پسورد هم دارن</li>
+<li>خیلی زیادن!</li>
+</ul>
+<p>از اونجا که من هم وقت استخراج تک‌تک اونها رو ندارم هم حالشو، یه اسکریپت نوشتم که این‌کارها رو برام انجام بده. خوش‌بختانه فایل‌های روی سرور اسماشون قاعده داره و منم از همین استفاده می‌کنم تا با داشتن قالب کلی هر لینک، کل فایل‌ها رو در اختیار داشته باشم.</p>
+<p>این اسکریپت بش، کارهای زیر رو برامون انجام میده:</p>
+<ul>
+<li>دانلود فایل‌ها</li>
+<li>استخراجشون. متأسفانه نتونستم با unrar-free کنار بیام و unrar-nonfree رو به کار بردم</li>
+<li>حذف فایل‌های اضافه</li>
+<li>تغییر نام فایل‌ها. تمیز بودن کلا برای من خیلی اهمیت داره ؛)</li>
+<li>و در نهایت آرشیو کردنشون توی یه فایل zip.</li>
+</ul>
+<div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+<span class="nv">EXAM</span><span class="o">=</span><span class="nv">$1</span>
+
+<span class="k">if</span> <span class="o">[</span> x<span class="nv">$EXAM</span> <span class="o">=</span> <span class="s2">&quot;x&quot;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+  <span class="nb">echo</span> <span class="s1">&#39;Please give a name! e.g. Adabiyat&#39;</span>
+  <span class="nb">exit</span> 1
+<span class="k">fi</span>
+
+<span class="c1"># 1st: Download</span>
+<span class="k">for</span> YEAR in <span class="sb">`</span>seq <span class="m">87</span> 93<span class="sb">`</span>
+<span class="k">do</span>
+  <span class="nv">KHORDAD</span><span class="o">=</span>http://dl.konkur.in/post/Exam/3/<span class="nv">$EXAM</span>/Khordad-<span class="nv">$YEAR</span>-<span class="nv">$EXAM</span>-%5Bwww.konkur.in%5D.rar
+  <span class="nv">SHAHRIVAR</span><span class="o">=</span>http://dl.konkur.in/post/Exam/3/<span class="nv">$EXAM</span>/Shahrivar-<span class="nv">$YEAR</span>-<span class="nv">$EXAM</span>-%5Bwww.konkur.in%5D.rar
+  <span class="nv">DEY</span><span class="o">=</span>http://dl.konkur.in/post/Exam/3/<span class="nv">$EXAM</span>/Dey-<span class="nv">$YEAR</span>-<span class="nv">$EXAM</span>-%5Bwww.konkur.in%5D.rar
+  wget -c <span class="nv">$KHORDAD</span> <span class="s2">&quot;</span><span class="nv">$SHAHRIVAR</span><span class="s2">&quot;</span> <span class="s2">&quot;</span><span class="nv">$DEY</span><span class="s2">&quot;</span>
+<span class="k">done</span>
+
+<span class="c1"># 2nd: Extract them</span>
+<span class="k">for</span> RAR in *.rar
+<span class="k">do</span>
+  unrar e -pwww.konkur.in -o+ -y <span class="nv">$RAR</span>
+<span class="k">done</span>
+
+<span class="c1"># 3rd: Clear area</span>
+rm *.rar *.URL *.png
+
+<span class="c1"># 4th: Clear filenames</span>
+rename s/<span class="s1">&#39;-\[www.konkur.in\]&#39;</span>//g *
+rename s/-/<span class="se">\ </span>/g *
+rename s/<span class="se">\ </span><span class="nv">$EXAM</span>//g *
+
+<span class="c1"># finally archive them in zip format</span>
+<span class="k">for</span> ITEM in Khordad Shahrivar Dey
+<span class="k">do</span>
+  mkdir <span class="nv">$ITEM</span>
+  mv <span class="si">${</span><span class="nv">ITEM</span><span class="si">}</span>*.pdf <span class="nv">$ITEM</span>
+<span class="k">done</span>
+
+zip -r <span class="si">${</span><span class="nv">EXAM</span><span class="si">}</span>.zip Khordad Shahrivar Dey
+
+rm -rf Khordad Shahrivar Dey
+</pre></div></div>
+    </article></li>
+</ul>
+<div class="pagination">
+    <span class="disabled button">▷</span>
+
+  <span class="pagination-count">صفحه ۱ از ۱</span>
+
+    <span class="disabled button">◁</span>
+</div>
+</section>
+    </div>
+
+<footer class="site-footer">
+<div class="wrapper">
+  <div class="column-1">
+    <div class="footer-title">زندگی خوره‌ای</div>
+  </div>
+  <div class="column-2">
+    <div class="email"><a href="mailto:mamins1376@gmail.com">mamins1376@gmail.com</a></div>
+    <div class="subscribe"><a href="https://mamins1376.github.io/weblog/rss.xml">اشتراک خوراک RSS</a></div>
+  </div>
+  <div class="column-3">
+    <div class="license">
+      <a target="_blank" rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.fa"><img alt="مجوز کریتیو کامنز" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a>
+    </div>
+    <div class="powered-by">با افتخار، نیرو گرفته از <a href="http://getpelican.com/" title="پلیکان">پلیکان</a></div>
+  </div>
+</div>
+</footer>
+  </div>
+</body>
+</html>

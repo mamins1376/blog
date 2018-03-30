@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+  <title>زندگی خوره‌ای</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width">
+  <link rel="icon" type="image/png" href="https://mamins1376.github.io/weblog/favicon.png">
+
+  <link href="https://mamins1376.github.io/weblog/atom.xml" type="application/atom+xml" rel="alternate" title="خوراک اتم کامل زندگی خوره‌ای" />
+  <link href="https://mamins1376.github.io/weblog/rss.xml" type="application/rss+xml" rel="alternate" title="خوراک آراس‌اس کامل زندگی خوره‌ای" />
+
+      <link href="https://mamins1376.github.io/weblog/theme/css/style.css" rel="stylesheet" />
+      <link href="https://mamins1376.github.io/weblog/theme/css/syntax.css" rel="stylesheet" />
+      <link href="https://mamins1376.github.io/weblog/theme/css/fonts.css" rel="stylesheet" />
+      <link href="https://mamins1376.github.io/weblog/theme/css/minimal.css" media="(max-width: 800px)" rel="stylesheet" />
+</head>
+<body class='rtl'>
+  <div class='container'>
+
+<header class="site-header">
+<div class="wrapper">
+  <a class="site-title" href="https://mamins1376.github.io/weblog">زندگی خوره‌ای</a>
+  <span class="site-desc">نتیجه یکسری تعادل شیمیایی</span>
+  <nav class="site-navigation">
+    <!--a class="page-link" href="https://mamins1376.github.io/weblog/categories.html">دسته‌ها</a-->
+    <!--a class="page-link" href="https://mamins1376.github.io/weblog/tags.html">برچسب‌ها</a-->
+
+    <a href="https://github.com/mamins1376">گیت‌هاب</a>
+
+    <a href="http://telegram.me/mamins1376">تلگرام</a>
+
+
+
+    <a href="https://twitter.com/mamins1376">توئیتر</a>
+
+    <a class="page-link" href="https://mamins1376.github.io/weblog/pages/drbrh/">درباره</a>
+  </nav>
+</div>
+</header>
+    <div class="wrapper">
+<section class="content">
+<h2>نوشته‌های دارای برچسب دیرین دیرین</h2>
+
+<ul class="post-list">
+    <li><article class="post">
+      <header class="post-header"><h2 class="post-title"><a href="https://mamins1376.github.io/weblog/2015/06/dnlwd-akhryn-qsmt-dyryn-dyryn-z-ywtywb/" rel="bookmark" title="دانلود آخرین قسمت دیرین دیرین از یوتیوب">دانلود آخرین قسمت دیرین دیرین از یوتیوب</a></h2>
+        <abbr class="publish-date" title="تاریخ انتشار"> سه‌شنبه ۹ تیر ۱۳۹۴</abbr>
+        <address class="vcard author">
+            <a class="url fn" href="https://mamins1376.github.io/weblog/author/mhmdmyn.html">محمدامین</a>
+        </address>
+      </header>
+      <div class="post-content"><p><a href="http://dirindirin.ir">دیرین دیرین</a> یکی از انیمیشن‌های محبوب این روزهاست. طنزی  که معضل‌های رایج رو به شکل خنده‌داری نمایش می‌ده. یکی از کارهای رایج من این شده بود که چون در حال حاضر روزانه مرتبا یه انیمیشن دو-سه دقیقه‌ای آپلود می‌کنن، هر روز به <a href="https://www.youtube.com/user/dirindirincartoon">کانال یوتیوب‌شون</a> سر بزنم و ویدئوی جدید رو بگیرم. بیاین این <em>فرآیند تکراری</em> رو اتوماتیکش کنیم!</p>
+<p>یکی از برنامه‌های باحال و مفید <a href="http://youtube-dl.org/">youtube-dl</a>‍ه که با پایتون نوشته شده و فیچرهای بسیاری داره. مثلا می‌شه باهاش کل ویدئوهای یک کانال یا کاربر رو روی اکثر سایت‌های اشتراک ویدئو دانلود کرد یا یه پلی لیست رو جداگانه دانلود کرد، کیفیت رو مشخص کرد و خیلی کارای دیگه.</p>
+<div class="highlight"><pre><span></span>youtube-dl --no-progress --max-downloads <span class="m">1</span> --proxy <span class="nv">$http_proxy</span> -c -o <span class="s1">&#39;DirinDirin/%(id)s-%(title)s.%(ext)s&#39;</span> --dateafter now-1day <span class="s1">&#39;https://www.youtube.com/user/dirindirincartoon&#39;</span>
+</pre></div>
+
+
+<p><strong>توضیح</strong>: <code>no-progress</code> که می‌گه نوار پیشرفت رو نشون نده. چون من این فرمان رو توی cron اجرا می‌کنم، متن خروجیش ایمیل می‌شه و اگر نوار پیشرفت فعال باشه، لاگی سرشار از خط های شبیه به هم و بدرد نخور خواهیم داشت :دی <code>max-downloads</code> می‌گه که فقط یه فیلم رو بگیر. وگرنه همه‌ی کانال رو دانلود می‌کنه! پروکسی هم که نیاز به شرح اضافه نداره. <code>c</code> می‌گه اگر فایلی وجود داشت ادامه بده. این دوتا کار برامون انجام می‌ده:</p>
+<ul>
+<li>اگر ویدئویی ناقص دانلود شده بود yt-dl ادامه‌ش می‌ده</li>
+<li>اگر یه ویدئو کامل دانلود شده بود دوباره دانلودش نکنه</li>
+</ul>
+<p>آپشن <code>o</code> قالب و مسیر فایل دانلود شده رو تعیین می‌کنه. مثلا این‌جا، همه‌‌ی دانلودها توی پوشه‌ی DirinDirin ریخته می‌شن که هر فایل با id یوتیوبش شروع می‌شه، یه خط فاصله،‌ عنوان فیلم، نقطه و با پسوند فایل تموم می‌شه. <code>dateafter</code> تقریبا کار اصلی رو انجام می‌ده. می‌گه فقط اگر تاریخ آپلود ویدئو بعد از این تاریخی که مشخص کردم بود دانلودش کن. این تاریخ می‌تونه نسبی یا مطلق باشه. ما گفتیم <code>now-1day</code>، یعنی اگر بین بازه‌ی دیروز تا امروز آپلود شده بود دانلودش کن. و در آخر هم لینک کاربری دیرین دیرین.</p>
+<p><strong>آپدیت</strong>: <a href="https://github.com/rasubuntu/">رسول</a> عزیز زحمت کشیده و این عملیات رو با دیالوگ‌های زنیتی ترکیب کرده و <a href="https://github.com/rasubuntu/yt-dl-script/">روی گیت‌هاب قرار داده</a>.</p></div>
+    </article></li>
+</ul>
+<div class="pagination">
+    <span class="disabled button">▷</span>
+
+  <span class="pagination-count">صفحه ۱ از ۱</span>
+
+    <span class="disabled button">◁</span>
+</div>
+</section>
+    </div>
+
+<footer class="site-footer">
+<div class="wrapper">
+  <div class="column-1">
+    <div class="footer-title">زندگی خوره‌ای</div>
+  </div>
+  <div class="column-2">
+    <div class="email"><a href="mailto:mamins1376@gmail.com">mamins1376@gmail.com</a></div>
+    <div class="subscribe"><a href="https://mamins1376.github.io/weblog/rss.xml">اشتراک خوراک RSS</a></div>
+  </div>
+  <div class="column-3">
+    <div class="license">
+      <a target="_blank" rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.fa"><img alt="مجوز کریتیو کامنز" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a>
+    </div>
+    <div class="powered-by">با افتخار، نیرو گرفته از <a href="http://getpelican.com/" title="پلیکان">پلیکان</a></div>
+  </div>
+</div>
+</footer>
+  </div>
+</body>
+</html>

@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <title>تبدیل ایمیج به مخزن محلی - زندگی خوره‌ای</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width">
+  <link rel="icon" type="image/png" href="https://mamins1376.github.io/weblog/favicon.png">
+
+  <link href="https://mamins1376.github.io/weblog/atom.xml" type="application/atom+xml" rel="alternate" title="خوراک اتم کامل زندگی خوره‌ای" />
+  <link href="https://mamins1376.github.io/weblog/rss.xml" type="application/rss+xml" rel="alternate" title="خوراک آراس‌اس کامل زندگی خوره‌ای" />
+  <link href="https://mamins1376.github.io/weblog/category/lynwkhs.atom.xml" type="application/atom+xml" rel="alternate" title="خوراک اتم دسته لینوکس - زندگی خوره‌ای" />
+  <link href="https://mamins1376.github.io/weblog/category/lynwkhs.rss.xml" type="application/rss+xml" rel="alternate" title="خوراک آراس‌اس دسته لینوکس - زندگی خوره‌ای" />
+
+      <link href="https://mamins1376.github.io/weblog/theme/css/style.css" rel="stylesheet" />
+      <link href="https://mamins1376.github.io/weblog/theme/css/syntax.css" rel="stylesheet" />
+      <link href="https://mamins1376.github.io/weblog/theme/css/fonts.css" rel="stylesheet" />
+      <link href="https://mamins1376.github.io/weblog/theme/css/minimal.css" media="(max-width: 800px)" rel="stylesheet" />
+
+    <meta name="tags" content="مخزن" />
+    <meta name="tags" content="دبیان" />
+    <meta name="tags" content="اوبونتو" />
+</head>
+<body class='rtl'>
+  <div class='container'>
+
+<header class="site-header">
+<div class="wrapper">
+  <a class="site-title" href="https://mamins1376.github.io/weblog">زندگی خوره‌ای</a>
+  <span class="site-desc">نتیجه یکسری تعادل شیمیایی</span>
+  <nav class="site-navigation">
+    <!--a class="page-link" href="https://mamins1376.github.io/weblog/categories.html">دسته‌ها</a-->
+    <!--a class="page-link" href="https://mamins1376.github.io/weblog/tags.html">برچسب‌ها</a-->
+
+    <a href="https://github.com/mamins1376">گیت‌هاب</a>
+
+    <a href="http://telegram.me/mamins1376">تلگرام</a>
+
+
+
+    <a href="https://twitter.com/mamins1376">توئیتر</a>
+
+    <a class="page-link" href="https://mamins1376.github.io/weblog/pages/drbrh/">درباره</a>
+  </nav>
+</div>
+</header>
+    <div class="wrapper">
+<section class="page-content">
+  <header class="post-header">
+    <h2 class="post-title">
+      <a href="https://mamins1376.github.io/weblog/2015/05/tbdyl-ymyj-bh-mkhzn-mhly/" rel="bookmark"
+         title="تبدیل ایمیج به مخزن محلی">تبدیل ایمیج به مخزن محلی</a></h2>
+ 
+  </header>
+  <div class="post-info">
+      <abbr class="publish-date" title="تاریخ انتشار">انتشار: یک‌شنبه ۲۰ اردی‌بهشت ۱۳۹۴</abbr>
+    <address class="vcard author">
+        <a class="url fn" href="https://mamins1376.github.io/weblog/author/mhmdmyn.html">محمدامین</a>
+    </address>
+در دسته‌ی
+    <a title='لینوکس' href='https://mamins1376.github.io/weblog/category/lynwkhs.html'>لینوکس</a>
+  </div>
+  <div class="post-content">
+    <p>ایمیج‌های دبیان(و طبیعتاً نوادگانش مثل اوبونتو) خیلی از بسته‌های پایه رو توی خودشون دارن که ساختاری دقیقا شبیه به مخزن‌های apt داره. DVDهای دبیان هم رایج‌ترین بسته‌ها(مثل میزکارها و ...) رو به همراه دارن. برای کسی که دانلود شبانه داره یکی از راه‌ها دانلود کردن بسته‌ها از قبل برای نصب در آینده‌ست. مسلما خیلی‌ها بعد از نصب کردن برنامه‌ی مورد نیازشون بسته‌های دانلود شده رو حذف می‌کنن و بدی این روش اینه‌که هر برنامه‌ای که لازم دارین باید تا دانلودش توی ساعت رایگان صبر کنین. خب چرا اغلب بسته‌ها رو دانلود نکنیم تا لازم نباشه هر دفعه صبر کنیم؟
+<!-- ادامه --></p>
+<p><strong>توجه!</strong> همه‌ی فرمان‌های زیر به دسترسی روت نیاز دارن. این ایمیج‌ها شامل بسته‌های <code>non-free</code> نمی‌شن.</p>
+<h4>۱. دانلود ایمیج‌ها</h4>
+<p>من ۳ تا از DVDهای دبیان ۶۴بیتی رو دانلود کردم و توی پوشه‌ی خونگیم(یعنی <code>/root/</code>) ریختم:</p>
+<div class="highlight"><pre><span></span>root@debian:~# ls -sh1 /root/*.iso
+3.8G debian-8.0.0-amd64-DVD-1.iso
+4.4G debian-8.0.0-amd64-DVD-2.iso
+4.4G debian-8.0.0-amd64-DVD-3.iso
+</pre></div>
+
+
+<h4>۲. سوارکردن ایمیج‌ها</h4>
+<p>من ۳ تا ایمیج دارم، پس ۳ تا پوشه برای هرکدوم توی مسیر <code>/mnt/</code> درست می‌کنم:</p>
+<div class="highlight"><pre><span></span>root@debian:~# mkdir -p /mnt/debian/dvd<span class="o">{</span>1,2,3<span class="o">}</span>
+</pre></div>
+
+
+<p>برای این که کار راحت‌تر بشه و نیازی به تایپ دستورهای طولانی نداشته باشیم، یه اسکریپت می‌سازیم که خودش برامون ایمیج‌ها رو سوار کنه. ایمیج‌های من توی <code>/root/</code> هستن. شما باید با توجه به مسیری که ایمیج‌هاتون اونجا هستن خط <code>ISO_DIR=/root</code> رو تغییر بدین:</p>
+<div class="highlight"><pre><span></span>root@debian:~# cat &gt; /usr/local/sbin/mount-repo
+<span class="c1">#!/bin/sh</span>
+<span class="nv">ISO_DIR</span><span class="o">=</span>/root
+mount -o loop,ro -t iso9660 <span class="nv">$ISO_DIR</span>/debian-8.0.0-amd64-DVD-1.iso /mnt/debian/dvd1/
+mount -o loop,ro -t iso9660 <span class="nv">$ISO_DIR</span>/debian-8.0.0-amd64-DVD-2.iso /mnt/debian/dvd2/
+mount -o loop,ro -t iso9660 <span class="nv">$ISO_DIR</span>/debian-8.0.0-amd64-DVD-3.iso /mnt/debian/dvd3/
+^D
+root@debian:~# chmod <span class="m">744</span> /usr/local/sbin/mount-repo
+root@debian:~# /usr/local/sbin/mount-repo
+</pre></div>
+
+
+<p>اگر اسکریپت <code>mount-repo</code> رو داخل <code>cron</code> قرار بدین دیگه نیازی نیست که هر دفعه خودتون اون رو فراخوانی کنین.</p>
+<h4>۳. تنظیم apt</h4>
+<p>چون بسته‌هایی که داخل ایمیج‌ها هستن نیاز من رو برطرف می‌کردن، مخزن‌های راه دور رو کلا حذف کردم؛ اگر شما به مخازن فعلی‌تون نیاز دارین خطوط زیر رو به فایل مخازن apt فقط اضافه کنین. این فایل <code>etc/apt/sources.list/</code> منه:</p>
+<div class="highlight"><pre><span></span><span class="k">deb</span> <span class="s">file:///mnt/debian/dvd1/</span> <span class="kp">jessie</span> <span class="kp">contrib</span> <span class="kp">main</span>
+<span class="k">deb</span> <span class="s">file:///mnt/debian/dvd2/</span> <span class="kp">jessie</span> <span class="kp">contrib</span> <span class="kp">main</span>
+<span class="k">deb</span> <span class="s">file:///mnt/debian/dvd3/</span> <span class="kp">jessie</span> <span class="kp">contrib</span> <span class="kp">main</span>
+</pre></div>
+
+
+<p>و در آخر:</p>
+<div class="highlight"><pre><span></span>root@debian:~# apt-get update
+</pre></div>
+  </div>
+<div class="share-buttons">
+  <span class="share-message">اشتراک گذاری روی:</span> 
+  <span class="share-button">
+    <a target="_blank" title="تلگرام" href="https://telegram.me/share/url?url=https://mamins1376.github.io/weblog/2015/05/tbdyl-ymyj-bh-mkhzn-mhly/">
+      <img src="https://mamins1376.github.io/weblog/theme/images/share-telegram.png" alt="تلگرام" />
+    </a>
+  </span>
+  <span class="share-button">
+    <a target="_blank" title="توئیتر" href="https://twitter.com/home?status=تبدیل ایمیج به مخزن محلی https://mamins1376.github.io/weblog/2015/05/tbdyl-ymyj-bh-mkhzn-mhly/">
+      <img src="https://mamins1376.github.io/weblog/theme/images/share-twitter.png" alt="توئیتر" />
+    </a>
+  </span>
+  <span class="share-button">
+    <a target="_blank" title="گوگل پلاس" href="https://plus.google.com/share?url=https://mamins1376.github.io/weblog/2015/05/tbdyl-ymyj-bh-mkhzn-mhly/">
+      <img src="https://mamins1376.github.io/weblog/theme/images/share-googleplus.png" alt="گوگل پلاس" />
+    </a>
+  </span>
+  <span class="share-button">
+    <a target="_blank" title="فیس‌بوک" href="https://www.facebook.com/sharer/sharer.php?u=https://mamins1376.github.io/weblog/2015/05/tbdyl-ymyj-bh-mkhzn-mhly/">
+      <img src="https://mamins1376.github.io/weblog/theme/images/share-facebook.png" alt="فیس‌بوک" />
+    </a>
+  </span>
+</div>  <div class="post-tags">برچسب‌ها:
+    <a class='tag-link' href='https://mamins1376.github.io/weblog/tag/mkhzn.html' title='مخزن'>مخزن</a>
+    <span class='tag-seprator'>،</span>
+    <a class='tag-link' href='https://mamins1376.github.io/weblog/tag/dbyn.html' title='دبیان'>دبیان</a>
+    <span class='tag-seprator'>،</span>
+    <a class='tag-link' href='https://mamins1376.github.io/weblog/tag/wbwntw.html' title='اوبونتو'>اوبونتو</a>
+    <span class='tag-seprator'>،</span>
+  </div>
+<div class="related-posts">
+  <div class="related-posts-message">در همین رابطه:</div>
+
+  <div class="related-post">
+    <a href="https://mamins1376.github.io/weblog/2016/09/chr-dbyn-rw-trkh-khrdm/" title="چرا دبیان رو ترک کردم">چرا دبیان رو ترک کردم</a>
+  </div>
+  <div class="related-post">
+    <a href="https://mamins1376.github.io/weblog/2015/05/dbyn-br-bstr-ndrwyd-pysh-bh-swy-jsyqsmt-dwm/" title="دبیان بر بستر اندروید: پیش به سوی جسی!(قسمت دوم)">دبیان بر بستر اندروید: پیش به سوی جسی!(قسمت دوم)</a>
+  </div>
+  <div class="related-post">
+    <a href="https://mamins1376.github.io/weblog/2015/05/ary2-w-pt-srty-dwchndn/" title="آریا۲ و اپت: سرعتی دوچندان">آریا۲ و اپت: سرعتی دوچندان</a>
+  </div>
+</div>
+</section>
+<div class="postnav" >
+
+  <div class="postnav-prev">
+    <a href="https://mamins1376.github.io/weblog/2015/05/lmms-khlqyt-bh-khrj-dhyd/" title="نوشته پیشین">
+      <span class="postnav-caption">نوشته پیشین</span>
+      <span class="postnav-title">LMMS: خلاقیت به خرج دهید!</span>
+    </a>
+  </div>
+
+  <div class="postnav-next">
+    <a href="https://mamins1376.github.io/weblog/2015/05/dnlwd-shbnh-bry-steam/" title="نوشته پسین">
+      <span class="postnav-caption">نوشته پسین</span>
+      <span class="postnav-title">دانلود شبانه برای Steam</span>
+    </a>
+  </div>
+
+</div><div id="disqus_thread" style="margin-bottom: 1em;"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = 'geekylife';
+    var disqus_config = function () { this.language = "fa"; };
+    var disqus_title = "تبدیل ایمیج به مخزن محلی";
+    var disqus_identifier = "tbdyl-ymyj-bh-mkhzn-mhly";
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>
+  لطفاً برای مشاهده‌ی
+  <a href="https://disqus.com/?ref_noscript" rel="nofollow">دیدگاه‌ها</a>
+    ، جاوا اسکریپت را فعال کنید. قدرت گرفته از Disqus</noscript>    </div>
+
+<footer class="site-footer">
+<div class="wrapper">
+  <div class="column-1">
+    <div class="footer-title">زندگی خوره‌ای</div>
+  </div>
+  <div class="column-2">
+    <div class="email"><a href="mailto:mamins1376@gmail.com">mamins1376@gmail.com</a></div>
+    <div class="subscribe"><a href="https://mamins1376.github.io/weblog/rss.xml">اشتراک خوراک RSS</a></div>
+  </div>
+  <div class="column-3">
+    <div class="license">
+      <a target="_blank" rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.fa"><img alt="مجوز کریتیو کامنز" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a>
+    </div>
+    <div class="powered-by">با افتخار، نیرو گرفته از <a href="http://getpelican.com/" title="پلیکان">پلیکان</a></div>
+  </div>
+</div>
+</footer>
+  </div>
+</body>
+</html>

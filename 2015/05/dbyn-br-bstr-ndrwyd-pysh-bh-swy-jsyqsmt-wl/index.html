@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <title>دبیان بر بستر اندروید: پیش به سوی جسی!(قسمت اول) - زندگی خوره‌ای</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width">
+  <link rel="icon" type="image/png" href="https://mamins1376.github.io/weblog/favicon.png">
+
+  <link href="https://mamins1376.github.io/weblog/atom.xml" type="application/atom+xml" rel="alternate" title="خوراک اتم کامل زندگی خوره‌ای" />
+  <link href="https://mamins1376.github.io/weblog/rss.xml" type="application/rss+xml" rel="alternate" title="خوراک آراس‌اس کامل زندگی خوره‌ای" />
+  <link href="https://mamins1376.github.io/weblog/category/lynwkhs.atom.xml" type="application/atom+xml" rel="alternate" title="خوراک اتم دسته لینوکس - زندگی خوره‌ای" />
+  <link href="https://mamins1376.github.io/weblog/category/lynwkhs.rss.xml" type="application/rss+xml" rel="alternate" title="خوراک آراس‌اس دسته لینوکس - زندگی خوره‌ای" />
+
+      <link href="https://mamins1376.github.io/weblog/theme/css/style.css" rel="stylesheet" />
+      <link href="https://mamins1376.github.io/weblog/theme/css/syntax.css" rel="stylesheet" />
+      <link href="https://mamins1376.github.io/weblog/theme/css/fonts.css" rel="stylesheet" />
+      <link href="https://mamins1376.github.io/weblog/theme/css/minimal.css" media="(max-width: 800px)" rel="stylesheet" />
+
+    <meta name="tags" content="دبیان" />
+    <meta name="tags" content="اندروید" />
+    <meta name="tags" content="لینوکس" />
+    <meta name="tags" content="debootstrap" />
+</head>
+<body class='rtl'>
+  <div class='container'>
+
+<header class="site-header">
+<div class="wrapper">
+  <a class="site-title" href="https://mamins1376.github.io/weblog">زندگی خوره‌ای</a>
+  <span class="site-desc">نتیجه یکسری تعادل شیمیایی</span>
+  <nav class="site-navigation">
+    <!--a class="page-link" href="https://mamins1376.github.io/weblog/categories.html">دسته‌ها</a-->
+    <!--a class="page-link" href="https://mamins1376.github.io/weblog/tags.html">برچسب‌ها</a-->
+
+    <a href="https://github.com/mamins1376">گیت‌هاب</a>
+
+    <a href="http://telegram.me/mamins1376">تلگرام</a>
+
+
+
+    <a href="https://twitter.com/mamins1376">توئیتر</a>
+
+    <a class="page-link" href="https://mamins1376.github.io/weblog/pages/drbrh/">درباره</a>
+  </nav>
+</div>
+</header>
+    <div class="wrapper">
+<section class="page-content">
+  <header class="post-header">
+    <h2 class="post-title">
+      <a href="https://mamins1376.github.io/weblog/2015/05/dbyn-br-bstr-ndrwyd-pysh-bh-swy-jsyqsmt-wl/" rel="bookmark"
+         title="دبیان بر بستر اندروید: پیش به سوی جسی!(قسمت اول)">دبیان بر بستر اندروید: پیش به سوی جسی!(قسمت اول)</a></h2>
+ 
+  </header>
+  <div class="post-info">
+      <abbr class="publish-date" title="تاریخ انتشار">انتشار: شنبه ۱۲ اردی‌بهشت ۱۳۹۴</abbr>
+    <address class="vcard author">
+        <a class="url fn" href="https://mamins1376.github.io/weblog/author/mhmdmyn.html">محمدامین</a>
+    </address>
+در دسته‌ی
+    <a title='لینوکس' href='https://mamins1376.github.io/weblog/category/lynwkhs.html'>لینوکس</a>
+  </div>
+  <div class="post-content">
+    <p>بسیاری از افراد پس از خرید یک تلفن هوشمند یا تبلت، اقدام به روت کردن آن می‌کنند. مفهوم «روت» در اندروید همانند مفهوم روت در دیگر سیستم‌های گنو/لینوکسی‌ست. دلایل زیادی برای روت‌کردن وجود دارد: شخصی‌سازی بیش‌تر، حذف برنامه‌های سیستمی، اصلاح سیستم و البته نصب یک توزیع گنو/لینوکسی.<br />
+در این‌جا، به نصب دبیان ۸ (جسی) بر روی یک وسیله‌ی مبتنی بر اندروید می‌پردازیم.
+<!-- ادامه --></p>
+<h3>چه‌چیزی لازم داریم؟</h3>
+<ul>
+<li>یک ماشین گنو/لینوکسی: ترجیحاً از خانواده‌ی دبیان</li>
+<li>دسترسی به اینترنت یا مخزن محلی: حدود ۶۰-۷۰ مگابایت در این روش بارگیری خواهد شد.</li>
+<li>تلفن هوشمند یا تبلت روت شده</li>
+<li>کابل اتصال به رایانه: برای انتقال داده از ماشین گنو/لینوکسی به دستگاه</li>
+<li>حداقل ۱ گیگابایت فضای خالی روی دستگاه: مهم نیست که روی حافظه‌ی داخلی باشد یا کارت SD خارجی</li>
+<li>وقت و حوصله‌ی فراوان</li>
+</ul>
+<h3>چه قابلیت‌هایی دارد؟</h3>
+<ul>
+<li>اجرا به موازات اندروید بدون دستکاری سیستم</li>
+<li>روان، سریع و بدون نصب هرگونه برنامه‌ی شخص سوم</li>
+<li>حذف آسان</li>
+<li>محیط گرافیکی(اختیاری)</li>
+<li>اجرای اکثر برنامه‌های گنو/لینوکس(<a href="https://www.winehq.org/about/">WINE</a> هم شامل می‌شود!)</li>
+</ul>
+<h4>۱. نصب debootstrap</h4>
+<p>برای نصب گنو/لینوکس از گنو/لینوکس، <code>debootstrap</code> گزینه‌ی خوبی‌ست، ایجاد یکی دیگر از صفر مطلق؛ بدون کرنل، بوت‌لودر و هرگونه بسته‌ی اختیاری.<br />
+فایل‌های تولیدشده <strong>فقط</strong> شامل بسته‌های پایه‌ی سیستم می‌شود.<br />
+ابتدا آن را نصب می‌کنیم:  </p>
+<div class="highlight"><pre><span></span>root@host:~# apt-get install debootstrap
+</pre></div>
+
+
+<p>برای شروع کار با debootstrap به این اطلاعات نیازمندیم:</p>
+<ul>
+<li><strong>نوع پردازنده</strong>: در حال حاضر دو نوع پردازنده، غالب دستگاه‌های بازار را پوشش می‌دهند:</li>
+<li><code>x86</code>: معماری کامپیوترهای ۳۲بیتی رایج</li>
+<li><code>arm</code>: معماری میکروکنترلرهای پیش‌رفته و نسل جدید که خود سه نوع دارد:<ul>
+<li><code>armel</code>: نسل قدیمی <code>arm</code></li>
+<li><code>armhf</code>: نسل جدید <code>arm</code> که <code>armv7</code> معادل این نسل است</li>
+<li><code>arm64</code>: چیپ‌های <code>arm</code> نسخه‌ی ۶۴بیتی<br />
+بسته به نوع دستگاه باید یکی از ۴ مورد بالا را انتخاب کرد.</li>
+</ul>
+</li>
+<li><strong>نسخه‌ی توزیع</strong>: ما از توزیع <a href="https://www.debian.org/">دبیان</a> نسخه‌ی <a href="https://www.debian.org/News/2015/20150426.fa.html">۸(جسی)</a> استفاده می‌کنیم. شما می‌توانید از هرنسخه‌ی دیگری(<code>stable</code>، <code>testing</code>، <code>wheezy</code>، ...) استفاده کرده یا حتی به جای دبیان، <a href="http://www.ubuntu.com/">اوبونتو</a> را امتحان کنید.</li>
+<li><strong>آینه‌ی بسته‌ها</strong>: برای بارگیری بسته‌های اصلی سیستم از یک آینه استفاده می‌شود؛ این آینه می‌تواند محلی بوده یا روی ماشین دیگری باشد. فاصله‌ی جغرافیایی کمتر بین شما و آینه‌ی منتخبتان معمولاً سرعت بیش‌تری را به همراه دارد. نوع محلی از تصویر توزیع بهره می‌برد که توضیح نحوه‌ی استفاده از آن خارج از حوصله‌ی این مطلب است. ما از مخزن ایران استفاده خواهیم کرد.</li>
+</ul>
+<h4>۲. بارگیری پایه‌ی سیستم</h4>
+<p>پوشه‌ای ایجاد می‌کنیم. این پوشه حاوی فایل‌های اصلی توزیع ما خواهد بود:</p>
+<div class="highlight"><pre><span></span>root@host:~# mkdir debroot
+</pre></div>
+
+
+<p>سینتکس کلی برنامه‌ی <code>debootstrap</code> این است:</p>
+<div class="highlight"><pre><span></span>root@host:~# debootstrap <span class="o">[</span>OPTIONS<span class="o">]</span> &lt;DIST&gt; &lt;DIR&gt; <span class="o">[</span>&lt;MIRROR&gt;<span class="o">]</span>
+</pre></div>
+
+
+<p>برای ما:</p>
+<div class="highlight"><pre><span></span>root@host:~# debootstrap --foreign --arch<span class="o">=</span>armhf jessie ./debroot http://ftp.ir.debian.org/debian/
+</pre></div>
+
+
+<p>در این‌جا:</p>
+<ul>
+<li><code>foreign</code>: به برنامه می‌گوید که بسته‌ها را استخراج نکند، زیرا معماری ماشین هدف با معماری این ماشین متفاوت است.</li>
+<li><code>arch</code>: معماری ماشین هدف(اندروید) را مشخص می‌کند که در بالا توضیح داده شد.</li>
+<li><code>jessie</code>: نسخه‌ی توزیع</li>
+<li><code>debroot/.</code>: نشانی پوشه‌ای که بالاتر ساختیم.</li>
+<li><code>...http://ftp</code>: نشانی آینه.</li>
+</ul>
+<p>پس از بارگیری بسته‌ها، توزیع دریافت شده و <code>debootstrap</code> بسته‌ها را درون پوشه‌ی <code>debroot</code> خواهد ریخت.</p>
+<p>در پست بعدی، بسته‌های دریافت شده را به اندروید منتقل کرده و مراحل راه‌اندازی را انجام خواهیم داد.</p>
+  </div>
+<div class="share-buttons">
+  <span class="share-message">اشتراک گذاری روی:</span> 
+  <span class="share-button">
+    <a target="_blank" title="تلگرام" href="https://telegram.me/share/url?url=https://mamins1376.github.io/weblog/2015/05/dbyn-br-bstr-ndrwyd-pysh-bh-swy-jsyqsmt-wl/">
+      <img src="https://mamins1376.github.io/weblog/theme/images/share-telegram.png" alt="تلگرام" />
+    </a>
+  </span>
+  <span class="share-button">
+    <a target="_blank" title="توئیتر" href="https://twitter.com/home?status=دبیان بر بستر اندروید: پیش به سوی جسی!(قسمت اول) https://mamins1376.github.io/weblog/2015/05/dbyn-br-bstr-ndrwyd-pysh-bh-swy-jsyqsmt-wl/">
+      <img src="https://mamins1376.github.io/weblog/theme/images/share-twitter.png" alt="توئیتر" />
+    </a>
+  </span>
+  <span class="share-button">
+    <a target="_blank" title="گوگل پلاس" href="https://plus.google.com/share?url=https://mamins1376.github.io/weblog/2015/05/dbyn-br-bstr-ndrwyd-pysh-bh-swy-jsyqsmt-wl/">
+      <img src="https://mamins1376.github.io/weblog/theme/images/share-googleplus.png" alt="گوگل پلاس" />
+    </a>
+  </span>
+  <span class="share-button">
+    <a target="_blank" title="فیس‌بوک" href="https://www.facebook.com/sharer/sharer.php?u=https://mamins1376.github.io/weblog/2015/05/dbyn-br-bstr-ndrwyd-pysh-bh-swy-jsyqsmt-wl/">
+      <img src="https://mamins1376.github.io/weblog/theme/images/share-facebook.png" alt="فیس‌بوک" />
+    </a>
+  </span>
+</div>  <div class="post-tags">برچسب‌ها:
+    <a class='tag-link' href='https://mamins1376.github.io/weblog/tag/dbyn.html' title='دبیان'>دبیان</a>
+    <span class='tag-seprator'>،</span>
+    <a class='tag-link' href='https://mamins1376.github.io/weblog/tag/ndrwyd.html' title='اندروید'>اندروید</a>
+    <span class='tag-seprator'>،</span>
+    <a class='tag-link' href='https://mamins1376.github.io/weblog/tag/lynwkhs.html' title='لینوکس'>لینوکس</a>
+    <span class='tag-seprator'>،</span>
+    <a class='tag-link' href='https://mamins1376.github.io/weblog/tag/debootstrap.html' title='debootstrap'>debootstrap</a>
+    <span class='tag-seprator'>،</span>
+  </div>
+<div class="related-posts">
+  <div class="related-posts-message">در همین رابطه:</div>
+
+  <div class="related-post">
+    <a href="https://mamins1376.github.io/weblog/2015/05/dbyn-br-bstr-ndrwyd-pysh-bh-swy-jsyqsmt-dwm/" title="دبیان بر بستر اندروید: پیش به سوی جسی!(قسمت دوم)">دبیان بر بستر اندروید: پیش به سوی جسی!(قسمت دوم)</a>
+  </div>
+  <div class="related-post">
+    <a href="https://mamins1376.github.io/weblog/2016/09/chr-dbyn-rw-trkh-khrdm/" title="چرا دبیان رو ترک کردم">چرا دبیان رو ترک کردم</a>
+  </div>
+  <div class="related-post">
+    <a href="https://mamins1376.github.io/weblog/2015/10/khlyp-rwz-azdy-nrmfzr-thrn-2015/" title="کلیپ روز آزادی نرم‌افزار تهران ۲۰۱۵">کلیپ روز آزادی نرم‌افزار تهران ۲۰۱۵</a>
+  </div>
+</div>
+</section>
+<div class="postnav" >
+
+  <div class="postnav-prev">
+    <a><span class="postnav-caption"></span><span class="postnav-title"></span></a>
+  </div>
+
+  <div class="postnav-next">
+    <a href="https://mamins1376.github.io/weblog/2015/05/dbyn-br-bstr-ndrwyd-pysh-bh-swy-jsyqsmt-dwm/" title="نوشته پسین">
+      <span class="postnav-caption">نوشته پسین</span>
+      <span class="postnav-title">دبیان بر بستر اندروید: پیش به سوی جسی!(قسمت دوم)</span>
+    </a>
+  </div>
+
+</div><div id="disqus_thread" style="margin-bottom: 1em;"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = 'geekylife';
+    var disqus_config = function () { this.language = "fa"; };
+    var disqus_title = "دبیان بر بستر اندروید: پیش به سوی جسی!(قسمت اول)";
+    var disqus_identifier = "dbyn-br-bstr-ndrwyd-pysh-bh-swy-jsyqsmt-wl";
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>
+  لطفاً برای مشاهده‌ی
+  <a href="https://disqus.com/?ref_noscript" rel="nofollow">دیدگاه‌ها</a>
+    ، جاوا اسکریپت را فعال کنید. قدرت گرفته از Disqus</noscript>    </div>
+
+<footer class="site-footer">
+<div class="wrapper">
+  <div class="column-1">
+    <div class="footer-title">زندگی خوره‌ای</div>
+  </div>
+  <div class="column-2">
+    <div class="email"><a href="mailto:mamins1376@gmail.com">mamins1376@gmail.com</a></div>
+    <div class="subscribe"><a href="https://mamins1376.github.io/weblog/rss.xml">اشتراک خوراک RSS</a></div>
+  </div>
+  <div class="column-3">
+    <div class="license">
+      <a target="_blank" rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.fa"><img alt="مجوز کریتیو کامنز" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a>
+    </div>
+    <div class="powered-by">با افتخار، نیرو گرفته از <a href="http://getpelican.com/" title="پلیکان">پلیکان</a></div>
+  </div>
+</div>
+</footer>
+  </div>
+</body>
+</html>

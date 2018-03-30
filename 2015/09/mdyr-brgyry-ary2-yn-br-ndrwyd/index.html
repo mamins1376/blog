@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <title>مدیر بارگیری آریا۲: این بار، اندروید! - زندگی خوره‌ای</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width">
+  <link rel="icon" type="image/png" href="https://mamins1376.github.io/weblog/favicon.png">
+
+  <link href="https://mamins1376.github.io/weblog/atom.xml" type="application/atom+xml" rel="alternate" title="خوراک اتم کامل زندگی خوره‌ای" />
+  <link href="https://mamins1376.github.io/weblog/rss.xml" type="application/rss+xml" rel="alternate" title="خوراک آراس‌اس کامل زندگی خوره‌ای" />
+  <link href="https://mamins1376.github.io/weblog/category/mrfy.atom.xml" type="application/atom+xml" rel="alternate" title="خوراک اتم دسته معرفی - زندگی خوره‌ای" />
+  <link href="https://mamins1376.github.io/weblog/category/mrfy.rss.xml" type="application/rss+xml" rel="alternate" title="خوراک آراس‌اس دسته معرفی - زندگی خوره‌ای" />
+
+      <link href="https://mamins1376.github.io/weblog/theme/css/style.css" rel="stylesheet" />
+      <link href="https://mamins1376.github.io/weblog/theme/css/syntax.css" rel="stylesheet" />
+      <link href="https://mamins1376.github.io/weblog/theme/css/fonts.css" rel="stylesheet" />
+      <link href="https://mamins1376.github.io/weblog/theme/css/minimal.css" media="(max-width: 800px)" rel="stylesheet" />
+
+    <meta name="tags" content="aria2" />
+    <meta name="tags" content="آریا۲" />
+    <meta name="tags" content="android" />
+    <meta name="tags" content="اندروید" />
+    <meta name="tags" content="دانلود" />
+</head>
+<body class='rtl'>
+  <div class='container'>
+
+<header class="site-header">
+<div class="wrapper">
+  <a class="site-title" href="https://mamins1376.github.io/weblog">زندگی خوره‌ای</a>
+  <span class="site-desc">نتیجه یکسری تعادل شیمیایی</span>
+  <nav class="site-navigation">
+    <!--a class="page-link" href="https://mamins1376.github.io/weblog/categories.html">دسته‌ها</a-->
+    <!--a class="page-link" href="https://mamins1376.github.io/weblog/tags.html">برچسب‌ها</a-->
+
+    <a href="https://github.com/mamins1376">گیت‌هاب</a>
+
+    <a href="http://telegram.me/mamins1376">تلگرام</a>
+
+
+
+    <a href="https://twitter.com/mamins1376">توئیتر</a>
+
+    <a class="page-link" href="https://mamins1376.github.io/weblog/pages/drbrh/">درباره</a>
+  </nav>
+</div>
+</header>
+    <div class="wrapper">
+<section class="page-content">
+  <header class="post-header">
+    <h2 class="post-title">
+      <a href="https://mamins1376.github.io/weblog/2015/09/mdyr-brgyry-ary2-yn-br-ndrwyd/" rel="bookmark"
+         title="مدیر بارگیری آریا۲: این بار، اندروید!">مدیر بارگیری آریا۲: این بار، اندروید!</a></h2>
+ 
+  </header>
+  <div class="post-info">
+      <abbr class="publish-date" title="تاریخ انتشار">انتشار: سه‌شنبه ۱۷ شهریور ۱۳۹۴</abbr>
+    <address class="vcard author">
+        <a class="url fn" href="https://mamins1376.github.io/weblog/author/mhmdmyn.html">محمدامین</a>
+    </address>
+در دسته‌ی
+    <a title='معرفی' href='https://mamins1376.github.io/weblog/category/mrfy.html'>معرفی</a>
+  </div>
+  <div class="post-content">
+    <p>از عنوان مطلب مشخصه که این مدیر بارگیری قدرتمند، حالا نسخه‌ی اندروید داره و تمام ویژگی‌هاش رو هم به اندروید میاره.</p>
+<h2>نصب</h2>
+<p>بسته به این که دیوایس شما روت شده باشه یا نه، محل نصب فرق می‌کنه. نصب با روش دسترسی روت این خوبی رو داره که باینری برنامه توی <code>$PATH</code> شما قرار می‌گیره و نیازی به وارد کردن مسیر کامل ندارید؛ ولی در این صورت باید توی پارتیشن سیستم بنویسید که ممکنه علاقه‌ای به این کار نداشته باشید. در هر صورت، نتیجه‌ی نهایی یکیه. تمام دستورها روی گوشی اجرا می‌شن. هم می‌تونید از <code>adb shell</code> استفاده کنید و هم از یک برنامه‌ی شبیه‌ساز ترمینال.</p>
+<h3>با دسترسی روت</h3>
+<p>امیدوارم که روی گوشیتون، <a href="http://busybox.net">busybox</a> نصب داشته باشید؛ چون ممکنه باینری mount خود گوشی مشکل ایجاد کنه.</p>
+<p>پارتیشن سیستم رو برای خارج کردن از حالت فقط خواندنی، دوباره سوار می‌کنیم:</p>
+<div class="highlight"><pre><span></span>$ su -c <span class="s1">&#39;busybox mount -o remount,rw /&#39;</span>
+</pre></div>
+
+
+<p>حالا، <a href="http://sourceforge.net/projects/aria2/files/stable/aria2-1.19.0/aria2-1.19.0-android-build1.zip/download">پرونده‌ی فشرده‌ی برنامه</a> رو دریافت کنید و باینری aria2c رو ازش استخراج کنید و منتقلش کنید به گوشی، مثلا <code>/sdcard/</code>. با بقیه‌ی محتویات پرونده‌ی فشرده کاری نداریم، می‌تونید پاکش کنید.</p>
+<p>باینری aria2c رو به یکی از مسیرهایی که توی متغیر محیطی PATH هستن کپی می‌کنیم، معمولا <code>/system/bin</code> توی این متغیر هست. بعدش بهش دسترسی‌های لازم رو می‌دیم و سیستم رو به حالت فقط خواندنی برمی‌گردونیم.</p>
+<div class="highlight"><pre><span></span>$ su
+<span class="c1"># cp /sdcard/aria2c /system/bin/aria2c</span>
+<span class="c1"># chmod 755 /system/bin/aria2c</span>
+<span class="c1"># mount -o remount,ro /</span>
+<span class="c1"># ^D</span>
+$ rm /sdcard/aria2c
+</pre></div>
+
+
+<h3>بدون دسترسی روت</h3>
+<p>مثل روشی که دسترسی روت نیاز داشت، پرونده‌ی فشرده رو دریافت و باینری رو استخراج کنین و به گوشی کپی کنین. مثلا <code>/sdcard/</code>.</p>
+<p>باینری رو کپی می‌کنیم و دسترسی اون رو هم درست می‌کنیم:</p>
+<div class="highlight"><pre><span></span>$ cp /sdcard/aria2c /data/local/tmp/aria2c
+$ chmod <span class="m">755</span> /data/local/tmp/aria2c
+$ rm /sdcard/aria2c
+</pre></div>
+
+
+<h2>استفاده</h2>
+<p>اگر با دسترسی روت نصب کردید، فقط بزنید <code>aria2c</code> و برنامه رو به کار بگیرید. در غیر این صورت، هر بار باید مسیر کامل رو وارد کنید، مگر این که پوشه‌ی حاوی باینری رو به PATH اضافه کنید:</p>
+<div class="highlight"><pre><span></span>$ /data/local/tmp/aria2c
+<span class="c1"># OR</span>
+$ <span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span> /data/local/tmp/:<span class="nv">$PATH</span>
+$ aria2c
+</pre></div>
+
+
+<p>دانلود خوبی داشته باشید :))</p>
+  </div>
+<div class="share-buttons">
+  <span class="share-message">اشتراک گذاری روی:</span> 
+  <span class="share-button">
+    <a target="_blank" title="تلگرام" href="https://telegram.me/share/url?url=https://mamins1376.github.io/weblog/2015/09/mdyr-brgyry-ary2-yn-br-ndrwyd/">
+      <img src="https://mamins1376.github.io/weblog/theme/images/share-telegram.png" alt="تلگرام" />
+    </a>
+  </span>
+  <span class="share-button">
+    <a target="_blank" title="توئیتر" href="https://twitter.com/home?status=مدیر بارگیری آریا۲: این بار، اندروید! https://mamins1376.github.io/weblog/2015/09/mdyr-brgyry-ary2-yn-br-ndrwyd/">
+      <img src="https://mamins1376.github.io/weblog/theme/images/share-twitter.png" alt="توئیتر" />
+    </a>
+  </span>
+  <span class="share-button">
+    <a target="_blank" title="گوگل پلاس" href="https://plus.google.com/share?url=https://mamins1376.github.io/weblog/2015/09/mdyr-brgyry-ary2-yn-br-ndrwyd/">
+      <img src="https://mamins1376.github.io/weblog/theme/images/share-googleplus.png" alt="گوگل پلاس" />
+    </a>
+  </span>
+  <span class="share-button">
+    <a target="_blank" title="فیس‌بوک" href="https://www.facebook.com/sharer/sharer.php?u=https://mamins1376.github.io/weblog/2015/09/mdyr-brgyry-ary2-yn-br-ndrwyd/">
+      <img src="https://mamins1376.github.io/weblog/theme/images/share-facebook.png" alt="فیس‌بوک" />
+    </a>
+  </span>
+</div>  <div class="post-tags">برچسب‌ها:
+    <a class='tag-link' href='https://mamins1376.github.io/weblog/tag/aria2.html' title='aria2'>aria2</a>
+    <span class='tag-seprator'>،</span>
+    <a class='tag-link' href='https://mamins1376.github.io/weblog/tag/ary2.html' title='آریا۲'>آریا۲</a>
+    <span class='tag-seprator'>،</span>
+    <a class='tag-link' href='https://mamins1376.github.io/weblog/tag/android.html' title='android'>android</a>
+    <span class='tag-seprator'>،</span>
+    <a class='tag-link' href='https://mamins1376.github.io/weblog/tag/ndrwyd.html' title='اندروید'>اندروید</a>
+    <span class='tag-seprator'>،</span>
+    <a class='tag-link' href='https://mamins1376.github.io/weblog/tag/dnlwd.html' title='دانلود'>دانلود</a>
+    <span class='tag-seprator'>،</span>
+  </div>
+<div class="related-posts">
+  <div class="related-posts-message">در همین رابطه:</div>
+
+  <div class="related-post">
+    <a href="https://mamins1376.github.io/weblog/2015/09/mdyr-brgyry-uget-yn-br-ndrwyd/" title="مدیر بارگیری uGet: این بار، اندروید!">مدیر بارگیری uGet: این بار، اندروید!</a>
+  </div>
+  <div class="related-post">
+    <a href="https://mamins1376.github.io/weblog/2015/05/ary2-w-pt-srty-dwchndn/" title="آریا۲ و اپت: سرعتی دوچندان">آریا۲ و اپت: سرعتی دوچندان</a>
+  </div>
+  <div class="related-post">
+    <a href="https://mamins1376.github.io/weblog/2015/05/cron-w-rtcwake-khwb-rht/" title="cron و rtcwake: خواب راحت">cron و rtcwake: خواب راحت</a>
+  </div>
+</div>
+</section>
+<div class="postnav" >
+
+  <div class="postnav-prev">
+    <a href="https://mamins1376.github.io/weblog/2015/09/api-bry-syt-subscene/" title="نوشته پیشین">
+      <span class="postnav-caption">نوشته پیشین</span>
+      <span class="postnav-title">API برای سایت Subscene</span>
+    </a>
+  </div>
+
+  <div class="postnav-next">
+    <a href="https://mamins1376.github.io/weblog/2015/09/mdyr-brgyry-uget-yn-br-ndrwyd/" title="نوشته پسین">
+      <span class="postnav-caption">نوشته پسین</span>
+      <span class="postnav-title">مدیر بارگیری uGet: این بار، اندروید!</span>
+    </a>
+  </div>
+
+</div><div id="disqus_thread" style="margin-bottom: 1em;"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = 'geekylife';
+    var disqus_config = function () { this.language = "fa"; };
+    var disqus_title = "مدیر بارگیری آریا۲: این بار، اندروید!";
+    var disqus_identifier = "mdyr-brgyry-ary2-yn-br-ndrwyd";
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>
+  لطفاً برای مشاهده‌ی
+  <a href="https://disqus.com/?ref_noscript" rel="nofollow">دیدگاه‌ها</a>
+    ، جاوا اسکریپت را فعال کنید. قدرت گرفته از Disqus</noscript>    </div>
+
+<footer class="site-footer">
+<div class="wrapper">
+  <div class="column-1">
+    <div class="footer-title">زندگی خوره‌ای</div>
+  </div>
+  <div class="column-2">
+    <div class="email"><a href="mailto:mamins1376@gmail.com">mamins1376@gmail.com</a></div>
+    <div class="subscribe"><a href="https://mamins1376.github.io/weblog/rss.xml">اشتراک خوراک RSS</a></div>
+  </div>
+  <div class="column-3">
+    <div class="license">
+      <a target="_blank" rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.fa"><img alt="مجوز کریتیو کامنز" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a>
+    </div>
+    <div class="powered-by">با افتخار، نیرو گرفته از <a href="http://getpelican.com/" title="پلیکان">پلیکان</a></div>
+  </div>
+</div>
+</footer>
+  </div>
+</body>
+</html>
