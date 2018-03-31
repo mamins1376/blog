@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="content">
+	<div class="posts">
+		{% for page in paginator.pages %}
+		{% include "article.html" %}
+		{% endfor %}
+	</div>
+	{% include "paginator.html" %}
+</section>
+{% endblock %}

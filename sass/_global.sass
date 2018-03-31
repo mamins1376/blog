@@ -1,0 +1,104 @@
+/* colors from colorhunt.co/c/2763 */
+
+html, body
+	min-height: 100%
+	overflow-x: hidden
+
+body
+	font-family: Sahel, "Fira Sans", sans-serif, Arial
+	font-size: 16px
+	line-height: 1.65
+	font-weight: 300
+	background: radial-gradient(circle at 50% 0, #393e46, #222831 18em), #222831
+	background-repeat: no-repeat
+	background-attachment: fixed
+	color: #eeeeee
+
+	a
+		text-decoration: none
+		color: #00adb5
+
+	.wrapper
+		max-width: 70%
+		padding: 14px 0
+
+.container
+	position: relative
+	// following won't work. hardcoded for now.
+	//min-height: calc(100% - $footer-height)
+	min-height: calc(100% - 96px)
+	padding-bottom: $footer-height
+
+	> header
+		line-height: 2em
+
+		.title
+			font-size: 2em
+			line-height: 2em
+
+		nav
+			float: left
+			padding-right: 10%
+			border-bottom: 1px solid #00adb5
+			box-shadow: 0 9px 3px -7px #00adb5
+
+			a
+				padding: 0 6px
+
+	> footer
+		bottom: 0
+		height: $footer-height
+		background-color: #393e46
+
+		.column
+			width: 32%
+			vertical-align: middle
+
+			.title
+				font-size: 1.6em
+				color: #b8e1dd
+
+.paginator
+	margin: 15px auto
+	white-space: nowrap
+
+	.count
+		max-width: 40px
+
+	.button
+		&, &:visited
+			background-color: transparent
+			color: #00adb5
+			padding: 5px
+
+		&:hover, &:focus
+			color: #eeeeee !important
+			text-shadow: 0 0 4px #eeeeee
+
+		.disabled
+			&, &:hover, &:focus
+				color: #393e46 !important
+
+.postnav
+	margin-bottom: 2em
+	border-style: dashed
+	border-color: #044a42
+	border-width: 2px 0
+	padding: 0.6em 0px
+
+	> div
+		width: 49%
+
+		div
+			transition: 0.4s
+
+		.caption
+			color: white
+			font-size: 1.2em
+
+		a:hover, a:focus
+			div
+				margin: 0 12px
+
+			.title
+				color: #b8e1dd

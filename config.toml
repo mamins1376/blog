@@ -1,0 +1,21 @@
+base_url = "https://mamins1376.github.io/blog"
+title = "زندگی خوره‌ای"
+description = "نتیجه چند تعادل شیمیایی"
+default_language = "fa"
+highlight_code = true
+highlight_theme = "base16-ocean-dark"
+generate_rss = true
+rss_limit = 10
+generate_categories_pages = true
+compile_sass = true
+
+[extra]
+email = "mamins1376@gmail.com"
+menu = {}
+
+[extra.pages]
+"درباره" = "/about"
+
+[extra.usernames]
+twitter = "pyaminrs"
+telegram = "mamins1376"

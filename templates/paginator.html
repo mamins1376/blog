@@ -1,0 +1,15 @@
+<div class="paginator text-center">
+	{% if paginator.previous %}
+	<a href="{{ paginator.previous }}" class="button no-shadow">▶</a>
+	{% else %}
+	<span class="disabled button no-shadow">▷</span>
+	{% endif %}
+
+	<span class="count">{{ paginator.current_index }}</span>
+
+	{% if paginator.next %}
+	<a href="{{ paginator.next }}" class="button no-shadow">◀</a>
+	{% else %}
+	<span class="disabled button no-shadow">◁</span>
+	{% endif %}
+</div>

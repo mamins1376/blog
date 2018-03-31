@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="{{ config.default_language }}">
+	<head>
+		<title class="rtl">{% block title %}{{ config.title }}{% endblock %}</title>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta http-equiv="content-type" content="text/html; charset=utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+		<link rel="icon" type="image/png" href="{{ config.base_url }}/favicon.png">
+		<link rel="stylesheet" href="{{ get_url(path="site.css", trailing_slash=false) }}">
+		<link rel="alternate" type="application/rss+xml" title="RSS" href="{{ get_url(path="rss.xml") }}">
+		{% block head_extra %}{% endblock %}
+	</head>
+	<body class="rtl no-margin">
+		<div class="container">
+			<header>
+				<div class="wrapper center m-text-center">
+					<a class="title block" href="{{ config.base_url }}"><strong>{{ config.title }}</strong></a>
+					<span class="description m-block">{{ config.description }}</span>
+					<nav class="inline m-block m-no-padding m-center">
+						{% for title, path in config.extra.menu %}
+						<a href="{{ get_url(path=path) }}">{{ title }}</a>
+						{% endfor %}
+
+						{% if config.extra.usernames.github %}
+						<a href="https://github.com/{{ config.extra.usernames.github }}">گیت‌هاب</a>
+						{% endif %}
+
+						{% if config.extra.usernames.telegram %}
+						<a href="http://telegram.me/{{ config.extra.usernames.telegram }}">تلگرام</a>
+						{% endif %}
+
+						{% if config.extra.usernames.facebook %}
+						<a href="https://facebook.com/{{ config.extra.usernames.facebook }}">فیس‌بوک</a>
+						{% endif %}
+
+						{% if config.extra.usernames.googleplus %}
+						<a href="https://www.google.com/{{ config.extra.usernames.googleplus }}">گوگل+</a>
+						{% endif %}
+
+						{% if config.extra.usernames.twitter %}
+						<a href="https://twitter.com/{{ config.extra.usernames.twitter }}">توئیتر</a>
+						{% endif %}
+
+						{% for title, path in config.extra.pages %}
+						<a class="page-link" href="{{ get_url(path=path) }}">{{ title }}</a>
+						{% endfor %}
+					</nav>
+				</div>
+			</header>
+			<main>
+				<div class="wrapper center">
+					{% block content %}{% endblock %}
+				</div>
+			</main>
+			<footer class="absolute text-center full-width">
+				<div class="wrapper center">
+					<div class="column inline m-block m-center m-full-width">
+						<div class="title"><strong>{{ config.title }}</strong></div>
+					</div>
+					<div class="column inline m-block m-center m-full-width">
+						<div class="email"><a href="mailto:{{ config.extra.email }}">{{ config.extra.email }}</a></div>
+						<div class="subscribe"><a href="{{ get_url(path="rss.xml") }}">اشتراک خوراک RSS</a></div>
+					</div>
+					<div class="column inline m-block m-center m-full-width">
+						<div class="license">
+							<a target="_blank" rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.fa"><img class="no-border" alt="مجوز کریتیو کامنز" src="https://licensebuttons.net/l/by-sa/4.0/88x31.png"/></a>
+						</div>
+						<div class="powered-by">با افتخار، نیرو گرفته از <a href="https://www.getgutenberg.io" title="گوتنبرگ">گوتنبرگ</a></div>
+					</div>
+				</div>
+			</footer>
+		</div>
+	</body>
+</html>

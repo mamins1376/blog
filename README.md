@@ -1,2 +1,0 @@
-# weblog
-Weblog

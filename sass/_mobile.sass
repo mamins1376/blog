@@ -1,0 +1,27 @@
+.wrapper
+	max-width: 90% !important
+
+.container > header nav
+	float: none
+	width: 90%
+	max-width: 300px
+
+.youtube-embed
+	margin: 1em auto
+	width: 100%
+	height: auto
+
+.postnav .caption
+	font-size: 1em !important
+
+@media (max-width: 630px)
+	.container
+		//min-height: calc(100% - $m-footer-height)
+		min-height: calc(100% - 240px)
+		padding-bottom: $m-footer-height
+
+		> footer
+			height: $m-footer-height
+
+			.column
+				padding: 8px 0
