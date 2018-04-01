@@ -60,6 +60,7 @@
 		</div>
 	</div>
 
+	{% if not config.base_url is containing("://127.0.0.1:") %}
 	<div id="disqus_thread" style="margin-bottom: 1em;"></div>
 	<script type="text/javascript">
 		var disqus_shortname = 'geekylife';
@@ -78,5 +79,6 @@
 		<a href="https://disqus.com/?ref_noscript" rel="nofollow">دیدگاه‌ها</a>،
 		جاوا اسکریپت را فعال کنید. قدرت گرفته از Disqus
 	</noscript>
+	{% endif %}
 </section>
 {% endblock %}
