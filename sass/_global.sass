@@ -1,8 +1,9 @@
 /* colors from colorhunt.co/c/2763 */
 
 html, body
-	min-height: 100%
+	height: 100%
 	overflow-x: hidden
+	overflow-y: auto
 
 body
 	font-family: Sahel, "Fira Sans", sans-serif, Arial
@@ -25,30 +26,28 @@ body
 		max-width: 70%
 		padding: 14px 0
 
-.container
-	// following won't work. hardcoded for now.
-	//min-height: calc(100% - $footer-height)
-	min-height: calc(100% - 96px)
-	padding-bottom: $footer-height
+	> .container
+		// following won't work. hardcoded for now.
+		//min-height: calc(100% - $footer-height)
+		min-height: calc(100% - 96px)
 
-	> header
-		line-height: 2em
-
-		.title
-			font-size: 2em
+		> header
 			line-height: 2em
 
-		nav
-			float: left
-			padding-right: 10%
-			border-bottom: 1px solid #00adb5
-			box-shadow: 0 9px 3px -7px #00adb5
+			.title
+				font-size: 2em
+				line-height: 2em
 
-			a
-				padding: 0 6px
+			nav
+				float: left
+				padding-right: 10%
+				border-bottom: 1px solid #00adb5
+				box-shadow: 0 9px 3px -7px #00adb5
+
+				a
+					padding: 0 6px
 
 	> footer
-		bottom: 0
 		height: $footer-height
 		background-color: #393e46
 

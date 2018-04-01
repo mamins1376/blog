@@ -53,24 +53,24 @@
 					{% block content %}{% endblock %}
 				</div>
 			</main>
-			<footer class="absolute text-center full-width">
-				<div class="wrapper center">
-					<div class="column inline m-block m-center m-full-width">
-						<div class="title"><strong>{{ config.title }}</strong></div>
-					</div>
-					<div class="column inline m-block m-center m-full-width">
-						<div class="email"><a href="mailto:{{ config.extra.email }}">{{ config.extra.email }}</a></div>
-						<div class="subscribe"><a href="{{ get_url(path="rss.xml") }}">اشتراک خوراک RSS</a></div>
-					</div>
-					<div class="column inline m-block m-center m-full-width">
-						<div class="license">
-							<a target="_blank" rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.fa"><img class="no-border" alt="مجوز کریتیو کامنز" src="https://licensebuttons.net/l/by-sa/4.0/88x31.png"/></a>
-						</div>
-						<div class="powered-by">با افتخار، نیرو گرفته از <a href="https://www.getgutenberg.io" title="گوتنبرگ">گوتنبرگ</a></div>
-					</div>
-				</div>
-			</footer>
 		</div>
+		<footer class="text-center full-width">
+			<div class="wrapper center">
+				<div class="column inline m-block m-center m-full-width">
+					<div class="title"><strong>{{ config.title }}</strong></div>
+				</div>
+				<div class="column inline m-block m-center m-full-width">
+					<div class="email"><a href="mailto:{{ config.extra.email }}">{{ config.extra.email }}</a></div>
+					<div class="subscribe"><a href="{{ get_url(path="rss.xml") }}">اشتراک خوراک RSS</a></div>
+				</div>
+				<div class="column inline m-block m-center m-full-width">
+					<div class="license">
+						<a target="_blank" rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.fa"><img class="no-border" alt="مجوز کریتیو کامنز" src="https://licensebuttons.net/l/by-sa/4.0/88x31.png"/></a>
+					</div>
+					<div class="powered-by">با افتخار، نیرو گرفته از <a href="https://www.getgutenberg.io" title="گوتنبرگ">گوتنبرگ</a></div>
+				</div>
+			</div>
+		</footer>
 		<script lang="text/javascript">
 			(function() {
 				// convert post content headings to links
