@@ -17,7 +17,7 @@
 				<div class="wrapper center m-text-center">
 					<a class="title block" href="{{ config.base_url }}"><strong>{{ config.title }}</strong></a>
 					<span class="description m-block">{{ config.description }}</span>
-					<nav class="inline m-block m-no-padding m-center">
+					<nav class="inline m-block m-no-padding m-full-width">
 						{% for title, path in config.extra.menu %}
 						<a href="{{ get_url(path=path) }}">{{ title }}</a>
 						{% endfor %}
