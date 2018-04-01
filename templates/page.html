@@ -31,22 +31,22 @@
 		<span class="message">اشتراک گذاری روی:</span>
 		<span class="button">
 			<a target="_blank" title="تلگرام" href="https://telegram.me/share/url?url={{ page.permalink }}">
-				<img src="{{ get_url(path="/images/share/telegram.png") }}" alt="تلگرام" />
+				<img src="{{ get_url(path="/images/share/telegram.png", trailing_slash=false) }}" alt="تلگرام" />
 			</a>
 		</span>
 		<span class="button">
 			<a target="_blank" title="توئیتر" href="https://twitter.com/home?status={{ page.title }} {{ page.permalink }}">
-				<img src="{{ get_url(path="/images/share/twitter.png") }}" alt="توئیتر" />
+				<img src="{{ get_url(path="/images/share/twitter.png", trailing_slash=false) }}" alt="توئیتر" />
 			</a>
 		</span>
 		<span class="button">
 			<a target="_blank" title="گوگل پلاس" href="https://plus.google.com/share?url={{ page.permalink }}">
-				<img src="{{ get_url(path="/images/share/googleplus.png") }}" alt="گوگل پلاس" />
+				<img src="{{ get_url(path="/images/share/googleplus.png", trailing_slash=false) }}" alt="گوگل پلاس" />
 			</a>
 		</span>
 		<span class="button">
 			<a target="_blank" title="فیس‌بوک" href="https://www.facebook.com/sharer/sharer.php?u={{ page.permalink }}">
-				<img src="{{ get_url(path="/images/share/facebook.png") }}" alt="فیس‌بوک" />
+				<img src="{{ get_url(path="/images/share/facebook.png", trailing_slash=false) }}" alt="فیس‌بوک" />
 			</a>
 		</span>
 	</div>
