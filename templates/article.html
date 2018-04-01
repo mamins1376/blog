@@ -1,9 +1,9 @@
 <article class="post">
-	<header class="header">
-		<h2 class="title"><a href="{{ page.permalink }}" rel="bookmark">{{ page.title }}</a></h2>
+	<header>
+		<a class="block" href="{{ page.permalink }}" rel="bookmark"><strong>{{ page.title }}</strong></a>
 		{% if page.date %}
 		<abbr class="date" title="تاریخ انتشار">{{ page.date }}</abbr>
 		{% endif %}
 	</header>
-	<div class="content">{{ page.content | safe }}</div>
+	<div>{{ page.content | safe }}</div>
 </article>

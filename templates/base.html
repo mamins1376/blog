@@ -71,5 +71,42 @@
 				</div>
 			</footer>
 		</div>
+		<script lang="text/javascript">
+			(function() {
+				// convert post content headings to links
+				var articles = document.getElementsByTagName("article");
+				for (var i = 0; i < articles.length; i++) {
+					var article = articles[i];
+
+					if (!article.classList.contains("post")) {
+						continue;
+					}
+
+					var article_url = article.children[0].children[0].getAttribute("href");
+					var content_elements = article.children[1].children;
+					for (var j = 0; j < content_elements.length; j++) {
+						var heading = content_elements[j];
+
+						var is_heading = false;
+						for (var k = 1; k <= 6; k++) {
+							if (heading.tagName === ("H" + String(k))) {
+								is_heading = true;
+							}
+						}
+
+						if (!is_heading) {
+							continue;
+						}
+
+						var link = document.createElement("a");
+						var heading_id = heading.getAttribute("id");
+						link.setAttribute("href", article_url + "#" + heading_id);
+
+						heading = heading.parentNode.replaceChild(link, heading);
+						link.appendChild(heading);
+					}
+				}
+			})();
+		</script>
 	</body>
 </html>
