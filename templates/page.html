@@ -4,6 +4,15 @@
 <section class="content">
 	{% include "article.html" %}
 
+	{% if page.tags %}
+	<div class="tags">برچسب‌ها:
+		{% for tag in page.tags %}
+		<a href="!" title="{{ tag }}">{{ tag }}</a>
+		<span>،</span>
+		{% endfor %}
+	</div>
+	{% endif %}
+
 	<div class="postnav text-center" >
 		<div class="inline m-block m-full-width text-right">
 			{% if page.previous %}
