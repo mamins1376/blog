@@ -37,28 +37,27 @@
 		</span>
 	</div>
 
-	<div class="nav text-center" >
+	{% if page.previous or page.next %}
+	<div class="nav text-center">
+		{% if page.previous %}
 		<div class="inline m-block m-full-width text-right">
-			{% if page.previous %}
 			<a href="{{ page.previous.permalink }}" title="نوشته پیشین">
 				<div class="caption">نوشته پیشین</div>
 				<div class="title">{{ page.previous.title }}</div>
 			</a>
-			{% else %}
-			<a href="!"><div class="caption"></div><div class="title"></div></a>
-			{% endif %}
 		</div>
+		{% endif %}
+
+		{% if page.next %}
 		<div class="inline m-block m-full-width text-left">
-			{% if page.next %}
 			<a href="{{ page.next.permalink }}" title="نوشته پسین">
 				<div class="caption">نوشته پسین</div>
 				<div class="title">{{ page.next.title }}</div>
 			</a>
-			{% else %}
-			<a href="!"><div class="caption"></div><div class="title"></div></a>
-			{% endif %}
 		</div>
+		{% endif %}
 	</div>
+	{% endif %}
 
 	{% if not config.base_url is containing("://127.0.0.1:") %}
 	<div id="disqus_thread" style="margin-bottom: 1em;"></div>
