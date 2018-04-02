@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="fa">
+	<head>
+		<title class="rtl">زندگی خوره‌ای</title>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta http-equiv="content-type" content="text/html; charset=utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+		<link rel="icon" type="image/png" href="https:&#x2F;&#x2F;mamins1376.github.io&#x2F;blog/favicon.png">
+		<link rel="stylesheet" href="https:&#x2F;&#x2F;mamins1376.github.io&#x2F;blog&#x2F;site.css">
+		<link rel="alternate" type="application/rss+xml" title="RSS" href="https:&#x2F;&#x2F;mamins1376.github.io&#x2F;blog&#x2F;rss.xml&#x2F;">
+		
+	</head>
+	<body class="rtl no-margin">
+		<div class="container">
+			<header>
+				<div class="wrapper center m-text-center">
+					<a class="title block" href="https:&#x2F;&#x2F;mamins1376.github.io&#x2F;blog"><strong>زندگی خوره‌ای</strong></a>
+					<span class="description m-block">نتیجه چند تعادل شیمیایی</span>
+					<nav class="inline m-block m-no-padding m-full-width">
+						
+
+						
+
+						
+						<a href="http://telegram.me/mamins1376">تلگرام</a>
+						
+
+						
+
+						
+
+						
+						<a href="https://twitter.com/pyminars">توئیتر</a>
+						
+
+						
+						<a class="page-link" href="https:&#x2F;&#x2F;mamins1376.github.io&#x2F;blog&#x2F;about&#x2F;">درباره</a>
+						
+					</nav>
+				</div>
+			</header>
+			<main>
+				<div class="wrapper center">
+					
+<section class="content">
+	<div class="posts">
+		
+		<article class="post">
+	<header>
+		<a class="block" href="https:&#x2F;&#x2F;mamins1376.github.io&#x2F;blog&#x2F;2015-05-02-debootstrap-android-part1&#x2F;" rel="bookmark"><strong>دبیان بر بستر اندروید: پیش به سوی جسی!(قسمت اول)</strong></a>
+		
+		<abbr class="date" title="تاریخ انتشار">2015-05-02</abbr>
+		
+	</header>
+	<div><p>بسیاری از افراد پس از خرید یک تلفن هوشمند یا تبلت، اقدام به روت کردن آن می‌کنند. مفهوم «روت» در اندروید همانند مفهوم روت در دیگر سیستم‌های گنو/لینوکسی‌ست. دلایل زیادی برای روت‌کردن وجود دارد: شخصی‌سازی بیش‌تر، حذف برنامه‌های سیستمی، اصلاح سیستم و البته نصب یک توزیع گنو/لینوکسی.<br />
+در این‌جا، به نصب دبیان ۸ (جسی) بر روی یک وسیله‌ی مبتنی بر اندروید می‌پردازیم.</p>
+<!-- ادامه -->
+<h3 id="chhchyzy-lzm-drym">چه‌چیزی لازم داریم؟</h3>
+<ul>
+<li>یک ماشین گنو/لینوکسی: ترجیحاً از خانواده‌ی دبیان</li>
+<li>دسترسی به اینترنت یا مخزن محلی: حدود ۶۰-۷۰ مگابایت در این روش بارگیری خواهد شد.</li>
+<li>تلفن هوشمند یا تبلت روت شده</li>
+<li>کابل اتصال به رایانه: برای انتقال داده از ماشین گنو/لینوکسی به دستگاه</li>
+<li>حداقل ۱ گیگابایت فضای خالی روی دستگاه: مهم نیست که روی حافظه‌ی داخلی باشد یا کارت SD خارجی</li>
+<li>وقت و حوصله‌ی فراوان</li>
+</ul>
+<h3 id="chh-qblythyy-drd">چه قابلیت‌هایی دارد؟</h3>
+<ul>
+<li>اجرا به موازات اندروید بدون دستکاری سیستم</li>
+<li>روان، سریع و بدون نصب هرگونه برنامه‌ی شخص سوم</li>
+<li>حذف آسان</li>
+<li>محیط گرافیکی(اختیاری)</li>
+<li>اجرای اکثر برنامه‌های گنو/لینوکس(<a href="https://www.winehq.org/about/">WINE</a> هم شامل می‌شود!)</li>
+</ul>
+<h4 id="1-nsb-debootstrap">۱. نصب debootstrap</h4>
+<p>برای نصب گنو/لینوکس از گنو/لینوکس، <code>debootstrap</code> گزینه‌ی خوبی‌ست، ایجاد یکی دیگر از صفر مطلق؛ بدون کرنل، بوت‌لودر و هرگونه بسته‌ی اختیاری.<br />
+فایل‌های تولیدشده <strong>فقط</strong> شامل بسته‌های پایه‌ی سیستم می‌شود.<br />
+ابتدا آن را نصب می‌کنیم:</p>
+<pre style="background-color:#2b303b">
+<span style="background-color:#2b303b;color:#bf616a;">root@host:~#</span><span style="background-color:#2b303b;color:#c0c5ce;"> apt-get install debootstrap
+</span></pre>
+<p>برای شروع کار با debootstrap به این اطلاعات نیازمندیم:</p>
+<ul>
+<li><strong>نوع پردازنده</strong>: در حال حاضر دو نوع پردازنده، غالب دستگاه‌های بازار را پوشش می‌دهند:
+<ul>
+<li><code>x86</code>: معماری کامپیوترهای ۳۲بیتی رایج</li>
+<li><code>arm</code>: معماری میکروکنترلرهای پیش‌رفته و نسل جدید که خود سه نوع دارد:
+<ul>
+<li><code>armel</code>: نسل قدیمی <code>arm</code></li>
+<li><code>armhf</code>: نسل جدید <code>arm</code> که <code>armv7</code> معادل این نسل است</li>
+<li><code>arm64</code>: چیپ‌های <code>arm</code> نسخه‌ی ۶۴بیتی<br />
+بسته به نوع دستگاه باید یکی از ۴ مورد بالا را انتخاب کرد.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>نسخه‌ی توزیع</strong>: ما از توزیع <a href="https://www.debian.org/">دبیان</a> نسخه‌ی <a href="https://www.debian.org/News/2015/20150426.fa.html">۸(جسی)</a> استفاده می‌کنیم. شما می‌توانید از هرنسخه‌ی دیگری(<code>stable</code>، <code>testing</code>، <code>wheezy</code>، ...) استفاده کرده یا حتی به جای دبیان، <a href="http://www.ubuntu.com/">اوبونتو</a> را امتحان کنید.</li>
+<li><strong>آینه‌ی بسته‌ها</strong>: برای بارگیری بسته‌های اصلی سیستم از یک آینه استفاده می‌شود؛ این آینه می‌تواند محلی بوده یا روی ماشین دیگری باشد. فاصله‌ی جغرافیایی کمتر بین شما و آینه‌ی منتخبتان معمولاً سرعت بیش‌تری را به همراه دارد. نوع محلی از تصویر توزیع بهره می‌برد که توضیح نحوه‌ی استفاده از آن خارج از حوصله‌ی این مطلب است. ما از مخزن ایران استفاده خواهیم کرد.</li>
+</ul>
+<h4 id="2-brgyry-pyhy-systm">۲. بارگیری پایه‌ی سیستم</h4>
+<p>پوشه‌ای ایجاد می‌کنیم. این پوشه حاوی فایل‌های اصلی توزیع ما خواهد بود:</p>
+<pre style="background-color:#2b303b">
+<span style="background-color:#2b303b;color:#bf616a;">root@host:~#</span><span style="background-color:#2b303b;color:#c0c5ce;"> mkdir debroot
+</span></pre>
+<p>سینتکس کلی برنامه‌ی <code>debootstrap</code> این است:</p>
+<pre style="background-color:#2b303b">
+<span style="background-color:#2b303b;color:#bf616a;">root@host:~#</span><span style="background-color:#2b303b;color:#c0c5ce;"> debootstrap </span><span style="background-color:#2b303b;color:#b48ead;">[</span><span style="background-color:#2b303b;color:#c0c5ce;">OPTIONS</span><span style="background-color:#2b303b;color:#b48ead;">] </span><span style="background-color:#2b303b;color:#c0c5ce;">&lt;DIST&gt; &lt;DIR&gt; </span><span style="background-color:#2b303b;color:#b48ead;">[</span><span style="background-color:#2b303b;color:#c0c5ce;">&lt;MIRROR&gt;</span><span style="background-color:#2b303b;color:#b48ead;">]
+</span></pre>
+<p>برای ما:</p>
+<pre style="background-color:#2b303b">
+<span style="background-color:#2b303b;color:#bf616a;">root@host:~#</span><span style="background-color:#2b303b;color:#c0c5ce;"> debootstrap</span><span style="background-color:#2b303b;color:#bf616a;"> --foreign --arch</span><span style="background-color:#2b303b;color:#c0c5ce;">=armhf jessie ./debroot http://ftp.ir.debian.org/debian/
+</span></pre>
+<p>در این‌جا:</p>
+<ul>
+<li><code>foreign</code>: به برنامه می‌گوید که بسته‌ها را استخراج نکند، زیرا معماری ماشین هدف با معماری این ماشین متفاوت است.</li>
+<li><code>arch</code>: معماری ماشین هدف(اندروید) را مشخص می‌کند که در بالا توضیح داده شد.</li>
+<li><code>jessie</code>: نسخه‌ی توزیع</li>
+<li><code>debroot/.</code>: نشانی پوشه‌ای که بالاتر ساختیم.</li>
+<li><code>...http://ftp</code>: نشانی آینه.</li>
+</ul>
+<p>پس از بارگیری بسته‌ها، توزیع دریافت شده و <code>debootstrap</code> بسته‌ها را درون پوشه‌ی <code>debroot</code> خواهد ریخت.</p>
+<p>در پست بعدی، بسته‌های دریافت شده را به اندروید منتقل کرده و مراحل راه‌اندازی را انجام خواهیم داد.</p>
+</div>
+</article>
+
+		
+	</div>
+	<div class="paginator text-center">
+	
+	<a href="https:&#x2F;&#x2F;mamins1376.github.io&#x2F;blog&#x2F;page&#x2F;3&#x2F;" class="button no-shadow">▶</a>
+	
+
+	<span class="count">4</span>
+
+	
+	<span class="disabled button no-shadow">◁</span>
+	
+</div>
+
+</section>
+
+				</div>
+			</main>
+		</div>
+		<footer class="text-center full-width">
+			<div class="wrapper center">
+				<div class="column inline m-block m-center m-full-width">
+					<div class="title"><strong>زندگی خوره‌ای</strong></div>
+				</div>
+				<div class="column inline m-block m-center m-full-width">
+					<div class="email"><a href="mailto:mamins1376@gmail.com">mamins1376@gmail.com</a></div>
+					<div class="subscribe"><a href="https:&#x2F;&#x2F;mamins1376.github.io&#x2F;blog&#x2F;rss.xml&#x2F;">اشتراک خوراک RSS</a></div>
+				</div>
+				<div class="column inline m-block m-center m-full-width">
+					<div class="license">
+						<a target="_blank" rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.fa"><img class="no-border" alt="مجوز کریتیو کامنز" src="https://licensebuttons.net/l/by-sa/4.0/88x31.png"/></a>
+					</div>
+					<div class="powered-by">با افتخار، نیرو گرفته از <a href="https://www.getgutenberg.io" title="گوتنبرگ">گوتنبرگ</a></div>
+				</div>
+			</div>
+		</footer>
+		<script lang="text/javascript">
+			(function() {
+				// convert post content headings to links
+				var articles = document.getElementsByTagName("article");
+				for (var i = 0; i < articles.length; i++) {
+					var article = articles[i];
+
+					if (!article.classList.contains("post")) {
+						continue;
+					}
+
+					var article_url = article.children[0].children[0].getAttribute("href");
+					var content_elements = article.children[1].children;
+					for (var j = 0; j < content_elements.length; j++) {
+						var heading = content_elements[j];
+
+						var is_heading = false;
+						for (var k = 1; k <= 6; k++) {
+							if (heading.tagName === ("H" + String(k))) {
+								is_heading = true;
+							}
+						}
+
+						if (!is_heading) {
+							continue;
+						}
+
+						var link = document.createElement("a");
+						var heading_id = heading.getAttribute("id");
+						link.setAttribute("href", article_url + "#" + heading_id);
+
+						heading = heading.parentNode.replaceChild(link, heading);
+						link.appendChild(heading);
+					}
+				}
+			})();
+		</script>
+	</body>
+</html>

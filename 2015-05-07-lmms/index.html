@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="fa">
+	<head>
+		<title class="rtl">زندگی خوره‌ای</title>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta http-equiv="content-type" content="text/html; charset=utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+		<link rel="icon" type="image/png" href="https:&#x2F;&#x2F;mamins1376.github.io&#x2F;blog/favicon.png">
+		<link rel="stylesheet" href="https:&#x2F;&#x2F;mamins1376.github.io&#x2F;blog&#x2F;site.css">
+		<link rel="alternate" type="application/rss+xml" title="RSS" href="https:&#x2F;&#x2F;mamins1376.github.io&#x2F;blog&#x2F;rss.xml&#x2F;">
+		
+	</head>
+	<body class="rtl no-margin">
+		<div class="container">
+			<header>
+				<div class="wrapper center m-text-center">
+					<a class="title block" href="https:&#x2F;&#x2F;mamins1376.github.io&#x2F;blog"><strong>زندگی خوره‌ای</strong></a>
+					<span class="description m-block">نتیجه چند تعادل شیمیایی</span>
+					<nav class="inline m-block m-no-padding m-full-width">
+						
+
+						
+
+						
+						<a href="http://telegram.me/mamins1376">تلگرام</a>
+						
+
+						
+
+						
+
+						
+						<a href="https://twitter.com/pyminars">توئیتر</a>
+						
+
+						
+						<a class="page-link" href="https:&#x2F;&#x2F;mamins1376.github.io&#x2F;blog&#x2F;about&#x2F;">درباره</a>
+						
+					</nav>
+				</div>
+			</header>
+			<main>
+				<div class="wrapper center">
+					
+<section class="content">
+	<article class="post">
+	<header>
+		<a class="block" href="https:&#x2F;&#x2F;mamins1376.github.io&#x2F;blog&#x2F;2015-05-07-lmms&#x2F;" rel="bookmark"><strong>LMMS: خلاقیت به خرج دهید!</strong></a>
+		
+		<abbr class="date" title="تاریخ انتشار">2015-05-07</abbr>
+		
+	</header>
+	<div><p>معمولا وقتی کسی از <a href="http://windows.microsoft.com/en-us/windows/home">جاهای ناجور</a> به جمع آزادکارها می‌پیونده دنبال یک‌سری معادل برای برنامه‌هایی که قبلا با اون‌ها دمخور بوده می‌گرده؛ خب خیلی از آهنگ‌سازان امروزی از برنامه‌های آهنگ‌سازی با کامپیوتر مثل <a href="http://www.image-line.com/flstudio/">®FL Studio</a> برای ساخت ملودی‌هاشون استفاده می‌کنن. ممکنه استفاده از معادل یک برنامه در ابتدا سخت به نظر بیاد، اما استثناهایی هم وجود دارن که از بقیه بهتر کار می‌کنن!</p>
+<p><img src="./lmms.png" alt="LMMS Screenshot" /></p>
+<p><a href="https://lmms.io/">Linux Multimedia Studio</a> یکی از باحال‌ترین DAWها برای ساخت آهنگ‌های سبک الکترونیکه که از VST، MIDI، Soundfont و خیلی چیزهای دیگه پشتیبانی می‌کنه و <a href="https://lmms.io/lsp/">پلتفرمی</a> هم برای به اشتراک‌گذاری محتواش داره.</p>
+<!-- ادامه -->
+<p>چند روش برای نصب این برنامه وجود داره:</p>
+<ul>
+<li>نصب از مخزن رسمی</li>
+<li>نصب از مخزن غیر رسمی</li>
+<li>دانلود از سایت خود برنامه</li>
+<li>کامپایل و ازین حرفا</li>
+</ul>
+<p>دوتای اول راحت‌تر از بقیه هستن.</p>
+<h4 id="1-nsb-lmms">۱. نصب LMMS</h4>
+<h5 id="z-mkhzn-rsmy">از مخزن رسمی</h5>
+<p>فعلاً نسخه‌ی ۱.۰.۰ بدون پشتیبانی از VST توی <a href="apt://lmms">مخزن رسمی</a>‍ه:</p>
+<pre style="background-color:#2b303b">
+<span style="background-color:#2b303b;color:#bf616a;">user@ubuntu:~$</span><span style="background-color:#2b303b;color:#c0c5ce;"> sudo apt-get install lmms
+</span></pre><h5 id="z-mkhzn-gyr-rsmy">از مخزن غیر رسمی</h5>
+<p>نسخه‌ی ۱.۱.۰ هم با پشتیبانی از VST به همراه WINE توی مخزن <a href="https://launchpad.net/%7Eirie">irie</a> هست:</p>
+<pre style="background-color:#2b303b">
+<span style="background-color:#2b303b;color:#bf616a;">user@ubuntu:~$</span><span style="background-color:#2b303b;color:#c0c5ce;"> sudo add-apt-repository ppa:irie/lmms
+</span><span style="background-color:#2b303b;color:#bf616a;">user@ubuntu:~$</span><span style="background-color:#2b303b;color:#c0c5ce;"> sudo apt-get update
+</span><span style="background-color:#2b303b;color:#bf616a;">user@ubuntu:~$</span><span style="background-color:#2b303b;color:#c0c5ce;"> sudo apt-get install lmms
+</span></pre><h4 id="2-fzwdn-bnkh-sd">۲. افزودن بانک صدا</h4>
+<p>خود برنامه سمپل‌های خوبی داره ولی برای من کافی نبود. با توجه به این‌که fluidsynth یکی از بهترین سینثی‌سایزرهای متن‌بازه، ما از sf2ی اون استفاده می‌کنیم. حجم زیادی داره ولی صدای پیانو، گیتار(الکتریک، پلاستیک، بیس و ...)، ویولن، درام‌ست و ... رو به‌خوبی تولید می‌کنه.</p>
+<pre style="background-color:#2b303b">
+<span style="background-color:#2b303b;color:#bf616a;">user@ubuntu:~$</span><span style="background-color:#2b303b;color:#c0c5ce;"> sudo apt-get install fluid-soundfont-gm
+</span><span style="background-color:#2b303b;color:#bf616a;">user@ubuntu:~$</span><span style="background-color:#2b303b;color:#c0c5ce;"> cp /usr/share/sounds/sf2/FluidR3_GM.sf2 </span><span style="background-color:#2b303b;color:#bf616a;">~</span><span style="background-color:#2b303b;color:#c0c5ce;">/Soundbank.sf2
+</span></pre>
+<p>حالا یک فایل به اسم <code>Soundbank.sf2</code> توی پوشه‌ی خانگی شما هست.</p>
+<h4 id="3-nmwnh">۳. نمونه</h4>
+<p>چون پلتفرم برنامه فقط اجازه‌ی اشتراک‌گذاری فایل پروژه‌ی برنامه رو می‌ده، همه‌ی فایل‌های موجود بدون هرگونه بانک صدا یا پلاگین خارجی آپلود می‌شن.
+سری به <a href="https://lmms.io/lsp/?action=browse&amp;user=mamins1376">نمونه‌ی کارهای من</a> هم بزنین.</p>
+<p>شما هم کارهای خودتون رو برای بقیه بذارین!</p>
+</div>
+</article>
+
+
+	
+	<div class="tags">برچسب‌ها:
+		
+		<a href="!" title="موسیقی">موسیقی</a>
+		<span>،</span>
+		
+		<a href="!" title="LMMS">LMMS</a>
+		<span>،</span>
+		
+	</div>
+	
+
+	<div class="share">
+		<span class="message">اشتراک گذاری روی:</span>
+		<span class="button">
+			<a target="_blank" title="تلگرام" href="https://telegram.me/share/url?url=https:&#x2F;&#x2F;mamins1376.github.io&#x2F;blog&#x2F;2015-05-07-lmms&#x2F;">
+				<img src="https:&#x2F;&#x2F;mamins1376.github.io&#x2F;blog&#x2F;images&#x2F;share&#x2F;telegram.png" alt="تلگرام" />
+			</a>
+		</span>
+		<span class="button">
+			<a target="_blank" title="توئیتر" href="https://twitter.com/home?status=LMMS: خلاقیت به خرج دهید! https:&#x2F;&#x2F;mamins1376.github.io&#x2F;blog&#x2F;2015-05-07-lmms&#x2F;">
+				<img src="https:&#x2F;&#x2F;mamins1376.github.io&#x2F;blog&#x2F;images&#x2F;share&#x2F;twitter.png" alt="توئیتر" />
+			</a>
+		</span>
+		<span class="button">
+			<a target="_blank" title="گوگل پلاس" href="https://plus.google.com/share?url=https:&#x2F;&#x2F;mamins1376.github.io&#x2F;blog&#x2F;2015-05-07-lmms&#x2F;">
+				<img src="https:&#x2F;&#x2F;mamins1376.github.io&#x2F;blog&#x2F;images&#x2F;share&#x2F;googleplus.png" alt="گوگل پلاس" />
+			</a>
+		</span>
+		<span class="button">
+			<a target="_blank" title="فیس‌بوک" href="https://www.facebook.com/sharer/sharer.php?u=https:&#x2F;&#x2F;mamins1376.github.io&#x2F;blog&#x2F;2015-05-07-lmms&#x2F;">
+				<img src="https:&#x2F;&#x2F;mamins1376.github.io&#x2F;blog&#x2F;images&#x2F;share&#x2F;facebook.png" alt="فیس‌بوک" />
+			</a>
+		</span>
+	</div>
+
+	
+	<div class="nav text-center">
+		
+		<div class="inline m-block m-full-width text-right">
+			<a href="https:&#x2F;&#x2F;mamins1376.github.io&#x2F;blog&#x2F;2015-05-05-apt-get-aria2&#x2F;" title="نوشته پیشین">
+				<div class="caption">نوشته پیشین</div>
+				<div class="title">آریا۲ و اپت: سرعتی دوچندان</div>
+			</a>
+		</div>
+		
+
+		
+		<div class="inline m-block m-full-width text-left">
+			<a href="https:&#x2F;&#x2F;mamins1376.github.io&#x2F;blog&#x2F;2015-05-10-local-repo&#x2F;" title="نوشته پسین">
+				<div class="caption">نوشته پسین</div>
+				<div class="title">تبدیل ایمیج به مخزن محلی</div>
+			</a>
+		</div>
+		
+	</div>
+	
+
+	
+	<div id="disqus_thread" style="margin-bottom: 1em;"></div>
+	<script type="text/javascript">
+		var disqus_shortname = 'geekylife';
+		var disqus_config = function () { this.language = "fa"; };
+		var disqus_title = "LMMS: خلاقیت به خرج دهید!";
+		var disqus_identifier = "2015-05-07-lmms";
+
+		(function() {
+			var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+			dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+			(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+		})();
+	</script>
+	<noscript>
+		لطفاً برای مشاهده‌ی
+		<a href="https://disqus.com/?ref_noscript" rel="nofollow">دیدگاه‌ها</a>،
+		جاوا اسکریپت را فعال کنید. قدرت گرفته از Disqus
+	</noscript>
+	
+</section>
+
+				</div>
+			</main>
+		</div>
+		<footer class="text-center full-width">
+			<div class="wrapper center">
+				<div class="column inline m-block m-center m-full-width">
+					<div class="title"><strong>زندگی خوره‌ای</strong></div>
+				</div>
+				<div class="column inline m-block m-center m-full-width">
+					<div class="email"><a href="mailto:mamins1376@gmail.com">mamins1376@gmail.com</a></div>
+					<div class="subscribe"><a href="https:&#x2F;&#x2F;mamins1376.github.io&#x2F;blog&#x2F;rss.xml&#x2F;">اشتراک خوراک RSS</a></div>
+				</div>
+				<div class="column inline m-block m-center m-full-width">
+					<div class="license">
+						<a target="_blank" rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.fa"><img class="no-border" alt="مجوز کریتیو کامنز" src="https://licensebuttons.net/l/by-sa/4.0/88x31.png"/></a>
+					</div>
+					<div class="powered-by">با افتخار، نیرو گرفته از <a href="https://www.getgutenberg.io" title="گوتنبرگ">گوتنبرگ</a></div>
+				</div>
+			</div>
+		</footer>
+		<script lang="text/javascript">
+			(function() {
+				// convert post content headings to links
+				var articles = document.getElementsByTagName("article");
+				for (var i = 0; i < articles.length; i++) {
+					var article = articles[i];
+
+					if (!article.classList.contains("post")) {
+						continue;
+					}
+
+					var article_url = article.children[0].children[0].getAttribute("href");
+					var content_elements = article.children[1].children;
+					for (var j = 0; j < content_elements.length; j++) {
+						var heading = content_elements[j];
+
+						var is_heading = false;
+						for (var k = 1; k <= 6; k++) {
+							if (heading.tagName === ("H" + String(k))) {
+								is_heading = true;
+							}
+						}
+
+						if (!is_heading) {
+							continue;
+						}
+
+						var link = document.createElement("a");
+						var heading_id = heading.getAttribute("id");
+						link.setAttribute("href", article_url + "#" + heading_id);
+
+						heading = heading.parentNode.replaceChild(link, heading);
+						link.appendChild(heading);
+					}
+				}
+			})();
+		</script>
+	</body>
+</html>

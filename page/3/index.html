@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="fa">
+	<head>
+		<title class="rtl">زندگی خوره‌ای</title>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta http-equiv="content-type" content="text/html; charset=utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+		<link rel="icon" type="image/png" href="https:&#x2F;&#x2F;mamins1376.github.io&#x2F;blog/favicon.png">
+		<link rel="stylesheet" href="https:&#x2F;&#x2F;mamins1376.github.io&#x2F;blog&#x2F;site.css">
+		<link rel="alternate" type="application/rss+xml" title="RSS" href="https:&#x2F;&#x2F;mamins1376.github.io&#x2F;blog&#x2F;rss.xml&#x2F;">
+		
+	</head>
+	<body class="rtl no-margin">
+		<div class="container">
+			<header>
+				<div class="wrapper center m-text-center">
+					<a class="title block" href="https:&#x2F;&#x2F;mamins1376.github.io&#x2F;blog"><strong>زندگی خوره‌ای</strong></a>
+					<span class="description m-block">نتیجه چند تعادل شیمیایی</span>
+					<nav class="inline m-block m-no-padding m-full-width">
+						
+
+						
+
+						
+						<a href="http://telegram.me/mamins1376">تلگرام</a>
+						
+
+						
+
+						
+
+						
+						<a href="https://twitter.com/pyminars">توئیتر</a>
+						
+
+						
+						<a class="page-link" href="https:&#x2F;&#x2F;mamins1376.github.io&#x2F;blog&#x2F;about&#x2F;">درباره</a>
+						
+					</nav>
+				</div>
+			</header>
+			<main>
+				<div class="wrapper center">
+					
+<section class="content">
+	<div class="posts">
+		
+		<article class="post">
+	<header>
+		<a class="block" href="https:&#x2F;&#x2F;mamins1376.github.io&#x2F;blog&#x2F;2015-06-30-download-dirindirin&#x2F;" rel="bookmark"><strong>دانلود آخرین قسمت دیرین دیرین از یوتیوب</strong></a>
+		
+		<abbr class="date" title="تاریخ انتشار">2015-06-30</abbr>
+		
+	</header>
+	<div><p><a href="http://dirindirin.ir">دیرین دیرین</a> یکی از انیمیشن‌های محبوب این روزهاست. طنزی  که معضل‌های رایج رو به شکل خنده‌داری نمایش می‌ده. یکی از کارهای رایج من این شده بود که چون در حال حاضر روزانه مرتبا یه انیمیشن دو-سه دقیقه‌ای آپلود می‌کنن، هر روز به <a href="https://www.youtube.com/user/dirindirincartoon">کانال یوتیوب‌شون</a> سر بزنم و ویدئوی جدید رو بگیرم. بیاین این <em>فرآیند تکراری</em> رو اتوماتیکش کنیم!</p>
+<p>یکی از برنامه‌های باحال و مفید <a href="http://youtube-dl.org/">youtube-dl</a>‍ه که با پایتون نوشته شده و فیچرهای بسیاری داره. مثلا می‌شه باهاش کل ویدئوهای یک کانال یا کاربر رو روی اکثر سایت‌های اشتراک ویدئو دانلود کرد یا یه پلی لیست رو جداگانه دانلود کرد، کیفیت رو مشخص کرد و خیلی کارای دیگه.</p>
+<pre style="background-color:#2b303b">
+<span style="background-color:#2b303b;color:#bf616a;">youtube-dl --no-progress --max-downloads</span><span style="background-color:#2b303b;color:#c0c5ce;"> 1</span><span style="background-color:#2b303b;color:#bf616a;"> --proxy </span><span style="background-color:#2b303b;color:#c0c5ce;">$</span><span style="background-color:#2b303b;color:#bf616a;">http_proxy -c -o </span><span style="background-color:#2b303b;color:#c0c5ce;">&#39;</span><span style="background-color:#2b303b;color:#a3be8c;">DirinDirin/%(id)s-%(title)s.%(ext)s</span><span style="background-color:#2b303b;color:#c0c5ce;">&#39;</span><span style="background-color:#2b303b;color:#bf616a;"> --dateafter</span><span style="background-color:#2b303b;color:#c0c5ce;"> now-1day &#39;</span><span style="background-color:#2b303b;color:#a3be8c;">https://www.youtube.com/user/dirindirincartoon</span><span style="background-color:#2b303b;color:#c0c5ce;">&#39;
+</span></pre>
+<p><strong>توضیح</strong>: <code>no-progress</code> که می‌گه نوار پیشرفت رو نشون نده. چون من این فرمان رو توی cron اجرا می‌کنم، متن خروجیش ایمیل می‌شه و اگر نوار پیشرفت فعال باشه، لاگی سرشار از خط های شبیه به هم و بدرد نخور خواهیم داشت :دی <code>max-downloads</code> می‌گه که فقط یه فیلم رو بگیر. وگرنه همه‌ی کانال رو دانلود می‌کنه! پروکسی هم که نیاز به شرح اضافه نداره. <code>c</code> می‌گه اگر فایلی وجود داشت ادامه بده. این دوتا کار برامون انجام می‌ده:</p>
+<ul>
+<li>اگر ویدئویی ناقص دانلود شده بود yt-dl ادامه‌ش می‌ده</li>
+<li>اگر یه ویدئو کامل دانلود شده بود دوباره دانلودش نکنه</li>
+</ul>
+<p>آپشن <code>o</code> قالب و مسیر فایل دانلود شده رو تعیین می‌کنه. مثلا این‌جا، همه‌‌ی دانلودها توی پوشه‌ی DirinDirin ریخته می‌شن که هر فایل با id یوتیوبش شروع می‌شه، یه خط فاصله،‌ عنوان فیلم، نقطه و با پسوند فایل تموم می‌شه. <code>dateafter</code> تقریبا کار اصلی رو انجام می‌ده. می‌گه فقط اگر تاریخ آپلود ویدئو بعد از این تاریخی که مشخص کردم بود دانلودش کن. این تاریخ می‌تونه نسبی یا مطلق باشه. ما گفتیم <code>now-1day</code>، یعنی اگر بین بازه‌ی دیروز تا امروز آپلود شده بود دانلودش کن. و در آخر هم لینک کاربری دیرین دیرین.</p>
+<p><strong>آپدیت</strong>: <a href="https://github.com/rasubuntu/">رسول</a> عزیز زحمت کشیده و این عملیات رو با دیالوگ‌های زنیتی ترکیب کرده و <a href="https://github.com/rasubuntu/yt-dl-script/">روی گیت‌هاب قرار داده</a>.</p>
+</div>
+</article>
+
+		
+		<article class="post">
+	<header>
+		<a class="block" href="https:&#x2F;&#x2F;mamins1376.github.io&#x2F;blog&#x2F;2015-05-28-final-exam-archive&#x2F;" rel="bookmark"><strong>آرشیو کردن نمونه سوالات امتحان نهایی</strong></a>
+		
+		<abbr class="date" title="تاریخ انتشار">2015-05-28</abbr>
+		
+	</header>
+	<div><p>الآن فصل امتحاناته و منم خیلی کمتر اینجا می‌نویسم. اخیرا خواستم سوالات امتحانات نهایی رو کامل و یکجا داشته باشم؛ تمیز و مرتب. سایت <a href="http://konkur.in/">کنکور</a> سوالات رو برای دانلود گذاشته ولی چند تا مشکل دارن:</p>
+<ul>
+<li>فایل‌های اضافه داره(لینک و تصویر تبلیغاتی و ...)</li>
+<li>همه‌ی فایل‌ها با فرمت rar هستن که پسورد هم دارن</li>
+<li>خیلی زیادن!</li>
+</ul>
+<p>از اونجا که من هم وقت استخراج تک‌تک اونها رو ندارم هم حالشو، یه اسکریپت نوشتم که این‌کارها رو برام انجام بده. خوش‌بختانه فایل‌های روی سرور اسماشون قاعده داره و منم از همین استفاده می‌کنم تا با داشتن قالب کلی هر لینک، کل فایل‌ها رو در اختیار داشته باشم.</p>
+<p>این اسکریپت بش، کارهای زیر رو برامون انجام میده:</p>
+<ul>
+<li>دانلود فایل‌ها</li>
+<li>استخراجشون. متأسفانه نتونستم با unrar-free کنار بیام و unrar-nonfree رو به کار بردم</li>
+<li>حذف فایل‌های اضافه</li>
+<li>تغییر نام فایل‌ها. تمیز بودن کلا برای من خیلی اهمیت داره ؛)</li>
+<li>و در نهایت آرشیو کردنشون توی یه فایل zip.</li>
+</ul>
+<pre style="background-color:#2b303b">
+<span style="background-color:#2b303b;color:#65737e;">#!/bin/bash
+</span><span style="background-color:#2b303b;color:#bf616a;">EXAM</span><span style="background-color:#2b303b;color:#c0c5ce;">=$</span><span style="background-color:#2b303b;color:#bf616a;">1
+</span><span style="background-color:#2b303b;color:#c0c5ce;">
+</span><span style="background-color:#2b303b;color:#b48ead;">if </span><span style="background-color:#2b303b;color:#96b5b4;">[</span><span style="background-color:#2b303b;color:#c0c5ce;"> x$</span><span style="background-color:#2b303b;color:#bf616a;">EXAM </span><span style="background-color:#2b303b;color:#c0c5ce;">= &quot;</span><span style="background-color:#2b303b;color:#a3be8c;">x</span><span style="background-color:#2b303b;color:#c0c5ce;">&quot; </span><span style="background-color:#2b303b;color:#96b5b4;">]</span><span style="background-color:#2b303b;color:#c0c5ce;">; </span><span style="background-color:#2b303b;color:#b48ead;">then
+</span><span style="background-color:#2b303b;color:#c0c5ce;">  </span><span style="background-color:#2b303b;color:#96b5b4;">echo </span><span style="background-color:#2b303b;color:#c0c5ce;">&#39;</span><span style="background-color:#2b303b;color:#a3be8c;">Please give a name! e.g. Adabiyat</span><span style="background-color:#2b303b;color:#c0c5ce;">&#39;
+</span><span style="background-color:#2b303b;color:#c0c5ce;">  </span><span style="background-color:#2b303b;color:#96b5b4;">exit</span><span style="background-color:#2b303b;color:#c0c5ce;"> 1
+</span><span style="background-color:#2b303b;color:#b48ead;">fi
+</span><span style="background-color:#2b303b;color:#c0c5ce;">
+</span><span style="background-color:#2b303b;color:#65737e;"># 1st: Download
+</span><span style="background-color:#2b303b;color:#b48ead;">for</span><span style="background-color:#2b303b;color:#c0c5ce;"> YEAR </span><span style="background-color:#2b303b;color:#b48ead;">in </span><span style="background-color:#2b303b;color:#c0c5ce;">`</span><span style="background-color:#2b303b;color:#bf616a;">seq</span><span style="background-color:#2b303b;color:#c0c5ce;"> 87 93`
+</span><span style="background-color:#2b303b;color:#b48ead;">do
+</span><span style="background-color:#2b303b;color:#c0c5ce;">  </span><span style="background-color:#2b303b;color:#bf616a;">KHORDAD</span><span style="background-color:#2b303b;color:#c0c5ce;">=</span><span style="background-color:#2b303b;color:#a3be8c;">http://dl.konkur.in/post/Exam/3/</span><span style="background-color:#2b303b;color:#c0c5ce;">$</span><span style="background-color:#2b303b;color:#bf616a;">EXAM</span><span style="background-color:#2b303b;color:#a3be8c;">/Khordad-</span><span style="background-color:#2b303b;color:#c0c5ce;">$</span><span style="background-color:#2b303b;color:#bf616a;">YEAR</span><span style="background-color:#2b303b;color:#a3be8c;">-</span><span style="background-color:#2b303b;color:#c0c5ce;">$</span><span style="background-color:#2b303b;color:#bf616a;">EXAM</span><span style="background-color:#2b303b;color:#a3be8c;">-</span><span style="background-color:#2b303b;color:#c0c5ce;">%</span><span style="background-color:#2b303b;color:#d08770;">5</span><span style="background-color:#2b303b;color:#a3be8c;">Bwww.konkur.in</span><span style="background-color:#2b303b;color:#c0c5ce;">%</span><span style="background-color:#2b303b;color:#d08770;">5</span><span style="background-color:#2b303b;color:#a3be8c;">D.rar
+</span><span style="background-color:#2b303b;color:#c0c5ce;">  </span><span style="background-color:#2b303b;color:#bf616a;">SHAHRIVAR</span><span style="background-color:#2b303b;color:#c0c5ce;">=</span><span style="background-color:#2b303b;color:#a3be8c;">http://dl.konkur.in/post/Exam/3/</span><span style="background-color:#2b303b;color:#c0c5ce;">$</span><span style="background-color:#2b303b;color:#bf616a;">EXAM</span><span style="background-color:#2b303b;color:#a3be8c;">/Shahrivar-</span><span style="background-color:#2b303b;color:#c0c5ce;">$</span><span style="background-color:#2b303b;color:#bf616a;">YEAR</span><span style="background-color:#2b303b;color:#a3be8c;">-</span><span style="background-color:#2b303b;color:#c0c5ce;">$</span><span style="background-color:#2b303b;color:#bf616a;">EXAM</span><span style="background-color:#2b303b;color:#a3be8c;">-</span><span style="background-color:#2b303b;color:#c0c5ce;">%</span><span style="background-color:#2b303b;color:#d08770;">5</span><span style="background-color:#2b303b;color:#a3be8c;">Bwww.konkur.in</span><span style="background-color:#2b303b;color:#c0c5ce;">%</span><span style="background-color:#2b303b;color:#d08770;">5</span><span style="background-color:#2b303b;color:#a3be8c;">D.rar
+</span><span style="background-color:#2b303b;color:#c0c5ce;">  </span><span style="background-color:#2b303b;color:#bf616a;">DEY</span><span style="background-color:#2b303b;color:#c0c5ce;">=</span><span style="background-color:#2b303b;color:#a3be8c;">http://dl.konkur.in/post/Exam/3/</span><span style="background-color:#2b303b;color:#c0c5ce;">$</span><span style="background-color:#2b303b;color:#bf616a;">EXAM</span><span style="background-color:#2b303b;color:#a3be8c;">/Dey-</span><span style="background-color:#2b303b;color:#c0c5ce;">$</span><span style="background-color:#2b303b;color:#bf616a;">YEAR</span><span style="background-color:#2b303b;color:#a3be8c;">-</span><span style="background-color:#2b303b;color:#c0c5ce;">$</span><span style="background-color:#2b303b;color:#bf616a;">EXAM</span><span style="background-color:#2b303b;color:#a3be8c;">-</span><span style="background-color:#2b303b;color:#c0c5ce;">%</span><span style="background-color:#2b303b;color:#d08770;">5</span><span style="background-color:#2b303b;color:#a3be8c;">Bwww.konkur.in</span><span style="background-color:#2b303b;color:#c0c5ce;">%</span><span style="background-color:#2b303b;color:#d08770;">5</span><span style="background-color:#2b303b;color:#a3be8c;">D.rar
+</span><span style="background-color:#2b303b;color:#c0c5ce;">  </span><span style="background-color:#2b303b;color:#bf616a;">wget -c </span><span style="background-color:#2b303b;color:#c0c5ce;">$</span><span style="background-color:#2b303b;color:#bf616a;">KHORDAD </span><span style="background-color:#2b303b;color:#c0c5ce;">&quot;$</span><span style="background-color:#2b303b;color:#bf616a;">SHAHRIVAR</span><span style="background-color:#2b303b;color:#c0c5ce;">&quot; &quot;$</span><span style="background-color:#2b303b;color:#bf616a;">DEY</span><span style="background-color:#2b303b;color:#c0c5ce;">&quot;
+</span><span style="background-color:#2b303b;color:#b48ead;">done
+</span><span style="background-color:#2b303b;color:#c0c5ce;">
+</span><span style="background-color:#2b303b;color:#65737e;"># 2nd: Extract them
+</span><span style="background-color:#2b303b;color:#b48ead;">for</span><span style="background-color:#2b303b;color:#c0c5ce;"> RAR </span><span style="background-color:#2b303b;color:#b48ead;">in </span><span style="background-color:#2b303b;color:#c0c5ce;">*.rar
+</span><span style="background-color:#2b303b;color:#b48ead;">do
+</span><span style="background-color:#2b303b;color:#c0c5ce;">  </span><span style="background-color:#2b303b;color:#bf616a;">unrar</span><span style="background-color:#2b303b;color:#c0c5ce;"> e</span><span style="background-color:#2b303b;color:#bf616a;"> -pwww</span><span style="background-color:#2b303b;color:#c0c5ce;">.konkur.in</span><span style="background-color:#2b303b;color:#bf616a;"> -o</span><span style="background-color:#2b303b;color:#c0c5ce;">+</span><span style="background-color:#2b303b;color:#bf616a;"> -y </span><span style="background-color:#2b303b;color:#c0c5ce;">$</span><span style="background-color:#2b303b;color:#bf616a;">RAR
+</span><span style="background-color:#2b303b;color:#b48ead;">done
+</span><span style="background-color:#2b303b;color:#c0c5ce;">
+</span><span style="background-color:#2b303b;color:#65737e;"># 3rd: Clear area
+</span><span style="background-color:#2b303b;color:#bf616a;">rm </span><span style="background-color:#2b303b;color:#c0c5ce;">*.rar *.URL *.png
+</span><span style="background-color:#2b303b;color:#c0c5ce;">
+</span><span style="background-color:#2b303b;color:#65737e;"># 4th: Clear filenames
+</span><span style="background-color:#2b303b;color:#bf616a;">rename</span><span style="background-color:#2b303b;color:#c0c5ce;"> s/&#39;</span><span style="background-color:#2b303b;color:#a3be8c;">-\[www.konkur.in\]</span><span style="background-color:#2b303b;color:#c0c5ce;">&#39;//g *
+</span><span style="background-color:#2b303b;color:#bf616a;">rename</span><span style="background-color:#2b303b;color:#c0c5ce;"> s/-/</span><span style="background-color:#2b303b;color:#96b5b4;">\ </span><span style="background-color:#2b303b;color:#c0c5ce;">/g *
+</span><span style="background-color:#2b303b;color:#bf616a;">rename</span><span style="background-color:#2b303b;color:#c0c5ce;"> s/</span><span style="background-color:#2b303b;color:#96b5b4;">\ </span><span style="background-color:#2b303b;color:#c0c5ce;">$</span><span style="background-color:#2b303b;color:#bf616a;">EXAM</span><span style="background-color:#2b303b;color:#c0c5ce;">//g *
+</span><span style="background-color:#2b303b;color:#c0c5ce;">
+</span><span style="background-color:#2b303b;color:#65737e;"># finally archive them in zip format
+</span><span style="background-color:#2b303b;color:#b48ead;">for</span><span style="background-color:#2b303b;color:#c0c5ce;"> ITEM </span><span style="background-color:#2b303b;color:#b48ead;">in</span><span style="background-color:#2b303b;color:#c0c5ce;"> Khordad Shahrivar Dey
+</span><span style="background-color:#2b303b;color:#b48ead;">do
+</span><span style="background-color:#2b303b;color:#c0c5ce;">  </span><span style="background-color:#2b303b;color:#bf616a;">mkdir </span><span style="background-color:#2b303b;color:#c0c5ce;">$</span><span style="background-color:#2b303b;color:#bf616a;">ITEM
+</span><span style="background-color:#2b303b;color:#c0c5ce;">  </span><span style="background-color:#2b303b;color:#bf616a;">mv </span><span style="background-color:#2b303b;color:#c0c5ce;">${</span><span style="background-color:#2b303b;color:#bf616a;">ITEM</span><span style="background-color:#2b303b;color:#c0c5ce;">}*.pdf $</span><span style="background-color:#2b303b;color:#bf616a;">ITEM
+</span><span style="background-color:#2b303b;color:#b48ead;">done
+</span><span style="background-color:#2b303b;color:#c0c5ce;">
+</span><span style="background-color:#2b303b;color:#bf616a;">zip -r </span><span style="background-color:#2b303b;color:#c0c5ce;">${</span><span style="background-color:#2b303b;color:#bf616a;">EXAM</span><span style="background-color:#2b303b;color:#c0c5ce;">}.zip Khordad Shahrivar Dey
+</span><span style="background-color:#2b303b;color:#c0c5ce;">
+</span><span style="background-color:#2b303b;color:#bf616a;">rm -rf</span><span style="background-color:#2b303b;color:#c0c5ce;"> Khordad Shahrivar Dey
+</span></pre></div>
+</article>
+
+		
+		<article class="post">
+	<header>
+		<a class="block" href="https:&#x2F;&#x2F;mamins1376.github.io&#x2F;blog&#x2F;2015-05-11-steam-download&#x2F;" rel="bookmark"><strong>دانلود شبانه برای Steam</strong></a>
+		
+		<abbr class="date" title="تاریخ انتشار">2015-05-11</abbr>
+		
+	</header>
+	<div><p>بزرگ‌ترین مشکل من با استیم، دانلود بازی‌هاش بود چون حجم خیلی خیلی زیادی دارن. ساعت دانلود رایگان داشتم ولی باید دستی دانلود رو شروع می‌کردم. خب شروع کردم به جستجو و تحقیق که به این روش رسیدم؛ این‌طوری میشه هر برنامه‌ای رو با استیم به راحتی دانلود کرد.</p>
+<!-- ادامه -->
+<p>من برای اجرای فرمان‌ها در ساعات مقرر از <code>cron</code> استفاده می‌کنم. وقتی که cron دستوری رو اجرا می‌کنه، خیلی از متغییرهای رایج از جمله <code>DISPLAY</code> ست نمی‌شن و اگر دستور داده‌شده نیازمند سیستم گرافیکی باشه با خطا روبرو می‌شه و کار نمی‌کنه. این‌جاست که <code>Xvfb</code> به کمکمون میاد: یه مانیتور غیر واقعی و قلابی!</p>
+<p>استیم برای اجرا شدن به محیط گرافیکی نیاز داره و اگر ما توی cron فراخوانیش کنیم کار نمی‌کنه. پس یه مانیتور مجازی می‌سازیم که این مشکل رفع بشه.</p>
+<h4 id="1-nsb-xvfb">۱. نصب Xvfb</h4>
+<pre style="background-color:#2b303b">
+<span style="background-color:#2b303b;color:#bf616a;">root@debian:~#</span><span style="background-color:#2b303b;color:#c0c5ce;"> apt-get install xvfb
+</span></pre><h4 id="2-bh-dst-awrdn-id-brnmh-y-bzy-mwrd-nzr">۲. به دست آوردن ID برنامه یا بازی مورد نظر</h4>
+<p>هر برنامه‌ای توی استیم یک ID داره. مثلا من می‌خوام ID بازی Dota2 رو به دست بیارم. اسمش رو جستجو می‌کنم و به همچین لینکی می‌رسم:</p>
+<pre style="background-color:#2b303b">
+<span style="background-color:#2b303b;color:#bf616a;">http://store.steampowered.com/app/570
+</span></pre>
+<p><strong>بینگو!</strong> یقیناً اون <code>570</code> انتهای لینک ID مورد نظر ماست.</p>
+<h4 id="3-skhtn-skhrypt-dnlwd">۳. ساختن اسکریپت دانلود</h4>
+<p>این اسکریپت به ترتیب این کارها رو برامون انجام می‌ده:</p>
+<ul>
+<li>ساختن یک صفحه‌نمایش مجازی</li>
+<li>تنظیم <code>DISPLAY</code></li>
+<li>رفتن به پوشه‌ی خانگی(استیم باید توی <code>PWD=$HOME</code> اجرا بشه)</li>
+<li>اجرای خود استیم و لاگ کردن خروجیش</li>
+</ul>
+<pre style="background-color:#2b303b">
+<span style="background-color:#2b303b;color:#bf616a;">Xvfb</span><span style="background-color:#2b303b;color:#c0c5ce;"> :5</span><span style="background-color:#2b303b;color:#bf616a;"> -screen</span><span style="background-color:#2b303b;color:#c0c5ce;"> 0 1280x720x24 +extension GLX +render</span><span style="background-color:#2b303b;color:#bf616a;"> -noreset </span><span style="background-color:#2b303b;color:#c0c5ce;">&gt; /dev/null </span><span style="background-color:#2b303b;color:#d08770;">2</span><span style="background-color:#2b303b;color:#c0c5ce;">&gt;&amp;</span><span style="background-color:#2b303b;color:#d08770;">1 </span><span style="background-color:#2b303b;color:#c0c5ce;">&amp;
+</span><span style="background-color:#2b303b;color:#b48ead;">export </span><span style="background-color:#2b303b;color:#bf616a;">DISPLAY</span><span style="background-color:#2b303b;color:#c0c5ce;">=</span><span style="background-color:#2b303b;color:#a3be8c;">:5
+</span><span style="background-color:#2b303b;color:#96b5b4;">cd
+</span><span style="background-color:#2b303b;color:#bf616a;">/usr/games/steam -applaunch </span><span style="background-color:#2b303b;color:#c0c5ce;">&lt;APPID&gt; &gt;&gt; steam.log </span><span style="background-color:#2b303b;color:#d08770;">2</span><span style="background-color:#2b303b;color:#c0c5ce;">&gt;&amp;</span><span style="background-color:#2b303b;color:#d08770;">1
+</span></pre>
+<p><strong>نکته:</strong> یادتون نره که <code>&lt;APPID&gt;</code> رو با ID برنامه‌تون عوض کنین. مثلا همون <code>570</code> که مربوط می‌شه به Dota2.</p>
+<p>حالا هربار که اسکریپت رو اجرا کنین، دانلود برنامه شروع می‌شه. عملیات ادامه‌ی دانلود و توقفش و غیره به عهده‌ی خود استیمه پس خیالتون از ادامه دادن یا سالم بودن فایل‌های دانلود شده راحت باشه. در نهایت اسکریپت رو به cron عزیز بسپارید تا از بازیتون لذت ببرید.</p>
+</div>
+</article>
+
+		
+		<article class="post">
+	<header>
+		<a class="block" href="https:&#x2F;&#x2F;mamins1376.github.io&#x2F;blog&#x2F;2015-05-10-local-repo&#x2F;" rel="bookmark"><strong>تبدیل ایمیج به مخزن محلی</strong></a>
+		
+		<abbr class="date" title="تاریخ انتشار">2015-05-10</abbr>
+		
+	</header>
+	<div><p>ایمیج‌های دبیان(و طبیعتاً نوادگانش مثل اوبونتو) خیلی از بسته‌های پایه رو توی خودشون دارن که ساختاری دقیقا شبیه به مخزن‌های apt داره. DVDهای دبیان هم رایج‌ترین بسته‌ها(مثل میزکارها و ...) رو به همراه دارن. برای کسی که دانلود شبانه داره یکی از راه‌ها دانلود کردن بسته‌ها از قبل برای نصب در آینده‌ست. مسلما خیلی‌ها بعد از نصب کردن برنامه‌ی مورد نیازشون بسته‌های دانلود شده رو حذف می‌کنن و بدی این روش اینه‌که هر برنامه‌ای که لازم دارین باید تا دانلودش توی ساعت رایگان صبر کنین. خب چرا اغلب بسته‌ها رو دانلود نکنیم تا لازم نباشه هر دفعه صبر کنیم؟</p>
+<!-- ادامه -->
+<p><strong>توجه!</strong> همه‌ی فرمان‌های زیر به دسترسی روت نیاز دارن. این ایمیج‌ها شامل بسته‌های <code>non-free</code> نمی‌شن.</p>
+<h4 id="1-dnlwd-ymyjh">۱. دانلود ایمیج‌ها</h4>
+<p>من ۳ تا از DVDهای دبیان ۶۴بیتی رو دانلود کردم و توی پوشه‌ی خونگیم(یعنی <code>/root/</code>) ریختم:</p>
+<pre style="background-color:#2b303b">
+<span style="background-color:#2b303b;color:#bf616a;">root@debian:~#</span><span style="background-color:#2b303b;color:#c0c5ce;"> ls</span><span style="background-color:#2b303b;color:#bf616a;"> -sh1</span><span style="background-color:#2b303b;color:#c0c5ce;"> /root/*.iso
+</span><span style="background-color:#2b303b;color:#bf616a;">3.8G</span><span style="background-color:#2b303b;color:#c0c5ce;"> debian-8.0.0-amd64-DVD-1.iso
+</span><span style="background-color:#2b303b;color:#bf616a;">4.4G</span><span style="background-color:#2b303b;color:#c0c5ce;"> debian-8.0.0-amd64-DVD-2.iso
+</span><span style="background-color:#2b303b;color:#bf616a;">4.4G</span><span style="background-color:#2b303b;color:#c0c5ce;"> debian-8.0.0-amd64-DVD-3.iso
+</span></pre><h4 id="2-swrkhrdn-ymyjh">۲. سوارکردن ایمیج‌ها</h4>
+<p>من ۳ تا ایمیج دارم، پس ۳ تا پوشه برای هرکدوم توی مسیر <code>/mnt/</code> درست می‌کنم:</p>
+<pre style="background-color:#2b303b">
+<span style="background-color:#2b303b;color:#bf616a;">root@debian:~#</span><span style="background-color:#2b303b;color:#c0c5ce;"> mkdir</span><span style="background-color:#2b303b;color:#bf616a;"> -p</span><span style="background-color:#2b303b;color:#c0c5ce;"> /mnt/debian/dvd{1,2,3}
+</span></pre>
+<p>برای این که کار راحت‌تر بشه و نیازی به تایپ دستورهای طولانی نداشته باشیم، یه اسکریپت می‌سازیم که خودش برامون ایمیج‌ها رو سوار کنه. ایمیج‌های من توی <code>/root/</code> هستن. شما باید با توجه به مسیری که ایمیج‌هاتون اونجا هستن خط <code>ISO_DIR=/root</code> رو تغییر بدین:</p>
+<pre style="background-color:#2b303b">
+<span style="background-color:#2b303b;color:#bf616a;">root@debian:~#</span><span style="background-color:#2b303b;color:#c0c5ce;"> cat &gt; /usr/local/sbin/mount-repo
+</span><span style="background-color:#2b303b;color:#65737e;">#!/bin/sh
+</span><span style="background-color:#2b303b;color:#bf616a;">ISO_DIR</span><span style="background-color:#2b303b;color:#c0c5ce;">=</span><span style="background-color:#2b303b;color:#a3be8c;">/root
+</span><span style="background-color:#2b303b;color:#bf616a;">mount -o</span><span style="background-color:#2b303b;color:#c0c5ce;"> loop,ro</span><span style="background-color:#2b303b;color:#bf616a;"> -t</span><span style="background-color:#2b303b;color:#c0c5ce;"> iso9660 $</span><span style="background-color:#2b303b;color:#bf616a;">ISO_DIR</span><span style="background-color:#2b303b;color:#c0c5ce;">/debian-8.0.0-amd64-DVD-1.iso /mnt/debian/dvd1/
+</span><span style="background-color:#2b303b;color:#bf616a;">mount -o</span><span style="background-color:#2b303b;color:#c0c5ce;"> loop,ro</span><span style="background-color:#2b303b;color:#bf616a;"> -t</span><span style="background-color:#2b303b;color:#c0c5ce;"> iso9660 $</span><span style="background-color:#2b303b;color:#bf616a;">ISO_DIR</span><span style="background-color:#2b303b;color:#c0c5ce;">/debian-8.0.0-amd64-DVD-2.iso /mnt/debian/dvd2/
+</span><span style="background-color:#2b303b;color:#bf616a;">mount -o</span><span style="background-color:#2b303b;color:#c0c5ce;"> loop,ro</span><span style="background-color:#2b303b;color:#bf616a;"> -t</span><span style="background-color:#2b303b;color:#c0c5ce;"> iso9660 $</span><span style="background-color:#2b303b;color:#bf616a;">ISO_DIR</span><span style="background-color:#2b303b;color:#c0c5ce;">/debian-8.0.0-amd64-DVD-3.iso /mnt/debian/dvd3/
+</span><span style="background-color:#2b303b;color:#bf616a;">^D
+</span><span style="background-color:#2b303b;color:#bf616a;">root@debian:~#</span><span style="background-color:#2b303b;color:#c0c5ce;"> chmod 744 /usr/local/sbin/mount-repo
+</span><span style="background-color:#2b303b;color:#bf616a;">root@debian:~#</span><span style="background-color:#2b303b;color:#c0c5ce;"> /usr/local/sbin/mount-repo
+</span></pre>
+<p>اگر اسکریپت <code>mount-repo</code> رو داخل <code>cron</code> قرار بدین دیگه نیازی نیست که هر دفعه خودتون اون رو فراخوانی کنین.</p>
+<h4 id="3-tnzym-apt">۳. تنظیم apt</h4>
+<p>چون بسته‌هایی که داخل ایمیج‌ها هستن نیاز من رو برطرف می‌کردن، مخزن‌های راه دور رو کلا حذف کردم؛ اگر شما به مخازن فعلی‌تون نیاز دارین خطوط زیر رو به فایل مخازن apt فقط اضافه کنین. این فایل <code>etc/apt/sources.list/</code> منه:</p>
+<pre style="background-color:#2b303b">
+<span style="background-color:#2b303b;color:#c0c5ce;">deb file:///mnt/debian/dvd1/ jessie contrib main
+</span><span style="background-color:#2b303b;color:#c0c5ce;">deb file:///mnt/debian/dvd2/ jessie contrib main
+</span><span style="background-color:#2b303b;color:#c0c5ce;">deb file:///mnt/debian/dvd3/ jessie contrib main
+</span></pre>
+<p>و در آخر:</p>
+<pre style="background-color:#2b303b">
+<span style="background-color:#2b303b;color:#bf616a;">root@debian:~#</span><span style="background-color:#2b303b;color:#c0c5ce;"> apt-get update
+</span></pre></div>
+</article>
+
+		
+		<article class="post">
+	<header>
+		<a class="block" href="https:&#x2F;&#x2F;mamins1376.github.io&#x2F;blog&#x2F;2015-05-07-lmms&#x2F;" rel="bookmark"><strong>LMMS: خلاقیت به خرج دهید!</strong></a>
+		
+		<abbr class="date" title="تاریخ انتشار">2015-05-07</abbr>
+		
+	</header>
+	<div><p>معمولا وقتی کسی از <a href="http://windows.microsoft.com/en-us/windows/home">جاهای ناجور</a> به جمع آزادکارها می‌پیونده دنبال یک‌سری معادل برای برنامه‌هایی که قبلا با اون‌ها دمخور بوده می‌گرده؛ خب خیلی از آهنگ‌سازان امروزی از برنامه‌های آهنگ‌سازی با کامپیوتر مثل <a href="http://www.image-line.com/flstudio/">®FL Studio</a> برای ساخت ملودی‌هاشون استفاده می‌کنن. ممکنه استفاده از معادل یک برنامه در ابتدا سخت به نظر بیاد، اما استثناهایی هم وجود دارن که از بقیه بهتر کار می‌کنن!</p>
+<p><img src="./lmms.png" alt="LMMS Screenshot" /></p>
+<p><a href="https://lmms.io/">Linux Multimedia Studio</a> یکی از باحال‌ترین DAWها برای ساخت آهنگ‌های سبک الکترونیکه که از VST، MIDI، Soundfont و خیلی چیزهای دیگه پشتیبانی می‌کنه و <a href="https://lmms.io/lsp/">پلتفرمی</a> هم برای به اشتراک‌گذاری محتواش داره.</p>
+<!-- ادامه -->
+<p>چند روش برای نصب این برنامه وجود داره:</p>
+<ul>
+<li>نصب از مخزن رسمی</li>
+<li>نصب از مخزن غیر رسمی</li>
+<li>دانلود از سایت خود برنامه</li>
+<li>کامپایل و ازین حرفا</li>
+</ul>
+<p>دوتای اول راحت‌تر از بقیه هستن.</p>
+<h4 id="1-nsb-lmms">۱. نصب LMMS</h4>
+<h5 id="z-mkhzn-rsmy">از مخزن رسمی</h5>
+<p>فعلاً نسخه‌ی ۱.۰.۰ بدون پشتیبانی از VST توی <a href="apt://lmms">مخزن رسمی</a>‍ه:</p>
+<pre style="background-color:#2b303b">
+<span style="background-color:#2b303b;color:#bf616a;">user@ubuntu:~$</span><span style="background-color:#2b303b;color:#c0c5ce;"> sudo apt-get install lmms
+</span></pre><h5 id="z-mkhzn-gyr-rsmy">از مخزن غیر رسمی</h5>
+<p>نسخه‌ی ۱.۱.۰ هم با پشتیبانی از VST به همراه WINE توی مخزن <a href="https://launchpad.net/%7Eirie">irie</a> هست:</p>
+<pre style="background-color:#2b303b">
+<span style="background-color:#2b303b;color:#bf616a;">user@ubuntu:~$</span><span style="background-color:#2b303b;color:#c0c5ce;"> sudo add-apt-repository ppa:irie/lmms
+</span><span style="background-color:#2b303b;color:#bf616a;">user@ubuntu:~$</span><span style="background-color:#2b303b;color:#c0c5ce;"> sudo apt-get update
+</span><span style="background-color:#2b303b;color:#bf616a;">user@ubuntu:~$</span><span style="background-color:#2b303b;color:#c0c5ce;"> sudo apt-get install lmms
+</span></pre><h4 id="2-fzwdn-bnkh-sd">۲. افزودن بانک صدا</h4>
+<p>خود برنامه سمپل‌های خوبی داره ولی برای من کافی نبود. با توجه به این‌که fluidsynth یکی از بهترین سینثی‌سایزرهای متن‌بازه، ما از sf2ی اون استفاده می‌کنیم. حجم زیادی داره ولی صدای پیانو، گیتار(الکتریک، پلاستیک، بیس و ...)، ویولن، درام‌ست و ... رو به‌خوبی تولید می‌کنه.</p>
+<pre style="background-color:#2b303b">
+<span style="background-color:#2b303b;color:#bf616a;">user@ubuntu:~$</span><span style="background-color:#2b303b;color:#c0c5ce;"> sudo apt-get install fluid-soundfont-gm
+</span><span style="background-color:#2b303b;color:#bf616a;">user@ubuntu:~$</span><span style="background-color:#2b303b;color:#c0c5ce;"> cp /usr/share/sounds/sf2/FluidR3_GM.sf2 </span><span style="background-color:#2b303b;color:#bf616a;">~</span><span style="background-color:#2b303b;color:#c0c5ce;">/Soundbank.sf2
+</span></pre>
+<p>حالا یک فایل به اسم <code>Soundbank.sf2</code> توی پوشه‌ی خانگی شما هست.</p>
+<h4 id="3-nmwnh">۳. نمونه</h4>
+<p>چون پلتفرم برنامه فقط اجازه‌ی اشتراک‌گذاری فایل پروژه‌ی برنامه رو می‌ده، همه‌ی فایل‌های موجود بدون هرگونه بانک صدا یا پلاگین خارجی آپلود می‌شن.
+سری به <a href="https://lmms.io/lsp/?action=browse&amp;user=mamins1376">نمونه‌ی کارهای من</a> هم بزنین.</p>
+<p>شما هم کارهای خودتون رو برای بقیه بذارین!</p>
+</div>
+</article>
+
+		
+		<article class="post">
+	<header>
+		<a class="block" href="https:&#x2F;&#x2F;mamins1376.github.io&#x2F;blog&#x2F;2015-05-05-apt-get-aria2&#x2F;" rel="bookmark"><strong>آریا۲ و اپت: سرعتی دوچندان</strong></a>
+		
+		<abbr class="date" title="تاریخ انتشار">2015-05-05</abbr>
+		
+	</header>
+	<div><p>یکی از مشکلات کاربران دبیان-بیس‌ها، سرعت apt در امر طاقت‌فرسای دانلوده که باعث می‌شه خیلی‌ها سراغ مواردی مثل apt-fast برن. ما با ترکیب آریا۲ و اپت، یه دانلود کننده‌ی توپ می‌سازیم.</p>
+<!-- ادامه -->
+<p><strong>نکته مهم:</strong> هر دستوری که اولش علامت <code>#</code> رو می‌بینید به دسترسی روت نیاز داره و هر دستوری که اولش علامت <code>$</code> رو داره،‌ یعنی هر کاربری توانایی اجراش رو داره و دسترسی روت لازم نیست.</p>
+<h4 id="1-stkhrj-lynkhh">۱. استخراج لینک‌ها</h4>
+<p>مسلماً بسته‌های دبیان چیزی جز فایل نیستن و apt هم این «فایل»ها رو دانلود می‌کنه. خب وقتی خودش می‌تونه دانلود کنه،‌ چرا ما نتونیم؟ خوش‌بختانه برای همچین‌کاری یه سوئیچ خوب وجود داره:</p>
+<pre style="background-color:#2b303b">
+<span style="background-color:#2b303b;color:#bf616a;">root@debian:~#</span><span style="background-color:#2b303b;color:#c0c5ce;"> apt-get</span><span style="background-color:#2b303b;color:#bf616a;"> -y --print-uris </span><span style="background-color:#2b303b;color:#c0c5ce;">{ install &lt;PACKAGE&gt; | upgrade | ... }
+</span></pre>
+<p>این سوئیچ به apt می‌گه که فقط لینک رو بنویس و بی‌خیال دانلود شو. سوئیچ <code>y</code> هم می‌گه که خودت تائید کن.
+مثلا من guake رو امتحان می‌کنم:</p>
+<pre style="background-color:#2b303b">
+<span style="background-color:#2b303b;color:#bf616a;">root@debian:~#</span><span style="background-color:#2b303b;color:#c0c5ce;"> apt-get</span><span style="background-color:#2b303b;color:#bf616a;"> -y --print-uris</span><span style="background-color:#2b303b;color:#c0c5ce;"> install guake 
+</span><span style="background-color:#2b303b;color:#bf616a;">Reading</span><span style="background-color:#2b303b;color:#c0c5ce;"> package lists... Done
+</span><span style="background-color:#2b303b;color:#bf616a;">Building</span><span style="background-color:#2b303b;color:#c0c5ce;"> dependency tree
+</span><span style="background-color:#2b303b;color:#bf616a;">Reading</span><span style="background-color:#2b303b;color:#c0c5ce;"> state information... Done
+</span><span style="background-color:#2b303b;color:#bf616a;">The</span><span style="background-color:#2b303b;color:#c0c5ce;"> following extra packages will be installed:
+</span><span style="background-color:#2b303b;color:#c0c5ce;">  </span><span style="background-color:#2b303b;color:#bf616a;">python-glade2</span><span style="background-color:#2b303b;color:#c0c5ce;"> python-vte
+</span><span style="background-color:#2b303b;color:#bf616a;">Suggested</span><span style="background-color:#2b303b;color:#c0c5ce;"> packages:
+</span><span style="background-color:#2b303b;color:#c0c5ce;">  </span><span style="background-color:#2b303b;color:#bf616a;">python-gtk2-doc
+</span><span style="background-color:#2b303b;color:#bf616a;">The</span><span style="background-color:#2b303b;color:#c0c5ce;"> following NEW packages will be installed:
+</span><span style="background-color:#2b303b;color:#c0c5ce;">  </span><span style="background-color:#2b303b;color:#bf616a;">guake</span><span style="background-color:#2b303b;color:#c0c5ce;"> python-glade2 python-vte
+</span><span style="background-color:#2b303b;color:#bf616a;">0</span><span style="background-color:#2b303b;color:#c0c5ce;"> upgraded, 3 newly installed, 0 to remove and 0 not upgraded.
+</span><span style="background-color:#2b303b;color:#bf616a;">Need</span><span style="background-color:#2b303b;color:#c0c5ce;"> to get 201 kB of archives.
+</span><span style="background-color:#2b303b;color:#bf616a;">After</span><span style="background-color:#2b303b;color:#c0c5ce;"> this operation, 1,381 kB of additional disk space will be used.
+</span><span style="background-color:#2b303b;color:#c0c5ce;">&#39;</span><span style="background-color:#2b303b;color:#a3be8c;">http://ir.archive.ubuntu.com/ubuntu/pool/main/v/vte/python-vte_0.28.2-5ubuntu1_amd64.deb</span><span style="background-color:#2b303b;color:#c0c5ce;">&#39; python-vte_1%</span><span style="background-color:#2b303b;color:#d08770;">3</span><span style="background-color:#2b303b;color:#c0c5ce;">a0.28.2-5ubuntu1_amd64.deb 21726 MD5Sum:a0b9e19f09fa001ca3e75534a5298c51
+</span><span style="background-color:#2b303b;color:#c0c5ce;">&#39;</span><span style="background-color:#2b303b;color:#a3be8c;">http://ir.archive.ubuntu.com/ubuntu/pool/main/p/pygtk/python-glade2_2.24.0-3ubuntu3_amd64.deb</span><span style="background-color:#2b303b;color:#c0c5ce;">&#39; python-glade2_2.24.0-3ubuntu3_amd64.deb 8744 MD5Sum:1aef0e4a843eac23ffc619bc02382f03
+</span><span style="background-color:#2b303b;color:#c0c5ce;">&#39;</span><span style="background-color:#2b303b;color:#a3be8c;">http://ir.archive.ubuntu.com/ubuntu/pool/universe/g/guake/guake_0.4.4-1ubuntu1_amd64.deb</span><span style="background-color:#2b303b;color:#c0c5ce;">&#39; guake_0.4.4-1ubuntu1_amd64.deb 171024 MD5Sum:a24f28469f7a83debc4aed2ec6ea1515
+</span></pre>
+<p>اطلاعاتی که ما لازم داریم سه خط آخر هستن که وجه اشتراکشون <code>//:http</code> ابتداشونه. پس با <code>grep</code> فیلترشون می‌کنیم:</p>
+<pre style="background-color:#2b303b">
+<span style="background-color:#2b303b;color:#bf616a;">root@debian:~#</span><span style="background-color:#2b303b;color:#c0c5ce;"> apt-get</span><span style="background-color:#2b303b;color:#bf616a;"> --print-uris -y</span><span style="background-color:#2b303b;color:#c0c5ce;"> install guake | </span><span style="background-color:#2b303b;color:#bf616a;">grep </span><span style="background-color:#2b303b;color:#c0c5ce;">&#39;</span><span style="background-color:#2b303b;color:#a3be8c;">http://</span><span style="background-color:#2b303b;color:#c0c5ce;">&#39;
+</span><span style="background-color:#2b303b;color:#c0c5ce;">&#39;</span><span style="background-color:#2b303b;color:#a3be8c;">http://ir.archive.ubuntu.com/ubuntu/pool/main/v/vte/python-vte_0.28.2-5ubuntu1_amd64.deb</span><span style="background-color:#2b303b;color:#c0c5ce;">&#39; python-vte_1%</span><span style="background-color:#2b303b;color:#d08770;">3</span><span style="background-color:#2b303b;color:#c0c5ce;">a0.28.2-5ubuntu1_amd64.deb 21726 MD5Sum:a0b9e19f09fa001ca3e75534a5298c51
+</span><span style="background-color:#2b303b;color:#c0c5ce;">&#39;</span><span style="background-color:#2b303b;color:#a3be8c;">http://ir.archive.ubuntu.com/ubuntu/pool/main/p/pygtk/python-glade2_2.24.0-3ubuntu3_amd64.deb</span><span style="background-color:#2b303b;color:#c0c5ce;">&#39; python-glade2_2.24.0-3ubuntu3_amd64.deb 8744 MD5Sum:1aef0e4a843eac23ffc619bc02382f03
+</span><span style="background-color:#2b303b;color:#c0c5ce;">&#39;</span><span style="background-color:#2b303b;color:#a3be8c;">http://ir.archive.ubuntu.com/ubuntu/pool/universe/g/guake/guake_0.4.4-1ubuntu1_amd64.deb</span><span style="background-color:#2b303b;color:#c0c5ce;">&#39; guake_0.4.4-1ubuntu1_amd64.deb 171024 MD5Sum:a24f28469f7a83debc4aed2ec6ea1515
+</span></pre>
+<p>ولی ما فقط اون قسمتی که لینک فایل توش هست رو نیاز داریم؛ پس اون‌رو هم با <code>cut</code> فیلتر می‌کنیم:</p>
+<pre style="background-color:#2b303b">
+<span style="background-color:#2b303b;color:#bf616a;">root@debian:~#</span><span style="background-color:#2b303b;color:#c0c5ce;"> apt-get</span><span style="background-color:#2b303b;color:#bf616a;"> --print-uris -y</span><span style="background-color:#2b303b;color:#c0c5ce;"> install guake | </span><span style="background-color:#2b303b;color:#bf616a;">grep </span><span style="background-color:#2b303b;color:#c0c5ce;">&#39;</span><span style="background-color:#2b303b;color:#a3be8c;">http://</span><span style="background-color:#2b303b;color:#c0c5ce;">&#39; | </span><span style="background-color:#2b303b;color:#bf616a;">cut -d</span><span style="background-color:#2b303b;color:#96b5b4;">\&#39;</span><span style="background-color:#2b303b;color:#bf616a;"> -f2
+</span><span style="background-color:#2b303b;color:#bf616a;">http://ir.archive.ubuntu.com/ubuntu/pool/main/v/vte/python-vte_0.28.2-5ubuntu1_amd64.deb
+</span><span style="background-color:#2b303b;color:#bf616a;">http://ir.archive.ubuntu.com/ubuntu/pool/main/p/pygtk/python-glade2_2.24.0-3ubuntu3_amd64.deb
+</span><span style="background-color:#2b303b;color:#bf616a;">http://ir.archive.ubuntu.com/ubuntu/pool/universe/g/guake/guake_0.4.4-1ubuntu1_amd64.deb
+</span></pre>
+<p>این‌جا <code>cut</code> متن رو بر اساس کاراکتر ‍<code>'</code> تقسیم می‌کنه. لینکی که ما لازم داریم میشه ستون دوم.<br />
+حالا لینک ها رو داریم. می‌ریزیمشون توی یه فایل به اسم <code>Links.txt</code>:</p>
+<pre style="background-color:#2b303b">
+<span style="background-color:#2b303b;color:#bf616a;">root@debian:~#</span><span style="background-color:#2b303b;color:#c0c5ce;"> apt-get</span><span style="background-color:#2b303b;color:#bf616a;"> --print-uris -y</span><span style="background-color:#2b303b;color:#c0c5ce;"> install guake | </span><span style="background-color:#2b303b;color:#bf616a;">grep </span><span style="background-color:#2b303b;color:#c0c5ce;">&#39;</span><span style="background-color:#2b303b;color:#a3be8c;">http://</span><span style="background-color:#2b303b;color:#c0c5ce;">&#39; | </span><span style="background-color:#2b303b;color:#bf616a;">cut -d</span><span style="background-color:#2b303b;color:#96b5b4;">\&#39;</span><span style="background-color:#2b303b;color:#bf616a;"> -f2 </span><span style="background-color:#2b303b;color:#c0c5ce;">&gt; Links.txt
+</span></pre><h4 id="2-dnlwd-bsthh">۲. دانلود بسته‌ها</h4>
+<p>برای این کار از <code>aria2</code> استفاده می‌کنیم.</p>
+<pre style="background-color:#2b303b">
+<span style="background-color:#2b303b;color:#bf616a;">root@debian:~#</span><span style="background-color:#2b303b;color:#c0c5ce;"> aria2c</span><span style="background-color:#2b303b;color:#bf616a;"> -d</span><span style="background-color:#2b303b;color:#c0c5ce;"> /var/cache/apt/archives/</span><span style="background-color:#2b303b;color:#bf616a;"> -i</span><span style="background-color:#2b303b;color:#c0c5ce;"> Links.txt</span><span style="background-color:#2b303b;color:#bf616a;"> -s</span><span style="background-color:#2b303b;color:#c0c5ce;"> 16</span><span style="background-color:#2b303b;color:#bf616a;"> -x</span><span style="background-color:#2b303b;color:#c0c5ce;"> 16</span><span style="background-color:#2b303b;color:#bf616a;"> -c
+</span></pre>
+<p>سوئیچ <code>d</code> مسیری که فایل‌های دانلود شده در اون ریخته می‌شن رو مشخص می‌کنه. ‍<code>i</code> هم مسیر لینک‌ها رو. بقیه‌ی سوئیچ‌ها هم که رایج هستن و مربوط تعداد اتصال‌ها و سرعت دانلود می‌شن.</p>
+<h4 id="3-nsb-bsth-h">۳. نصب بسته ها</h4>
+<p>همیشه اپت بسته‌ها رو توی مسیر <code>/var/cache/apt/archives/</code> می‌ریزه. خب، ما که خودمون این کار رو با aria2 کردیم! پس دیگه apt نیازی به دانلود نداره.</p>
+<pre style="background-color:#2b303b">
+<span style="background-color:#2b303b;color:#bf616a;">root@debian:~#</span><span style="background-color:#2b303b;color:#c0c5ce;"> apt-get</span><span style="background-color:#2b303b;color:#bf616a;"> -y</span><span style="background-color:#2b303b;color:#c0c5ce;"> install guake
+</span><span style="background-color:#2b303b;color:#bf616a;">Reading</span><span style="background-color:#2b303b;color:#c0c5ce;"> package lists... Done
+</span><span style="background-color:#2b303b;color:#bf616a;">Building</span><span style="background-color:#2b303b;color:#c0c5ce;"> dependency tree
+</span><span style="background-color:#2b303b;color:#bf616a;">Reading</span><span style="background-color:#2b303b;color:#c0c5ce;"> state information... Done
+</span><span style="background-color:#2b303b;color:#bf616a;">The</span><span style="background-color:#2b303b;color:#c0c5ce;"> following extra packages will be installed:
+</span><span style="background-color:#2b303b;color:#c0c5ce;">  </span><span style="background-color:#2b303b;color:#bf616a;">python-glade2</span><span style="background-color:#2b303b;color:#c0c5ce;"> python-vte
+</span><span style="background-color:#2b303b;color:#bf616a;">Suggested</span><span style="background-color:#2b303b;color:#c0c5ce;"> packages:
+</span><span style="background-color:#2b303b;color:#c0c5ce;">  </span><span style="background-color:#2b303b;color:#bf616a;">python-gtk2-doc
+</span><span style="background-color:#2b303b;color:#bf616a;">The</span><span style="background-color:#2b303b;color:#c0c5ce;"> following NEW packages will be installed:
+</span><span style="background-color:#2b303b;color:#c0c5ce;">  </span><span style="background-color:#2b303b;color:#bf616a;">guake</span><span style="background-color:#2b303b;color:#c0c5ce;"> python-glade2 python-vte
+</span><span style="background-color:#2b303b;color:#bf616a;">0</span><span style="background-color:#2b303b;color:#c0c5ce;"> upgraded, 3 newly installed, 0 to remove and 0 not upgraded.
+</span><span style="background-color:#2b303b;color:#bf616a;">Need</span><span style="background-color:#2b303b;color:#c0c5ce;"> to get 0 B/201 kB of archives.
+</span><span style="background-color:#2b303b;color:#bf616a;">After</span><span style="background-color:#2b303b;color:#c0c5ce;"> this operation, 1,381 kB of additional disk space will be used.
+</span><span style="background-color:#2b303b;color:#bf616a;">Selecting</span><span style="background-color:#2b303b;color:#c0c5ce;"> previously unselected package python-vte.
+</span><span style="background-color:#2b303b;color:#c0c5ce;">(</span><span style="background-color:#2b303b;color:#bf616a;">Reading</span><span style="background-color:#2b303b;color:#c0c5ce;"> database ... 240702 files and directories currently installed.)
+</span><span style="background-color:#2b303b;color:#bf616a;">Preparing</span><span style="background-color:#2b303b;color:#c0c5ce;"> to unpack .../python-vte_0.28.2-5ubuntu1_amd64.deb ...
+</span><span style="background-color:#2b303b;color:#bf616a;">Unpacking</span><span style="background-color:#2b303b;color:#c0c5ce;"> python-vte (1:0.28.2-5ubuntu1) ...
+</span><span style="background-color:#2b303b;color:#bf616a;">Selecting</span><span style="background-color:#2b303b;color:#c0c5ce;"> previously unselected package python-glade2.
+</span><span style="background-color:#2b303b;color:#bf616a;">Preparing</span><span style="background-color:#2b303b;color:#c0c5ce;"> to unpack .../python-glade2_2.24.0-3ubuntu3_amd64.deb ...
+</span><span style="background-color:#2b303b;color:#bf616a;">Unpacking</span><span style="background-color:#2b303b;color:#c0c5ce;"> python-glade2 (2.24.0-3ubuntu3) ...
+</span><span style="background-color:#2b303b;color:#bf616a;">Selecting</span><span style="background-color:#2b303b;color:#c0c5ce;"> previously unselected package guake.
+</span><span style="background-color:#2b303b;color:#bf616a;">Preparing</span><span style="background-color:#2b303b;color:#c0c5ce;"> to unpack .../guake_0.4.4-1ubuntu1_amd64.deb ...
+</span><span style="background-color:#2b303b;color:#bf616a;">Unpacking</span><span style="background-color:#2b303b;color:#c0c5ce;"> guake (0.4.4-1ubuntu1) ...
+</span><span style="background-color:#2b303b;color:#bf616a;">Processing</span><span style="background-color:#2b303b;color:#c0c5ce;"> triggers for gconf2 (3.2.6-0ubuntu2) ...
+</span><span style="background-color:#2b303b;color:#bf616a;">Processing</span><span style="background-color:#2b303b;color:#c0c5ce;"> triggers for man-db (2.6.7.1-1ubuntu1) ...
+</span><span style="background-color:#2b303b;color:#bf616a;">Processing</span><span style="background-color:#2b303b;color:#c0c5ce;"> triggers for gnome-menus (3.10.1-0ubuntu2) ...
+</span><span style="background-color:#2b303b;color:#bf616a;">Processing</span><span style="background-color:#2b303b;color:#c0c5ce;"> triggers for desktop-file-utils (0.22-1ubuntu1) ...
+</span><span style="background-color:#2b303b;color:#bf616a;">Processing</span><span style="background-color:#2b303b;color:#c0c5ce;"> triggers for bamfdaemon (0.5.1+14.04.20140409-0ubuntu1) ...
+</span><span style="background-color:#2b303b;color:#bf616a;">Rebuilding</span><span style="background-color:#2b303b;color:#c0c5ce;"> /usr/share/applications/bamf-2.index...
+</span><span style="background-color:#2b303b;color:#bf616a;">Processing</span><span style="background-color:#2b303b;color:#c0c5ce;"> triggers for mime-support (3.54ubuntu1.1) ...
+</span><span style="background-color:#2b303b;color:#bf616a;">Processing</span><span style="background-color:#2b303b;color:#c0c5ce;"> triggers for hicolor-icon-theme (0.13-1) ...
+</span><span style="background-color:#2b303b;color:#bf616a;">Setting</span><span style="background-color:#2b303b;color:#c0c5ce;"> up python-vte (1:0.28.2-5ubuntu1) ...
+</span><span style="background-color:#2b303b;color:#bf616a;">Setting</span><span style="background-color:#2b303b;color:#c0c5ce;"> up python-glade2 (2.24.0-3ubuntu3) ...
+</span><span style="background-color:#2b303b;color:#bf616a;">Setting</span><span style="background-color:#2b303b;color:#c0c5ce;"> up guake (0.4.4-1ubuntu1) ...
+</span></pre>
+<p>در ضمن اگر دیدین بسته‌های زیادی دانلود کردین و حجم زیادی رو اشغال، از شرشون خلاص بشین!</p>
+<pre style="background-color:#2b303b">
+<span style="background-color:#2b303b;color:#bf616a;">root@debian:~#</span><span style="background-color:#2b303b;color:#c0c5ce;"> apt-get clean
+</span></pre>
+<p>موفق باشین.</p>
+</div>
+</article>
+
+		
+		<article class="post">
+	<header>
+		<a class="block" href="https:&#x2F;&#x2F;mamins1376.github.io&#x2F;blog&#x2F;2015-05-04-rtcwake-cron&#x2F;" rel="bookmark"><strong>cron و rtcwake: خواب راحت</strong></a>
+		
+		<abbr class="date" title="تاریخ انتشار">2015-05-04</abbr>
+		
+	</header>
+	<div><p>دانلود شبانه یکی از باحال‌ترین کارهاست ولی دردسرهایی داره: باید سیستم رو روشن بذارین تا سر ساعت شروع کنه. <a href="http://forum.ubuntu.ir/index.php?topic=59242.0">rtcwake</a> قراره به کمک cron این مشکل رو برای همیشه برامون حل کنه تا به‌خاطر چند گیگ ناقابل از خواب‌مون نزنیم!</p>
+<!-- ادامه -->
+<p><a href="http://forum.ubuntu.ir/index.php/topic,40582.0.html">راهنماهای خوبی</a> برای دانلود شبانه وجود دارن پس ما از اول شروع نمی‌کنیم و فقط تنظیم سیستم رو این‌جا شرح می‌دیم.<br />
+<strong>نکته:</strong> rtcwake و cron هردو روی توزیع دبیان به‌طور پیش‌فرض نصبن. برای نصبش روی توزیع خودتون از مدیربسته استفاده کنین. این روش به نوع توزیع وابسته نیست.</p>
+<h4 id="1-khr-b-rtcwake">۱. کار با rtcwake</h4>
+<p>چون کار با بسیاری از سخت‌افزارهای سیستم نیازمند دسترسی روت هست، rtcwake که از ساعت سخت‌افزاری سیستم استفاده می‌کنه طبیعتاً از این قاعده مستثنی نیست. پس باید کارهای مربوط به rtcwake رو با این سطح دسترسی انجام بدیم. قالب مورد نیاز ما برای روشن کردن سیستم سر ساعت <code>&lt;TIME&gt;</code> که بر حسب زمان محلی وارد می‌شه( سوییچ <code>l-</code> این کار رو انجام می‌ده) به این صورته:</p>
+<pre style="background-color:#2b303b">
+<span style="background-color:#2b303b;color:#bf616a;">root@debian:~#</span><span style="background-color:#2b303b;color:#c0c5ce;"> rtcwake</span><span style="background-color:#2b303b;color:#bf616a;"> -l -m</span><span style="background-color:#2b303b;color:#c0c5ce;"> no</span><span style="background-color:#2b303b;color:#bf616a;"> -t </span><span style="background-color:#2b303b;color:#c0c5ce;">$( </span><span style="background-color:#2b303b;color:#bf616a;">date</span><span style="background-color:#2b303b;color:#c0c5ce;"> +%</span><span style="background-color:#2b303b;color:#bf616a;">s -d </span><span style="background-color:#2b303b;color:#c0c5ce;">&lt;TIME&gt; )
+</span></pre>
+<p>سوئیچ <code>m</code> به rtcwake می‌گه بعد از این که سیستم رو تنظیم کردی، هیچ‌کاری نکن(مثل خاموش کردن، حالت خواب و ...). date خروجی‌ش رو به rtcwake می‌ده که واحدش ثانیه‌ست و فاصله‌ی زمان داده‌شده رو با مبدأ زمانی یونیکس مشخص می‌کنه. مثلا ما می‌خوایم ساعت ۱ شب سیستم روشن بشه:</p>
+<pre style="background-color:#2b303b">
+<span style="background-color:#2b303b;color:#bf616a;">root@debian:~#</span><span style="background-color:#2b303b;color:#c0c5ce;"> rtcwake</span><span style="background-color:#2b303b;color:#bf616a;"> -l -m</span><span style="background-color:#2b303b;color:#c0c5ce;"> no</span><span style="background-color:#2b303b;color:#bf616a;"> -t </span><span style="background-color:#2b303b;color:#c0c5ce;">$( </span><span style="background-color:#2b303b;color:#bf616a;">date</span><span style="background-color:#2b303b;color:#c0c5ce;"> +%</span><span style="background-color:#2b303b;color:#bf616a;">s -d </span><span style="background-color:#2b303b;color:#c0c5ce;">&#39;</span><span style="background-color:#2b303b;color:#a3be8c;">tomorrow 01:00</span><span style="background-color:#2b303b;color:#c0c5ce;">&#39; )
+</span></pre>
+<p>کلمه‌ی <code>tomorrow‍</code> به date می‌فهمونه که منظور ما ساعت ۱‍ شبی‌‍ه که از ساعت ۲۴ گذشته باشه؛ یعنی اگر این دستور بعد از ساعت ۱۲ شب اجرا بشه روشن کردن سیستم رو به فردا شب موکول می‌کنه! پس دقت کنین که الان ساعت چنده.</p>
+<h4 id="2-fzwdn-bh-cron">۲. افزودن به cron</h4>
+<p>خود cron یک‌سری کلمه داره که رویداد خاصی رو مشخص می‌کنه. مثلا <code>reboot</code> به معنی «هر وقت سیستم روشن شد»‍ه. <strong>چه خوب!</strong> ما از این قابلیت استفاده می‌کنیم و به cron می‌گیم که هروقت سیستم روشن شد برای دانلود شبانه تنظیمش کنه. این طوری دیگه نیازی به اجرای دستی rtcwake نیست.<br />
+معمولا چون cron خیلی از مسیرهای رایج رو توی متغییر محیطی <code>PATH</code> نداره مجبوریم خودمون دستی مسیر هر کدوم از اجرایی‌ها رو وارد کنیم.<br />
+<strong>توجه!</strong> مسیرهایی که این‌جا برای date و rtcwake استفاده شدن ممکنه روی سیستم شما فرق کنن. با دستور <code>which</code> می‌تونید از مسیر هر دستوری مطلع بشین.</p>
+<p>اول cron مربوط به کاربر ریشه رو باز می‌کنیم:</p>
+<pre style="background-color:#2b303b">
+<span style="background-color:#2b303b;color:#bf616a;">root@debian:~#</span><span style="background-color:#2b303b;color:#c0c5ce;"> crontab</span><span style="background-color:#2b303b;color:#bf616a;"> -u</span><span style="background-color:#2b303b;color:#c0c5ce;"> root</span><span style="background-color:#2b303b;color:#bf616a;"> -e
+</span></pre>
+<p>حالا خط زیر رو واردش می‌کنیم. توجه داشته باشین که <code>&lt;TIME&gt;</code> رو با زمان دلخواهتون عوض کنین:</p>
+<pre style="background-color:#2b303b">
+<span style="background-color:#2b303b;color:#bf616a;">@reboot</span><span style="background-color:#2b303b;color:#c0c5ce;"> /usr/sbin/rtcwake</span><span style="background-color:#2b303b;color:#bf616a;"> -l -m</span><span style="background-color:#2b303b;color:#c0c5ce;"> no</span><span style="background-color:#2b303b;color:#bf616a;"> -t </span><span style="background-color:#2b303b;color:#c0c5ce;">$( </span><span style="background-color:#2b303b;color:#bf616a;">/bin/date</span><span style="background-color:#2b303b;color:#c0c5ce;"> +</span><span style="background-color:#2b303b;color:#96b5b4;">\%</span><span style="background-color:#2b303b;color:#c0c5ce;">s</span><span style="background-color:#2b303b;color:#bf616a;"> -d </span><span style="background-color:#2b303b;color:#c0c5ce;">&lt;TIME&gt; )
+</span></pre>
+<p>و در انتها سیستم رو ریبوت کنین تا rtcwake ساعت رو تنظیم کنه.</p>
+</div>
+</article>
+
+		
+		<article class="post">
+	<header>
+		<a class="block" href="https:&#x2F;&#x2F;mamins1376.github.io&#x2F;blog&#x2F;2015-05-03-debootstrap-android-part2&#x2F;" rel="bookmark"><strong>دبیان بر بستر اندروید: پیش به سوی جسی!(قسمت دوم)</strong></a>
+		
+		<abbr class="date" title="تاریخ انتشار">2015-05-03</abbr>
+		
+	</header>
+	<div><p>در پست قبل، بسته‌ها بارگیری و به پوشه‌ی <code>debroot</code> منتقل شدند. حالا ادامه‌ی مراحل را انجام می‌دهیم.</p>
+<!-- ادامه -->
+<h4 id="3-skht-tswyr-twzy">۳. ساخت تصویر توزیع</h4>
+<p>یک ایمیج خالی با استفاده از <code>dd</code> درست می‌کنیم:</p>
+<pre style="background-color:#2b303b">
+<span style="background-color:#2b303b;color:#bf616a;">root@host:~#</span><span style="background-color:#2b303b;color:#c0c5ce;"> dd if=/dev/zero of=Debian.img count=0 bs=1M seek=1K
+</span></pre>
+<p>حجم ایمیج ساخته‌شده ۱گیگابایت خواهد بود. برای داشتن اندازه‌ی دلخواهتان مقدار <code>seek</code> را بر حسب مگابایت تغییر دهید.<br />
+آن را فرمت می‌کنیم:</p>
+<pre style="background-color:#2b303b">
+<span style="background-color:#2b303b;color:#bf616a;">root@host:~#</span><span style="background-color:#2b303b;color:#c0c5ce;"> mkfs.ext4</span><span style="background-color:#2b303b;color:#bf616a;"> -F -L</span><span style="background-color:#2b303b;color:#c0c5ce;"> Debian Debian.img
+</span></pre>
+<p>و سپس سوار می‌کنیم:</p>
+<pre style="background-color:#2b303b">
+<span style="background-color:#2b303b;color:#bf616a;">root@host:~#</span><span style="background-color:#2b303b;color:#c0c5ce;"> mount</span><span style="background-color:#2b303b;color:#bf616a;"> -t</span><span style="background-color:#2b303b;color:#c0c5ce;"> ext4</span><span style="background-color:#2b303b;color:#bf616a;"> -o</span><span style="background-color:#2b303b;color:#c0c5ce;"> loop,rw Debian.img /mnt
+</span></pre>
+<p>حالا همه‌ی بسته‌های بارگیری شده را به ایمیج کپی می‌کنیم:</p>
+<pre style="background-color:#2b303b">
+<span style="background-color:#2b303b;color:#bf616a;">root@host:~#</span><span style="background-color:#2b303b;color:#c0c5ce;"> cp</span><span style="background-color:#2b303b;color:#bf616a;"> -r</span><span style="background-color:#2b303b;color:#c0c5ce;"> debroot/* /mnt/; </span><span style="background-color:#2b303b;color:#bf616a;">sync
+</span></pre>
+<p>و ایمیج را جدا:</p>
+<pre style="background-color:#2b303b">
+<span style="background-color:#2b303b;color:#bf616a;">root@host:~#</span><span style="background-color:#2b303b;color:#c0c5ce;"> umount /mnt
+</span></pre>
+<p>حالا ما یک ایمیج از توزیع‌مان داریم ولی هنوز آماده نیست. از این‌جا دیگر به پوشه‌ی <code>debroot</code> نیاز نداریم.</p>
+<h4 id="4-ntql-twzy-bh-ndrwyd">۴. انتقال توزیع به اندروید</h4>
+<p>مهم نیست که ایمیج کجا کپی می‌شود، ولی باید قابل دسترس باشد و فضای کافی داشته باشد. مثلا ایمیج من در <code>/storage/sdcard1/Disks/</code> قرار دارد. پس از انتقال ایمیج، دیگر کاری با ماشین گنو/لینوکسی نداریم.<br />
+<strong>توجه!</strong> در مرحله‌ی بعد به <a href="http://busybox.net/">BusyBox</a> نیاز خواهیم داشت. اگر هنوز آن را روی اندروید نصب نکرده‌اید، همین حالا <a href="https://play.google.com/store/apps/details?id=com.jrummy.busybox.installer">نصب کنید</a>.</p>
+<h4 id="5-nsb-twzy">۵. نصب توزیع</h4>
+<p>یک پوشه می‌سازیم. این پوشه محل سوارشدن ایمیج خواهد بود:</p>
+<pre style="background-color:#2b303b">
+<span style="background-color:#2b303b;color:#bf616a;">root@android:~#</span><span style="background-color:#2b303b;color:#c0c5ce;"> mkdir /data/debian
+</span><span style="background-color:#2b303b;color:#bf616a;">root@android:~#</span><span style="background-color:#2b303b;color:#c0c5ce;"> busybox mount</span><span style="background-color:#2b303b;color:#bf616a;"> -o</span><span style="background-color:#2b303b;color:#c0c5ce;"> loop,rw</span><span style="background-color:#2b303b;color:#bf616a;"> -t</span><span style="background-color:#2b303b;color:#c0c5ce;"> ext4 &lt;IMAGE&gt; /data/debian
+</span></pre>
+<p>یادتان نرود که در کدهای گفته شده، <code>&lt;IMAGE&gt;</code> را با مسیر ایمیجی که کپی کردیم عوض کنید. وارد توزیع می‌شویم:</p>
+<pre style="background-color:#2b303b">
+<span style="background-color:#2b303b;color:#bf616a;">root@android:~#</span><span style="background-color:#2b303b;color:#c0c5ce;"> export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+</span><span style="background-color:#2b303b;color:#bf616a;">root@android:~#</span><span style="background-color:#2b303b;color:#c0c5ce;"> export USER=root
+</span><span style="background-color:#2b303b;color:#bf616a;">root@android:~#</span><span style="background-color:#2b303b;color:#c0c5ce;"> export HOME=/root
+</span><span style="background-color:#2b303b;color:#bf616a;">root@android:~#</span><span style="background-color:#2b303b;color:#c0c5ce;"> busybox chroot /data/debian /bin/bash
+</span><span style="background-color:#2b303b;color:#bf616a;">root@localhost:/# 
+</span></pre>
+<p>اکنون شما وارد توزیع شدید. اما هنوز بسته‌ها را استخراج نکردیم!</p>
+<pre style="background-color:#2b303b">
+<span style="background-color:#2b303b;color:#bf616a;">root@localhost:/#</span><span style="background-color:#2b303b;color:#c0c5ce;"> /debootstrap/debootstrap</span><span style="background-color:#2b303b;color:#bf616a;"> --second-stage
+</span></pre>
+<p><code>debootstrap</code> شروع به نصب سیستم می‌کند.</p>
+<p><strong>تبریک!</strong> توزیع ما آماده است؛ ولی هنوز کارهای کوچکی باقی‌مانده که می‌تواند کار ما را راحت‌تر کند. مثلا با اسکریپت زیر، هربار توزیع آماده و اجرا می‌شود و پس از اتمام کار خودبه‌خود جدا می‌شود. من [این اسکریپت][script] را در مسیر <code>system/bin/debian/</code> قرار دادم.</p>
+<pre style="background-color:#2b303b">
+<span style="background-color:#2b303b;color:#b48ead;">export </span><span style="background-color:#2b303b;color:#bf616a;">DEBMNT</span><span style="background-color:#2b303b;color:#c0c5ce;">=</span><span style="background-color:#2b303b;color:#a3be8c;">/data/debian
+</span><span style="background-color:#2b303b;color:#bf616a;">busybox</span><span style="background-color:#2b303b;color:#c0c5ce;"> mount</span><span style="background-color:#2b303b;color:#bf616a;"> -t</span><span style="background-color:#2b303b;color:#c0c5ce;"> ext2 &lt;IMAGE&gt; $</span><span style="background-color:#2b303b;color:#bf616a;">DEBMNT
+</span><span style="background-color:#2b303b;color:#bf616a;">busybox</span><span style="background-color:#2b303b;color:#c0c5ce;"> mount</span><span style="background-color:#2b303b;color:#bf616a;"> -t</span><span style="background-color:#2b303b;color:#c0c5ce;"> proc none $</span><span style="background-color:#2b303b;color:#bf616a;">DEBMNT</span><span style="background-color:#2b303b;color:#c0c5ce;">/proc
+</span><span style="background-color:#2b303b;color:#bf616a;">busybox</span><span style="background-color:#2b303b;color:#c0c5ce;"> mount</span><span style="background-color:#2b303b;color:#bf616a;"> -t</span><span style="background-color:#2b303b;color:#c0c5ce;"> sysfs none $</span><span style="background-color:#2b303b;color:#bf616a;">DEBMNT</span><span style="background-color:#2b303b;color:#c0c5ce;">/sys
+</span><span style="background-color:#2b303b;color:#bf616a;">busybox</span><span style="background-color:#2b303b;color:#c0c5ce;"> mount</span><span style="background-color:#2b303b;color:#bf616a;"> -o</span><span style="background-color:#2b303b;color:#c0c5ce;"> bind /dev $</span><span style="background-color:#2b303b;color:#bf616a;">DEBMNT</span><span style="background-color:#2b303b;color:#c0c5ce;">/dev
+</span><span style="background-color:#2b303b;color:#bf616a;">busybox</span><span style="background-color:#2b303b;color:#c0c5ce;"> mount</span><span style="background-color:#2b303b;color:#bf616a;"> -t</span><span style="background-color:#2b303b;color:#c0c5ce;"> devpts none $</span><span style="background-color:#2b303b;color:#bf616a;">DEBMNT</span><span style="background-color:#2b303b;color:#c0c5ce;">/dev/pts
+</span><span style="background-color:#2b303b;color:#96b5b4;">unset</span><span style="background-color:#2b303b;color:#c0c5ce;"> LD_PRELOAD
+</span><span style="background-color:#2b303b;color:#bf616a;">LAST_PATH</span><span style="background-color:#2b303b;color:#c0c5ce;">=$</span><span style="background-color:#2b303b;color:#bf616a;">PATH
+</span><span style="background-color:#2b303b;color:#b48ead;">export </span><span style="background-color:#2b303b;color:#bf616a;">PATH</span><span style="background-color:#2b303b;color:#c0c5ce;">=</span><span style="background-color:#2b303b;color:#a3be8c;">/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+</span><span style="background-color:#2b303b;color:#b48ead;">export </span><span style="background-color:#2b303b;color:#bf616a;">USER</span><span style="background-color:#2b303b;color:#c0c5ce;">=</span><span style="background-color:#2b303b;color:#a3be8c;">root
+</span><span style="background-color:#2b303b;color:#b48ead;">export </span><span style="background-color:#2b303b;color:#bf616a;">HOME</span><span style="background-color:#2b303b;color:#c0c5ce;">=</span><span style="background-color:#2b303b;color:#a3be8c;">/root
+</span><span style="background-color:#2b303b;color:#b48ead;">export </span><span style="background-color:#2b303b;color:#bf616a;">TERM</span><span style="background-color:#2b303b;color:#c0c5ce;">=</span><span style="background-color:#2b303b;color:#a3be8c;">linux
+</span><span style="background-color:#2b303b;color:#bf616a;">busybox</span><span style="background-color:#2b303b;color:#c0c5ce;"> chroot $</span><span style="background-color:#2b303b;color:#bf616a;">DEBMNT</span><span style="background-color:#2b303b;color:#c0c5ce;"> /bin/bash
+</span><span style="background-color:#2b303b;color:#b48ead;">export </span><span style="background-color:#2b303b;color:#bf616a;">PATH</span><span style="background-color:#2b303b;color:#c0c5ce;">=$</span><span style="background-color:#2b303b;color:#bf616a;">LAST_PATH
+</span><span style="background-color:#2b303b;color:#bf616a;">sync
+</span><span style="background-color:#2b303b;color:#bf616a;">busybox</span><span style="background-color:#2b303b;color:#c0c5ce;"> umount $</span><span style="background-color:#2b303b;color:#bf616a;">DEBMNT</span><span style="background-color:#2b303b;color:#c0c5ce;">/dev/pts
+</span><span style="background-color:#2b303b;color:#bf616a;">busybox</span><span style="background-color:#2b303b;color:#c0c5ce;"> umount $</span><span style="background-color:#2b303b;color:#bf616a;">DEBMNT</span><span style="background-color:#2b303b;color:#c0c5ce;">/dev
+</span><span style="background-color:#2b303b;color:#bf616a;">busybox</span><span style="background-color:#2b303b;color:#c0c5ce;"> umount $</span><span style="background-color:#2b303b;color:#bf616a;">DEBMNT</span><span style="background-color:#2b303b;color:#c0c5ce;">/proc
+</span><span style="background-color:#2b303b;color:#bf616a;">busybox</span><span style="background-color:#2b303b;color:#c0c5ce;"> umount $</span><span style="background-color:#2b303b;color:#bf616a;">DEBMNT</span><span style="background-color:#2b303b;color:#c0c5ce;">/sys
+</span><span style="background-color:#2b303b;color:#bf616a;">busybox</span><span style="background-color:#2b303b;color:#c0c5ce;"> umount $</span><span style="background-color:#2b303b;color:#bf616a;">DEBMNT </span><span style="background-color:#2b303b;color:#c0c5ce;">|| </span><span style="background-color:#2b303b;color:#bf616a;">sh -c</span><span style="background-color:#2b303b;color:#c0c5ce;"> busybox umount</span><span style="background-color:#2b303b;color:#bf616a;"> -l </span><span style="background-color:#2b303b;color:#c0c5ce;">$</span><span style="background-color:#2b303b;color:#bf616a;">DEBMNT </span><span style="background-color:#2b303b;color:#c0c5ce;">&amp;&amp; </span><span style="background-color:#2b303b;color:#96b5b4;">echo </span><span style="background-color:#2b303b;color:#c0c5ce;">&#39;</span><span style="background-color:#2b303b;color:#a3be8c;">Force unmounted!</span><span style="background-color:#2b303b;color:#c0c5ce;">&#39;
+</span></pre><h4 id="6-tnzym-apt">۶. تنظیم apt</h4>
+<p>لازم است که تغییراتی در <code>sources.list</code> مربوط به مدیر بسته‌ی <code>apt</code> به‌وجود آوریم تا بتوانیم بسته‌های مورد نیازمان را نصب کنیم.</p>
+<pre style="background-color:#2b303b">
+<span style="background-color:#2b303b;color:#bf616a;">root@localhost:/#</span><span style="background-color:#2b303b;color:#c0c5ce;"> vi /etc/apt/sources.list
+</span></pre>
+<p><strong>توجه!</strong> به جای ویرایش‌گر <code>vi</code>، هر ویرایشی که با آن راحت‌تر هستید استفاده کنید. <code>nano</code> به‌طور پیش‌فرض نصب است.<br />
+خطوط زیر را به آن اضافه کنید یا فایل آماده را [دریافت کنید][sources.list].</p>
+<pre style="background-color:#2b303b">
+<span style="background-color:#2b303b;color:#c0c5ce;">deb http://ftp.ir.debian.org/debian/ jessie contrib main non-free
+</span><span style="background-color:#2b303b;color:#c0c5ce;">deb-src http://ftp.ir.debian.org/debian/ jessie contrib main non-free
+</span><span style="background-color:#2b303b;color:#c0c5ce;">
+</span><span style="background-color:#2b303b;color:#c0c5ce;">deb http://ftp.ir.debian.org/debian/ jessie-backports contrib main non-free
+</span><span style="background-color:#2b303b;color:#c0c5ce;">deb-src http://ftp.ir.debian.org/debian/ jessie-backports contrib main non-free
+</span><span style="background-color:#2b303b;color:#c0c5ce;">
+</span><span style="background-color:#2b303b;color:#c0c5ce;">deb http://ftp.ir.debian.org/debian/ jessie-updates contrib main non-free
+</span><span style="background-color:#2b303b;color:#c0c5ce;">deb-src http://ftp.ir.debian.org/debian/ jessie-updates contrib main non-free
+</span></pre>
+<p>و در آخر،‌ برای به‌روزرسانی کَش <code>apt</code>:</p>
+<pre style="background-color:#2b303b">
+<span style="background-color:#2b303b;color:#bf616a;">root@localhost:/#</span><span style="background-color:#2b303b;color:#c0c5ce;"> apt-get update
+</span></pre>
+<p><strong>توجه!</strong> فرمان بالا نیاز به اتصال اینترنت دارد.<br />
+اکنون توزیع شما دقیقا مانند یک توزیع گنو/لینوکس عادی رفتار می‌کند.</p>
+<p>در قسمت بعد به نصب محیط گرافیکی(به هر دو روش <code>framebuffer</code> و <code>VNC</code>) خواهیم پرداخت.</p>
+<p>[script]: {{ site.baseurl }}/downloads/2015/05/debian
+[sources.list]: {{ site.baseurl }}/downloads/2015/05/sources.list</p>
+</div>
+</article>
+
+		
+	</div>
+	<div class="paginator text-center">
+	
+	<a href="https:&#x2F;&#x2F;mamins1376.github.io&#x2F;blog&#x2F;page&#x2F;2&#x2F;" class="button no-shadow">▶</a>
+	
+
+	<span class="count">3</span>
+
+	
+	<a href="https:&#x2F;&#x2F;mamins1376.github.io&#x2F;blog&#x2F;page&#x2F;4&#x2F;" class="button no-shadow">◀</a>
+	
+</div>
+
+</section>
+
+				</div>
+			</main>
+		</div>
+		<footer class="text-center full-width">
+			<div class="wrapper center">
+				<div class="column inline m-block m-center m-full-width">
+					<div class="title"><strong>زندگی خوره‌ای</strong></div>
+				</div>
+				<div class="column inline m-block m-center m-full-width">
+					<div class="email"><a href="mailto:mamins1376@gmail.com">mamins1376@gmail.com</a></div>
+					<div class="subscribe"><a href="https:&#x2F;&#x2F;mamins1376.github.io&#x2F;blog&#x2F;rss.xml&#x2F;">اشتراک خوراک RSS</a></div>
+				</div>
+				<div class="column inline m-block m-center m-full-width">
+					<div class="license">
+						<a target="_blank" rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.fa"><img class="no-border" alt="مجوز کریتیو کامنز" src="https://licensebuttons.net/l/by-sa/4.0/88x31.png"/></a>
+					</div>
+					<div class="powered-by">با افتخار، نیرو گرفته از <a href="https://www.getgutenberg.io" title="گوتنبرگ">گوتنبرگ</a></div>
+				</div>
+			</div>
+		</footer>
+		<script lang="text/javascript">
+			(function() {
+				// convert post content headings to links
+				var articles = document.getElementsByTagName("article");
+				for (var i = 0; i < articles.length; i++) {
+					var article = articles[i];
+
+					if (!article.classList.contains("post")) {
+						continue;
+					}
+
+					var article_url = article.children[0].children[0].getAttribute("href");
+					var content_elements = article.children[1].children;
+					for (var j = 0; j < content_elements.length; j++) {
+						var heading = content_elements[j];
+
+						var is_heading = false;
+						for (var k = 1; k <= 6; k++) {
+							if (heading.tagName === ("H" + String(k))) {
+								is_heading = true;
+							}
+						}
+
+						if (!is_heading) {
+							continue;
+						}
+
+						var link = document.createElement("a");
+						var heading_id = heading.getAttribute("id");
+						link.setAttribute("href", article_url + "#" + heading_id);
+
+						heading = heading.parentNode.replaceChild(link, heading);
+						link.appendChild(heading);
+					}
+				}
+			})();
+		</script>
+	</body>
+</html>

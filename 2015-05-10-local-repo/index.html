@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="fa">
+	<head>
+		<title class="rtl">زندگی خوره‌ای</title>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta http-equiv="content-type" content="text/html; charset=utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+		<link rel="icon" type="image/png" href="https:&#x2F;&#x2F;mamins1376.github.io&#x2F;blog/favicon.png">
+		<link rel="stylesheet" href="https:&#x2F;&#x2F;mamins1376.github.io&#x2F;blog&#x2F;site.css">
+		<link rel="alternate" type="application/rss+xml" title="RSS" href="https:&#x2F;&#x2F;mamins1376.github.io&#x2F;blog&#x2F;rss.xml&#x2F;">
+		
+	</head>
+	<body class="rtl no-margin">
+		<div class="container">
+			<header>
+				<div class="wrapper center m-text-center">
+					<a class="title block" href="https:&#x2F;&#x2F;mamins1376.github.io&#x2F;blog"><strong>زندگی خوره‌ای</strong></a>
+					<span class="description m-block">نتیجه چند تعادل شیمیایی</span>
+					<nav class="inline m-block m-no-padding m-full-width">
+						
+
+						
+
+						
+						<a href="http://telegram.me/mamins1376">تلگرام</a>
+						
+
+						
+
+						
+
+						
+						<a href="https://twitter.com/pyminars">توئیتر</a>
+						
+
+						
+						<a class="page-link" href="https:&#x2F;&#x2F;mamins1376.github.io&#x2F;blog&#x2F;about&#x2F;">درباره</a>
+						
+					</nav>
+				</div>
+			</header>
+			<main>
+				<div class="wrapper center">
+					
+<section class="content">
+	<article class="post">
+	<header>
+		<a class="block" href="https:&#x2F;&#x2F;mamins1376.github.io&#x2F;blog&#x2F;2015-05-10-local-repo&#x2F;" rel="bookmark"><strong>تبدیل ایمیج به مخزن محلی</strong></a>
+		
+		<abbr class="date" title="تاریخ انتشار">2015-05-10</abbr>
+		
+	</header>
+	<div><p>ایمیج‌های دبیان(و طبیعتاً نوادگانش مثل اوبونتو) خیلی از بسته‌های پایه رو توی خودشون دارن که ساختاری دقیقا شبیه به مخزن‌های apt داره. DVDهای دبیان هم رایج‌ترین بسته‌ها(مثل میزکارها و ...) رو به همراه دارن. برای کسی که دانلود شبانه داره یکی از راه‌ها دانلود کردن بسته‌ها از قبل برای نصب در آینده‌ست. مسلما خیلی‌ها بعد از نصب کردن برنامه‌ی مورد نیازشون بسته‌های دانلود شده رو حذف می‌کنن و بدی این روش اینه‌که هر برنامه‌ای که لازم دارین باید تا دانلودش توی ساعت رایگان صبر کنین. خب چرا اغلب بسته‌ها رو دانلود نکنیم تا لازم نباشه هر دفعه صبر کنیم؟</p>
+<!-- ادامه -->
+<p><strong>توجه!</strong> همه‌ی فرمان‌های زیر به دسترسی روت نیاز دارن. این ایمیج‌ها شامل بسته‌های <code>non-free</code> نمی‌شن.</p>
+<h4 id="1-dnlwd-ymyjh">۱. دانلود ایمیج‌ها</h4>
+<p>من ۳ تا از DVDهای دبیان ۶۴بیتی رو دانلود کردم و توی پوشه‌ی خونگیم(یعنی <code>/root/</code>) ریختم:</p>
+<pre style="background-color:#2b303b">
+<span style="background-color:#2b303b;color:#bf616a;">root@debian:~#</span><span style="background-color:#2b303b;color:#c0c5ce;"> ls</span><span style="background-color:#2b303b;color:#bf616a;"> -sh1</span><span style="background-color:#2b303b;color:#c0c5ce;"> /root/*.iso
+</span><span style="background-color:#2b303b;color:#bf616a;">3.8G</span><span style="background-color:#2b303b;color:#c0c5ce;"> debian-8.0.0-amd64-DVD-1.iso
+</span><span style="background-color:#2b303b;color:#bf616a;">4.4G</span><span style="background-color:#2b303b;color:#c0c5ce;"> debian-8.0.0-amd64-DVD-2.iso
+</span><span style="background-color:#2b303b;color:#bf616a;">4.4G</span><span style="background-color:#2b303b;color:#c0c5ce;"> debian-8.0.0-amd64-DVD-3.iso
+</span></pre><h4 id="2-swrkhrdn-ymyjh">۲. سوارکردن ایمیج‌ها</h4>
+<p>من ۳ تا ایمیج دارم، پس ۳ تا پوشه برای هرکدوم توی مسیر <code>/mnt/</code> درست می‌کنم:</p>
+<pre style="background-color:#2b303b">
+<span style="background-color:#2b303b;color:#bf616a;">root@debian:~#</span><span style="background-color:#2b303b;color:#c0c5ce;"> mkdir</span><span style="background-color:#2b303b;color:#bf616a;"> -p</span><span style="background-color:#2b303b;color:#c0c5ce;"> /mnt/debian/dvd{1,2,3}
+</span></pre>
+<p>برای این که کار راحت‌تر بشه و نیازی به تایپ دستورهای طولانی نداشته باشیم، یه اسکریپت می‌سازیم که خودش برامون ایمیج‌ها رو سوار کنه. ایمیج‌های من توی <code>/root/</code> هستن. شما باید با توجه به مسیری که ایمیج‌هاتون اونجا هستن خط <code>ISO_DIR=/root</code> رو تغییر بدین:</p>
+<pre style="background-color:#2b303b">
+<span style="background-color:#2b303b;color:#bf616a;">root@debian:~#</span><span style="background-color:#2b303b;color:#c0c5ce;"> cat &gt; /usr/local/sbin/mount-repo
+</span><span style="background-color:#2b303b;color:#65737e;">#!/bin/sh
+</span><span style="background-color:#2b303b;color:#bf616a;">ISO_DIR</span><span style="background-color:#2b303b;color:#c0c5ce;">=</span><span style="background-color:#2b303b;color:#a3be8c;">/root
+</span><span style="background-color:#2b303b;color:#bf616a;">mount -o</span><span style="background-color:#2b303b;color:#c0c5ce;"> loop,ro</span><span style="background-color:#2b303b;color:#bf616a;"> -t</span><span style="background-color:#2b303b;color:#c0c5ce;"> iso9660 $</span><span style="background-color:#2b303b;color:#bf616a;">ISO_DIR</span><span style="background-color:#2b303b;color:#c0c5ce;">/debian-8.0.0-amd64-DVD-1.iso /mnt/debian/dvd1/
+</span><span style="background-color:#2b303b;color:#bf616a;">mount -o</span><span style="background-color:#2b303b;color:#c0c5ce;"> loop,ro</span><span style="background-color:#2b303b;color:#bf616a;"> -t</span><span style="background-color:#2b303b;color:#c0c5ce;"> iso9660 $</span><span style="background-color:#2b303b;color:#bf616a;">ISO_DIR</span><span style="background-color:#2b303b;color:#c0c5ce;">/debian-8.0.0-amd64-DVD-2.iso /mnt/debian/dvd2/
+</span><span style="background-color:#2b303b;color:#bf616a;">mount -o</span><span style="background-color:#2b303b;color:#c0c5ce;"> loop,ro</span><span style="background-color:#2b303b;color:#bf616a;"> -t</span><span style="background-color:#2b303b;color:#c0c5ce;"> iso9660 $</span><span style="background-color:#2b303b;color:#bf616a;">ISO_DIR</span><span style="background-color:#2b303b;color:#c0c5ce;">/debian-8.0.0-amd64-DVD-3.iso /mnt/debian/dvd3/
+</span><span style="background-color:#2b303b;color:#bf616a;">^D
+</span><span style="background-color:#2b303b;color:#bf616a;">root@debian:~#</span><span style="background-color:#2b303b;color:#c0c5ce;"> chmod 744 /usr/local/sbin/mount-repo
+</span><span style="background-color:#2b303b;color:#bf616a;">root@debian:~#</span><span style="background-color:#2b303b;color:#c0c5ce;"> /usr/local/sbin/mount-repo
+</span></pre>
+<p>اگر اسکریپت <code>mount-repo</code> رو داخل <code>cron</code> قرار بدین دیگه نیازی نیست که هر دفعه خودتون اون رو فراخوانی کنین.</p>
+<h4 id="3-tnzym-apt">۳. تنظیم apt</h4>
+<p>چون بسته‌هایی که داخل ایمیج‌ها هستن نیاز من رو برطرف می‌کردن، مخزن‌های راه دور رو کلا حذف کردم؛ اگر شما به مخازن فعلی‌تون نیاز دارین خطوط زیر رو به فایل مخازن apt فقط اضافه کنین. این فایل <code>etc/apt/sources.list/</code> منه:</p>
+<pre style="background-color:#2b303b">
+<span style="background-color:#2b303b;color:#c0c5ce;">deb file:///mnt/debian/dvd1/ jessie contrib main
+</span><span style="background-color:#2b303b;color:#c0c5ce;">deb file:///mnt/debian/dvd2/ jessie contrib main
+</span><span style="background-color:#2b303b;color:#c0c5ce;">deb file:///mnt/debian/dvd3/ jessie contrib main
+</span></pre>
+<p>و در آخر:</p>
+<pre style="background-color:#2b303b">
+<span style="background-color:#2b303b;color:#bf616a;">root@debian:~#</span><span style="background-color:#2b303b;color:#c0c5ce;"> apt-get update
+</span></pre></div>
+</article>
+
+
+	
+	<div class="tags">برچسب‌ها:
+		
+		<a href="!" title="مخزن">مخزن</a>
+		<span>،</span>
+		
+		<a href="!" title="دبیان">دبیان</a>
+		<span>،</span>
+		
+		<a href="!" title="اوبونتو">اوبونتو</a>
+		<span>،</span>
+		
+	</div>
+	
+
+	<div class="share">
+		<span class="message">اشتراک گذاری روی:</span>
+		<span class="button">
+			<a target="_blank" title="تلگرام" href="https://telegram.me/share/url?url=https:&#x2F;&#x2F;mamins1376.github.io&#x2F;blog&#x2F;2015-05-10-local-repo&#x2F;">
+				<img src="https:&#x2F;&#x2F;mamins1376.github.io&#x2F;blog&#x2F;images&#x2F;share&#x2F;telegram.png" alt="تلگرام" />
+			</a>
+		</span>
+		<span class="button">
+			<a target="_blank" title="توئیتر" href="https://twitter.com/home?status=تبدیل ایمیج به مخزن محلی https:&#x2F;&#x2F;mamins1376.github.io&#x2F;blog&#x2F;2015-05-10-local-repo&#x2F;">
+				<img src="https:&#x2F;&#x2F;mamins1376.github.io&#x2F;blog&#x2F;images&#x2F;share&#x2F;twitter.png" alt="توئیتر" />
+			</a>
+		</span>
+		<span class="button">
+			<a target="_blank" title="گوگل پلاس" href="https://plus.google.com/share?url=https:&#x2F;&#x2F;mamins1376.github.io&#x2F;blog&#x2F;2015-05-10-local-repo&#x2F;">
+				<img src="https:&#x2F;&#x2F;mamins1376.github.io&#x2F;blog&#x2F;images&#x2F;share&#x2F;googleplus.png" alt="گوگل پلاس" />
+			</a>
+		</span>
+		<span class="button">
+			<a target="_blank" title="فیس‌بوک" href="https://www.facebook.com/sharer/sharer.php?u=https:&#x2F;&#x2F;mamins1376.github.io&#x2F;blog&#x2F;2015-05-10-local-repo&#x2F;">
+				<img src="https:&#x2F;&#x2F;mamins1376.github.io&#x2F;blog&#x2F;images&#x2F;share&#x2F;facebook.png" alt="فیس‌بوک" />
+			</a>
+		</span>
+	</div>
+
+	
+	<div class="nav text-center">
+		
+		<div class="inline m-block m-full-width text-right">
+			<a href="https:&#x2F;&#x2F;mamins1376.github.io&#x2F;blog&#x2F;2015-05-07-lmms&#x2F;" title="نوشته پیشین">
+				<div class="caption">نوشته پیشین</div>
+				<div class="title">LMMS: خلاقیت به خرج دهید!</div>
+			</a>
+		</div>
+		
+
+		
+		<div class="inline m-block m-full-width text-left">
+			<a href="https:&#x2F;&#x2F;mamins1376.github.io&#x2F;blog&#x2F;2015-05-11-steam-download&#x2F;" title="نوشته پسین">
+				<div class="caption">نوشته پسین</div>
+				<div class="title">دانلود شبانه برای Steam</div>
+			</a>
+		</div>
+		
+	</div>
+	
+
+	
+	<div id="disqus_thread" style="margin-bottom: 1em;"></div>
+	<script type="text/javascript">
+		var disqus_shortname = 'geekylife';
+		var disqus_config = function () { this.language = "fa"; };
+		var disqus_title = "تبدیل ایمیج به مخزن محلی";
+		var disqus_identifier = "2015-05-10-local-repo";
+
+		(function() {
+			var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+			dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+			(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+		})();
+	</script>
+	<noscript>
+		لطفاً برای مشاهده‌ی
+		<a href="https://disqus.com/?ref_noscript" rel="nofollow">دیدگاه‌ها</a>،
+		جاوا اسکریپت را فعال کنید. قدرت گرفته از Disqus
+	</noscript>
+	
+</section>
+
+				</div>
+			</main>
+		</div>
+		<footer class="text-center full-width">
+			<div class="wrapper center">
+				<div class="column inline m-block m-center m-full-width">
+					<div class="title"><strong>زندگی خوره‌ای</strong></div>
+				</div>
+				<div class="column inline m-block m-center m-full-width">
+					<div class="email"><a href="mailto:mamins1376@gmail.com">mamins1376@gmail.com</a></div>
+					<div class="subscribe"><a href="https:&#x2F;&#x2F;mamins1376.github.io&#x2F;blog&#x2F;rss.xml&#x2F;">اشتراک خوراک RSS</a></div>
+				</div>
+				<div class="column inline m-block m-center m-full-width">
+					<div class="license">
+						<a target="_blank" rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.fa"><img class="no-border" alt="مجوز کریتیو کامنز" src="https://licensebuttons.net/l/by-sa/4.0/88x31.png"/></a>
+					</div>
+					<div class="powered-by">با افتخار، نیرو گرفته از <a href="https://www.getgutenberg.io" title="گوتنبرگ">گوتنبرگ</a></div>
+				</div>
+			</div>
+		</footer>
+		<script lang="text/javascript">
+			(function() {
+				// convert post content headings to links
+				var articles = document.getElementsByTagName("article");
+				for (var i = 0; i < articles.length; i++) {
+					var article = articles[i];
+
+					if (!article.classList.contains("post")) {
+						continue;
+					}
+
+					var article_url = article.children[0].children[0].getAttribute("href");
+					var content_elements = article.children[1].children;
+					for (var j = 0; j < content_elements.length; j++) {
+						var heading = content_elements[j];
+
+						var is_heading = false;
+						for (var k = 1; k <= 6; k++) {
+							if (heading.tagName === ("H" + String(k))) {
+								is_heading = true;
+							}
+						}
+
+						if (!is_heading) {
+							continue;
+						}
+
+						var link = document.createElement("a");
+						var heading_id = heading.getAttribute("id");
+						link.setAttribute("href", article_url + "#" + heading_id);
+
+						heading = heading.parentNode.replaceChild(link, heading);
+						link.appendChild(heading);
+					}
+				}
+			})();
+		</script>
+	</body>
+</html>

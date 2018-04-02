@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="fa">
+	<head>
+		<title class="rtl">زندگی خوره‌ای</title>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta http-equiv="content-type" content="text/html; charset=utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+		<link rel="icon" type="image/png" href="https:&#x2F;&#x2F;mamins1376.github.io&#x2F;blog/favicon.png">
+		<link rel="stylesheet" href="https:&#x2F;&#x2F;mamins1376.github.io&#x2F;blog&#x2F;site.css">
+		<link rel="alternate" type="application/rss+xml" title="RSS" href="https:&#x2F;&#x2F;mamins1376.github.io&#x2F;blog&#x2F;rss.xml&#x2F;">
+		
+	</head>
+	<body class="rtl no-margin">
+		<div class="container">
+			<header>
+				<div class="wrapper center m-text-center">
+					<a class="title block" href="https:&#x2F;&#x2F;mamins1376.github.io&#x2F;blog"><strong>زندگی خوره‌ای</strong></a>
+					<span class="description m-block">نتیجه چند تعادل شیمیایی</span>
+					<nav class="inline m-block m-no-padding m-full-width">
+						
+
+						
+
+						
+						<a href="http://telegram.me/mamins1376">تلگرام</a>
+						
+
+						
+
+						
+
+						
+						<a href="https://twitter.com/pyminars">توئیتر</a>
+						
+
+						
+						<a class="page-link" href="https:&#x2F;&#x2F;mamins1376.github.io&#x2F;blog&#x2F;about&#x2F;">درباره</a>
+						
+					</nav>
+				</div>
+			</header>
+			<main>
+				<div class="wrapper center">
+					
+<section class="content">
+<article class="post">
+	<header>
+		<a class="block" href="https:&#x2F;&#x2F;mamins1376.github.io&#x2F;blog&#x2F;about&#x2F;" rel="bookmark"><strong>درباره</strong></a>
+		
+	</header>
+	<div><p>این وبلاگ چارچوب خاصی نداره ولی غالباً به تجربه‌های من در مورد برنامه‌نویسیی
+مربوط می‌شه، از وب گرفته تا امبدد. مطالب شخصی هم این‌جا نوشته می‌شن.</p>
+<p>ایمیل من هم که پایین صفحه هست؛ خجالت نکشین!</p>
+<p>تمام محتویات این وبلاگ تحت مجوز [اختیار-اشتراک مشابه ۴٫۰ بین‌المللی][cc] منتشر می‌شن.
+برای قلم فارسی باید از صابر راستی‌کردار تشکر کنم بابت <a href="https://rastikerdar.github.io/sahel-font/">قلم خوشگل ساحل</a>. قلم انگلیسی
+رو هم از مجموعه قلم <a href="https://github.com/carrois/Fira">Fira</a> استفاده می‌کنم که مال FirefoxOS مرحوم بود.</p>
+</div>
+</article>
+
+</section>
+
+				</div>
+			</main>
+		</div>
+		<footer class="text-center full-width">
+			<div class="wrapper center">
+				<div class="column inline m-block m-center m-full-width">
+					<div class="title"><strong>زندگی خوره‌ای</strong></div>
+				</div>
+				<div class="column inline m-block m-center m-full-width">
+					<div class="email"><a href="mailto:mamins1376@gmail.com">mamins1376@gmail.com</a></div>
+					<div class="subscribe"><a href="https:&#x2F;&#x2F;mamins1376.github.io&#x2F;blog&#x2F;rss.xml&#x2F;">اشتراک خوراک RSS</a></div>
+				</div>
+				<div class="column inline m-block m-center m-full-width">
+					<div class="license">
+						<a target="_blank" rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.fa"><img class="no-border" alt="مجوز کریتیو کامنز" src="https://licensebuttons.net/l/by-sa/4.0/88x31.png"/></a>
+					</div>
+					<div class="powered-by">با افتخار، نیرو گرفته از <a href="https://www.getgutenberg.io" title="گوتنبرگ">گوتنبرگ</a></div>
+				</div>
+			</div>
+		</footer>
+		<script lang="text/javascript">
+			(function() {
+				// convert post content headings to links
+				var articles = document.getElementsByTagName("article");
+				for (var i = 0; i < articles.length; i++) {
+					var article = articles[i];
+
+					if (!article.classList.contains("post")) {
+						continue;
+					}
+
+					var article_url = article.children[0].children[0].getAttribute("href");
+					var content_elements = article.children[1].children;
+					for (var j = 0; j < content_elements.length; j++) {
+						var heading = content_elements[j];
+
+						var is_heading = false;
+						for (var k = 1; k <= 6; k++) {
+							if (heading.tagName === ("H" + String(k))) {
+								is_heading = true;
+							}
+						}
+
+						if (!is_heading) {
+							continue;
+						}
+
+						var link = document.createElement("a");
+						var heading_id = heading.getAttribute("id");
+						link.setAttribute("href", article_url + "#" + heading_id);
+
+						heading = heading.parentNode.replaceChild(link, heading);
+						link.appendChild(heading);
+					}
+				}
+			})();
+		</script>
+	</body>
+</html>

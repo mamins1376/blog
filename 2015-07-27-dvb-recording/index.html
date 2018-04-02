@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="fa">
+	<head>
+		<title class="rtl">زندگی خوره‌ای</title>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta http-equiv="content-type" content="text/html; charset=utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+		<link rel="icon" type="image/png" href="https:&#x2F;&#x2F;mamins1376.github.io&#x2F;blog/favicon.png">
+		<link rel="stylesheet" href="https:&#x2F;&#x2F;mamins1376.github.io&#x2F;blog&#x2F;site.css">
+		<link rel="alternate" type="application/rss+xml" title="RSS" href="https:&#x2F;&#x2F;mamins1376.github.io&#x2F;blog&#x2F;rss.xml&#x2F;">
+		
+	</head>
+	<body class="rtl no-margin">
+		<div class="container">
+			<header>
+				<div class="wrapper center m-text-center">
+					<a class="title block" href="https:&#x2F;&#x2F;mamins1376.github.io&#x2F;blog"><strong>زندگی خوره‌ای</strong></a>
+					<span class="description m-block">نتیجه چند تعادل شیمیایی</span>
+					<nav class="inline m-block m-no-padding m-full-width">
+						
+
+						
+
+						
+						<a href="http://telegram.me/mamins1376">تلگرام</a>
+						
+
+						
+
+						
+
+						
+						<a href="https://twitter.com/pyminars">توئیتر</a>
+						
+
+						
+						<a class="page-link" href="https:&#x2F;&#x2F;mamins1376.github.io&#x2F;blog&#x2F;about&#x2F;">درباره</a>
+						
+					</nav>
+				</div>
+			</header>
+			<main>
+				<div class="wrapper center">
+					
+<section class="content">
+	<article class="post">
+	<header>
+		<a class="block" href="https:&#x2F;&#x2F;mamins1376.github.io&#x2F;blog&#x2F;2015-07-27-dvb-recording&#x2F;" rel="bookmark"><strong>ضبط تلویزیون دیجیتال با mplayer</strong></a>
+		
+		<abbr class="date" title="تاریخ انتشار">2015-07-27</abbr>
+		
+	</header>
+	<div><p>پخش شبکه‌های تلویزیون دیجیتال به آسونی با VLC Media Player انجام می‌شه و به خوبی از پسش برمیاد ولی ممکنه برای ضبط اون به مشکل بخورید یا حداقل کمی اذیت بشید. همچنین با مشکلات کرشی که توی سرور X وجود داره متوقف شدن عملیات ضبط به معنی از دست رفتن برنامه‌ی مورد نظرتونه. برای همین من سراغ mplayer و خط فرمان رفتم. <a href="https://en.wikipedia.org/wiki/Mplayer">mplayer</a> یکی از بهترین پخش کننده‌های آزاده که بی‌شک می‌شه لقب قدرتمندترین پخش کننده رو بهش نسبت داد و البته کارهای بسیار بیش‌تری از یک «پخش‌کننده»ی ساده انجام می‌ده.</p>
+<h2 id="skhn-shbkhhh">اسکن شبکه‌ها</h2>
+<p>برای این کار از برنامه‌ی <a href="http://www.linuxtv.org/wiki/index.php/W_scan">w_scan</a> استفاده می‌کنیم. البته فرض بر اینه که قبلش راه‌اندازهای DVBتون رو نصب کردید.</p>
+<pre style="background-color:#2b303b">
+<span style="background-color:#2b303b;color:#bf616a;">$</span><span style="background-color:#2b303b;color:#c0c5ce;"> sudo apt-get install w-scan mplayer
+</span></pre>
+<p>و بعدش، شبکه ها رو اسکن می‌کنیم و اونها رو توی فایل <code>etc/mplayer/channels.conf/</code> می‌ریزیم.</p>
+<pre style="background-color:#2b303b">
+<span style="background-color:#2b303b;color:#bf616a;">$</span><span style="background-color:#2b303b;color:#c0c5ce;"> w_scan</span><span style="background-color:#2b303b;color:#bf616a;"> -ft -c</span><span style="background-color:#2b303b;color:#c0c5ce;"> IR</span><span style="background-color:#2b303b;color:#bf616a;"> -M </span><span style="background-color:#2b303b;color:#c0c5ce;">&gt; channels.conf
+</span><span style="background-color:#2b303b;color:#bf616a;">$</span><span style="background-color:#2b303b;color:#c0c5ce;"> sudo mv channels.conf /etc/mplayer/
+</span></pre>
+<p><strong>توجه</strong>: اسکن شبکه‌ها برای من حدود ۴ دقیقه طول کشید.</p>
+<h2 id="lyst-shbkhhh">لیست شبکه‌ها</h2>
+<p>با دستور زیر می‌تونید لیست شبکه‌های موجود رو ببینید:</p>
+<pre style="background-color:#2b303b">
+<span style="background-color:#2b303b;color:#bf616a;">$</span><span style="background-color:#2b303b;color:#c0c5ce;"> cut</span><span style="background-color:#2b303b;color:#bf616a;"> -d</span><span style="background-color:#2b303b;color:#96b5b4;">\:</span><span style="background-color:#2b303b;color:#bf616a;"> -f1</span><span style="background-color:#2b303b;color:#c0c5ce;"> /etc/mplayer/channels.conf
+</span></pre><h2 id="dbt">ضبط</h2>
+<p>شبکه‌ی مورد نظرتون رو از لیست بالا انتخاب کنید، برای مثال من شبکه‌ی نمایش (<code>IRIB NAMAYESH</code>) رو انتخاب می‌کنم. چون توی اسم این شبکه فاصله وجود داره، ما مستقیما نمی‌تونیم اون رو بعنوان <em>یک آرگومان</em> به برنامه پاس کنیم. پس یا باید قبل هر فاصله یک اسکیپ (<code>\</code>) قرار بدیم یا کل عبارت رو داخل یک جفت <code>'</code> قرار بدیم. من راه دوم رو انتخاب می‌کنم:</p>
+<pre style="background-color:#2b303b">
+<span style="background-color:#2b303b;color:#bf616a;">$</span><span style="background-color:#2b303b;color:#c0c5ce;"> mplayer</span><span style="background-color:#2b303b;color:#bf616a;"> -dumpstream </span><span style="background-color:#2b303b;color:#c0c5ce;">&#39;</span><span style="background-color:#2b303b;color:#a3be8c;">dvb://IRIB NAMAYESH</span><span style="background-color:#2b303b;color:#c0c5ce;">&#39;</span><span style="background-color:#2b303b;color:#bf616a;"> -dumpfile</span><span style="background-color:#2b303b;color:#c0c5ce;"> Stream.ts
+</span></pre>
+<p>حالا mplayer شروع می‌کنه به ذخیره‌ی اطلاعات دریافت شده از دانگل DVB در فایلی با فرمت TS. این فرمت شامل داده‌های کاملا خام می‌شه و ذاتا حجم خیلی زیادی رو به خودش اختصاص می‌ده.</p>
+<h2 id="pkhsh-stream-ts">پخش Stream.ts</h2>
+<p>از اون‌جایی که TS حاوی داده‌های خام و غیر فشرده‌ست، باید به یک فرمت پخش خوب تبدیلش کنیم تا با پلیرهای عادی روی هر پلتفرمی قابل پخش بشه؛ من mkv رو که یک فرمت آزاده انتخاب و برای تبدیل از <code>avconv</code> استفاده می‌کنم. لازم به ذکره که پروژه‌ی <code>ffmpeg</code>مدت زیادیه که متوقف شده و به avconv ملحق شده. avconv رو می‌تونید توی بسته‌ی <a href="apt://libav-tools">libav-tools</a> پیدا کنین.</p>
+<pre style="background-color:#2b303b">
+<span style="background-color:#2b303b;color:#bf616a;">$</span><span style="background-color:#2b303b;color:#c0c5ce;"> avconv</span><span style="background-color:#2b303b;color:#bf616a;"> -i</span><span style="background-color:#2b303b;color:#c0c5ce;"> Stream.ts Stream.mkv
+</span></pre>
+<p>از برنامه‌های با کیفیت، مفید و فوق‌العاده جدید و ارزشمند IRIB لذت ببرید D:</p>
+</div>
+</article>
+
+
+	
+	<div class="tags">برچسب‌ها:
+		
+		<a href="!" title="linux">linux</a>
+		<span>،</span>
+		
+		<a href="!" title="mplayer">mplayer</a>
+		<span>،</span>
+		
+		<a href="!" title="dvb">dvb</a>
+		<span>،</span>
+		
+		<a href="!" title="dvb-t">dvb-t</a>
+		<span>،</span>
+		
+		<a href="!" title="تلویزیون دیجیتال">تلویزیون دیجیتال</a>
+		<span>،</span>
+		
+		<a href="!" title="ضبط">ضبط</a>
+		<span>،</span>
+		
+	</div>
+	
+
+	<div class="share">
+		<span class="message">اشتراک گذاری روی:</span>
+		<span class="button">
+			<a target="_blank" title="تلگرام" href="https://telegram.me/share/url?url=https:&#x2F;&#x2F;mamins1376.github.io&#x2F;blog&#x2F;2015-07-27-dvb-recording&#x2F;">
+				<img src="https:&#x2F;&#x2F;mamins1376.github.io&#x2F;blog&#x2F;images&#x2F;share&#x2F;telegram.png" alt="تلگرام" />
+			</a>
+		</span>
+		<span class="button">
+			<a target="_blank" title="توئیتر" href="https://twitter.com/home?status=ضبط تلویزیون دیجیتال با mplayer https:&#x2F;&#x2F;mamins1376.github.io&#x2F;blog&#x2F;2015-07-27-dvb-recording&#x2F;">
+				<img src="https:&#x2F;&#x2F;mamins1376.github.io&#x2F;blog&#x2F;images&#x2F;share&#x2F;twitter.png" alt="توئیتر" />
+			</a>
+		</span>
+		<span class="button">
+			<a target="_blank" title="گوگل پلاس" href="https://plus.google.com/share?url=https:&#x2F;&#x2F;mamins1376.github.io&#x2F;blog&#x2F;2015-07-27-dvb-recording&#x2F;">
+				<img src="https:&#x2F;&#x2F;mamins1376.github.io&#x2F;blog&#x2F;images&#x2F;share&#x2F;googleplus.png" alt="گوگل پلاس" />
+			</a>
+		</span>
+		<span class="button">
+			<a target="_blank" title="فیس‌بوک" href="https://www.facebook.com/sharer/sharer.php?u=https:&#x2F;&#x2F;mamins1376.github.io&#x2F;blog&#x2F;2015-07-27-dvb-recording&#x2F;">
+				<img src="https:&#x2F;&#x2F;mamins1376.github.io&#x2F;blog&#x2F;images&#x2F;share&#x2F;facebook.png" alt="فیس‌بوک" />
+			</a>
+		</span>
+	</div>
+
+	
+	<div class="nav text-center">
+		
+		<div class="inline m-block m-full-width text-right">
+			<a href="https:&#x2F;&#x2F;mamins1376.github.io&#x2F;blog&#x2F;2015-07-21-quicklyric&#x2F;" title="نوشته پیشین">
+				<div class="caption">نوشته پیشین</div>
+				<div class="title">معرفی QuickLyric: اشعار همراه</div>
+			</a>
+		</div>
+		
+
+		
+		<div class="inline m-block m-full-width text-left">
+			<a href="https:&#x2F;&#x2F;mamins1376.github.io&#x2F;blog&#x2F;2015-08-05-bananabread&#x2F;" title="نوشته پسین">
+				<div class="caption">نوشته پسین</div>
+				<div class="title">معرفی BananaBread: نان موزی خونین</div>
+			</a>
+		</div>
+		
+	</div>
+	
+
+	
+	<div id="disqus_thread" style="margin-bottom: 1em;"></div>
+	<script type="text/javascript">
+		var disqus_shortname = 'geekylife';
+		var disqus_config = function () { this.language = "fa"; };
+		var disqus_title = "ضبط تلویزیون دیجیتال با mplayer";
+		var disqus_identifier = "2015-07-27-dvb-recording";
+
+		(function() {
+			var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+			dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+			(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+		})();
+	</script>
+	<noscript>
+		لطفاً برای مشاهده‌ی
+		<a href="https://disqus.com/?ref_noscript" rel="nofollow">دیدگاه‌ها</a>،
+		جاوا اسکریپت را فعال کنید. قدرت گرفته از Disqus
+	</noscript>
+	
+</section>
+
+				</div>
+			</main>
+		</div>
+		<footer class="text-center full-width">
+			<div class="wrapper center">
+				<div class="column inline m-block m-center m-full-width">
+					<div class="title"><strong>زندگی خوره‌ای</strong></div>
+				</div>
+				<div class="column inline m-block m-center m-full-width">
+					<div class="email"><a href="mailto:mamins1376@gmail.com">mamins1376@gmail.com</a></div>
+					<div class="subscribe"><a href="https:&#x2F;&#x2F;mamins1376.github.io&#x2F;blog&#x2F;rss.xml&#x2F;">اشتراک خوراک RSS</a></div>
+				</div>
+				<div class="column inline m-block m-center m-full-width">
+					<div class="license">
+						<a target="_blank" rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.fa"><img class="no-border" alt="مجوز کریتیو کامنز" src="https://licensebuttons.net/l/by-sa/4.0/88x31.png"/></a>
+					</div>
+					<div class="powered-by">با افتخار، نیرو گرفته از <a href="https://www.getgutenberg.io" title="گوتنبرگ">گوتنبرگ</a></div>
+				</div>
+			</div>
+		</footer>
+		<script lang="text/javascript">
+			(function() {
+				// convert post content headings to links
+				var articles = document.getElementsByTagName("article");
+				for (var i = 0; i < articles.length; i++) {
+					var article = articles[i];
+
+					if (!article.classList.contains("post")) {
+						continue;
+					}
+
+					var article_url = article.children[0].children[0].getAttribute("href");
+					var content_elements = article.children[1].children;
+					for (var j = 0; j < content_elements.length; j++) {
+						var heading = content_elements[j];
+
+						var is_heading = false;
+						for (var k = 1; k <= 6; k++) {
+							if (heading.tagName === ("H" + String(k))) {
+								is_heading = true;
+							}
+						}
+
+						if (!is_heading) {
+							continue;
+						}
+
+						var link = document.createElement("a");
+						var heading_id = heading.getAttribute("id");
+						link.setAttribute("href", article_url + "#" + heading_id);
+
+						heading = heading.parentNode.replaceChild(link, heading);
+						link.appendChild(heading);
+					}
+				}
+			})();
+		</script>
+	</body>
+</html>

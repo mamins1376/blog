@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="fa">
+	<head>
+		<title class="rtl">زندگی خوره‌ای</title>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta http-equiv="content-type" content="text/html; charset=utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+		<link rel="icon" type="image/png" href="https:&#x2F;&#x2F;mamins1376.github.io&#x2F;blog/favicon.png">
+		<link rel="stylesheet" href="https:&#x2F;&#x2F;mamins1376.github.io&#x2F;blog&#x2F;site.css">
+		<link rel="alternate" type="application/rss+xml" title="RSS" href="https:&#x2F;&#x2F;mamins1376.github.io&#x2F;blog&#x2F;rss.xml&#x2F;">
+		
+	</head>
+	<body class="rtl no-margin">
+		<div class="container">
+			<header>
+				<div class="wrapper center m-text-center">
+					<a class="title block" href="https:&#x2F;&#x2F;mamins1376.github.io&#x2F;blog"><strong>زندگی خوره‌ای</strong></a>
+					<span class="description m-block">نتیجه چند تعادل شیمیایی</span>
+					<nav class="inline m-block m-no-padding m-full-width">
+						
+
+						
+
+						
+						<a href="http://telegram.me/mamins1376">تلگرام</a>
+						
+
+						
+
+						
+
+						
+						<a href="https://twitter.com/pyminars">توئیتر</a>
+						
+
+						
+						<a class="page-link" href="https:&#x2F;&#x2F;mamins1376.github.io&#x2F;blog&#x2F;about&#x2F;">درباره</a>
+						
+					</nav>
+				</div>
+			</header>
+			<main>
+				<div class="wrapper center">
+					
+<section class="content">
+	<article class="post">
+	<header>
+		<a class="block" href="https:&#x2F;&#x2F;mamins1376.github.io&#x2F;blog&#x2F;2015-05-05-apt-get-aria2&#x2F;" rel="bookmark"><strong>آریا۲ و اپت: سرعتی دوچندان</strong></a>
+		
+		<abbr class="date" title="تاریخ انتشار">2015-05-05</abbr>
+		
+	</header>
+	<div><p>یکی از مشکلات کاربران دبیان-بیس‌ها، سرعت apt در امر طاقت‌فرسای دانلوده که باعث می‌شه خیلی‌ها سراغ مواردی مثل apt-fast برن. ما با ترکیب آریا۲ و اپت، یه دانلود کننده‌ی توپ می‌سازیم.</p>
+<!-- ادامه -->
+<p><strong>نکته مهم:</strong> هر دستوری که اولش علامت <code>#</code> رو می‌بینید به دسترسی روت نیاز داره و هر دستوری که اولش علامت <code>$</code> رو داره،‌ یعنی هر کاربری توانایی اجراش رو داره و دسترسی روت لازم نیست.</p>
+<h4 id="1-stkhrj-lynkhh">۱. استخراج لینک‌ها</h4>
+<p>مسلماً بسته‌های دبیان چیزی جز فایل نیستن و apt هم این «فایل»ها رو دانلود می‌کنه. خب وقتی خودش می‌تونه دانلود کنه،‌ چرا ما نتونیم؟ خوش‌بختانه برای همچین‌کاری یه سوئیچ خوب وجود داره:</p>
+<pre style="background-color:#2b303b">
+<span style="background-color:#2b303b;color:#bf616a;">root@debian:~#</span><span style="background-color:#2b303b;color:#c0c5ce;"> apt-get</span><span style="background-color:#2b303b;color:#bf616a;"> -y --print-uris </span><span style="background-color:#2b303b;color:#c0c5ce;">{ install &lt;PACKAGE&gt; | upgrade | ... }
+</span></pre>
+<p>این سوئیچ به apt می‌گه که فقط لینک رو بنویس و بی‌خیال دانلود شو. سوئیچ <code>y</code> هم می‌گه که خودت تائید کن.
+مثلا من guake رو امتحان می‌کنم:</p>
+<pre style="background-color:#2b303b">
+<span style="background-color:#2b303b;color:#bf616a;">root@debian:~#</span><span style="background-color:#2b303b;color:#c0c5ce;"> apt-get</span><span style="background-color:#2b303b;color:#bf616a;"> -y --print-uris</span><span style="background-color:#2b303b;color:#c0c5ce;"> install guake 
+</span><span style="background-color:#2b303b;color:#bf616a;">Reading</span><span style="background-color:#2b303b;color:#c0c5ce;"> package lists... Done
+</span><span style="background-color:#2b303b;color:#bf616a;">Building</span><span style="background-color:#2b303b;color:#c0c5ce;"> dependency tree
+</span><span style="background-color:#2b303b;color:#bf616a;">Reading</span><span style="background-color:#2b303b;color:#c0c5ce;"> state information... Done
+</span><span style="background-color:#2b303b;color:#bf616a;">The</span><span style="background-color:#2b303b;color:#c0c5ce;"> following extra packages will be installed:
+</span><span style="background-color:#2b303b;color:#c0c5ce;">  </span><span style="background-color:#2b303b;color:#bf616a;">python-glade2</span><span style="background-color:#2b303b;color:#c0c5ce;"> python-vte
+</span><span style="background-color:#2b303b;color:#bf616a;">Suggested</span><span style="background-color:#2b303b;color:#c0c5ce;"> packages:
+</span><span style="background-color:#2b303b;color:#c0c5ce;">  </span><span style="background-color:#2b303b;color:#bf616a;">python-gtk2-doc
+</span><span style="background-color:#2b303b;color:#bf616a;">The</span><span style="background-color:#2b303b;color:#c0c5ce;"> following NEW packages will be installed:
+</span><span style="background-color:#2b303b;color:#c0c5ce;">  </span><span style="background-color:#2b303b;color:#bf616a;">guake</span><span style="background-color:#2b303b;color:#c0c5ce;"> python-glade2 python-vte
+</span><span style="background-color:#2b303b;color:#bf616a;">0</span><span style="background-color:#2b303b;color:#c0c5ce;"> upgraded, 3 newly installed, 0 to remove and 0 not upgraded.
+</span><span style="background-color:#2b303b;color:#bf616a;">Need</span><span style="background-color:#2b303b;color:#c0c5ce;"> to get 201 kB of archives.
+</span><span style="background-color:#2b303b;color:#bf616a;">After</span><span style="background-color:#2b303b;color:#c0c5ce;"> this operation, 1,381 kB of additional disk space will be used.
+</span><span style="background-color:#2b303b;color:#c0c5ce;">&#39;</span><span style="background-color:#2b303b;color:#a3be8c;">http://ir.archive.ubuntu.com/ubuntu/pool/main/v/vte/python-vte_0.28.2-5ubuntu1_amd64.deb</span><span style="background-color:#2b303b;color:#c0c5ce;">&#39; python-vte_1%</span><span style="background-color:#2b303b;color:#d08770;">3</span><span style="background-color:#2b303b;color:#c0c5ce;">a0.28.2-5ubuntu1_amd64.deb 21726 MD5Sum:a0b9e19f09fa001ca3e75534a5298c51
+</span><span style="background-color:#2b303b;color:#c0c5ce;">&#39;</span><span style="background-color:#2b303b;color:#a3be8c;">http://ir.archive.ubuntu.com/ubuntu/pool/main/p/pygtk/python-glade2_2.24.0-3ubuntu3_amd64.deb</span><span style="background-color:#2b303b;color:#c0c5ce;">&#39; python-glade2_2.24.0-3ubuntu3_amd64.deb 8744 MD5Sum:1aef0e4a843eac23ffc619bc02382f03
+</span><span style="background-color:#2b303b;color:#c0c5ce;">&#39;</span><span style="background-color:#2b303b;color:#a3be8c;">http://ir.archive.ubuntu.com/ubuntu/pool/universe/g/guake/guake_0.4.4-1ubuntu1_amd64.deb</span><span style="background-color:#2b303b;color:#c0c5ce;">&#39; guake_0.4.4-1ubuntu1_amd64.deb 171024 MD5Sum:a24f28469f7a83debc4aed2ec6ea1515
+</span></pre>
+<p>اطلاعاتی که ما لازم داریم سه خط آخر هستن که وجه اشتراکشون <code>//:http</code> ابتداشونه. پس با <code>grep</code> فیلترشون می‌کنیم:</p>
+<pre style="background-color:#2b303b">
+<span style="background-color:#2b303b;color:#bf616a;">root@debian:~#</span><span style="background-color:#2b303b;color:#c0c5ce;"> apt-get</span><span style="background-color:#2b303b;color:#bf616a;"> --print-uris -y</span><span style="background-color:#2b303b;color:#c0c5ce;"> install guake | </span><span style="background-color:#2b303b;color:#bf616a;">grep </span><span style="background-color:#2b303b;color:#c0c5ce;">&#39;</span><span style="background-color:#2b303b;color:#a3be8c;">http://</span><span style="background-color:#2b303b;color:#c0c5ce;">&#39;
+</span><span style="background-color:#2b303b;color:#c0c5ce;">&#39;</span><span style="background-color:#2b303b;color:#a3be8c;">http://ir.archive.ubuntu.com/ubuntu/pool/main/v/vte/python-vte_0.28.2-5ubuntu1_amd64.deb</span><span style="background-color:#2b303b;color:#c0c5ce;">&#39; python-vte_1%</span><span style="background-color:#2b303b;color:#d08770;">3</span><span style="background-color:#2b303b;color:#c0c5ce;">a0.28.2-5ubuntu1_amd64.deb 21726 MD5Sum:a0b9e19f09fa001ca3e75534a5298c51
+</span><span style="background-color:#2b303b;color:#c0c5ce;">&#39;</span><span style="background-color:#2b303b;color:#a3be8c;">http://ir.archive.ubuntu.com/ubuntu/pool/main/p/pygtk/python-glade2_2.24.0-3ubuntu3_amd64.deb</span><span style="background-color:#2b303b;color:#c0c5ce;">&#39; python-glade2_2.24.0-3ubuntu3_amd64.deb 8744 MD5Sum:1aef0e4a843eac23ffc619bc02382f03
+</span><span style="background-color:#2b303b;color:#c0c5ce;">&#39;</span><span style="background-color:#2b303b;color:#a3be8c;">http://ir.archive.ubuntu.com/ubuntu/pool/universe/g/guake/guake_0.4.4-1ubuntu1_amd64.deb</span><span style="background-color:#2b303b;color:#c0c5ce;">&#39; guake_0.4.4-1ubuntu1_amd64.deb 171024 MD5Sum:a24f28469f7a83debc4aed2ec6ea1515
+</span></pre>
+<p>ولی ما فقط اون قسمتی که لینک فایل توش هست رو نیاز داریم؛ پس اون‌رو هم با <code>cut</code> فیلتر می‌کنیم:</p>
+<pre style="background-color:#2b303b">
+<span style="background-color:#2b303b;color:#bf616a;">root@debian:~#</span><span style="background-color:#2b303b;color:#c0c5ce;"> apt-get</span><span style="background-color:#2b303b;color:#bf616a;"> --print-uris -y</span><span style="background-color:#2b303b;color:#c0c5ce;"> install guake | </span><span style="background-color:#2b303b;color:#bf616a;">grep </span><span style="background-color:#2b303b;color:#c0c5ce;">&#39;</span><span style="background-color:#2b303b;color:#a3be8c;">http://</span><span style="background-color:#2b303b;color:#c0c5ce;">&#39; | </span><span style="background-color:#2b303b;color:#bf616a;">cut -d</span><span style="background-color:#2b303b;color:#96b5b4;">\&#39;</span><span style="background-color:#2b303b;color:#bf616a;"> -f2
+</span><span style="background-color:#2b303b;color:#bf616a;">http://ir.archive.ubuntu.com/ubuntu/pool/main/v/vte/python-vte_0.28.2-5ubuntu1_amd64.deb
+</span><span style="background-color:#2b303b;color:#bf616a;">http://ir.archive.ubuntu.com/ubuntu/pool/main/p/pygtk/python-glade2_2.24.0-3ubuntu3_amd64.deb
+</span><span style="background-color:#2b303b;color:#bf616a;">http://ir.archive.ubuntu.com/ubuntu/pool/universe/g/guake/guake_0.4.4-1ubuntu1_amd64.deb
+</span></pre>
+<p>این‌جا <code>cut</code> متن رو بر اساس کاراکتر ‍<code>'</code> تقسیم می‌کنه. لینکی که ما لازم داریم میشه ستون دوم.<br />
+حالا لینک ها رو داریم. می‌ریزیمشون توی یه فایل به اسم <code>Links.txt</code>:</p>
+<pre style="background-color:#2b303b">
+<span style="background-color:#2b303b;color:#bf616a;">root@debian:~#</span><span style="background-color:#2b303b;color:#c0c5ce;"> apt-get</span><span style="background-color:#2b303b;color:#bf616a;"> --print-uris -y</span><span style="background-color:#2b303b;color:#c0c5ce;"> install guake | </span><span style="background-color:#2b303b;color:#bf616a;">grep </span><span style="background-color:#2b303b;color:#c0c5ce;">&#39;</span><span style="background-color:#2b303b;color:#a3be8c;">http://</span><span style="background-color:#2b303b;color:#c0c5ce;">&#39; | </span><span style="background-color:#2b303b;color:#bf616a;">cut -d</span><span style="background-color:#2b303b;color:#96b5b4;">\&#39;</span><span style="background-color:#2b303b;color:#bf616a;"> -f2 </span><span style="background-color:#2b303b;color:#c0c5ce;">&gt; Links.txt
+</span></pre><h4 id="2-dnlwd-bsthh">۲. دانلود بسته‌ها</h4>
+<p>برای این کار از <code>aria2</code> استفاده می‌کنیم.</p>
+<pre style="background-color:#2b303b">
+<span style="background-color:#2b303b;color:#bf616a;">root@debian:~#</span><span style="background-color:#2b303b;color:#c0c5ce;"> aria2c</span><span style="background-color:#2b303b;color:#bf616a;"> -d</span><span style="background-color:#2b303b;color:#c0c5ce;"> /var/cache/apt/archives/</span><span style="background-color:#2b303b;color:#bf616a;"> -i</span><span style="background-color:#2b303b;color:#c0c5ce;"> Links.txt</span><span style="background-color:#2b303b;color:#bf616a;"> -s</span><span style="background-color:#2b303b;color:#c0c5ce;"> 16</span><span style="background-color:#2b303b;color:#bf616a;"> -x</span><span style="background-color:#2b303b;color:#c0c5ce;"> 16</span><span style="background-color:#2b303b;color:#bf616a;"> -c
+</span></pre>
+<p>سوئیچ <code>d</code> مسیری که فایل‌های دانلود شده در اون ریخته می‌شن رو مشخص می‌کنه. ‍<code>i</code> هم مسیر لینک‌ها رو. بقیه‌ی سوئیچ‌ها هم که رایج هستن و مربوط تعداد اتصال‌ها و سرعت دانلود می‌شن.</p>
+<h4 id="3-nsb-bsth-h">۳. نصب بسته ها</h4>
+<p>همیشه اپت بسته‌ها رو توی مسیر <code>/var/cache/apt/archives/</code> می‌ریزه. خب، ما که خودمون این کار رو با aria2 کردیم! پس دیگه apt نیازی به دانلود نداره.</p>
+<pre style="background-color:#2b303b">
+<span style="background-color:#2b303b;color:#bf616a;">root@debian:~#</span><span style="background-color:#2b303b;color:#c0c5ce;"> apt-get</span><span style="background-color:#2b303b;color:#bf616a;"> -y</span><span style="background-color:#2b303b;color:#c0c5ce;"> install guake
+</span><span style="background-color:#2b303b;color:#bf616a;">Reading</span><span style="background-color:#2b303b;color:#c0c5ce;"> package lists... Done
+</span><span style="background-color:#2b303b;color:#bf616a;">Building</span><span style="background-color:#2b303b;color:#c0c5ce;"> dependency tree
+</span><span style="background-color:#2b303b;color:#bf616a;">Reading</span><span style="background-color:#2b303b;color:#c0c5ce;"> state information... Done
+</span><span style="background-color:#2b303b;color:#bf616a;">The</span><span style="background-color:#2b303b;color:#c0c5ce;"> following extra packages will be installed:
+</span><span style="background-color:#2b303b;color:#c0c5ce;">  </span><span style="background-color:#2b303b;color:#bf616a;">python-glade2</span><span style="background-color:#2b303b;color:#c0c5ce;"> python-vte
+</span><span style="background-color:#2b303b;color:#bf616a;">Suggested</span><span style="background-color:#2b303b;color:#c0c5ce;"> packages:
+</span><span style="background-color:#2b303b;color:#c0c5ce;">  </span><span style="background-color:#2b303b;color:#bf616a;">python-gtk2-doc
+</span><span style="background-color:#2b303b;color:#bf616a;">The</span><span style="background-color:#2b303b;color:#c0c5ce;"> following NEW packages will be installed:
+</span><span style="background-color:#2b303b;color:#c0c5ce;">  </span><span style="background-color:#2b303b;color:#bf616a;">guake</span><span style="background-color:#2b303b;color:#c0c5ce;"> python-glade2 python-vte
+</span><span style="background-color:#2b303b;color:#bf616a;">0</span><span style="background-color:#2b303b;color:#c0c5ce;"> upgraded, 3 newly installed, 0 to remove and 0 not upgraded.
+</span><span style="background-color:#2b303b;color:#bf616a;">Need</span><span style="background-color:#2b303b;color:#c0c5ce;"> to get 0 B/201 kB of archives.
+</span><span style="background-color:#2b303b;color:#bf616a;">After</span><span style="background-color:#2b303b;color:#c0c5ce;"> this operation, 1,381 kB of additional disk space will be used.
+</span><span style="background-color:#2b303b;color:#bf616a;">Selecting</span><span style="background-color:#2b303b;color:#c0c5ce;"> previously unselected package python-vte.
+</span><span style="background-color:#2b303b;color:#c0c5ce;">(</span><span style="background-color:#2b303b;color:#bf616a;">Reading</span><span style="background-color:#2b303b;color:#c0c5ce;"> database ... 240702 files and directories currently installed.)
+</span><span style="background-color:#2b303b;color:#bf616a;">Preparing</span><span style="background-color:#2b303b;color:#c0c5ce;"> to unpack .../python-vte_0.28.2-5ubuntu1_amd64.deb ...
+</span><span style="background-color:#2b303b;color:#bf616a;">Unpacking</span><span style="background-color:#2b303b;color:#c0c5ce;"> python-vte (1:0.28.2-5ubuntu1) ...
+</span><span style="background-color:#2b303b;color:#bf616a;">Selecting</span><span style="background-color:#2b303b;color:#c0c5ce;"> previously unselected package python-glade2.
+</span><span style="background-color:#2b303b;color:#bf616a;">Preparing</span><span style="background-color:#2b303b;color:#c0c5ce;"> to unpack .../python-glade2_2.24.0-3ubuntu3_amd64.deb ...
+</span><span style="background-color:#2b303b;color:#bf616a;">Unpacking</span><span style="background-color:#2b303b;color:#c0c5ce;"> python-glade2 (2.24.0-3ubuntu3) ...
+</span><span style="background-color:#2b303b;color:#bf616a;">Selecting</span><span style="background-color:#2b303b;color:#c0c5ce;"> previously unselected package guake.
+</span><span style="background-color:#2b303b;color:#bf616a;">Preparing</span><span style="background-color:#2b303b;color:#c0c5ce;"> to unpack .../guake_0.4.4-1ubuntu1_amd64.deb ...
+</span><span style="background-color:#2b303b;color:#bf616a;">Unpacking</span><span style="background-color:#2b303b;color:#c0c5ce;"> guake (0.4.4-1ubuntu1) ...
+</span><span style="background-color:#2b303b;color:#bf616a;">Processing</span><span style="background-color:#2b303b;color:#c0c5ce;"> triggers for gconf2 (3.2.6-0ubuntu2) ...
+</span><span style="background-color:#2b303b;color:#bf616a;">Processing</span><span style="background-color:#2b303b;color:#c0c5ce;"> triggers for man-db (2.6.7.1-1ubuntu1) ...
+</span><span style="background-color:#2b303b;color:#bf616a;">Processing</span><span style="background-color:#2b303b;color:#c0c5ce;"> triggers for gnome-menus (3.10.1-0ubuntu2) ...
+</span><span style="background-color:#2b303b;color:#bf616a;">Processing</span><span style="background-color:#2b303b;color:#c0c5ce;"> triggers for desktop-file-utils (0.22-1ubuntu1) ...
+</span><span style="background-color:#2b303b;color:#bf616a;">Processing</span><span style="background-color:#2b303b;color:#c0c5ce;"> triggers for bamfdaemon (0.5.1+14.04.20140409-0ubuntu1) ...
+</span><span style="background-color:#2b303b;color:#bf616a;">Rebuilding</span><span style="background-color:#2b303b;color:#c0c5ce;"> /usr/share/applications/bamf-2.index...
+</span><span style="background-color:#2b303b;color:#bf616a;">Processing</span><span style="background-color:#2b303b;color:#c0c5ce;"> triggers for mime-support (3.54ubuntu1.1) ...
+</span><span style="background-color:#2b303b;color:#bf616a;">Processing</span><span style="background-color:#2b303b;color:#c0c5ce;"> triggers for hicolor-icon-theme (0.13-1) ...
+</span><span style="background-color:#2b303b;color:#bf616a;">Setting</span><span style="background-color:#2b303b;color:#c0c5ce;"> up python-vte (1:0.28.2-5ubuntu1) ...
+</span><span style="background-color:#2b303b;color:#bf616a;">Setting</span><span style="background-color:#2b303b;color:#c0c5ce;"> up python-glade2 (2.24.0-3ubuntu3) ...
+</span><span style="background-color:#2b303b;color:#bf616a;">Setting</span><span style="background-color:#2b303b;color:#c0c5ce;"> up guake (0.4.4-1ubuntu1) ...
+</span></pre>
+<p>در ضمن اگر دیدین بسته‌های زیادی دانلود کردین و حجم زیادی رو اشغال، از شرشون خلاص بشین!</p>
+<pre style="background-color:#2b303b">
+<span style="background-color:#2b303b;color:#bf616a;">root@debian:~#</span><span style="background-color:#2b303b;color:#c0c5ce;"> apt-get clean
+</span></pre>
+<p>موفق باشین.</p>
+</div>
+</article>
+
+
+	
+	<div class="tags">برچسب‌ها:
+		
+		<a href="!" title="aria2">aria2</a>
+		<span>،</span>
+		
+		<a href="!" title="apt-get">apt-get</a>
+		<span>،</span>
+		
+		<a href="!" title="دبیان">دبیان</a>
+		<span>،</span>
+		
+		<a href="!" title="آریا۲">آریا۲</a>
+		<span>،</span>
+		
+	</div>
+	
+
+	<div class="share">
+		<span class="message">اشتراک گذاری روی:</span>
+		<span class="button">
+			<a target="_blank" title="تلگرام" href="https://telegram.me/share/url?url=https:&#x2F;&#x2F;mamins1376.github.io&#x2F;blog&#x2F;2015-05-05-apt-get-aria2&#x2F;">
+				<img src="https:&#x2F;&#x2F;mamins1376.github.io&#x2F;blog&#x2F;images&#x2F;share&#x2F;telegram.png" alt="تلگرام" />
+			</a>
+		</span>
+		<span class="button">
+			<a target="_blank" title="توئیتر" href="https://twitter.com/home?status=آریا۲ و اپت: سرعتی دوچندان https:&#x2F;&#x2F;mamins1376.github.io&#x2F;blog&#x2F;2015-05-05-apt-get-aria2&#x2F;">
+				<img src="https:&#x2F;&#x2F;mamins1376.github.io&#x2F;blog&#x2F;images&#x2F;share&#x2F;twitter.png" alt="توئیتر" />
+			</a>
+		</span>
+		<span class="button">
+			<a target="_blank" title="گوگل پلاس" href="https://plus.google.com/share?url=https:&#x2F;&#x2F;mamins1376.github.io&#x2F;blog&#x2F;2015-05-05-apt-get-aria2&#x2F;">
+				<img src="https:&#x2F;&#x2F;mamins1376.github.io&#x2F;blog&#x2F;images&#x2F;share&#x2F;googleplus.png" alt="گوگل پلاس" />
+			</a>
+		</span>
+		<span class="button">
+			<a target="_blank" title="فیس‌بوک" href="https://www.facebook.com/sharer/sharer.php?u=https:&#x2F;&#x2F;mamins1376.github.io&#x2F;blog&#x2F;2015-05-05-apt-get-aria2&#x2F;">
+				<img src="https:&#x2F;&#x2F;mamins1376.github.io&#x2F;blog&#x2F;images&#x2F;share&#x2F;facebook.png" alt="فیس‌بوک" />
+			</a>
+		</span>
+	</div>
+
+	
+	<div class="nav text-center">
+		
+		<div class="inline m-block m-full-width text-right">
+			<a href="https:&#x2F;&#x2F;mamins1376.github.io&#x2F;blog&#x2F;2015-05-04-rtcwake-cron&#x2F;" title="نوشته پیشین">
+				<div class="caption">نوشته پیشین</div>
+				<div class="title">cron و rtcwake: خواب راحت</div>
+			</a>
+		</div>
+		
+
+		
+		<div class="inline m-block m-full-width text-left">
+			<a href="https:&#x2F;&#x2F;mamins1376.github.io&#x2F;blog&#x2F;2015-05-07-lmms&#x2F;" title="نوشته پسین">
+				<div class="caption">نوشته پسین</div>
+				<div class="title">LMMS: خلاقیت به خرج دهید!</div>
+			</a>
+		</div>
+		
+	</div>
+	
+
+	
+	<div id="disqus_thread" style="margin-bottom: 1em;"></div>
+	<script type="text/javascript">
+		var disqus_shortname = 'geekylife';
+		var disqus_config = function () { this.language = "fa"; };
+		var disqus_title = "آریا۲ و اپت: سرعتی دوچندان";
+		var disqus_identifier = "2015-05-05-apt-get-aria2";
+
+		(function() {
+			var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+			dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+			(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+		})();
+	</script>
+	<noscript>
+		لطفاً برای مشاهده‌ی
+		<a href="https://disqus.com/?ref_noscript" rel="nofollow">دیدگاه‌ها</a>،
+		جاوا اسکریپت را فعال کنید. قدرت گرفته از Disqus
+	</noscript>
+	
+</section>
+
+				</div>
+			</main>
+		</div>
+		<footer class="text-center full-width">
+			<div class="wrapper center">
+				<div class="column inline m-block m-center m-full-width">
+					<div class="title"><strong>زندگی خوره‌ای</strong></div>
+				</div>
+				<div class="column inline m-block m-center m-full-width">
+					<div class="email"><a href="mailto:mamins1376@gmail.com">mamins1376@gmail.com</a></div>
+					<div class="subscribe"><a href="https:&#x2F;&#x2F;mamins1376.github.io&#x2F;blog&#x2F;rss.xml&#x2F;">اشتراک خوراک RSS</a></div>
+				</div>
+				<div class="column inline m-block m-center m-full-width">
+					<div class="license">
+						<a target="_blank" rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.fa"><img class="no-border" alt="مجوز کریتیو کامنز" src="https://licensebuttons.net/l/by-sa/4.0/88x31.png"/></a>
+					</div>
+					<div class="powered-by">با افتخار، نیرو گرفته از <a href="https://www.getgutenberg.io" title="گوتنبرگ">گوتنبرگ</a></div>
+				</div>
+			</div>
+		</footer>
+		<script lang="text/javascript">
+			(function() {
+				// convert post content headings to links
+				var articles = document.getElementsByTagName("article");
+				for (var i = 0; i < articles.length; i++) {
+					var article = articles[i];
+
+					if (!article.classList.contains("post")) {
+						continue;
+					}
+
+					var article_url = article.children[0].children[0].getAttribute("href");
+					var content_elements = article.children[1].children;
+					for (var j = 0; j < content_elements.length; j++) {
+						var heading = content_elements[j];
+
+						var is_heading = false;
+						for (var k = 1; k <= 6; k++) {
+							if (heading.tagName === ("H" + String(k))) {
+								is_heading = true;
+							}
+						}
+
+						if (!is_heading) {
+							continue;
+						}
+
+						var link = document.createElement("a");
+						var heading_id = heading.getAttribute("id");
+						link.setAttribute("href", article_url + "#" + heading_id);
+
+						heading = heading.parentNode.replaceChild(link, heading);
+						link.appendChild(heading);
+					}
+				}
+			})();
+		</script>
+	</body>
+</html>

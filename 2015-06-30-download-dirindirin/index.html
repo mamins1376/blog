@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="fa">
+	<head>
+		<title class="rtl">زندگی خوره‌ای</title>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta http-equiv="content-type" content="text/html; charset=utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+		<link rel="icon" type="image/png" href="https:&#x2F;&#x2F;mamins1376.github.io&#x2F;blog/favicon.png">
+		<link rel="stylesheet" href="https:&#x2F;&#x2F;mamins1376.github.io&#x2F;blog&#x2F;site.css">
+		<link rel="alternate" type="application/rss+xml" title="RSS" href="https:&#x2F;&#x2F;mamins1376.github.io&#x2F;blog&#x2F;rss.xml&#x2F;">
+		
+	</head>
+	<body class="rtl no-margin">
+		<div class="container">
+			<header>
+				<div class="wrapper center m-text-center">
+					<a class="title block" href="https:&#x2F;&#x2F;mamins1376.github.io&#x2F;blog"><strong>زندگی خوره‌ای</strong></a>
+					<span class="description m-block">نتیجه چند تعادل شیمیایی</span>
+					<nav class="inline m-block m-no-padding m-full-width">
+						
+
+						
+
+						
+						<a href="http://telegram.me/mamins1376">تلگرام</a>
+						
+
+						
+
+						
+
+						
+						<a href="https://twitter.com/pyminars">توئیتر</a>
+						
+
+						
+						<a class="page-link" href="https:&#x2F;&#x2F;mamins1376.github.io&#x2F;blog&#x2F;about&#x2F;">درباره</a>
+						
+					</nav>
+				</div>
+			</header>
+			<main>
+				<div class="wrapper center">
+					
+<section class="content">
+	<article class="post">
+	<header>
+		<a class="block" href="https:&#x2F;&#x2F;mamins1376.github.io&#x2F;blog&#x2F;2015-06-30-download-dirindirin&#x2F;" rel="bookmark"><strong>دانلود آخرین قسمت دیرین دیرین از یوتیوب</strong></a>
+		
+		<abbr class="date" title="تاریخ انتشار">2015-06-30</abbr>
+		
+	</header>
+	<div><p><a href="http://dirindirin.ir">دیرین دیرین</a> یکی از انیمیشن‌های محبوب این روزهاست. طنزی  که معضل‌های رایج رو به شکل خنده‌داری نمایش می‌ده. یکی از کارهای رایج من این شده بود که چون در حال حاضر روزانه مرتبا یه انیمیشن دو-سه دقیقه‌ای آپلود می‌کنن، هر روز به <a href="https://www.youtube.com/user/dirindirincartoon">کانال یوتیوب‌شون</a> سر بزنم و ویدئوی جدید رو بگیرم. بیاین این <em>فرآیند تکراری</em> رو اتوماتیکش کنیم!</p>
+<p>یکی از برنامه‌های باحال و مفید <a href="http://youtube-dl.org/">youtube-dl</a>‍ه که با پایتون نوشته شده و فیچرهای بسیاری داره. مثلا می‌شه باهاش کل ویدئوهای یک کانال یا کاربر رو روی اکثر سایت‌های اشتراک ویدئو دانلود کرد یا یه پلی لیست رو جداگانه دانلود کرد، کیفیت رو مشخص کرد و خیلی کارای دیگه.</p>
+<pre style="background-color:#2b303b">
+<span style="background-color:#2b303b;color:#bf616a;">youtube-dl --no-progress --max-downloads</span><span style="background-color:#2b303b;color:#c0c5ce;"> 1</span><span style="background-color:#2b303b;color:#bf616a;"> --proxy </span><span style="background-color:#2b303b;color:#c0c5ce;">$</span><span style="background-color:#2b303b;color:#bf616a;">http_proxy -c -o </span><span style="background-color:#2b303b;color:#c0c5ce;">&#39;</span><span style="background-color:#2b303b;color:#a3be8c;">DirinDirin/%(id)s-%(title)s.%(ext)s</span><span style="background-color:#2b303b;color:#c0c5ce;">&#39;</span><span style="background-color:#2b303b;color:#bf616a;"> --dateafter</span><span style="background-color:#2b303b;color:#c0c5ce;"> now-1day &#39;</span><span style="background-color:#2b303b;color:#a3be8c;">https://www.youtube.com/user/dirindirincartoon</span><span style="background-color:#2b303b;color:#c0c5ce;">&#39;
+</span></pre>
+<p><strong>توضیح</strong>: <code>no-progress</code> که می‌گه نوار پیشرفت رو نشون نده. چون من این فرمان رو توی cron اجرا می‌کنم، متن خروجیش ایمیل می‌شه و اگر نوار پیشرفت فعال باشه، لاگی سرشار از خط های شبیه به هم و بدرد نخور خواهیم داشت :دی <code>max-downloads</code> می‌گه که فقط یه فیلم رو بگیر. وگرنه همه‌ی کانال رو دانلود می‌کنه! پروکسی هم که نیاز به شرح اضافه نداره. <code>c</code> می‌گه اگر فایلی وجود داشت ادامه بده. این دوتا کار برامون انجام می‌ده:</p>
+<ul>
+<li>اگر ویدئویی ناقص دانلود شده بود yt-dl ادامه‌ش می‌ده</li>
+<li>اگر یه ویدئو کامل دانلود شده بود دوباره دانلودش نکنه</li>
+</ul>
+<p>آپشن <code>o</code> قالب و مسیر فایل دانلود شده رو تعیین می‌کنه. مثلا این‌جا، همه‌‌ی دانلودها توی پوشه‌ی DirinDirin ریخته می‌شن که هر فایل با id یوتیوبش شروع می‌شه، یه خط فاصله،‌ عنوان فیلم، نقطه و با پسوند فایل تموم می‌شه. <code>dateafter</code> تقریبا کار اصلی رو انجام می‌ده. می‌گه فقط اگر تاریخ آپلود ویدئو بعد از این تاریخی که مشخص کردم بود دانلودش کن. این تاریخ می‌تونه نسبی یا مطلق باشه. ما گفتیم <code>now-1day</code>، یعنی اگر بین بازه‌ی دیروز تا امروز آپلود شده بود دانلودش کن. و در آخر هم لینک کاربری دیرین دیرین.</p>
+<p><strong>آپدیت</strong>: <a href="https://github.com/rasubuntu/">رسول</a> عزیز زحمت کشیده و این عملیات رو با دیالوگ‌های زنیتی ترکیب کرده و <a href="https://github.com/rasubuntu/yt-dl-script/">روی گیت‌هاب قرار داده</a>.</p>
+</div>
+</article>
+
+
+	
+	<div class="tags">برچسب‌ها:
+		
+		<a href="!" title="دیرین دیرین">دیرین دیرین</a>
+		<span>،</span>
+		
+		<a href="!" title="یوتیوب">یوتیوب</a>
+		<span>،</span>
+		
+	</div>
+	
+
+	<div class="share">
+		<span class="message">اشتراک گذاری روی:</span>
+		<span class="button">
+			<a target="_blank" title="تلگرام" href="https://telegram.me/share/url?url=https:&#x2F;&#x2F;mamins1376.github.io&#x2F;blog&#x2F;2015-06-30-download-dirindirin&#x2F;">
+				<img src="https:&#x2F;&#x2F;mamins1376.github.io&#x2F;blog&#x2F;images&#x2F;share&#x2F;telegram.png" alt="تلگرام" />
+			</a>
+		</span>
+		<span class="button">
+			<a target="_blank" title="توئیتر" href="https://twitter.com/home?status=دانلود آخرین قسمت دیرین دیرین از یوتیوب https:&#x2F;&#x2F;mamins1376.github.io&#x2F;blog&#x2F;2015-06-30-download-dirindirin&#x2F;">
+				<img src="https:&#x2F;&#x2F;mamins1376.github.io&#x2F;blog&#x2F;images&#x2F;share&#x2F;twitter.png" alt="توئیتر" />
+			</a>
+		</span>
+		<span class="button">
+			<a target="_blank" title="گوگل پلاس" href="https://plus.google.com/share?url=https:&#x2F;&#x2F;mamins1376.github.io&#x2F;blog&#x2F;2015-06-30-download-dirindirin&#x2F;">
+				<img src="https:&#x2F;&#x2F;mamins1376.github.io&#x2F;blog&#x2F;images&#x2F;share&#x2F;googleplus.png" alt="گوگل پلاس" />
+			</a>
+		</span>
+		<span class="button">
+			<a target="_blank" title="فیس‌بوک" href="https://www.facebook.com/sharer/sharer.php?u=https:&#x2F;&#x2F;mamins1376.github.io&#x2F;blog&#x2F;2015-06-30-download-dirindirin&#x2F;">
+				<img src="https:&#x2F;&#x2F;mamins1376.github.io&#x2F;blog&#x2F;images&#x2F;share&#x2F;facebook.png" alt="فیس‌بوک" />
+			</a>
+		</span>
+	</div>
+
+	
+	<div class="nav text-center">
+		
+		<div class="inline m-block m-full-width text-right">
+			<a href="https:&#x2F;&#x2F;mamins1376.github.io&#x2F;blog&#x2F;2015-05-28-final-exam-archive&#x2F;" title="نوشته پیشین">
+				<div class="caption">نوشته پیشین</div>
+				<div class="title">آرشیو کردن نمونه سوالات امتحان نهایی</div>
+			</a>
+		</div>
+		
+
+		
+		<div class="inline m-block m-full-width text-left">
+			<a href="https:&#x2F;&#x2F;mamins1376.github.io&#x2F;blog&#x2F;2015-07-03-jekyll-to-pelican&#x2F;" title="نوشته پسین">
+				<div class="caption">نوشته پسین</div>
+				<div class="title">خداحافظ جکیل، سلام پلیکان!</div>
+			</a>
+		</div>
+		
+	</div>
+	
+
+	
+	<div id="disqus_thread" style="margin-bottom: 1em;"></div>
+	<script type="text/javascript">
+		var disqus_shortname = 'geekylife';
+		var disqus_config = function () { this.language = "fa"; };
+		var disqus_title = "دانلود آخرین قسمت دیرین دیرین از یوتیوب";
+		var disqus_identifier = "2015-06-30-download-dirindirin";
+
+		(function() {
+			var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+			dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+			(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+		})();
+	</script>
+	<noscript>
+		لطفاً برای مشاهده‌ی
+		<a href="https://disqus.com/?ref_noscript" rel="nofollow">دیدگاه‌ها</a>،
+		جاوا اسکریپت را فعال کنید. قدرت گرفته از Disqus
+	</noscript>
+	
+</section>
+
+				</div>
+			</main>
+		</div>
+		<footer class="text-center full-width">
+			<div class="wrapper center">
+				<div class="column inline m-block m-center m-full-width">
+					<div class="title"><strong>زندگی خوره‌ای</strong></div>
+				</div>
+				<div class="column inline m-block m-center m-full-width">
+					<div class="email"><a href="mailto:mamins1376@gmail.com">mamins1376@gmail.com</a></div>
+					<div class="subscribe"><a href="https:&#x2F;&#x2F;mamins1376.github.io&#x2F;blog&#x2F;rss.xml&#x2F;">اشتراک خوراک RSS</a></div>
+				</div>
+				<div class="column inline m-block m-center m-full-width">
+					<div class="license">
+						<a target="_blank" rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.fa"><img class="no-border" alt="مجوز کریتیو کامنز" src="https://licensebuttons.net/l/by-sa/4.0/88x31.png"/></a>
+					</div>
+					<div class="powered-by">با افتخار، نیرو گرفته از <a href="https://www.getgutenberg.io" title="گوتنبرگ">گوتنبرگ</a></div>
+				</div>
+			</div>
+		</footer>
+		<script lang="text/javascript">
+			(function() {
+				// convert post content headings to links
+				var articles = document.getElementsByTagName("article");
+				for (var i = 0; i < articles.length; i++) {
+					var article = articles[i];
+
+					if (!article.classList.contains("post")) {
+						continue;
+					}
+
+					var article_url = article.children[0].children[0].getAttribute("href");
+					var content_elements = article.children[1].children;
+					for (var j = 0; j < content_elements.length; j++) {
+						var heading = content_elements[j];
+
+						var is_heading = false;
+						for (var k = 1; k <= 6; k++) {
+							if (heading.tagName === ("H" + String(k))) {
+								is_heading = true;
+							}
+						}
+
+						if (!is_heading) {
+							continue;
+						}
+
+						var link = document.createElement("a");
+						var heading_id = heading.getAttribute("id");
+						link.setAttribute("href", article_url + "#" + heading_id);
+
+						heading = heading.parentNode.replaceChild(link, heading);
+						link.appendChild(heading);
+					}
+				}
+			})();
+		</script>
+	</body>
+</html>

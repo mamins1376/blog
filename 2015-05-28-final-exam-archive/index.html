@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="fa">
+	<head>
+		<title class="rtl">زندگی خوره‌ای</title>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta http-equiv="content-type" content="text/html; charset=utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+		<link rel="icon" type="image/png" href="https:&#x2F;&#x2F;mamins1376.github.io&#x2F;blog/favicon.png">
+		<link rel="stylesheet" href="https:&#x2F;&#x2F;mamins1376.github.io&#x2F;blog&#x2F;site.css">
+		<link rel="alternate" type="application/rss+xml" title="RSS" href="https:&#x2F;&#x2F;mamins1376.github.io&#x2F;blog&#x2F;rss.xml&#x2F;">
+		
+	</head>
+	<body class="rtl no-margin">
+		<div class="container">
+			<header>
+				<div class="wrapper center m-text-center">
+					<a class="title block" href="https:&#x2F;&#x2F;mamins1376.github.io&#x2F;blog"><strong>زندگی خوره‌ای</strong></a>
+					<span class="description m-block">نتیجه چند تعادل شیمیایی</span>
+					<nav class="inline m-block m-no-padding m-full-width">
+						
+
+						
+
+						
+						<a href="http://telegram.me/mamins1376">تلگرام</a>
+						
+
+						
+
+						
+
+						
+						<a href="https://twitter.com/pyminars">توئیتر</a>
+						
+
+						
+						<a class="page-link" href="https:&#x2F;&#x2F;mamins1376.github.io&#x2F;blog&#x2F;about&#x2F;">درباره</a>
+						
+					</nav>
+				</div>
+			</header>
+			<main>
+				<div class="wrapper center">
+					
+<section class="content">
+	<article class="post">
+	<header>
+		<a class="block" href="https:&#x2F;&#x2F;mamins1376.github.io&#x2F;blog&#x2F;2015-05-28-final-exam-archive&#x2F;" rel="bookmark"><strong>آرشیو کردن نمونه سوالات امتحان نهایی</strong></a>
+		
+		<abbr class="date" title="تاریخ انتشار">2015-05-28</abbr>
+		
+	</header>
+	<div><p>الآن فصل امتحاناته و منم خیلی کمتر اینجا می‌نویسم. اخیرا خواستم سوالات امتحانات نهایی رو کامل و یکجا داشته باشم؛ تمیز و مرتب. سایت <a href="http://konkur.in/">کنکور</a> سوالات رو برای دانلود گذاشته ولی چند تا مشکل دارن:</p>
+<ul>
+<li>فایل‌های اضافه داره(لینک و تصویر تبلیغاتی و ...)</li>
+<li>همه‌ی فایل‌ها با فرمت rar هستن که پسورد هم دارن</li>
+<li>خیلی زیادن!</li>
+</ul>
+<p>از اونجا که من هم وقت استخراج تک‌تک اونها رو ندارم هم حالشو، یه اسکریپت نوشتم که این‌کارها رو برام انجام بده. خوش‌بختانه فایل‌های روی سرور اسماشون قاعده داره و منم از همین استفاده می‌کنم تا با داشتن قالب کلی هر لینک، کل فایل‌ها رو در اختیار داشته باشم.</p>
+<p>این اسکریپت بش، کارهای زیر رو برامون انجام میده:</p>
+<ul>
+<li>دانلود فایل‌ها</li>
+<li>استخراجشون. متأسفانه نتونستم با unrar-free کنار بیام و unrar-nonfree رو به کار بردم</li>
+<li>حذف فایل‌های اضافه</li>
+<li>تغییر نام فایل‌ها. تمیز بودن کلا برای من خیلی اهمیت داره ؛)</li>
+<li>و در نهایت آرشیو کردنشون توی یه فایل zip.</li>
+</ul>
+<pre style="background-color:#2b303b">
+<span style="background-color:#2b303b;color:#65737e;">#!/bin/bash
+</span><span style="background-color:#2b303b;color:#bf616a;">EXAM</span><span style="background-color:#2b303b;color:#c0c5ce;">=$</span><span style="background-color:#2b303b;color:#bf616a;">1
+</span><span style="background-color:#2b303b;color:#c0c5ce;">
+</span><span style="background-color:#2b303b;color:#b48ead;">if </span><span style="background-color:#2b303b;color:#96b5b4;">[</span><span style="background-color:#2b303b;color:#c0c5ce;"> x$</span><span style="background-color:#2b303b;color:#bf616a;">EXAM </span><span style="background-color:#2b303b;color:#c0c5ce;">= &quot;</span><span style="background-color:#2b303b;color:#a3be8c;">x</span><span style="background-color:#2b303b;color:#c0c5ce;">&quot; </span><span style="background-color:#2b303b;color:#96b5b4;">]</span><span style="background-color:#2b303b;color:#c0c5ce;">; </span><span style="background-color:#2b303b;color:#b48ead;">then
+</span><span style="background-color:#2b303b;color:#c0c5ce;">  </span><span style="background-color:#2b303b;color:#96b5b4;">echo </span><span style="background-color:#2b303b;color:#c0c5ce;">&#39;</span><span style="background-color:#2b303b;color:#a3be8c;">Please give a name! e.g. Adabiyat</span><span style="background-color:#2b303b;color:#c0c5ce;">&#39;
+</span><span style="background-color:#2b303b;color:#c0c5ce;">  </span><span style="background-color:#2b303b;color:#96b5b4;">exit</span><span style="background-color:#2b303b;color:#c0c5ce;"> 1
+</span><span style="background-color:#2b303b;color:#b48ead;">fi
+</span><span style="background-color:#2b303b;color:#c0c5ce;">
+</span><span style="background-color:#2b303b;color:#65737e;"># 1st: Download
+</span><span style="background-color:#2b303b;color:#b48ead;">for</span><span style="background-color:#2b303b;color:#c0c5ce;"> YEAR </span><span style="background-color:#2b303b;color:#b48ead;">in </span><span style="background-color:#2b303b;color:#c0c5ce;">`</span><span style="background-color:#2b303b;color:#bf616a;">seq</span><span style="background-color:#2b303b;color:#c0c5ce;"> 87 93`
+</span><span style="background-color:#2b303b;color:#b48ead;">do
+</span><span style="background-color:#2b303b;color:#c0c5ce;">  </span><span style="background-color:#2b303b;color:#bf616a;">KHORDAD</span><span style="background-color:#2b303b;color:#c0c5ce;">=</span><span style="background-color:#2b303b;color:#a3be8c;">http://dl.konkur.in/post/Exam/3/</span><span style="background-color:#2b303b;color:#c0c5ce;">$</span><span style="background-color:#2b303b;color:#bf616a;">EXAM</span><span style="background-color:#2b303b;color:#a3be8c;">/Khordad-</span><span style="background-color:#2b303b;color:#c0c5ce;">$</span><span style="background-color:#2b303b;color:#bf616a;">YEAR</span><span style="background-color:#2b303b;color:#a3be8c;">-</span><span style="background-color:#2b303b;color:#c0c5ce;">$</span><span style="background-color:#2b303b;color:#bf616a;">EXAM</span><span style="background-color:#2b303b;color:#a3be8c;">-</span><span style="background-color:#2b303b;color:#c0c5ce;">%</span><span style="background-color:#2b303b;color:#d08770;">5</span><span style="background-color:#2b303b;color:#a3be8c;">Bwww.konkur.in</span><span style="background-color:#2b303b;color:#c0c5ce;">%</span><span style="background-color:#2b303b;color:#d08770;">5</span><span style="background-color:#2b303b;color:#a3be8c;">D.rar
+</span><span style="background-color:#2b303b;color:#c0c5ce;">  </span><span style="background-color:#2b303b;color:#bf616a;">SHAHRIVAR</span><span style="background-color:#2b303b;color:#c0c5ce;">=</span><span style="background-color:#2b303b;color:#a3be8c;">http://dl.konkur.in/post/Exam/3/</span><span style="background-color:#2b303b;color:#c0c5ce;">$</span><span style="background-color:#2b303b;color:#bf616a;">EXAM</span><span style="background-color:#2b303b;color:#a3be8c;">/Shahrivar-</span><span style="background-color:#2b303b;color:#c0c5ce;">$</span><span style="background-color:#2b303b;color:#bf616a;">YEAR</span><span style="background-color:#2b303b;color:#a3be8c;">-</span><span style="background-color:#2b303b;color:#c0c5ce;">$</span><span style="background-color:#2b303b;color:#bf616a;">EXAM</span><span style="background-color:#2b303b;color:#a3be8c;">-</span><span style="background-color:#2b303b;color:#c0c5ce;">%</span><span style="background-color:#2b303b;color:#d08770;">5</span><span style="background-color:#2b303b;color:#a3be8c;">Bwww.konkur.in</span><span style="background-color:#2b303b;color:#c0c5ce;">%</span><span style="background-color:#2b303b;color:#d08770;">5</span><span style="background-color:#2b303b;color:#a3be8c;">D.rar
+</span><span style="background-color:#2b303b;color:#c0c5ce;">  </span><span style="background-color:#2b303b;color:#bf616a;">DEY</span><span style="background-color:#2b303b;color:#c0c5ce;">=</span><span style="background-color:#2b303b;color:#a3be8c;">http://dl.konkur.in/post/Exam/3/</span><span style="background-color:#2b303b;color:#c0c5ce;">$</span><span style="background-color:#2b303b;color:#bf616a;">EXAM</span><span style="background-color:#2b303b;color:#a3be8c;">/Dey-</span><span style="background-color:#2b303b;color:#c0c5ce;">$</span><span style="background-color:#2b303b;color:#bf616a;">YEAR</span><span style="background-color:#2b303b;color:#a3be8c;">-</span><span style="background-color:#2b303b;color:#c0c5ce;">$</span><span style="background-color:#2b303b;color:#bf616a;">EXAM</span><span style="background-color:#2b303b;color:#a3be8c;">-</span><span style="background-color:#2b303b;color:#c0c5ce;">%</span><span style="background-color:#2b303b;color:#d08770;">5</span><span style="background-color:#2b303b;color:#a3be8c;">Bwww.konkur.in</span><span style="background-color:#2b303b;color:#c0c5ce;">%</span><span style="background-color:#2b303b;color:#d08770;">5</span><span style="background-color:#2b303b;color:#a3be8c;">D.rar
+</span><span style="background-color:#2b303b;color:#c0c5ce;">  </span><span style="background-color:#2b303b;color:#bf616a;">wget -c </span><span style="background-color:#2b303b;color:#c0c5ce;">$</span><span style="background-color:#2b303b;color:#bf616a;">KHORDAD </span><span style="background-color:#2b303b;color:#c0c5ce;">&quot;$</span><span style="background-color:#2b303b;color:#bf616a;">SHAHRIVAR</span><span style="background-color:#2b303b;color:#c0c5ce;">&quot; &quot;$</span><span style="background-color:#2b303b;color:#bf616a;">DEY</span><span style="background-color:#2b303b;color:#c0c5ce;">&quot;
+</span><span style="background-color:#2b303b;color:#b48ead;">done
+</span><span style="background-color:#2b303b;color:#c0c5ce;">
+</span><span style="background-color:#2b303b;color:#65737e;"># 2nd: Extract them
+</span><span style="background-color:#2b303b;color:#b48ead;">for</span><span style="background-color:#2b303b;color:#c0c5ce;"> RAR </span><span style="background-color:#2b303b;color:#b48ead;">in </span><span style="background-color:#2b303b;color:#c0c5ce;">*.rar
+</span><span style="background-color:#2b303b;color:#b48ead;">do
+</span><span style="background-color:#2b303b;color:#c0c5ce;">  </span><span style="background-color:#2b303b;color:#bf616a;">unrar</span><span style="background-color:#2b303b;color:#c0c5ce;"> e</span><span style="background-color:#2b303b;color:#bf616a;"> -pwww</span><span style="background-color:#2b303b;color:#c0c5ce;">.konkur.in</span><span style="background-color:#2b303b;color:#bf616a;"> -o</span><span style="background-color:#2b303b;color:#c0c5ce;">+</span><span style="background-color:#2b303b;color:#bf616a;"> -y </span><span style="background-color:#2b303b;color:#c0c5ce;">$</span><span style="background-color:#2b303b;color:#bf616a;">RAR
+</span><span style="background-color:#2b303b;color:#b48ead;">done
+</span><span style="background-color:#2b303b;color:#c0c5ce;">
+</span><span style="background-color:#2b303b;color:#65737e;"># 3rd: Clear area
+</span><span style="background-color:#2b303b;color:#bf616a;">rm </span><span style="background-color:#2b303b;color:#c0c5ce;">*.rar *.URL *.png
+</span><span style="background-color:#2b303b;color:#c0c5ce;">
+</span><span style="background-color:#2b303b;color:#65737e;"># 4th: Clear filenames
+</span><span style="background-color:#2b303b;color:#bf616a;">rename</span><span style="background-color:#2b303b;color:#c0c5ce;"> s/&#39;</span><span style="background-color:#2b303b;color:#a3be8c;">-\[www.konkur.in\]</span><span style="background-color:#2b303b;color:#c0c5ce;">&#39;//g *
+</span><span style="background-color:#2b303b;color:#bf616a;">rename</span><span style="background-color:#2b303b;color:#c0c5ce;"> s/-/</span><span style="background-color:#2b303b;color:#96b5b4;">\ </span><span style="background-color:#2b303b;color:#c0c5ce;">/g *
+</span><span style="background-color:#2b303b;color:#bf616a;">rename</span><span style="background-color:#2b303b;color:#c0c5ce;"> s/</span><span style="background-color:#2b303b;color:#96b5b4;">\ </span><span style="background-color:#2b303b;color:#c0c5ce;">$</span><span style="background-color:#2b303b;color:#bf616a;">EXAM</span><span style="background-color:#2b303b;color:#c0c5ce;">//g *
+</span><span style="background-color:#2b303b;color:#c0c5ce;">
+</span><span style="background-color:#2b303b;color:#65737e;"># finally archive them in zip format
+</span><span style="background-color:#2b303b;color:#b48ead;">for</span><span style="background-color:#2b303b;color:#c0c5ce;"> ITEM </span><span style="background-color:#2b303b;color:#b48ead;">in</span><span style="background-color:#2b303b;color:#c0c5ce;"> Khordad Shahrivar Dey
+</span><span style="background-color:#2b303b;color:#b48ead;">do
+</span><span style="background-color:#2b303b;color:#c0c5ce;">  </span><span style="background-color:#2b303b;color:#bf616a;">mkdir </span><span style="background-color:#2b303b;color:#c0c5ce;">$</span><span style="background-color:#2b303b;color:#bf616a;">ITEM
+</span><span style="background-color:#2b303b;color:#c0c5ce;">  </span><span style="background-color:#2b303b;color:#bf616a;">mv </span><span style="background-color:#2b303b;color:#c0c5ce;">${</span><span style="background-color:#2b303b;color:#bf616a;">ITEM</span><span style="background-color:#2b303b;color:#c0c5ce;">}*.pdf $</span><span style="background-color:#2b303b;color:#bf616a;">ITEM
+</span><span style="background-color:#2b303b;color:#b48ead;">done
+</span><span style="background-color:#2b303b;color:#c0c5ce;">
+</span><span style="background-color:#2b303b;color:#bf616a;">zip -r </span><span style="background-color:#2b303b;color:#c0c5ce;">${</span><span style="background-color:#2b303b;color:#bf616a;">EXAM</span><span style="background-color:#2b303b;color:#c0c5ce;">}.zip Khordad Shahrivar Dey
+</span><span style="background-color:#2b303b;color:#c0c5ce;">
+</span><span style="background-color:#2b303b;color:#bf616a;">rm -rf</span><span style="background-color:#2b303b;color:#c0c5ce;"> Khordad Shahrivar Dey
+</span></pre></div>
+</article>
+
+
+	
+	<div class="tags">برچسب‌ها:
+		
+		<a href="!" title="امتحان نهایی">امتحان نهایی</a>
+		<span>،</span>
+		
+		<a href="!" title="اسکریپت">اسکریپت</a>
+		<span>،</span>
+		
+	</div>
+	
+
+	<div class="share">
+		<span class="message">اشتراک گذاری روی:</span>
+		<span class="button">
+			<a target="_blank" title="تلگرام" href="https://telegram.me/share/url?url=https:&#x2F;&#x2F;mamins1376.github.io&#x2F;blog&#x2F;2015-05-28-final-exam-archive&#x2F;">
+				<img src="https:&#x2F;&#x2F;mamins1376.github.io&#x2F;blog&#x2F;images&#x2F;share&#x2F;telegram.png" alt="تلگرام" />
+			</a>
+		</span>
+		<span class="button">
+			<a target="_blank" title="توئیتر" href="https://twitter.com/home?status=آرشیو کردن نمونه سوالات امتحان نهایی https:&#x2F;&#x2F;mamins1376.github.io&#x2F;blog&#x2F;2015-05-28-final-exam-archive&#x2F;">
+				<img src="https:&#x2F;&#x2F;mamins1376.github.io&#x2F;blog&#x2F;images&#x2F;share&#x2F;twitter.png" alt="توئیتر" />
+			</a>
+		</span>
+		<span class="button">
+			<a target="_blank" title="گوگل پلاس" href="https://plus.google.com/share?url=https:&#x2F;&#x2F;mamins1376.github.io&#x2F;blog&#x2F;2015-05-28-final-exam-archive&#x2F;">
+				<img src="https:&#x2F;&#x2F;mamins1376.github.io&#x2F;blog&#x2F;images&#x2F;share&#x2F;googleplus.png" alt="گوگل پلاس" />
+			</a>
+		</span>
+		<span class="button">
+			<a target="_blank" title="فیس‌بوک" href="https://www.facebook.com/sharer/sharer.php?u=https:&#x2F;&#x2F;mamins1376.github.io&#x2F;blog&#x2F;2015-05-28-final-exam-archive&#x2F;">
+				<img src="https:&#x2F;&#x2F;mamins1376.github.io&#x2F;blog&#x2F;images&#x2F;share&#x2F;facebook.png" alt="فیس‌بوک" />
+			</a>
+		</span>
+	</div>
+
+	
+	<div class="nav text-center">
+		
+		<div class="inline m-block m-full-width text-right">
+			<a href="https:&#x2F;&#x2F;mamins1376.github.io&#x2F;blog&#x2F;2015-05-11-steam-download&#x2F;" title="نوشته پیشین">
+				<div class="caption">نوشته پیشین</div>
+				<div class="title">دانلود شبانه برای Steam</div>
+			</a>
+		</div>
+		
+
+		
+		<div class="inline m-block m-full-width text-left">
+			<a href="https:&#x2F;&#x2F;mamins1376.github.io&#x2F;blog&#x2F;2015-06-30-download-dirindirin&#x2F;" title="نوشته پسین">
+				<div class="caption">نوشته پسین</div>
+				<div class="title">دانلود آخرین قسمت دیرین دیرین از یوتیوب</div>
+			</a>
+		</div>
+		
+	</div>
+	
+
+	
+	<div id="disqus_thread" style="margin-bottom: 1em;"></div>
+	<script type="text/javascript">
+		var disqus_shortname = 'geekylife';
+		var disqus_config = function () { this.language = "fa"; };
+		var disqus_title = "آرشیو کردن نمونه سوالات امتحان نهایی";
+		var disqus_identifier = "2015-05-28-final-exam-archive";
+
+		(function() {
+			var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+			dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+			(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+		})();
+	</script>
+	<noscript>
+		لطفاً برای مشاهده‌ی
+		<a href="https://disqus.com/?ref_noscript" rel="nofollow">دیدگاه‌ها</a>،
+		جاوا اسکریپت را فعال کنید. قدرت گرفته از Disqus
+	</noscript>
+	
+</section>
+
+				</div>
+			</main>
+		</div>
+		<footer class="text-center full-width">
+			<div class="wrapper center">
+				<div class="column inline m-block m-center m-full-width">
+					<div class="title"><strong>زندگی خوره‌ای</strong></div>
+				</div>
+				<div class="column inline m-block m-center m-full-width">
+					<div class="email"><a href="mailto:mamins1376@gmail.com">mamins1376@gmail.com</a></div>
+					<div class="subscribe"><a href="https:&#x2F;&#x2F;mamins1376.github.io&#x2F;blog&#x2F;rss.xml&#x2F;">اشتراک خوراک RSS</a></div>
+				</div>
+				<div class="column inline m-block m-center m-full-width">
+					<div class="license">
+						<a target="_blank" rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.fa"><img class="no-border" alt="مجوز کریتیو کامنز" src="https://licensebuttons.net/l/by-sa/4.0/88x31.png"/></a>
+					</div>
+					<div class="powered-by">با افتخار، نیرو گرفته از <a href="https://www.getgutenberg.io" title="گوتنبرگ">گوتنبرگ</a></div>
+				</div>
+			</div>
+		</footer>
+		<script lang="text/javascript">
+			(function() {
+				// convert post content headings to links
+				var articles = document.getElementsByTagName("article");
+				for (var i = 0; i < articles.length; i++) {
+					var article = articles[i];
+
+					if (!article.classList.contains("post")) {
+						continue;
+					}
+
+					var article_url = article.children[0].children[0].getAttribute("href");
+					var content_elements = article.children[1].children;
+					for (var j = 0; j < content_elements.length; j++) {
+						var heading = content_elements[j];
+
+						var is_heading = false;
+						for (var k = 1; k <= 6; k++) {
+							if (heading.tagName === ("H" + String(k))) {
+								is_heading = true;
+							}
+						}
+
+						if (!is_heading) {
+							continue;
+						}
+
+						var link = document.createElement("a");
+						var heading_id = heading.getAttribute("id");
+						link.setAttribute("href", article_url + "#" + heading_id);
+
+						heading = heading.parentNode.replaceChild(link, heading);
+						link.appendChild(heading);
+					}
+				}
+			})();
+		</script>
+	</body>
+</html>

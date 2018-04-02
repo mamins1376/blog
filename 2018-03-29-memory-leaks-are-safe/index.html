@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="fa">
+	<head>
+		<title class="rtl">زندگی خوره‌ای</title>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta http-equiv="content-type" content="text/html; charset=utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+		<link rel="icon" type="image/png" href="https:&#x2F;&#x2F;mamins1376.github.io&#x2F;blog/favicon.png">
+		<link rel="stylesheet" href="https:&#x2F;&#x2F;mamins1376.github.io&#x2F;blog&#x2F;site.css">
+		<link rel="alternate" type="application/rss+xml" title="RSS" href="https:&#x2F;&#x2F;mamins1376.github.io&#x2F;blog&#x2F;rss.xml&#x2F;">
+		
+	</head>
+	<body class="rtl no-margin">
+		<div class="container">
+			<header>
+				<div class="wrapper center m-text-center">
+					<a class="title block" href="https:&#x2F;&#x2F;mamins1376.github.io&#x2F;blog"><strong>زندگی خوره‌ای</strong></a>
+					<span class="description m-block">نتیجه چند تعادل شیمیایی</span>
+					<nav class="inline m-block m-no-padding m-full-width">
+						
+
+						
+
+						
+						<a href="http://telegram.me/mamins1376">تلگرام</a>
+						
+
+						
+
+						
+
+						
+						<a href="https://twitter.com/pyminars">توئیتر</a>
+						
+
+						
+						<a class="page-link" href="https:&#x2F;&#x2F;mamins1376.github.io&#x2F;blog&#x2F;about&#x2F;">درباره</a>
+						
+					</nav>
+				</div>
+			</header>
+			<main>
+				<div class="wrapper center">
+					
+<section class="content">
+	<article class="post">
+	<header>
+		<a class="block" href="https:&#x2F;&#x2F;mamins1376.github.io&#x2F;blog&#x2F;2018-03-29-memory-leaks-are-safe&#x2F;" rel="bookmark"><strong>کسی نشت حافظه (Memory Leak) رو تضمین نکرده!</strong></a>
+		
+		<abbr class="date" title="تاریخ انتشار">2018-03-29</abbr>
+		
+	</header>
+	<div><p><a href="https://www.rust-lang.org">زبان برنامه‌نویسی Rust</a> این چند وقت خیلی
+سر و صدا کرده. چند وقتیه منم درگیرش شدم و واقعاً دید شما رو نسبت به
+برنامه‌نویسی و روند بازی پردازنده با حافظه تغییر می‌ده. قسمت جالب ماجرا اینه که
+علاوه بر نسبتاً سطح پایین بودن این زبان، ویژگی‌هایی توسط کامپایلر قدرتمندش
+پشتیبانی می‌شه که معمولا توی زبان‌های سطح بالایی مثل پایتون یا جاوا
+دیده می‌شن. این چند ویژگی باعث می‌شن که برنامه‌هایی ایمن داشته باشیم (این حرف
+خیلی کلّیه؛ جلوتر توضیح می‌دم.)</p>
+<h1 id="ymny-y-ny-chy">ایمنی یعنی چی؟</h1>
+<p>ایمنی (safety) یعنی جلوگیری از رخ دادن رفتار تعریف نشده (undefined behaviour).</p>
+<p><a href="https://doc.rust-lang.org/beta/reference/behavior-considered-undefined.html">مرجع زبان راست</a> به هرکدام از این حالت‌ها یک رفتار تعریف نشده می‌گه:</p>
+<ul>
+<li>
+<p>رقابت داده‌ها (Data races): مثلاً دو رشته اجرایی از یک برنامه، روی یک مکان
+مشترک حافظه تغییری ایجاد می‌کنند که باعث تغییر در درستی برنامه می‌شه.</p>
+</li>
+<li>
+<p>رجوع کردن به حافظه تهی (مثلاً <code>NULL*‍</code> در کد C) یا آدرسی از حافظه که محتوای
+اون معتبر نیست:</p>
+</li>
+</ul>
+<pre style="background-color:#2b303b">
+<span style="background-color:#2b303b;color:#b48ead;">int </span><span style="background-color:#2b303b;color:#c0c5ce;">*dangling = </span><span style="background-color:#2b303b;color:#96b5b4;">malloc</span><span style="background-color:#2b303b;color:#c0c5ce;">(sizeof </span><span style="background-color:#2b303b;color:#b48ead;">int</span><span style="background-color:#2b303b;color:#c0c5ce;">);
+</span><span style="background-color:#2b303b;color:#c0c5ce;">*dangling = </span><span style="background-color:#2b303b;color:#d08770;">42</span><span style="background-color:#2b303b;color:#c0c5ce;">; </span><span style="background-color:#2b303b;color:#65737e;">// all good.
+</span><span style="background-color:#2b303b;color:#bf616a;">free</span><span style="background-color:#2b303b;color:#c0c5ce;">(dangling);
+</span><span style="background-color:#2b303b;color:#c0c5ce;">*dangling = -</span><span style="background-color:#2b303b;color:#d08770;">13</span><span style="background-color:#2b303b;color:#c0c5ce;">; </span><span style="background-color:#2b303b;color:#65737e;">// WTF???
+</span></pre>
+<ul>
+<li>تغییر دادن داده غیر قابل تغییر: مثلاً:</li>
+</ul>
+<pre style="background-color:#2b303b">
+<span style="background-color:#2b303b;color:#b48ead;">char </span><span style="background-color:#2b303b;color:#c0c5ce;">*text = &quot;</span><span style="background-color:#2b303b;color:#a3be8c;">I&#39;m a nistake!</span><span style="background-color:#2b303b;color:#c0c5ce;">&quot;;
+</span><span style="background-color:#2b303b;color:#c0c5ce;">text[</span><span style="background-color:#2b303b;color:#d08770;">6</span><span style="background-color:#2b303b;color:#c0c5ce;">] = &#39;</span><span style="background-color:#2b303b;color:#a3be8c;">m</span><span style="background-color:#2b303b;color:#c0c5ce;">&#39;; </span><span style="background-color:#2b303b;color:#65737e;">// well... SegFault!
+</span></pre>
+<ul>
+<li>خواندن حافظه بدون مقداردهی اولیه:</li>
+</ul>
+<pre style="background-color:#2b303b">
+<span style="background-color:#2b303b;color:#b48ead;">int</span><span style="background-color:#2b303b;color:#c0c5ce;"> i;
+</span><span style="background-color:#2b303b;color:#bf616a;">printf</span><span style="background-color:#2b303b;color:#c0c5ce;">(&quot;</span><span style="background-color:#2b303b;color:#a3be8c;">you think </span><span style="background-color:#2b303b;color:#d08770;">%i</span><span style="background-color:#2b303b;color:#a3be8c;"> is always zero?</span><span style="background-color:#2b303b;color:#96b5b4;">\n</span><span style="background-color:#2b303b;color:#c0c5ce;">&quot;, i); </span><span style="background-color:#2b303b;color:#65737e;">// depends on you platform!
+</span></pre>
+<ul>
+<li>و چند مورد دیگه.</li>
+</ul>
+<h1 id="chr-rust-ymnh">چرا Rust ایمنه؟</h1>
+<p>چون کامپایلر Rust از کامپایل شدن کدی با این شرایط جلوگیری می‌کنه. زبان Rust
+به دو قسمت ایمن (safe) و ناایمن (unsafe) تقسیم می‌شه. در واقع، فقط راستِ ایمن
+می‌تونه از بروز رفتار تعریف نشده جلوگیری کنه. ولی خب از اون جایی که توی بعضی شرایط
+(مثل موقعی که دارین کد واقعا سطح پایین می‌نویسین، بگین دستکاری رجیسترهای یک میکروکنترلر)
+به دسترسی مستقیم حافظه نیاز داریم و کامپایلر هم نمی‌تونه تظمین کنه که کاری که می‌کنیم
+موجب رخ دادن همچین وضعیتی نمی‌شه، مجبوریم به حوزه ناایمن راست وارد بشیم. با این کار،
+داریم به کامپایلر می‌گیم که «من می‌دونم دارم چکار می‌کنم. تو از این سر در نمیاری،
+مسئولیتش رو بذار به عهده خودم!».</p>
+<h1 id="w-mdyryt-hfzh">و مدیریت حافظه</h1>
+<p>توی سی‌پلاس‌پلاس مفهومی داریم به اسم RAII، مخفف Resource Acquisition Is Initialization
+نزدیک به معنی <em>دریافت منابع یعنی مقدار دهی اولیه‌ی اون</em>. مثلا دیگه خبری از <code>malloc</code>
+نیست، یعنی اعلان یک متغیر همون مقدار دادن بهشه. توی C این دو مفاهیمی مجزا هستن. یعنی:</p>
+<pre style="background-color:#2b303b">
+<span style="background-color:#2b303b;color:#b48ead;">int</span><span style="background-color:#2b303b;color:#c0c5ce;"> x;
+</span><span style="background-color:#2b303b;color:#c0c5ce;">x = </span><span style="background-color:#2b303b;color:#d08770;">0</span><span style="background-color:#2b303b;color:#c0c5ce;">;
+</span></pre>
+<p>شما می‌تونید از موقعی که متغیرتون رو اعلان کردید هم توش بنویسید هم ازش بخونید.
+مشکل سر قسمت دومه، شما نباید بتونید وقتی چیزی توی متغیرتون ننوشتید ازش بخونید!
+این مفهوم توی Rust به این شکل نمود پیدا می‌کنه:</p>
+<pre style="background-color:#2b303b">
+<span style="background-color:#2b303b;color:#b48ead;">let</span><span style="background-color:#2b303b;color:#c0c5ce;"> x: </span><span style="background-color:#2b303b;color:#b48ead;">i32 </span><span style="background-color:#2b303b;color:#c0c5ce;">= </span><span style="background-color:#2b303b;color:#d08770;">0</span><span style="background-color:#2b303b;color:#c0c5ce;">;
+</span></pre>
+<p>که البته اون قسمت اعلان نوع (<code>i32 :</code>) توسط کامپایلر تشخیص داده می‌شه و نیازی
+بهش نیست. ولی این کد کامپایل نمی‌شه:</p>
+<pre style="background-color:#2b303b">
+<span style="background-color:#2b303b;color:#b48ead;">let</span><span style="background-color:#2b303b;color:#c0c5ce;"> x: </span><span style="background-color:#2b303b;color:#b48ead;">i32</span><span style="background-color:#2b303b;color:#c0c5ce;">;
+</span><span style="background-color:#2b303b;color:#c0c5ce;">println!(&quot;</span><span style="background-color:#2b303b;color:#a3be8c;">let me show you: </span><span style="background-color:#2b303b;color:#d08770;">{}</span><span style="background-color:#2b303b;color:#c0c5ce;">&quot;, x);
+</span></pre>
+<p>خیلی جاها عملی که انجام می‌دیم یه عمل متناظر و متقارن هم داره. مثلا برای تخصیص حافظه،
+رها کردن اون حافظه. باز کردن فایل و بستنش، قفل کردن منبع و رها کردنش.
+قسمت قشنگ‌تر RAII اینه که می‌تونه قسمت دوم کار رو هم برامون انجام بده. مثلا این قسمت رو
+در نظر بگیرید:</p>
+<pre style="background-color:#2b303b">
+<span style="background-color:#2b303b;color:#b48ead;">int </span><span style="background-color:#2b303b;color:#8fa1b3;">main</span><span style="background-color:#2b303b;color:#c0c5ce;">() {
+</span><span style="background-color:#2b303b;color:#c0c5ce;">    </span><span style="background-color:#2b303b;color:#b48ead;">int </span><span style="background-color:#2b303b;color:#c0c5ce;">*i = </span><span style="background-color:#2b303b;color:#96b5b4;">malloc</span><span style="background-color:#2b303b;color:#c0c5ce;">(sizeof </span><span style="background-color:#2b303b;color:#b48ead;">int</span><span style="background-color:#2b303b;color:#c0c5ce;">);
+</span><span style="background-color:#2b303b;color:#c0c5ce;">    </span><span style="background-color:#2b303b;color:#c0c5ce;">*i = </span><span style="background-color:#2b303b;color:#d08770;">24</span><span style="background-color:#2b303b;color:#c0c5ce;">;
+</span><span style="background-color:#2b303b;color:#c0c5ce;">    </span><span style="background-color:#2b303b;color:#b48ead;">return </span><span style="background-color:#2b303b;color:#d08770;">0</span><span style="background-color:#2b303b;color:#c0c5ce;">;
+</span><span style="background-color:#2b303b;color:#c0c5ce;">}
+</span></pre>
+<p>چه اتفاقی افتاد؟ ما یه حافظه درخواست کردیم ولی یادمون رفت آزادش کنیم! درسته که سیستم‌عامل
+بعد از خاتمه برنامه تمام منابع تخصیص داده شده به اون رو آزاد می‌کنه، ولی تصور کنید همچین اتفاقی
+روی یه برنامه سرور رخ بده که مدت زیادی در حال اجراست و برای هر درخواست همچین کاری می‌کنه.
+خودتون حدس بزنید چی می‌شه.</p>
+<p>روی Rust؟ خیلی ساده: هروقت متغیری از دید قسمت در حال اجرا خارج می‌شه (غیر قابل دسترس
+می‌شه) حافظه‌ش هم آزاد می‌شه:</p>
+<pre style="background-color:#2b303b">
+<span style="background-color:#2b303b;color:#b48ead;">fn </span><span style="background-color:#2b303b;color:#8fa1b3;">main</span><span style="background-color:#2b303b;color:#c0c5ce;">() {
+</span><span style="background-color:#2b303b;color:#c0c5ce;">    </span><span style="background-color:#2b303b;color:#b48ead;">let</span><span style="background-color:#2b303b;color:#c0c5ce;"> _i = Box::new(</span><span style="background-color:#2b303b;color:#d08770;">24</span><span style="background-color:#2b303b;color:#c0c5ce;">);
+</span><span style="background-color:#2b303b;color:#c0c5ce;">    </span><span style="background-color:#2b303b;color:#65737e;">// i is dropped right here
+</span><span style="background-color:#2b303b;color:#c0c5ce;">}
+</span></pre><h1 id="w-hl-hrf-sly">و حالا حرف اصلی</h1>
+<p>دوستان زیادی رو توی جامعه راست دیدم که جلوگیری از Memory leak رو یکی از مزایای
+راست می‌دونن. در بسیاری از موارد این حرف به دلیل RAII درسته. کامپایلر معمولاً از
+این که متغیری توی حوزه دید بمونه جلوگیری می‌کنه ولی خب از این که شما یه حلقه از رفرنس‌هایی
+درست کنید که به همدیگه اشاره می‌کنن جلوگیری نمی‌کنه! مثال؟ بفرمایین:</p>
+<pre style="background-color:#2b303b">
+<span style="background-color:#2b303b;color:#b48ead;">use </span><span style="background-color:#2b303b;color:#c0c5ce;">std::rc::Rc;
+</span><span style="background-color:#2b303b;color:#b48ead;">use </span><span style="background-color:#2b303b;color:#c0c5ce;">std::cell::RefCell;
+</span><span style="background-color:#2b303b;color:#c0c5ce;">
+</span><span style="background-color:#2b303b;color:#b48ead;">struct </span><span style="background-color:#2b303b;color:#c0c5ce;">X(RefCell&lt;Option&lt;Rc&lt;X&gt;&gt;&gt;);
+</span><span style="background-color:#2b303b;color:#c0c5ce;">
+</span><span style="background-color:#2b303b;color:#b48ead;">let</span><span style="background-color:#2b303b;color:#c0c5ce;"> x = Rc::new(X(RefCell::new(None)));
+</span><span style="background-color:#2b303b;color:#c0c5ce;">*x.</span><span style="background-color:#2b303b;color:#d08770;">0.</span><span style="background-color:#2b303b;color:#96b5b4;">borrow_mut</span><span style="background-color:#2b303b;color:#c0c5ce;">() = Some(x.</span><span style="background-color:#2b303b;color:#96b5b4;">clone</span><span style="background-color:#2b303b;color:#c0c5ce;">());
+</span><span style="background-color:#2b303b;color:#c0c5ce;">
+</span><span style="background-color:#2b303b;color:#65737e;">// after dropping x, it still has a reference to itself. memory leaked :)
+</span></pre>
+<p>این کد در عین حال که از هیچ بلوک <code>unsafe</code>‍ی استفاده نمی‌کنه، بدون مشکل
+کامپایل و اجرا می‌شه.</p>
+<p>هدف من از گفتن همه‌ی این حرف‌ها این بود: <strong>نشت حافظه یک رفتار تعریف نشده نیست!</strong></p>
+<p>خوش باشین.</p>
+</div>
+</article>
+
+
+	
+	<div class="tags">برچسب‌ها:
+		
+		<a href="!" title="rust">rust</a>
+		<span>،</span>
+		
+		<a href="!" title="memory">memory</a>
+		<span>،</span>
+		
+		<a href="!" title="embedded">embedded</a>
+		<span>،</span>
+		
+		<a href="!" title="safety">safety</a>
+		<span>،</span>
+		
+	</div>
+	
+
+	<div class="share">
+		<span class="message">اشتراک گذاری روی:</span>
+		<span class="button">
+			<a target="_blank" title="تلگرام" href="https://telegram.me/share/url?url=https:&#x2F;&#x2F;mamins1376.github.io&#x2F;blog&#x2F;2018-03-29-memory-leaks-are-safe&#x2F;">
+				<img src="https:&#x2F;&#x2F;mamins1376.github.io&#x2F;blog&#x2F;images&#x2F;share&#x2F;telegram.png" alt="تلگرام" />
+			</a>
+		</span>
+		<span class="button">
+			<a target="_blank" title="توئیتر" href="https://twitter.com/home?status=کسی نشت حافظه (Memory Leak) رو تضمین نکرده! https:&#x2F;&#x2F;mamins1376.github.io&#x2F;blog&#x2F;2018-03-29-memory-leaks-are-safe&#x2F;">
+				<img src="https:&#x2F;&#x2F;mamins1376.github.io&#x2F;blog&#x2F;images&#x2F;share&#x2F;twitter.png" alt="توئیتر" />
+			</a>
+		</span>
+		<span class="button">
+			<a target="_blank" title="گوگل پلاس" href="https://plus.google.com/share?url=https:&#x2F;&#x2F;mamins1376.github.io&#x2F;blog&#x2F;2018-03-29-memory-leaks-are-safe&#x2F;">
+				<img src="https:&#x2F;&#x2F;mamins1376.github.io&#x2F;blog&#x2F;images&#x2F;share&#x2F;googleplus.png" alt="گوگل پلاس" />
+			</a>
+		</span>
+		<span class="button">
+			<a target="_blank" title="فیس‌بوک" href="https://www.facebook.com/sharer/sharer.php?u=https:&#x2F;&#x2F;mamins1376.github.io&#x2F;blog&#x2F;2018-03-29-memory-leaks-are-safe&#x2F;">
+				<img src="https:&#x2F;&#x2F;mamins1376.github.io&#x2F;blog&#x2F;images&#x2F;share&#x2F;facebook.png" alt="فیس‌بوک" />
+			</a>
+		</span>
+	</div>
+
+	
+	<div class="nav text-center">
+		
+		<div class="inline m-block m-full-width text-right">
+			<a href="https:&#x2F;&#x2F;mamins1376.github.io&#x2F;blog&#x2F;2016-09-26-why-i-left-the-debian&#x2F;" title="نوشته پیشین">
+				<div class="caption">نوشته پیشین</div>
+				<div class="title">چرا دبیان رو ترک کردم</div>
+			</a>
+		</div>
+		
+
+		
+	</div>
+	
+
+	
+	<div id="disqus_thread" style="margin-bottom: 1em;"></div>
+	<script type="text/javascript">
+		var disqus_shortname = 'geekylife';
+		var disqus_config = function () { this.language = "fa"; };
+		var disqus_title = "کسی نشت حافظه (Memory Leak) رو تضمین نکرده!";
+		var disqus_identifier = "2018-03-29-memory-leaks-are-safe";
+
+		(function() {
+			var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+			dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+			(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+		})();
+	</script>
+	<noscript>
+		لطفاً برای مشاهده‌ی
+		<a href="https://disqus.com/?ref_noscript" rel="nofollow">دیدگاه‌ها</a>،
+		جاوا اسکریپت را فعال کنید. قدرت گرفته از Disqus
+	</noscript>
+	
+</section>
+
+				</div>
+			</main>
+		</div>
+		<footer class="text-center full-width">
+			<div class="wrapper center">
+				<div class="column inline m-block m-center m-full-width">
+					<div class="title"><strong>زندگی خوره‌ای</strong></div>
+				</div>
+				<div class="column inline m-block m-center m-full-width">
+					<div class="email"><a href="mailto:mamins1376@gmail.com">mamins1376@gmail.com</a></div>
+					<div class="subscribe"><a href="https:&#x2F;&#x2F;mamins1376.github.io&#x2F;blog&#x2F;rss.xml&#x2F;">اشتراک خوراک RSS</a></div>
+				</div>
+				<div class="column inline m-block m-center m-full-width">
+					<div class="license">
+						<a target="_blank" rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.fa"><img class="no-border" alt="مجوز کریتیو کامنز" src="https://licensebuttons.net/l/by-sa/4.0/88x31.png"/></a>
+					</div>
+					<div class="powered-by">با افتخار، نیرو گرفته از <a href="https://www.getgutenberg.io" title="گوتنبرگ">گوتنبرگ</a></div>
+				</div>
+			</div>
+		</footer>
+		<script lang="text/javascript">
+			(function() {
+				// convert post content headings to links
+				var articles = document.getElementsByTagName("article");
+				for (var i = 0; i < articles.length; i++) {
+					var article = articles[i];
+
+					if (!article.classList.contains("post")) {
+						continue;
+					}
+
+					var article_url = article.children[0].children[0].getAttribute("href");
+					var content_elements = article.children[1].children;
+					for (var j = 0; j < content_elements.length; j++) {
+						var heading = content_elements[j];
+
+						var is_heading = false;
+						for (var k = 1; k <= 6; k++) {
+							if (heading.tagName === ("H" + String(k))) {
+								is_heading = true;
+							}
+						}
+
+						if (!is_heading) {
+							continue;
+						}
+
+						var link = document.createElement("a");
+						var heading_id = heading.getAttribute("id");
+						link.setAttribute("href", article_url + "#" + heading_id);
+
+						heading = heading.parentNode.replaceChild(link, heading);
+						link.appendChild(heading);
+					}
+				}
+			})();
+		</script>
+	</body>
+</html>

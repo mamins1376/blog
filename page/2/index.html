@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="fa">
+	<head>
+		<title class="rtl">زندگی خوره‌ای</title>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta http-equiv="content-type" content="text/html; charset=utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+		<link rel="icon" type="image/png" href="https:&#x2F;&#x2F;mamins1376.github.io&#x2F;blog/favicon.png">
+		<link rel="stylesheet" href="https:&#x2F;&#x2F;mamins1376.github.io&#x2F;blog&#x2F;site.css">
+		<link rel="alternate" type="application/rss+xml" title="RSS" href="https:&#x2F;&#x2F;mamins1376.github.io&#x2F;blog&#x2F;rss.xml&#x2F;">
+		
+	</head>
+	<body class="rtl no-margin">
+		<div class="container">
+			<header>
+				<div class="wrapper center m-text-center">
+					<a class="title block" href="https:&#x2F;&#x2F;mamins1376.github.io&#x2F;blog"><strong>زندگی خوره‌ای</strong></a>
+					<span class="description m-block">نتیجه چند تعادل شیمیایی</span>
+					<nav class="inline m-block m-no-padding m-full-width">
+						
+
+						
+
+						
+						<a href="http://telegram.me/mamins1376">تلگرام</a>
+						
+
+						
+
+						
+
+						
+						<a href="https://twitter.com/pyminars">توئیتر</a>
+						
+
+						
+						<a class="page-link" href="https:&#x2F;&#x2F;mamins1376.github.io&#x2F;blog&#x2F;about&#x2F;">درباره</a>
+						
+					</nav>
+				</div>
+			</header>
+			<main>
+				<div class="wrapper center">
+					
+<section class="content">
+	<div class="posts">
+		
+		<article class="post">
+	<header>
+		<a class="block" href="https:&#x2F;&#x2F;mamins1376.github.io&#x2F;blog&#x2F;2015-09-01-get-started-pelican-00&#x2F;" rel="bookmark"><strong>شروع وبلاگ‌نویسی با پلیکان - قسمت صفرم</strong></a>
+		
+		<abbr class="date" title="تاریخ انتشار">2015-09-01</abbr>
+		
+	</header>
+	<div><p>دوستی از من درخواست کردن که آموزشی برای شروع کار با سیستم بلاگینگ استاتیک پلیکان رو تهیه کنم. این قسمت صفرم این آموزش هست و ادامه خواهد داشت.</p>
+<h2 id="nsb">نصب</h2>
+<p>پلیکان هم در پایتون ۲ کار می‌کنه و هم در پایتون ۳. نسخه‌ی پایتون ۲ توسعه داده نمی‌شه و تمرکز بر روی پایتون ۳ هست. پس، اول پایتون ۳ و پیپ رو اگر ندارید، نصب کنید:</p>
+<pre style="background-color:#2b303b">
+<span style="background-color:#2b303b;color:#bf616a;">$</span><span style="background-color:#2b303b;color:#c0c5ce;"> sudo apt-get install python3 python3-pip
+</span></pre>
+<p>و خود پلیکان رو نصب کنید:</p>
+<pre style="background-color:#2b303b">
+<span style="background-color:#2b303b;color:#bf616a;">$</span><span style="background-color:#2b303b;color:#c0c5ce;"> sudo pip3 install pelican
+</span></pre><h2 id="ntkhb-qlb-mhtwy-khm">انتخاب قالب محتوای خام</h2>
+<p>پلیکان برای ورودی داده‌هایی که قراره به صورت یک صفحه‌ی مجزا ساخته بشن، دو قالب کلی رو پشتیبانی می‌کنه:</p>
+<ul>
+<li>reStructuredText</li>
+<li>Markdown</li>
+</ul>
+<p>اگر شما تصمیم گرفتید که از قالب مارک‌داون استفاده کنید، باید markdown رو هم نصب کنید:</p>
+<pre style="background-color:#2b303b">
+<span style="background-color:#2b303b;color:#bf616a;">$</span><span style="background-color:#2b303b;color:#c0c5ce;"> sudo pip3 install markdown
+</span></pre><h2 id="amdhszy-pwshhy-ryshhy-wblg">آماده‌سازی پوشه‌ی ریشه‌ی وبلاگ</h2>
+<p>پوشه‌ای درست می‌کنیم. این پوشه، ریشه‌ی وبلاگ ما خواهد بود: همه‌ی مطالب، مضمون‌ها، تنظیمات، سایت تولید شده و ... این‌جا قرار خواهند داشت.</p>
+<pre style="background-color:#2b303b">
+<span style="background-color:#2b303b;color:#bf616a;">$</span><span style="background-color:#2b303b;color:#c0c5ce;"> mkdir</span><span style="background-color:#2b303b;color:#bf616a;"> -p</span><span style="background-color:#2b303b;color:#c0c5ce;"> MyBlog
+</span><span style="background-color:#2b303b;color:#bf616a;">$</span><span style="background-color:#2b303b;color:#c0c5ce;"> cd MyBlog
+</span></pre>
+<p>پلیکان، پرونده‌های اولیه‌ی مورد نیاز رو ایجاد می‌کنه:</p>
+<pre style="background-color:#2b303b">
+<span style="background-color:#2b303b;color:#bf616a;">$</span><span style="background-color:#2b303b;color:#c0c5ce;"> pelican-quickstart 
+</span><span style="background-color:#2b303b;color:#bf616a;">Welcome</span><span style="background-color:#2b303b;color:#c0c5ce;"> to pelican-quickstart.
+</span><span style="background-color:#2b303b;color:#c0c5ce;">
+</span><span style="background-color:#2b303b;color:#bf616a;">This</span><span style="background-color:#2b303b;color:#c0c5ce;"> script will help you create a new Pelican-based website.
+</span><span style="background-color:#2b303b;color:#c0c5ce;">
+</span><span style="background-color:#2b303b;color:#bf616a;">Please</span><span style="background-color:#2b303b;color:#c0c5ce;"> answer the following questions so this script can generate the files needed by Pelican.
+</span></pre>
+<p>تک تک سؤالاتی که می‌شوند را بررسی می‌کنیم:</p>
+<pre style="background-color:#2b303b">
+<span style="background-color:#2b303b;color:#c0c5ce;">Where do you want to create your new web site? [.] .
+</span></pre>
+<p>نشانی پوشه‌ای که قرار است پرونده‌ها در آن ایجاد شوند درخواست می‌شود. <code>.</code>، به پوشه‌ای که هم‌اکنون آن را درست کردیم اشاره می‌کند.</p>
+<pre style="background-color:#2b303b">
+<span style="background-color:#2b303b;color:#c0c5ce;">What will be the title of this web site?
+</span></pre>
+<p>عنوانی که برای وبلاگ استفاده خواهد شد پرسیده می‌شود. دقت کنید که وبلاگ شما با این نام شناخته خواهد شد و در سرتاسر آن به‌کار خواهد رفت.</p>
+<pre style="background-color:#2b303b">
+<span style="background-color:#2b303b;color:#c0c5ce;">Who will be the author of this web site?
+</span></pre>
+<p>نام نویسنده(معمولا شما). در صورتی که در ابرداده‌های مطلب‌ها نام نویسنده درج نشود، از این نام استفاده می‌شود.</p>
+<pre style="background-color:#2b303b">
+<span style="background-color:#2b303b;color:#c0c5ce;">What will be the default language of this web site? [en]
+</span></pre>
+<p>زبان پیش‌فرض وبلاگ. برای انتخاب زبان پارسی، <code>fa</code> را وارد کنید.</p>
+<pre style="background-color:#2b303b">
+<span style="background-color:#2b303b;color:#c0c5ce;">Do you want to specify a URL prefix? e.g., http://example.com   (Y/n)
+</span></pre>
+<p>می‌پرسد که می‌خواهید یک دامنه به این وبلاگ اختصاص دهم؟ این دامنه زمانی استفاده می‌شود که بخواهید از پیوندهای مطلق به جای نسبی استفاده کنید. توصیه می‌شود بله گفته و نشانی ریشه‌ی وبلاگ‌تان را وارد کنید. مثلا برای وبلاگ من:</p>
+<pre style="background-color:#2b303b">
+<span style="background-color:#2b303b;color:#c0c5ce;">http://mamins1376.github.io/weblog
+</span></pre>
+<p>نکته‌ای که باید مد نظر داشته باشید، این است که پایان عبارت به <code>/</code> ختم نشود زیرا هنگام تولید سایت، موجب می‌شود که دوتا <code>/</code> پشت هم قرار گیرند. پلیکان در صورت نیاز خودش <code>/</code> را قرار می‌دهد.</p>
+<pre style="background-color:#2b303b">
+<span style="background-color:#2b303b;color:#c0c5ce;">Do you want to enable article pagination? (Y/n)
+</span></pre>
+<p>می‌خواهید صفحه‌بندی ایجاد شود؟ در صورتی که به این پرسش نه بگویید، همه‌ی پست‌ها در صفحه‌ی اول وبلاگ قرار می‌گیرند. در غیر این صورت، به ازای هر ده پست، یک صفحه‌ی جدید ایجاد می‌شود.</p>
+<pre style="background-color:#2b303b">
+<span style="background-color:#2b303b;color:#c0c5ce;">How many articles per page do you want? [10]
+</span></pre>
+<p>بیش‌ترین تعداد مطلب‌هایی که در یک صفحه قرار خواهند داشت این‌جا مشخص می‌شود.</p>
+<pre style="background-color:#2b303b">
+<span style="background-color:#2b303b;color:#c0c5ce;">What is your time zone? [Europe/Paris]
+</span></pre>
+<p>منطقه‌ی زمانی نویسنده که تمام زمان‌بندی‌ها بر اساس آن تعیین می‌شود. برای تهران، عبارت <code>Asia/Tehran</code> را وارد کنید.</p>
+<pre style="background-color:#2b303b">
+<span style="background-color:#2b303b;color:#c0c5ce;">Do you want to generate a Fabfile/Makefile to automate generation and publishing? (Y/n)
+</span></pre>
+<p>Makefileها به ما کمک می‌کنند تا از نوشتن عبارت‌های طولانی پرهیز کنیم و خلاصه‌ای برای هر دستور در حالت‌های عمومی و خاص درست می‌کند.</p>
+<p>در قسمت‌های بعدی، به ادامه‌ی این مجموعه می‌پردازم.</p>
+</div>
+</article>
+
+		
+		<article class="post">
+	<header>
+		<a class="block" href="https:&#x2F;&#x2F;mamins1376.github.io&#x2F;blog&#x2F;2015-08-20-moving-to-mkv&#x2F;" rel="bookmark"><strong>مهاجرت به قالب ماتروسکا</strong></a>
+		
+		<abbr class="date" title="تاریخ انتشار">2015-08-20</abbr>
+		
+	</header>
+	<div><p>به قصد پاکسازی سیستمم، تصمیم گرفتم تا جای ممکن از قالب‌ها، نرم‌افزارها و مجوزهای آزاد استفاده کنم. در راستای این مهم، <a href="https://fa.wikipedia.org/wiki/%D9%85%D8%A7%D8%AA%D8%B1%D9%88%D8%B3%DA%A9%D8%A7">ماتروسکا</a> رو برای پرونده‌های تصویری انتخاب کردم. قالب خیلی جالبیه و همه‌جا هم به راحتی قابل پخشه و البته شناخته شده(با پسوند mkv). یکی از مزایایی هم که داره کم‌تر بودن حجمش نسبت به امپگ هست. اسکریپتی برای پاکسازی سیستم از قالب منحوس و شوم(!) MP4 نوشتم که تقریبا هوشمندانه عمل می‌کنه. البته به قول <a href="http://jadi.net/">جادی</a>، ما هر چیزی رو که براش if می‌ذاریم بهش می‌گیم هوشمند :)</p>
+<p>نحوه‌ی کار به این صورته که <code>find</code>، پرونده‌هایی رو که پسوند MP4 دارند رو داخل پوشه‌ی Videos در پوشه‌ی خانگی کاربر جاری پیدا می‌کنه و با یه حلقه‌ی <code>for</code> مانند (که با <code>while</code> پیاده شده)، تابع <code>convert_to_mkv</code> رو به ازای هر کدوم از این پرونده‌ها صدا می‌زنه. این تابع، موظفه که برنامه‌ی <code>avconv</code> رو اجرا کنه که عمل اصلی تبدیل رو انجام می‌ده. بقیه‌ی کارها هم مختص فرستادن نامه به کاربره که گزارش تبدیل رو به کاربر جاری ایمیل می‌کنه.</p>
+<pre style="background-color:#2b303b">
+<span style="background-color:#2b303b;color:#65737e;">#!/bin/sh
+</span><span style="background-color:#2b303b;color:#65737e;"># make cron usage easy :)
+</span><span style="background-color:#2b303b;color:#b48ead;">export </span><span style="background-color:#2b303b;color:#bf616a;">PATH</span><span style="background-color:#2b303b;color:#c0c5ce;">=</span><span style="background-color:#2b303b;color:#a3be8c;">/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+</span><span style="background-color:#2b303b;color:#65737e;"># go to the user&#39;s videos directory
+</span><span style="background-color:#2b303b;color:#96b5b4;">cd</span><span style="background-color:#2b303b;color:#c0c5ce;"> /home/$</span><span style="background-color:#2b303b;color:#bf616a;">USER</span><span style="background-color:#2b303b;color:#c0c5ce;">/Videos/
+</span><span style="background-color:#2b303b;color:#c0c5ce;">
+</span><span style="background-color:#2b303b;color:#65737e;"># this function converts given filename
+</span><span style="background-color:#2b303b;color:#8fa1b3;">convert_to_mkv</span><span style="background-color:#2b303b;color:#c0c5ce;">() {
+</span><span style="background-color:#2b303b;color:#c0c5ce;">  </span><span style="background-color:#2b303b;color:#bf616a;">INPUT</span><span style="background-color:#2b303b;color:#c0c5ce;">=&quot;$</span><span style="background-color:#2b303b;color:#bf616a;">1</span><span style="background-color:#2b303b;color:#c0c5ce;">&quot;
+</span><span style="background-color:#2b303b;color:#c0c5ce;">  </span><span style="background-color:#2b303b;color:#bf616a;">OUTPUT</span><span style="background-color:#2b303b;color:#c0c5ce;">=&quot;$</span><span style="background-color:#2b303b;color:#a3be8c;">(</span><span style="background-color:#2b303b;color:#96b5b4;">echo </span><span style="background-color:#2b303b;color:#c0c5ce;">$</span><span style="background-color:#2b303b;color:#bf616a;">1 </span><span style="background-color:#2b303b;color:#c0c5ce;">| </span><span style="background-color:#2b303b;color:#bf616a;">sed -r -e </span><span style="background-color:#2b303b;color:#c0c5ce;">&#39;</span><span style="background-color:#2b303b;color:#a3be8c;">s/\.\w+$/.mkv/</span><span style="background-color:#2b303b;color:#c0c5ce;">&#39;</span><span style="background-color:#2b303b;color:#a3be8c;">)</span><span style="background-color:#2b303b;color:#c0c5ce;">&quot;
+</span><span style="background-color:#2b303b;color:#c0c5ce;">  </span><span style="background-color:#2b303b;color:#bf616a;">avconv -v</span><span style="background-color:#2b303b;color:#c0c5ce;"> info</span><span style="background-color:#2b303b;color:#bf616a;"> -i </span><span style="background-color:#2b303b;color:#c0c5ce;">&quot;$</span><span style="background-color:#2b303b;color:#bf616a;">INPUT</span><span style="background-color:#2b303b;color:#c0c5ce;">&quot;</span><span style="background-color:#2b303b;color:#bf616a;"> -c</span><span style="background-color:#2b303b;color:#c0c5ce;">:v libx264</span><span style="background-color:#2b303b;color:#bf616a;"> -f</span><span style="background-color:#2b303b;color:#c0c5ce;"> matroska &quot;$</span><span style="background-color:#2b303b;color:#bf616a;">OUTPUT</span><span style="background-color:#2b303b;color:#c0c5ce;">&quot;
+</span><span style="background-color:#2b303b;color:#c0c5ce;">}
+</span><span style="background-color:#2b303b;color:#c0c5ce;">
+</span><span style="background-color:#2b303b;color:#65737e;"># find any mp4 and kill it!
+</span><span style="background-color:#2b303b;color:#bf616a;">find</span><span style="background-color:#2b303b;color:#c0c5ce;"> .</span><span style="background-color:#2b303b;color:#bf616a;"> -type</span><span style="background-color:#2b303b;color:#c0c5ce;"> f</span><span style="background-color:#2b303b;color:#bf616a;"> -name </span><span style="background-color:#2b303b;color:#c0c5ce;">&#39;</span><span style="background-color:#2b303b;color:#a3be8c;">*.mp4</span><span style="background-color:#2b303b;color:#c0c5ce;">&#39; | </span><span style="background-color:#2b303b;color:#b48ead;">while </span><span style="background-color:#2b303b;color:#96b5b4;">read</span><span style="background-color:#2b303b;color:#c0c5ce;"> FULL_PATH; </span><span style="background-color:#2b303b;color:#b48ead;">do
+</span><span style="background-color:#2b303b;color:#c0c5ce;">  </span><span style="background-color:#2b303b;color:#bf616a;">FILE</span><span style="background-color:#2b303b;color:#c0c5ce;">=&quot;$</span><span style="background-color:#2b303b;color:#a3be8c;">(</span><span style="background-color:#2b303b;color:#96b5b4;">echo </span><span style="background-color:#2b303b;color:#c0c5ce;">&quot;$</span><span style="background-color:#2b303b;color:#bf616a;">FULL_PATH</span><span style="background-color:#2b303b;color:#c0c5ce;">&quot; | </span><span style="background-color:#2b303b;color:#bf616a;">sed </span><span style="background-color:#2b303b;color:#c0c5ce;">&#39;</span><span style="background-color:#2b303b;color:#a3be8c;">s/\.\///</span><span style="background-color:#2b303b;color:#c0c5ce;">&#39;</span><span style="background-color:#2b303b;color:#a3be8c;">)</span><span style="background-color:#2b303b;color:#c0c5ce;">&quot;
+</span><span style="background-color:#2b303b;color:#c0c5ce;">  </span><span style="background-color:#2b303b;color:#bf616a;">LOGFILE</span><span style="background-color:#2b303b;color:#c0c5ce;">=&quot;$</span><span style="background-color:#2b303b;color:#a3be8c;">(</span><span style="background-color:#2b303b;color:#bf616a;">basename </span><span style="background-color:#2b303b;color:#c0c5ce;">&quot;$</span><span style="background-color:#2b303b;color:#a3be8c;">{</span><span style="background-color:#2b303b;color:#bf616a;">FILE</span><span style="background-color:#2b303b;color:#a3be8c;">}</span><span style="background-color:#2b303b;color:#c0c5ce;">&quot; | </span><span style="background-color:#2b303b;color:#bf616a;">sed -e </span><span style="background-color:#2b303b;color:#c0c5ce;">&#39;</span><span style="background-color:#2b303b;color:#a3be8c;">s/ /_/g</span><span style="background-color:#2b303b;color:#c0c5ce;">&#39;</span><span style="background-color:#2b303b;color:#bf616a;"> -e </span><span style="background-color:#2b303b;color:#c0c5ce;">&#39;</span><span style="background-color:#2b303b;color:#a3be8c;">s/mp4$/log/</span><span style="background-color:#2b303b;color:#c0c5ce;">&#39;</span><span style="background-color:#2b303b;color:#a3be8c;">)</span><span style="background-color:#2b303b;color:#c0c5ce;">&quot;
+</span><span style="background-color:#2b303b;color:#c0c5ce;">  </span><span style="background-color:#2b303b;color:#b48ead;">if </span><span style="background-color:#2b303b;color:#bf616a;">convert_to_mkv </span><span style="background-color:#2b303b;color:#c0c5ce;">&quot;$</span><span style="background-color:#2b303b;color:#bf616a;">FILE</span><span style="background-color:#2b303b;color:#c0c5ce;">&quot; &lt; /dev/null &gt;&gt; &quot;$</span><span style="background-color:#2b303b;color:#bf616a;">LOGFILE</span><span style="background-color:#2b303b;color:#c0c5ce;">&quot; </span><span style="background-color:#2b303b;color:#d08770;">2</span><span style="background-color:#2b303b;color:#c0c5ce;">&gt;&amp;</span><span style="background-color:#2b303b;color:#d08770;">1</span><span style="background-color:#2b303b;color:#c0c5ce;">; </span><span style="background-color:#2b303b;color:#b48ead;">then
+</span><span style="background-color:#2b303b;color:#c0c5ce;">    </span><span style="background-color:#2b303b;color:#96b5b4;">echo </span><span style="background-color:#2b303b;color:#c0c5ce;">&quot;$</span><span style="background-color:#2b303b;color:#bf616a;">FILE</span><span style="background-color:#2b303b;color:#a3be8c;"> converting successfully finished. see attachment for details.</span><span style="background-color:#2b303b;color:#c0c5ce;">&quot; | </span><span style="background-color:#2b303b;color:#bf616a;">mail -A </span><span style="background-color:#2b303b;color:#c0c5ce;">&quot;$</span><span style="background-color:#2b303b;color:#bf616a;">LOGFILE</span><span style="background-color:#2b303b;color:#c0c5ce;">&quot;</span><span style="background-color:#2b303b;color:#bf616a;"> -s </span><span style="background-color:#2b303b;color:#c0c5ce;">&#39;</span><span style="background-color:#2b303b;color:#a3be8c;">Converting Finished</span><span style="background-color:#2b303b;color:#c0c5ce;">&#39; $</span><span style="background-color:#2b303b;color:#bf616a;">USER
+</span><span style="background-color:#2b303b;color:#c0c5ce;">    </span><span style="background-color:#2b303b;color:#bf616a;">rm </span><span style="background-color:#2b303b;color:#c0c5ce;">&quot;$</span><span style="background-color:#2b303b;color:#bf616a;">LOGFILE</span><span style="background-color:#2b303b;color:#c0c5ce;">&quot; &quot;$</span><span style="background-color:#2b303b;color:#a3be8c;">{</span><span style="background-color:#2b303b;color:#bf616a;">FILE</span><span style="background-color:#2b303b;color:#a3be8c;">}</span><span style="background-color:#2b303b;color:#c0c5ce;">&quot;
+</span><span style="background-color:#2b303b;color:#c0c5ce;">  </span><span style="background-color:#2b303b;color:#b48ead;">else
+</span><span style="background-color:#2b303b;color:#c0c5ce;">    </span><span style="background-color:#2b303b;color:#96b5b4;">echo </span><span style="background-color:#2b303b;color:#c0c5ce;">&quot;$</span><span style="background-color:#2b303b;color:#bf616a;">FILE</span><span style="background-color:#2b303b;color:#a3be8c;"> converting faild. see attachment for details.</span><span style="background-color:#2b303b;color:#c0c5ce;">&quot; | </span><span style="background-color:#2b303b;color:#bf616a;">mail -A </span><span style="background-color:#2b303b;color:#c0c5ce;">&quot;$</span><span style="background-color:#2b303b;color:#bf616a;">LOGFILE</span><span style="background-color:#2b303b;color:#c0c5ce;">&quot;</span><span style="background-color:#2b303b;color:#bf616a;"> -s </span><span style="background-color:#2b303b;color:#c0c5ce;">&#39;</span><span style="background-color:#2b303b;color:#a3be8c;">Error While Converting</span><span style="background-color:#2b303b;color:#c0c5ce;">&#39; $</span><span style="background-color:#2b303b;color:#bf616a;">USER
+</span><span style="background-color:#2b303b;color:#c0c5ce;">  </span><span style="background-color:#2b303b;color:#b48ead;">fi
+</span><span style="background-color:#2b303b;color:#b48ead;">done
+</span></pre>
+<p>در پست‌های بعدی، درباره‌ی مهاجرت به قالب‌های آزاد دیگه (نظیر Vorbis و ...) خواهم نوشت.</p>
+</div>
+</article>
+
+		
+		<article class="post">
+	<header>
+		<a class="block" href="https:&#x2F;&#x2F;mamins1376.github.io&#x2F;blog&#x2F;2015-08-16-gnome-is-18-now&#x2F;" rel="bookmark"><strong>گنوم، هجده ساله شد</strong></a>
+		
+		<abbr class="date" title="تاریخ انتشار">2015-08-16</abbr>
+		
+	</header>
+	<div><p>دیروز، میزکار گنوم هجدهمین سالش رو پشت سر گذاشت. میزکاری که در ابتدا به علت مشکلات مجوز کتابخونه‌ی Qt به وجود اومد و پس از متن‌باز شدن این کتابخونه، باز هم به توسعه‌ی خودش ادامه داد و الآن یکی از پرطرفدارترین میزکارهای گنو به حساب میاد و در رقابتی سخت با KDE. برنامه‌هایی که این سیستم رو تشکیل می‌دن، کاملا یکپارچه با همدیگه و خود سیستم هستن که باعث می‌شه هماهنگی بی نظیری رو شاهد باشیم. در ادامه، ویدئوی معرفی گنوم ۳.۱۶ رو قرار دادم.
+خوش باشید.</p>
+<iframe class="youtube-embed" src="https://www.youtube.com/embed/WxRLa5hTGkg" frameborder="0" allowfullscreen></iframe>
+</div>
+</article>
+
+		
+		<article class="post">
+	<header>
+		<a class="block" href="https:&#x2F;&#x2F;mamins1376.github.io&#x2F;blog&#x2F;2015-08-05-bananabread&#x2F;" rel="bookmark"><strong>معرفی BananaBread: نان موزی خونین</strong></a>
+		
+		<abbr class="date" title="تاریخ انتشار">2015-08-05</abbr>
+		
+	</header>
+	<div><p><img src="https://developer.cdn.mozilla.net/media/uploads/demos/a/z/azakai/3baf4ad7e600cbda06ec46efec5ec3b8/bananabread_1424465008_demo_package/assets/screenshots/02.jpg" alt="BananaBread" /></p>
+<p><a href="https://www.mozilla.org">بنیاد غیر انتفاعی موزیلا</a> یکی از فعال‌ترین مؤسسه‌ها در زمینه‌ی وب و تکنولوژی‌های مرتبط با اونه و بخشی داره به نام <a href="https://developer.mozilla.org/en-US/demos/">Mozilla Demo Studio</a> که اتفاقات خارق‌العاده‌ای در اون رخ می‌ده و چیزهای بسیار عجیب و غریبی(البته بیشتر از نظر من) ازش بیرون میاد و دموهاش بسیار جالب توجه هستند. یکی از این دموها، <a href="https://developer.mozilla.org/en-US/demos/detail/bananabread">BananaBread</a> نام داره که یک بازی <a href="https://fa.wikipedia.org/wiki/%D8%AA%DB%8C%D8%B1%D8%A7%D9%86%D8%AF%D8%A7%D8%B2%DB%8C_%D8%A7%D9%88%D9%84_%D8%B4%D8%AE%D8%B5">اول شخص ژانر شوتر(FPS)</a> بوده و روی <a href="https://en.wikipedia.org/wiki/Cube_2:_Sauerbraten">موتور Cube 2: Sauerbraten</a> سوار شده. نکته‌ی جالب این بازی اینه که فقط نیاز به یک مرورگر HTML5 داره و <a href="https://en.wikipedia.org/wiki/WebGL">قابلیت WebGL</a>. دارای گرافیک قابل توجهی هست که اگر روی آخرین کیفیت بذارین و حداکثر جلوه‌ها رو فعال کنین ممکنه سیستمی که کمی ضعیف باشه کم هم بیاره! در کل حجم کمی داره(برای مرحله‌ی اول حدود ۱۵مبی‌بایت) و من رو حدود یک ساعت و نیم مشغول خودش کرد.</p>
+<p>در <a href="https://developer.mozilla.org/en-US/demos/detail/bananabread/launch">صفحه‌ی این بازی</a> می‌تونید اسکرین‌شات‌ها رو هم ببینید. <a href="https://developer.cdn.mozilla.net/media/uploads/demos/a/z/azakai/3baf4ad7e600cbda06ec46efec5ec3b8/bananabread_1424465008_demo_package/game.html?low,low">خوش بگذره</a>!</p>
+</div>
+</article>
+
+		
+		<article class="post">
+	<header>
+		<a class="block" href="https:&#x2F;&#x2F;mamins1376.github.io&#x2F;blog&#x2F;2015-07-27-dvb-recording&#x2F;" rel="bookmark"><strong>ضبط تلویزیون دیجیتال با mplayer</strong></a>
+		
+		<abbr class="date" title="تاریخ انتشار">2015-07-27</abbr>
+		
+	</header>
+	<div><p>پخش شبکه‌های تلویزیون دیجیتال به آسونی با VLC Media Player انجام می‌شه و به خوبی از پسش برمیاد ولی ممکنه برای ضبط اون به مشکل بخورید یا حداقل کمی اذیت بشید. همچنین با مشکلات کرشی که توی سرور X وجود داره متوقف شدن عملیات ضبط به معنی از دست رفتن برنامه‌ی مورد نظرتونه. برای همین من سراغ mplayer و خط فرمان رفتم. <a href="https://en.wikipedia.org/wiki/Mplayer">mplayer</a> یکی از بهترین پخش کننده‌های آزاده که بی‌شک می‌شه لقب قدرتمندترین پخش کننده رو بهش نسبت داد و البته کارهای بسیار بیش‌تری از یک «پخش‌کننده»ی ساده انجام می‌ده.</p>
+<h2 id="skhn-shbkhhh">اسکن شبکه‌ها</h2>
+<p>برای این کار از برنامه‌ی <a href="http://www.linuxtv.org/wiki/index.php/W_scan">w_scan</a> استفاده می‌کنیم. البته فرض بر اینه که قبلش راه‌اندازهای DVBتون رو نصب کردید.</p>
+<pre style="background-color:#2b303b">
+<span style="background-color:#2b303b;color:#bf616a;">$</span><span style="background-color:#2b303b;color:#c0c5ce;"> sudo apt-get install w-scan mplayer
+</span></pre>
+<p>و بعدش، شبکه ها رو اسکن می‌کنیم و اونها رو توی فایل <code>etc/mplayer/channels.conf/</code> می‌ریزیم.</p>
+<pre style="background-color:#2b303b">
+<span style="background-color:#2b303b;color:#bf616a;">$</span><span style="background-color:#2b303b;color:#c0c5ce;"> w_scan</span><span style="background-color:#2b303b;color:#bf616a;"> -ft -c</span><span style="background-color:#2b303b;color:#c0c5ce;"> IR</span><span style="background-color:#2b303b;color:#bf616a;"> -M </span><span style="background-color:#2b303b;color:#c0c5ce;">&gt; channels.conf
+</span><span style="background-color:#2b303b;color:#bf616a;">$</span><span style="background-color:#2b303b;color:#c0c5ce;"> sudo mv channels.conf /etc/mplayer/
+</span></pre>
+<p><strong>توجه</strong>: اسکن شبکه‌ها برای من حدود ۴ دقیقه طول کشید.</p>
+<h2 id="lyst-shbkhhh">لیست شبکه‌ها</h2>
+<p>با دستور زیر می‌تونید لیست شبکه‌های موجود رو ببینید:</p>
+<pre style="background-color:#2b303b">
+<span style="background-color:#2b303b;color:#bf616a;">$</span><span style="background-color:#2b303b;color:#c0c5ce;"> cut</span><span style="background-color:#2b303b;color:#bf616a;"> -d</span><span style="background-color:#2b303b;color:#96b5b4;">\:</span><span style="background-color:#2b303b;color:#bf616a;"> -f1</span><span style="background-color:#2b303b;color:#c0c5ce;"> /etc/mplayer/channels.conf
+</span></pre><h2 id="dbt">ضبط</h2>
+<p>شبکه‌ی مورد نظرتون رو از لیست بالا انتخاب کنید، برای مثال من شبکه‌ی نمایش (<code>IRIB NAMAYESH</code>) رو انتخاب می‌کنم. چون توی اسم این شبکه فاصله وجود داره، ما مستقیما نمی‌تونیم اون رو بعنوان <em>یک آرگومان</em> به برنامه پاس کنیم. پس یا باید قبل هر فاصله یک اسکیپ (<code>\</code>) قرار بدیم یا کل عبارت رو داخل یک جفت <code>'</code> قرار بدیم. من راه دوم رو انتخاب می‌کنم:</p>
+<pre style="background-color:#2b303b">
+<span style="background-color:#2b303b;color:#bf616a;">$</span><span style="background-color:#2b303b;color:#c0c5ce;"> mplayer</span><span style="background-color:#2b303b;color:#bf616a;"> -dumpstream </span><span style="background-color:#2b303b;color:#c0c5ce;">&#39;</span><span style="background-color:#2b303b;color:#a3be8c;">dvb://IRIB NAMAYESH</span><span style="background-color:#2b303b;color:#c0c5ce;">&#39;</span><span style="background-color:#2b303b;color:#bf616a;"> -dumpfile</span><span style="background-color:#2b303b;color:#c0c5ce;"> Stream.ts
+</span></pre>
+<p>حالا mplayer شروع می‌کنه به ذخیره‌ی اطلاعات دریافت شده از دانگل DVB در فایلی با فرمت TS. این فرمت شامل داده‌های کاملا خام می‌شه و ذاتا حجم خیلی زیادی رو به خودش اختصاص می‌ده.</p>
+<h2 id="pkhsh-stream-ts">پخش Stream.ts</h2>
+<p>از اون‌جایی که TS حاوی داده‌های خام و غیر فشرده‌ست، باید به یک فرمت پخش خوب تبدیلش کنیم تا با پلیرهای عادی روی هر پلتفرمی قابل پخش بشه؛ من mkv رو که یک فرمت آزاده انتخاب و برای تبدیل از <code>avconv</code> استفاده می‌کنم. لازم به ذکره که پروژه‌ی <code>ffmpeg</code>مدت زیادیه که متوقف شده و به avconv ملحق شده. avconv رو می‌تونید توی بسته‌ی <a href="apt://libav-tools">libav-tools</a> پیدا کنین.</p>
+<pre style="background-color:#2b303b">
+<span style="background-color:#2b303b;color:#bf616a;">$</span><span style="background-color:#2b303b;color:#c0c5ce;"> avconv</span><span style="background-color:#2b303b;color:#bf616a;"> -i</span><span style="background-color:#2b303b;color:#c0c5ce;"> Stream.ts Stream.mkv
+</span></pre>
+<p>از برنامه‌های با کیفیت، مفید و فوق‌العاده جدید و ارزشمند IRIB لذت ببرید D:</p>
+</div>
+</article>
+
+		
+		<article class="post">
+	<header>
+		<a class="block" href="https:&#x2F;&#x2F;mamins1376.github.io&#x2F;blog&#x2F;2015-07-21-quicklyric&#x2F;" rel="bookmark"><strong>معرفی QuickLyric: اشعار همراه</strong></a>
+		
+		<abbr class="date" title="تاریخ انتشار">2015-07-21</abbr>
+		
+	</header>
+	<div><p><img src="https://raw.githubusercontent.com/geecko86/QuickLyric/master/banner.png" alt="QuickLyric" />
+برنامه‌هایی که براتون اشعار یه آهنگ رو دریافت می‌کنن توی اندروید بسیار اند و بی شک QuickLyric یکی از بهترین‌هاست؛ چون:</p>
+<ul>
+<li>متن‌بازه</li>
+<li>منبع خاصی نداره، در عوض از یک موتور جستجو برای تهیه‌ی متن‌ها استفاده می‌کنه. این باعث می‌شه که محدود به یه وبسایت بخصوص نباشه و از هرجایی که ممکن بود اشعار رو به دست بیاره</li>
+<li>رابط کاربری فوق العاده زیبایی داره، به لطف Material Design.</li>
+<li>با اکثر موزیک پلیرها سازگاره؛ یعنی لازم نیست اسم آهنگ رو دستی وارد کنید. خود برنامه این کار رو برای شما می‌کنه. بعضی از برنامه‌هایی که توی گوگل‌پلی دیدم همچین کاری می‌کردن ولی باید اجازه‌ی خوندن مستقیم اعلان رو از شما بگیرن که شدیدا حریم خصوصی رو در معرض خطر قرار می‌ده. این برنامه بدون این کار ها به خوبی آهنگ رو شناسایی می‌کنه.</li>
+<li>می‌تونه متن آهنگ‌ها رو ذخیره کنه و هنگامی که آفلاین هستین هم اون‌ها رو داشته باشین.</li>
+<li>بازم بگم؟ باشه میگم... حالت شب هم داره که دیگه فکر نکنم نیازی به توضیح داشته باشه.</li>
+<li>در ضمن، <a href="https://github.com/geecko86/QuickLyric/wiki/Expanding-the-catalog">می‌شه ارائه‌دهنده‌های بیش‌تری هم بهش اضافه کرد</a>  مثلا <a href="https://www.radiojavan.com/">رادیوجوان</a>.</li>
+</ul>
+<p><a href="https://fossdroid.com/a/quicklyric-2.html">صفحه‌ی برنامه روی Fossdroid</a></p>
+<p><a href="https://github.com/geecko86/QuickLyric">سورس برنامه روی گیت‌هاب</a> به همراه اسکرین‌شات‌ها</p>
+</div>
+</article>
+
+		
+		<article class="post">
+	<header>
+		<a class="block" href="https:&#x2F;&#x2F;mamins1376.github.io&#x2F;blog&#x2F;2015-07-12-super-flat-solarized&#x2F;" rel="bookmark"><strong>تم Super Flat Solarized برای گنوم شل[آپدیت]</strong></a>
+		
+		<abbr class="date" title="تاریخ انتشار">2015-07-12</abbr>
+		
+	</header>
+	<div><p>Slug: tm-super-flat-solarized-bry-gnwm-shl
+Tags: linux, gnome, theme, gnome-shell</p>
+<p>و پس از چندین روز کار متوالی و ادیت استایل‌شیت و اصلاحات ریز <a href="http://mamins1376.github.io/Super-Flat-Solarized/">تم Super Flat Solarized برای پوسته‌ی گنوم</a> و وبسایتش به مرحله‌ی معقولی رسیدن تا آماده‌ی ارائه و استفاده‌ی کاربران گنوم باشن. امیدوارم هرکسی این پست رو می‌خونه و گنوم نصب داره این تم رو حتی شده فقط برای یک دقیقه امتحان کنه و نظرشو بگه. خوش‌حال می‌شم از این که هر انتقاد و پیشنهاد و Pull Request و ... در کل هرچیزی که فکر می‌کنین باعث بهبود این تم می‌شه رو به اطلاعم برسونین ؛)</p>
+<p>آپدیت: <a href="http://mamins1376.github.io/Super-Flat-Solarized/screenshots.html">قسمت اسکرین‌شات‌ها</a> به وبسایت اصلی اضافه شد.</p>
+</div>
+</article>
+
+		
+		<article class="post">
+	<header>
+		<a class="block" href="https:&#x2F;&#x2F;mamins1376.github.io&#x2F;blog&#x2F;2015-07-03-jekyll-to-pelican&#x2F;" rel="bookmark"><strong>خداحافظ جکیل، سلام پلیکان!</strong></a>
+		
+		<abbr class="date" title="تاریخ انتشار">2015-07-03</abbr>
+		
+	</header>
+	<div><p>متنی که الآن در حال خوندنش هستید، حاصل پردازش پلیکانه. <a href="http://blog.getpelican.com/">پلیکان</a> یک <a href="https://www.staticgen.com/">Static Site Generator</a> محسوب می‌شه که با پایتون نوشته شده و برای Template Engine از <a href="http://jinja.pocoo.org/">Jinja2</a> استفاده می‌کنه. وبلاگ قبلی حاصل <a href="http://jekyllrb.com/">Jekyll</a> بود که تحت زبان روبی توسعه داده می‌شه و خیلی هم طرفدار داره. بعضی از تفاوت‌های این دو سیستم این‌ها هستن:</p>
+<ul>
+<li><strong>سینتکس هایلایتینگ</strong>: هر دو از این کار پشتیبانی می‌کنن ولی در جکیل تحت مارک‌داون باید از سیستم اختصاصی خود جکیل استفاده کنین ولی در پلیکان برای این کار از استاندارد خود مارک‌داون استفاده می‌شه</li>
+<li><strong>تم‌ها</strong>: ساختار تم‌ها در این دو برنامه کاملا متفاوت هستن. من برای این که بتونم شکل وبلاگ رو حفظ کنم مجبور شدم از اول تمش رو طراحی کنم</li>
+<li><strong>Makefile</strong>: پلیکان به‌صورت پیش‌فرض Makefile داره که عملیات ساخت خروجی، تمیزکردن، انتشار و حتی پوش کردن خودکار روی برنچ‌های مشخص از یک مخزن گیت رو داره و کاربر می‌تونه با یه خط دستور دو کلمه‌ای(<code>make github</code>) وبلاگ رو بسازه و منتشر کنه. درسته که می‌شه برای جکیل هم این رو درست کرد، اما پیش‌فرض بودنه که امتیاز محسوب می‌شه</li>
+<li><strong>چندزبانه</strong>: پلیکان از متون چند زبانه پشتیبانی کامل داره؛ یعنی نویسنده امکان این رو داره که یک مطلب رو به چند زبان مختلف منتشر کنه</li>
+<li><strong>پایتون۳</strong>: پلیکان از پایتون۳ پشتیبانی می‌کنه. نمی‌دونم این که دارم همچین عبارتی رو می‌گم خوبه یا بد چون روبی‌کارها اصلا از این دنگ و فنگ‌ها ندارن که بخوان برنامه‌شون رو دوباره پورت کنن :دی ولی به نظر من اگر یه برنامه‌ی پایتون با نسخه‌ی ۳ سازگار نباشه براش نقطه ضعف محسوب می‌شه نه این که اگر با پایتون ۳ کار می‌کنه داره در حق کاربر لطف می‌کنه</li>
+<li><strong>طراحی ریسپانسیو</strong>: تم اولیه‌ی جکیل کاملا ریسپانسیو طراحی شده در حالی که تم پلیکان خیلی خشک به نظر می‌رسه و این نقطه ضعف بزرگی برای یه سایت/وبلاگ در حال حاضر محسوب می‌شه</li>
+</ul>
+<p>در هر صورت، من قانع شدم که به پلیکان مهاجرت کنم و الآن هم خیلی خوش‌حالم که همچین تصمیمی گرفتم. شما هم امتحانش کنید ؛)</p>
+</div>
+</article>
+
+		
+	</div>
+	<div class="paginator text-center">
+	
+	<a href="https:&#x2F;&#x2F;mamins1376.github.io&#x2F;blog&#x2F;" class="button no-shadow">▶</a>
+	
+
+	<span class="count">2</span>
+
+	
+	<a href="https:&#x2F;&#x2F;mamins1376.github.io&#x2F;blog&#x2F;page&#x2F;3&#x2F;" class="button no-shadow">◀</a>
+	
+</div>
+
+</section>
+
+				</div>
+			</main>
+		</div>
+		<footer class="text-center full-width">
+			<div class="wrapper center">
+				<div class="column inline m-block m-center m-full-width">
+					<div class="title"><strong>زندگی خوره‌ای</strong></div>
+				</div>
+				<div class="column inline m-block m-center m-full-width">
+					<div class="email"><a href="mailto:mamins1376@gmail.com">mamins1376@gmail.com</a></div>
+					<div class="subscribe"><a href="https:&#x2F;&#x2F;mamins1376.github.io&#x2F;blog&#x2F;rss.xml&#x2F;">اشتراک خوراک RSS</a></div>
+				</div>
+				<div class="column inline m-block m-center m-full-width">
+					<div class="license">
+						<a target="_blank" rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.fa"><img class="no-border" alt="مجوز کریتیو کامنز" src="https://licensebuttons.net/l/by-sa/4.0/88x31.png"/></a>
+					</div>
+					<div class="powered-by">با افتخار، نیرو گرفته از <a href="https://www.getgutenberg.io" title="گوتنبرگ">گوتنبرگ</a></div>
+				</div>
+			</div>
+		</footer>
+		<script lang="text/javascript">
+			(function() {
+				// convert post content headings to links
+				var articles = document.getElementsByTagName("article");
+				for (var i = 0; i < articles.length; i++) {
+					var article = articles[i];
+
+					if (!article.classList.contains("post")) {
+						continue;
+					}
+
+					var article_url = article.children[0].children[0].getAttribute("href");
+					var content_elements = article.children[1].children;
+					for (var j = 0; j < content_elements.length; j++) {
+						var heading = content_elements[j];
+
+						var is_heading = false;
+						for (var k = 1; k <= 6; k++) {
+							if (heading.tagName === ("H" + String(k))) {
+								is_heading = true;
+							}
+						}
+
+						if (!is_heading) {
+							continue;
+						}
+
+						var link = document.createElement("a");
+						var heading_id = heading.getAttribute("id");
+						link.setAttribute("href", article_url + "#" + heading_id);
+
+						heading = heading.parentNode.replaceChild(link, heading);
+						link.appendChild(heading);
+					}
+				}
+			})();
+		</script>
+	</body>
+</html>

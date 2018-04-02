@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="fa">
+	<head>
+		<title class="rtl">زندگی خوره‌ای</title>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta http-equiv="content-type" content="text/html; charset=utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+		<link rel="icon" type="image/png" href="https:&#x2F;&#x2F;mamins1376.github.io&#x2F;blog/favicon.png">
+		<link rel="stylesheet" href="https:&#x2F;&#x2F;mamins1376.github.io&#x2F;blog&#x2F;site.css">
+		<link rel="alternate" type="application/rss+xml" title="RSS" href="https:&#x2F;&#x2F;mamins1376.github.io&#x2F;blog&#x2F;rss.xml&#x2F;">
+		
+	</head>
+	<body class="rtl no-margin">
+		<div class="container">
+			<header>
+				<div class="wrapper center m-text-center">
+					<a class="title block" href="https:&#x2F;&#x2F;mamins1376.github.io&#x2F;blog"><strong>زندگی خوره‌ای</strong></a>
+					<span class="description m-block">نتیجه چند تعادل شیمیایی</span>
+					<nav class="inline m-block m-no-padding m-full-width">
+						
+
+						
+
+						
+						<a href="http://telegram.me/mamins1376">تلگرام</a>
+						
+
+						
+
+						
+
+						
+						<a href="https://twitter.com/pyminars">توئیتر</a>
+						
+
+						
+						<a class="page-link" href="https:&#x2F;&#x2F;mamins1376.github.io&#x2F;blog&#x2F;about&#x2F;">درباره</a>
+						
+					</nav>
+				</div>
+			</header>
+			<main>
+				<div class="wrapper center">
+					
+<section class="content">
+	<article class="post">
+	<header>
+		<a class="block" href="https:&#x2F;&#x2F;mamins1376.github.io&#x2F;blog&#x2F;2015-08-20-moving-to-mkv&#x2F;" rel="bookmark"><strong>مهاجرت به قالب ماتروسکا</strong></a>
+		
+		<abbr class="date" title="تاریخ انتشار">2015-08-20</abbr>
+		
+	</header>
+	<div><p>به قصد پاکسازی سیستمم، تصمیم گرفتم تا جای ممکن از قالب‌ها، نرم‌افزارها و مجوزهای آزاد استفاده کنم. در راستای این مهم، <a href="https://fa.wikipedia.org/wiki/%D9%85%D8%A7%D8%AA%D8%B1%D9%88%D8%B3%DA%A9%D8%A7">ماتروسکا</a> رو برای پرونده‌های تصویری انتخاب کردم. قالب خیلی جالبیه و همه‌جا هم به راحتی قابل پخشه و البته شناخته شده(با پسوند mkv). یکی از مزایایی هم که داره کم‌تر بودن حجمش نسبت به امپگ هست. اسکریپتی برای پاکسازی سیستم از قالب منحوس و شوم(!) MP4 نوشتم که تقریبا هوشمندانه عمل می‌کنه. البته به قول <a href="http://jadi.net/">جادی</a>، ما هر چیزی رو که براش if می‌ذاریم بهش می‌گیم هوشمند :)</p>
+<p>نحوه‌ی کار به این صورته که <code>find</code>، پرونده‌هایی رو که پسوند MP4 دارند رو داخل پوشه‌ی Videos در پوشه‌ی خانگی کاربر جاری پیدا می‌کنه و با یه حلقه‌ی <code>for</code> مانند (که با <code>while</code> پیاده شده)، تابع <code>convert_to_mkv</code> رو به ازای هر کدوم از این پرونده‌ها صدا می‌زنه. این تابع، موظفه که برنامه‌ی <code>avconv</code> رو اجرا کنه که عمل اصلی تبدیل رو انجام می‌ده. بقیه‌ی کارها هم مختص فرستادن نامه به کاربره که گزارش تبدیل رو به کاربر جاری ایمیل می‌کنه.</p>
+<pre style="background-color:#2b303b">
+<span style="background-color:#2b303b;color:#65737e;">#!/bin/sh
+</span><span style="background-color:#2b303b;color:#65737e;"># make cron usage easy :)
+</span><span style="background-color:#2b303b;color:#b48ead;">export </span><span style="background-color:#2b303b;color:#bf616a;">PATH</span><span style="background-color:#2b303b;color:#c0c5ce;">=</span><span style="background-color:#2b303b;color:#a3be8c;">/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+</span><span style="background-color:#2b303b;color:#65737e;"># go to the user&#39;s videos directory
+</span><span style="background-color:#2b303b;color:#96b5b4;">cd</span><span style="background-color:#2b303b;color:#c0c5ce;"> /home/$</span><span style="background-color:#2b303b;color:#bf616a;">USER</span><span style="background-color:#2b303b;color:#c0c5ce;">/Videos/
+</span><span style="background-color:#2b303b;color:#c0c5ce;">
+</span><span style="background-color:#2b303b;color:#65737e;"># this function converts given filename
+</span><span style="background-color:#2b303b;color:#8fa1b3;">convert_to_mkv</span><span style="background-color:#2b303b;color:#c0c5ce;">() {
+</span><span style="background-color:#2b303b;color:#c0c5ce;">  </span><span style="background-color:#2b303b;color:#bf616a;">INPUT</span><span style="background-color:#2b303b;color:#c0c5ce;">=&quot;$</span><span style="background-color:#2b303b;color:#bf616a;">1</span><span style="background-color:#2b303b;color:#c0c5ce;">&quot;
+</span><span style="background-color:#2b303b;color:#c0c5ce;">  </span><span style="background-color:#2b303b;color:#bf616a;">OUTPUT</span><span style="background-color:#2b303b;color:#c0c5ce;">=&quot;$</span><span style="background-color:#2b303b;color:#a3be8c;">(</span><span style="background-color:#2b303b;color:#96b5b4;">echo </span><span style="background-color:#2b303b;color:#c0c5ce;">$</span><span style="background-color:#2b303b;color:#bf616a;">1 </span><span style="background-color:#2b303b;color:#c0c5ce;">| </span><span style="background-color:#2b303b;color:#bf616a;">sed -r -e </span><span style="background-color:#2b303b;color:#c0c5ce;">&#39;</span><span style="background-color:#2b303b;color:#a3be8c;">s/\.\w+$/.mkv/</span><span style="background-color:#2b303b;color:#c0c5ce;">&#39;</span><span style="background-color:#2b303b;color:#a3be8c;">)</span><span style="background-color:#2b303b;color:#c0c5ce;">&quot;
+</span><span style="background-color:#2b303b;color:#c0c5ce;">  </span><span style="background-color:#2b303b;color:#bf616a;">avconv -v</span><span style="background-color:#2b303b;color:#c0c5ce;"> info</span><span style="background-color:#2b303b;color:#bf616a;"> -i </span><span style="background-color:#2b303b;color:#c0c5ce;">&quot;$</span><span style="background-color:#2b303b;color:#bf616a;">INPUT</span><span style="background-color:#2b303b;color:#c0c5ce;">&quot;</span><span style="background-color:#2b303b;color:#bf616a;"> -c</span><span style="background-color:#2b303b;color:#c0c5ce;">:v libx264</span><span style="background-color:#2b303b;color:#bf616a;"> -f</span><span style="background-color:#2b303b;color:#c0c5ce;"> matroska &quot;$</span><span style="background-color:#2b303b;color:#bf616a;">OUTPUT</span><span style="background-color:#2b303b;color:#c0c5ce;">&quot;
+</span><span style="background-color:#2b303b;color:#c0c5ce;">}
+</span><span style="background-color:#2b303b;color:#c0c5ce;">
+</span><span style="background-color:#2b303b;color:#65737e;"># find any mp4 and kill it!
+</span><span style="background-color:#2b303b;color:#bf616a;">find</span><span style="background-color:#2b303b;color:#c0c5ce;"> .</span><span style="background-color:#2b303b;color:#bf616a;"> -type</span><span style="background-color:#2b303b;color:#c0c5ce;"> f</span><span style="background-color:#2b303b;color:#bf616a;"> -name </span><span style="background-color:#2b303b;color:#c0c5ce;">&#39;</span><span style="background-color:#2b303b;color:#a3be8c;">*.mp4</span><span style="background-color:#2b303b;color:#c0c5ce;">&#39; | </span><span style="background-color:#2b303b;color:#b48ead;">while </span><span style="background-color:#2b303b;color:#96b5b4;">read</span><span style="background-color:#2b303b;color:#c0c5ce;"> FULL_PATH; </span><span style="background-color:#2b303b;color:#b48ead;">do
+</span><span style="background-color:#2b303b;color:#c0c5ce;">  </span><span style="background-color:#2b303b;color:#bf616a;">FILE</span><span style="background-color:#2b303b;color:#c0c5ce;">=&quot;$</span><span style="background-color:#2b303b;color:#a3be8c;">(</span><span style="background-color:#2b303b;color:#96b5b4;">echo </span><span style="background-color:#2b303b;color:#c0c5ce;">&quot;$</span><span style="background-color:#2b303b;color:#bf616a;">FULL_PATH</span><span style="background-color:#2b303b;color:#c0c5ce;">&quot; | </span><span style="background-color:#2b303b;color:#bf616a;">sed </span><span style="background-color:#2b303b;color:#c0c5ce;">&#39;</span><span style="background-color:#2b303b;color:#a3be8c;">s/\.\///</span><span style="background-color:#2b303b;color:#c0c5ce;">&#39;</span><span style="background-color:#2b303b;color:#a3be8c;">)</span><span style="background-color:#2b303b;color:#c0c5ce;">&quot;
+</span><span style="background-color:#2b303b;color:#c0c5ce;">  </span><span style="background-color:#2b303b;color:#bf616a;">LOGFILE</span><span style="background-color:#2b303b;color:#c0c5ce;">=&quot;$</span><span style="background-color:#2b303b;color:#a3be8c;">(</span><span style="background-color:#2b303b;color:#bf616a;">basename </span><span style="background-color:#2b303b;color:#c0c5ce;">&quot;$</span><span style="background-color:#2b303b;color:#a3be8c;">{</span><span style="background-color:#2b303b;color:#bf616a;">FILE</span><span style="background-color:#2b303b;color:#a3be8c;">}</span><span style="background-color:#2b303b;color:#c0c5ce;">&quot; | </span><span style="background-color:#2b303b;color:#bf616a;">sed -e </span><span style="background-color:#2b303b;color:#c0c5ce;">&#39;</span><span style="background-color:#2b303b;color:#a3be8c;">s/ /_/g</span><span style="background-color:#2b303b;color:#c0c5ce;">&#39;</span><span style="background-color:#2b303b;color:#bf616a;"> -e </span><span style="background-color:#2b303b;color:#c0c5ce;">&#39;</span><span style="background-color:#2b303b;color:#a3be8c;">s/mp4$/log/</span><span style="background-color:#2b303b;color:#c0c5ce;">&#39;</span><span style="background-color:#2b303b;color:#a3be8c;">)</span><span style="background-color:#2b303b;color:#c0c5ce;">&quot;
+</span><span style="background-color:#2b303b;color:#c0c5ce;">  </span><span style="background-color:#2b303b;color:#b48ead;">if </span><span style="background-color:#2b303b;color:#bf616a;">convert_to_mkv </span><span style="background-color:#2b303b;color:#c0c5ce;">&quot;$</span><span style="background-color:#2b303b;color:#bf616a;">FILE</span><span style="background-color:#2b303b;color:#c0c5ce;">&quot; &lt; /dev/null &gt;&gt; &quot;$</span><span style="background-color:#2b303b;color:#bf616a;">LOGFILE</span><span style="background-color:#2b303b;color:#c0c5ce;">&quot; </span><span style="background-color:#2b303b;color:#d08770;">2</span><span style="background-color:#2b303b;color:#c0c5ce;">&gt;&amp;</span><span style="background-color:#2b303b;color:#d08770;">1</span><span style="background-color:#2b303b;color:#c0c5ce;">; </span><span style="background-color:#2b303b;color:#b48ead;">then
+</span><span style="background-color:#2b303b;color:#c0c5ce;">    </span><span style="background-color:#2b303b;color:#96b5b4;">echo </span><span style="background-color:#2b303b;color:#c0c5ce;">&quot;$</span><span style="background-color:#2b303b;color:#bf616a;">FILE</span><span style="background-color:#2b303b;color:#a3be8c;"> converting successfully finished. see attachment for details.</span><span style="background-color:#2b303b;color:#c0c5ce;">&quot; | </span><span style="background-color:#2b303b;color:#bf616a;">mail -A </span><span style="background-color:#2b303b;color:#c0c5ce;">&quot;$</span><span style="background-color:#2b303b;color:#bf616a;">LOGFILE</span><span style="background-color:#2b303b;color:#c0c5ce;">&quot;</span><span style="background-color:#2b303b;color:#bf616a;"> -s </span><span style="background-color:#2b303b;color:#c0c5ce;">&#39;</span><span style="background-color:#2b303b;color:#a3be8c;">Converting Finished</span><span style="background-color:#2b303b;color:#c0c5ce;">&#39; $</span><span style="background-color:#2b303b;color:#bf616a;">USER
+</span><span style="background-color:#2b303b;color:#c0c5ce;">    </span><span style="background-color:#2b303b;color:#bf616a;">rm </span><span style="background-color:#2b303b;color:#c0c5ce;">&quot;$</span><span style="background-color:#2b303b;color:#bf616a;">LOGFILE</span><span style="background-color:#2b303b;color:#c0c5ce;">&quot; &quot;$</span><span style="background-color:#2b303b;color:#a3be8c;">{</span><span style="background-color:#2b303b;color:#bf616a;">FILE</span><span style="background-color:#2b303b;color:#a3be8c;">}</span><span style="background-color:#2b303b;color:#c0c5ce;">&quot;
+</span><span style="background-color:#2b303b;color:#c0c5ce;">  </span><span style="background-color:#2b303b;color:#b48ead;">else
+</span><span style="background-color:#2b303b;color:#c0c5ce;">    </span><span style="background-color:#2b303b;color:#96b5b4;">echo </span><span style="background-color:#2b303b;color:#c0c5ce;">&quot;$</span><span style="background-color:#2b303b;color:#bf616a;">FILE</span><span style="background-color:#2b303b;color:#a3be8c;"> converting faild. see attachment for details.</span><span style="background-color:#2b303b;color:#c0c5ce;">&quot; | </span><span style="background-color:#2b303b;color:#bf616a;">mail -A </span><span style="background-color:#2b303b;color:#c0c5ce;">&quot;$</span><span style="background-color:#2b303b;color:#bf616a;">LOGFILE</span><span style="background-color:#2b303b;color:#c0c5ce;">&quot;</span><span style="background-color:#2b303b;color:#bf616a;"> -s </span><span style="background-color:#2b303b;color:#c0c5ce;">&#39;</span><span style="background-color:#2b303b;color:#a3be8c;">Error While Converting</span><span style="background-color:#2b303b;color:#c0c5ce;">&#39; $</span><span style="background-color:#2b303b;color:#bf616a;">USER
+</span><span style="background-color:#2b303b;color:#c0c5ce;">  </span><span style="background-color:#2b303b;color:#b48ead;">fi
+</span><span style="background-color:#2b303b;color:#b48ead;">done
+</span></pre>
+<p>در پست‌های بعدی، درباره‌ی مهاجرت به قالب‌های آزاد دیگه (نظیر Vorbis و ...) خواهم نوشت.</p>
+</div>
+</article>
+
+
+	
+	<div class="tags">برچسب‌ها:
+		
+		<a href="!" title="mkv">mkv</a>
+		<span>،</span>
+		
+		<a href="!" title="Matroska">Matroska</a>
+		<span>،</span>
+		
+		<a href="!" title="ماتروسکا">ماتروسکا</a>
+		<span>،</span>
+		
+		<a href="!" title="لینوکس">لینوکس</a>
+		<span>،</span>
+		
+		<a href="!" title="اسکریپت">اسکریپت</a>
+		<span>،</span>
+		
+	</div>
+	
+
+	<div class="share">
+		<span class="message">اشتراک گذاری روی:</span>
+		<span class="button">
+			<a target="_blank" title="تلگرام" href="https://telegram.me/share/url?url=https:&#x2F;&#x2F;mamins1376.github.io&#x2F;blog&#x2F;2015-08-20-moving-to-mkv&#x2F;">
+				<img src="https:&#x2F;&#x2F;mamins1376.github.io&#x2F;blog&#x2F;images&#x2F;share&#x2F;telegram.png" alt="تلگرام" />
+			</a>
+		</span>
+		<span class="button">
+			<a target="_blank" title="توئیتر" href="https://twitter.com/home?status=مهاجرت به قالب ماتروسکا https:&#x2F;&#x2F;mamins1376.github.io&#x2F;blog&#x2F;2015-08-20-moving-to-mkv&#x2F;">
+				<img src="https:&#x2F;&#x2F;mamins1376.github.io&#x2F;blog&#x2F;images&#x2F;share&#x2F;twitter.png" alt="توئیتر" />
+			</a>
+		</span>
+		<span class="button">
+			<a target="_blank" title="گوگل پلاس" href="https://plus.google.com/share?url=https:&#x2F;&#x2F;mamins1376.github.io&#x2F;blog&#x2F;2015-08-20-moving-to-mkv&#x2F;">
+				<img src="https:&#x2F;&#x2F;mamins1376.github.io&#x2F;blog&#x2F;images&#x2F;share&#x2F;googleplus.png" alt="گوگل پلاس" />
+			</a>
+		</span>
+		<span class="button">
+			<a target="_blank" title="فیس‌بوک" href="https://www.facebook.com/sharer/sharer.php?u=https:&#x2F;&#x2F;mamins1376.github.io&#x2F;blog&#x2F;2015-08-20-moving-to-mkv&#x2F;">
+				<img src="https:&#x2F;&#x2F;mamins1376.github.io&#x2F;blog&#x2F;images&#x2F;share&#x2F;facebook.png" alt="فیس‌بوک" />
+			</a>
+		</span>
+	</div>
+
+	
+	<div class="nav text-center">
+		
+		<div class="inline m-block m-full-width text-right">
+			<a href="https:&#x2F;&#x2F;mamins1376.github.io&#x2F;blog&#x2F;2015-08-16-gnome-is-18-now&#x2F;" title="نوشته پیشین">
+				<div class="caption">نوشته پیشین</div>
+				<div class="title">گنوم، هجده ساله شد</div>
+			</a>
+		</div>
+		
+
+		
+		<div class="inline m-block m-full-width text-left">
+			<a href="https:&#x2F;&#x2F;mamins1376.github.io&#x2F;blog&#x2F;2015-09-01-get-started-pelican-00&#x2F;" title="نوشته پسین">
+				<div class="caption">نوشته پسین</div>
+				<div class="title">شروع وبلاگ‌نویسی با پلیکان - قسمت صفرم</div>
+			</a>
+		</div>
+		
+	</div>
+	
+
+	
+	<div id="disqus_thread" style="margin-bottom: 1em;"></div>
+	<script type="text/javascript">
+		var disqus_shortname = 'geekylife';
+		var disqus_config = function () { this.language = "fa"; };
+		var disqus_title = "مهاجرت به قالب ماتروسکا";
+		var disqus_identifier = "2015-08-20-moving-to-mkv";
+
+		(function() {
+			var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+			dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+			(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+		})();
+	</script>
+	<noscript>
+		لطفاً برای مشاهده‌ی
+		<a href="https://disqus.com/?ref_noscript" rel="nofollow">دیدگاه‌ها</a>،
+		جاوا اسکریپت را فعال کنید. قدرت گرفته از Disqus
+	</noscript>
+	
+</section>
+
+				</div>
+			</main>
+		</div>
+		<footer class="text-center full-width">
+			<div class="wrapper center">
+				<div class="column inline m-block m-center m-full-width">
+					<div class="title"><strong>زندگی خوره‌ای</strong></div>
+				</div>
+				<div class="column inline m-block m-center m-full-width">
+					<div class="email"><a href="mailto:mamins1376@gmail.com">mamins1376@gmail.com</a></div>
+					<div class="subscribe"><a href="https:&#x2F;&#x2F;mamins1376.github.io&#x2F;blog&#x2F;rss.xml&#x2F;">اشتراک خوراک RSS</a></div>
+				</div>
+				<div class="column inline m-block m-center m-full-width">
+					<div class="license">
+						<a target="_blank" rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.fa"><img class="no-border" alt="مجوز کریتیو کامنز" src="https://licensebuttons.net/l/by-sa/4.0/88x31.png"/></a>
+					</div>
+					<div class="powered-by">با افتخار، نیرو گرفته از <a href="https://www.getgutenberg.io" title="گوتنبرگ">گوتنبرگ</a></div>
+				</div>
+			</div>
+		</footer>
+		<script lang="text/javascript">
+			(function() {
+				// convert post content headings to links
+				var articles = document.getElementsByTagName("article");
+				for (var i = 0; i < articles.length; i++) {
+					var article = articles[i];
+
+					if (!article.classList.contains("post")) {
+						continue;
+					}
+
+					var article_url = article.children[0].children[0].getAttribute("href");
+					var content_elements = article.children[1].children;
+					for (var j = 0; j < content_elements.length; j++) {
+						var heading = content_elements[j];
+
+						var is_heading = false;
+						for (var k = 1; k <= 6; k++) {
+							if (heading.tagName === ("H" + String(k))) {
+								is_heading = true;
+							}
+						}
+
+						if (!is_heading) {
+							continue;
+						}
+
+						var link = document.createElement("a");
+						var heading_id = heading.getAttribute("id");
+						link.setAttribute("href", article_url + "#" + heading_id);
+
+						heading = heading.parentNode.replaceChild(link, heading);
+						link.appendChild(heading);
+					}
+				}
+			})();
+		</script>
+	</body>
+</html>

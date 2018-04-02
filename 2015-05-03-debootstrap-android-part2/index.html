@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="fa">
+	<head>
+		<title class="rtl">زندگی خوره‌ای</title>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta http-equiv="content-type" content="text/html; charset=utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+		<link rel="icon" type="image/png" href="https:&#x2F;&#x2F;mamins1376.github.io&#x2F;blog/favicon.png">
+		<link rel="stylesheet" href="https:&#x2F;&#x2F;mamins1376.github.io&#x2F;blog&#x2F;site.css">
+		<link rel="alternate" type="application/rss+xml" title="RSS" href="https:&#x2F;&#x2F;mamins1376.github.io&#x2F;blog&#x2F;rss.xml&#x2F;">
+		
+	</head>
+	<body class="rtl no-margin">
+		<div class="container">
+			<header>
+				<div class="wrapper center m-text-center">
+					<a class="title block" href="https:&#x2F;&#x2F;mamins1376.github.io&#x2F;blog"><strong>زندگی خوره‌ای</strong></a>
+					<span class="description m-block">نتیجه چند تعادل شیمیایی</span>
+					<nav class="inline m-block m-no-padding m-full-width">
+						
+
+						
+
+						
+						<a href="http://telegram.me/mamins1376">تلگرام</a>
+						
+
+						
+
+						
+
+						
+						<a href="https://twitter.com/pyminars">توئیتر</a>
+						
+
+						
+						<a class="page-link" href="https:&#x2F;&#x2F;mamins1376.github.io&#x2F;blog&#x2F;about&#x2F;">درباره</a>
+						
+					</nav>
+				</div>
+			</header>
+			<main>
+				<div class="wrapper center">
+					
+<section class="content">
+	<article class="post">
+	<header>
+		<a class="block" href="https:&#x2F;&#x2F;mamins1376.github.io&#x2F;blog&#x2F;2015-05-03-debootstrap-android-part2&#x2F;" rel="bookmark"><strong>دبیان بر بستر اندروید: پیش به سوی جسی!(قسمت دوم)</strong></a>
+		
+		<abbr class="date" title="تاریخ انتشار">2015-05-03</abbr>
+		
+	</header>
+	<div><p>در پست قبل، بسته‌ها بارگیری و به پوشه‌ی <code>debroot</code> منتقل شدند. حالا ادامه‌ی مراحل را انجام می‌دهیم.</p>
+<!-- ادامه -->
+<h4 id="3-skht-tswyr-twzy">۳. ساخت تصویر توزیع</h4>
+<p>یک ایمیج خالی با استفاده از <code>dd</code> درست می‌کنیم:</p>
+<pre style="background-color:#2b303b">
+<span style="background-color:#2b303b;color:#bf616a;">root@host:~#</span><span style="background-color:#2b303b;color:#c0c5ce;"> dd if=/dev/zero of=Debian.img count=0 bs=1M seek=1K
+</span></pre>
+<p>حجم ایمیج ساخته‌شده ۱گیگابایت خواهد بود. برای داشتن اندازه‌ی دلخواهتان مقدار <code>seek</code> را بر حسب مگابایت تغییر دهید.<br />
+آن را فرمت می‌کنیم:</p>
+<pre style="background-color:#2b303b">
+<span style="background-color:#2b303b;color:#bf616a;">root@host:~#</span><span style="background-color:#2b303b;color:#c0c5ce;"> mkfs.ext4</span><span style="background-color:#2b303b;color:#bf616a;"> -F -L</span><span style="background-color:#2b303b;color:#c0c5ce;"> Debian Debian.img
+</span></pre>
+<p>و سپس سوار می‌کنیم:</p>
+<pre style="background-color:#2b303b">
+<span style="background-color:#2b303b;color:#bf616a;">root@host:~#</span><span style="background-color:#2b303b;color:#c0c5ce;"> mount</span><span style="background-color:#2b303b;color:#bf616a;"> -t</span><span style="background-color:#2b303b;color:#c0c5ce;"> ext4</span><span style="background-color:#2b303b;color:#bf616a;"> -o</span><span style="background-color:#2b303b;color:#c0c5ce;"> loop,rw Debian.img /mnt
+</span></pre>
+<p>حالا همه‌ی بسته‌های بارگیری شده را به ایمیج کپی می‌کنیم:</p>
+<pre style="background-color:#2b303b">
+<span style="background-color:#2b303b;color:#bf616a;">root@host:~#</span><span style="background-color:#2b303b;color:#c0c5ce;"> cp</span><span style="background-color:#2b303b;color:#bf616a;"> -r</span><span style="background-color:#2b303b;color:#c0c5ce;"> debroot/* /mnt/; </span><span style="background-color:#2b303b;color:#bf616a;">sync
+</span></pre>
+<p>و ایمیج را جدا:</p>
+<pre style="background-color:#2b303b">
+<span style="background-color:#2b303b;color:#bf616a;">root@host:~#</span><span style="background-color:#2b303b;color:#c0c5ce;"> umount /mnt
+</span></pre>
+<p>حالا ما یک ایمیج از توزیع‌مان داریم ولی هنوز آماده نیست. از این‌جا دیگر به پوشه‌ی <code>debroot</code> نیاز نداریم.</p>
+<h4 id="4-ntql-twzy-bh-ndrwyd">۴. انتقال توزیع به اندروید</h4>
+<p>مهم نیست که ایمیج کجا کپی می‌شود، ولی باید قابل دسترس باشد و فضای کافی داشته باشد. مثلا ایمیج من در <code>/storage/sdcard1/Disks/</code> قرار دارد. پس از انتقال ایمیج، دیگر کاری با ماشین گنو/لینوکسی نداریم.<br />
+<strong>توجه!</strong> در مرحله‌ی بعد به <a href="http://busybox.net/">BusyBox</a> نیاز خواهیم داشت. اگر هنوز آن را روی اندروید نصب نکرده‌اید، همین حالا <a href="https://play.google.com/store/apps/details?id=com.jrummy.busybox.installer">نصب کنید</a>.</p>
+<h4 id="5-nsb-twzy">۵. نصب توزیع</h4>
+<p>یک پوشه می‌سازیم. این پوشه محل سوارشدن ایمیج خواهد بود:</p>
+<pre style="background-color:#2b303b">
+<span style="background-color:#2b303b;color:#bf616a;">root@android:~#</span><span style="background-color:#2b303b;color:#c0c5ce;"> mkdir /data/debian
+</span><span style="background-color:#2b303b;color:#bf616a;">root@android:~#</span><span style="background-color:#2b303b;color:#c0c5ce;"> busybox mount</span><span style="background-color:#2b303b;color:#bf616a;"> -o</span><span style="background-color:#2b303b;color:#c0c5ce;"> loop,rw</span><span style="background-color:#2b303b;color:#bf616a;"> -t</span><span style="background-color:#2b303b;color:#c0c5ce;"> ext4 &lt;IMAGE&gt; /data/debian
+</span></pre>
+<p>یادتان نرود که در کدهای گفته شده، <code>&lt;IMAGE&gt;</code> را با مسیر ایمیجی که کپی کردیم عوض کنید. وارد توزیع می‌شویم:</p>
+<pre style="background-color:#2b303b">
+<span style="background-color:#2b303b;color:#bf616a;">root@android:~#</span><span style="background-color:#2b303b;color:#c0c5ce;"> export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+</span><span style="background-color:#2b303b;color:#bf616a;">root@android:~#</span><span style="background-color:#2b303b;color:#c0c5ce;"> export USER=root
+</span><span style="background-color:#2b303b;color:#bf616a;">root@android:~#</span><span style="background-color:#2b303b;color:#c0c5ce;"> export HOME=/root
+</span><span style="background-color:#2b303b;color:#bf616a;">root@android:~#</span><span style="background-color:#2b303b;color:#c0c5ce;"> busybox chroot /data/debian /bin/bash
+</span><span style="background-color:#2b303b;color:#bf616a;">root@localhost:/# 
+</span></pre>
+<p>اکنون شما وارد توزیع شدید. اما هنوز بسته‌ها را استخراج نکردیم!</p>
+<pre style="background-color:#2b303b">
+<span style="background-color:#2b303b;color:#bf616a;">root@localhost:/#</span><span style="background-color:#2b303b;color:#c0c5ce;"> /debootstrap/debootstrap</span><span style="background-color:#2b303b;color:#bf616a;"> --second-stage
+</span></pre>
+<p><code>debootstrap</code> شروع به نصب سیستم می‌کند.</p>
+<p><strong>تبریک!</strong> توزیع ما آماده است؛ ولی هنوز کارهای کوچکی باقی‌مانده که می‌تواند کار ما را راحت‌تر کند. مثلا با اسکریپت زیر، هربار توزیع آماده و اجرا می‌شود و پس از اتمام کار خودبه‌خود جدا می‌شود. من [این اسکریپت][script] را در مسیر <code>system/bin/debian/</code> قرار دادم.</p>
+<pre style="background-color:#2b303b">
+<span style="background-color:#2b303b;color:#b48ead;">export </span><span style="background-color:#2b303b;color:#bf616a;">DEBMNT</span><span style="background-color:#2b303b;color:#c0c5ce;">=</span><span style="background-color:#2b303b;color:#a3be8c;">/data/debian
+</span><span style="background-color:#2b303b;color:#bf616a;">busybox</span><span style="background-color:#2b303b;color:#c0c5ce;"> mount</span><span style="background-color:#2b303b;color:#bf616a;"> -t</span><span style="background-color:#2b303b;color:#c0c5ce;"> ext2 &lt;IMAGE&gt; $</span><span style="background-color:#2b303b;color:#bf616a;">DEBMNT
+</span><span style="background-color:#2b303b;color:#bf616a;">busybox</span><span style="background-color:#2b303b;color:#c0c5ce;"> mount</span><span style="background-color:#2b303b;color:#bf616a;"> -t</span><span style="background-color:#2b303b;color:#c0c5ce;"> proc none $</span><span style="background-color:#2b303b;color:#bf616a;">DEBMNT</span><span style="background-color:#2b303b;color:#c0c5ce;">/proc
+</span><span style="background-color:#2b303b;color:#bf616a;">busybox</span><span style="background-color:#2b303b;color:#c0c5ce;"> mount</span><span style="background-color:#2b303b;color:#bf616a;"> -t</span><span style="background-color:#2b303b;color:#c0c5ce;"> sysfs none $</span><span style="background-color:#2b303b;color:#bf616a;">DEBMNT</span><span style="background-color:#2b303b;color:#c0c5ce;">/sys
+</span><span style="background-color:#2b303b;color:#bf616a;">busybox</span><span style="background-color:#2b303b;color:#c0c5ce;"> mount</span><span style="background-color:#2b303b;color:#bf616a;"> -o</span><span style="background-color:#2b303b;color:#c0c5ce;"> bind /dev $</span><span style="background-color:#2b303b;color:#bf616a;">DEBMNT</span><span style="background-color:#2b303b;color:#c0c5ce;">/dev
+</span><span style="background-color:#2b303b;color:#bf616a;">busybox</span><span style="background-color:#2b303b;color:#c0c5ce;"> mount</span><span style="background-color:#2b303b;color:#bf616a;"> -t</span><span style="background-color:#2b303b;color:#c0c5ce;"> devpts none $</span><span style="background-color:#2b303b;color:#bf616a;">DEBMNT</span><span style="background-color:#2b303b;color:#c0c5ce;">/dev/pts
+</span><span style="background-color:#2b303b;color:#96b5b4;">unset</span><span style="background-color:#2b303b;color:#c0c5ce;"> LD_PRELOAD
+</span><span style="background-color:#2b303b;color:#bf616a;">LAST_PATH</span><span style="background-color:#2b303b;color:#c0c5ce;">=$</span><span style="background-color:#2b303b;color:#bf616a;">PATH
+</span><span style="background-color:#2b303b;color:#b48ead;">export </span><span style="background-color:#2b303b;color:#bf616a;">PATH</span><span style="background-color:#2b303b;color:#c0c5ce;">=</span><span style="background-color:#2b303b;color:#a3be8c;">/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+</span><span style="background-color:#2b303b;color:#b48ead;">export </span><span style="background-color:#2b303b;color:#bf616a;">USER</span><span style="background-color:#2b303b;color:#c0c5ce;">=</span><span style="background-color:#2b303b;color:#a3be8c;">root
+</span><span style="background-color:#2b303b;color:#b48ead;">export </span><span style="background-color:#2b303b;color:#bf616a;">HOME</span><span style="background-color:#2b303b;color:#c0c5ce;">=</span><span style="background-color:#2b303b;color:#a3be8c;">/root
+</span><span style="background-color:#2b303b;color:#b48ead;">export </span><span style="background-color:#2b303b;color:#bf616a;">TERM</span><span style="background-color:#2b303b;color:#c0c5ce;">=</span><span style="background-color:#2b303b;color:#a3be8c;">linux
+</span><span style="background-color:#2b303b;color:#bf616a;">busybox</span><span style="background-color:#2b303b;color:#c0c5ce;"> chroot $</span><span style="background-color:#2b303b;color:#bf616a;">DEBMNT</span><span style="background-color:#2b303b;color:#c0c5ce;"> /bin/bash
+</span><span style="background-color:#2b303b;color:#b48ead;">export </span><span style="background-color:#2b303b;color:#bf616a;">PATH</span><span style="background-color:#2b303b;color:#c0c5ce;">=$</span><span style="background-color:#2b303b;color:#bf616a;">LAST_PATH
+</span><span style="background-color:#2b303b;color:#bf616a;">sync
+</span><span style="background-color:#2b303b;color:#bf616a;">busybox</span><span style="background-color:#2b303b;color:#c0c5ce;"> umount $</span><span style="background-color:#2b303b;color:#bf616a;">DEBMNT</span><span style="background-color:#2b303b;color:#c0c5ce;">/dev/pts
+</span><span style="background-color:#2b303b;color:#bf616a;">busybox</span><span style="background-color:#2b303b;color:#c0c5ce;"> umount $</span><span style="background-color:#2b303b;color:#bf616a;">DEBMNT</span><span style="background-color:#2b303b;color:#c0c5ce;">/dev
+</span><span style="background-color:#2b303b;color:#bf616a;">busybox</span><span style="background-color:#2b303b;color:#c0c5ce;"> umount $</span><span style="background-color:#2b303b;color:#bf616a;">DEBMNT</span><span style="background-color:#2b303b;color:#c0c5ce;">/proc
+</span><span style="background-color:#2b303b;color:#bf616a;">busybox</span><span style="background-color:#2b303b;color:#c0c5ce;"> umount $</span><span style="background-color:#2b303b;color:#bf616a;">DEBMNT</span><span style="background-color:#2b303b;color:#c0c5ce;">/sys
+</span><span style="background-color:#2b303b;color:#bf616a;">busybox</span><span style="background-color:#2b303b;color:#c0c5ce;"> umount $</span><span style="background-color:#2b303b;color:#bf616a;">DEBMNT </span><span style="background-color:#2b303b;color:#c0c5ce;">|| </span><span style="background-color:#2b303b;color:#bf616a;">sh -c</span><span style="background-color:#2b303b;color:#c0c5ce;"> busybox umount</span><span style="background-color:#2b303b;color:#bf616a;"> -l </span><span style="background-color:#2b303b;color:#c0c5ce;">$</span><span style="background-color:#2b303b;color:#bf616a;">DEBMNT </span><span style="background-color:#2b303b;color:#c0c5ce;">&amp;&amp; </span><span style="background-color:#2b303b;color:#96b5b4;">echo </span><span style="background-color:#2b303b;color:#c0c5ce;">&#39;</span><span style="background-color:#2b303b;color:#a3be8c;">Force unmounted!</span><span style="background-color:#2b303b;color:#c0c5ce;">&#39;
+</span></pre><h4 id="6-tnzym-apt">۶. تنظیم apt</h4>
+<p>لازم است که تغییراتی در <code>sources.list</code> مربوط به مدیر بسته‌ی <code>apt</code> به‌وجود آوریم تا بتوانیم بسته‌های مورد نیازمان را نصب کنیم.</p>
+<pre style="background-color:#2b303b">
+<span style="background-color:#2b303b;color:#bf616a;">root@localhost:/#</span><span style="background-color:#2b303b;color:#c0c5ce;"> vi /etc/apt/sources.list
+</span></pre>
+<p><strong>توجه!</strong> به جای ویرایش‌گر <code>vi</code>، هر ویرایشی که با آن راحت‌تر هستید استفاده کنید. <code>nano</code> به‌طور پیش‌فرض نصب است.<br />
+خطوط زیر را به آن اضافه کنید یا فایل آماده را [دریافت کنید][sources.list].</p>
+<pre style="background-color:#2b303b">
+<span style="background-color:#2b303b;color:#c0c5ce;">deb http://ftp.ir.debian.org/debian/ jessie contrib main non-free
+</span><span style="background-color:#2b303b;color:#c0c5ce;">deb-src http://ftp.ir.debian.org/debian/ jessie contrib main non-free
+</span><span style="background-color:#2b303b;color:#c0c5ce;">
+</span><span style="background-color:#2b303b;color:#c0c5ce;">deb http://ftp.ir.debian.org/debian/ jessie-backports contrib main non-free
+</span><span style="background-color:#2b303b;color:#c0c5ce;">deb-src http://ftp.ir.debian.org/debian/ jessie-backports contrib main non-free
+</span><span style="background-color:#2b303b;color:#c0c5ce;">
+</span><span style="background-color:#2b303b;color:#c0c5ce;">deb http://ftp.ir.debian.org/debian/ jessie-updates contrib main non-free
+</span><span style="background-color:#2b303b;color:#c0c5ce;">deb-src http://ftp.ir.debian.org/debian/ jessie-updates contrib main non-free
+</span></pre>
+<p>و در آخر،‌ برای به‌روزرسانی کَش <code>apt</code>:</p>
+<pre style="background-color:#2b303b">
+<span style="background-color:#2b303b;color:#bf616a;">root@localhost:/#</span><span style="background-color:#2b303b;color:#c0c5ce;"> apt-get update
+</span></pre>
+<p><strong>توجه!</strong> فرمان بالا نیاز به اتصال اینترنت دارد.<br />
+اکنون توزیع شما دقیقا مانند یک توزیع گنو/لینوکس عادی رفتار می‌کند.</p>
+<p>در قسمت بعد به نصب محیط گرافیکی(به هر دو روش <code>framebuffer</code> و <code>VNC</code>) خواهیم پرداخت.</p>
+<p>[script]: {{ site.baseurl }}/downloads/2015/05/debian
+[sources.list]: {{ site.baseurl }}/downloads/2015/05/sources.list</p>
+</div>
+</article>
+
+
+	
+	<div class="tags">برچسب‌ها:
+		
+		<a href="!" title="دبیان">دبیان</a>
+		<span>،</span>
+		
+		<a href="!" title="اندروید">اندروید</a>
+		<span>،</span>
+		
+		<a href="!" title="لینوکس">لینوکس</a>
+		<span>،</span>
+		
+		<a href="!" title="debootstrap">debootstrap</a>
+		<span>،</span>
+		
+	</div>
+	
+
+	<div class="share">
+		<span class="message">اشتراک گذاری روی:</span>
+		<span class="button">
+			<a target="_blank" title="تلگرام" href="https://telegram.me/share/url?url=https:&#x2F;&#x2F;mamins1376.github.io&#x2F;blog&#x2F;2015-05-03-debootstrap-android-part2&#x2F;">
+				<img src="https:&#x2F;&#x2F;mamins1376.github.io&#x2F;blog&#x2F;images&#x2F;share&#x2F;telegram.png" alt="تلگرام" />
+			</a>
+		</span>
+		<span class="button">
+			<a target="_blank" title="توئیتر" href="https://twitter.com/home?status=دبیان بر بستر اندروید: پیش به سوی جسی!(قسمت دوم) https:&#x2F;&#x2F;mamins1376.github.io&#x2F;blog&#x2F;2015-05-03-debootstrap-android-part2&#x2F;">
+				<img src="https:&#x2F;&#x2F;mamins1376.github.io&#x2F;blog&#x2F;images&#x2F;share&#x2F;twitter.png" alt="توئیتر" />
+			</a>
+		</span>
+		<span class="button">
+			<a target="_blank" title="گوگل پلاس" href="https://plus.google.com/share?url=https:&#x2F;&#x2F;mamins1376.github.io&#x2F;blog&#x2F;2015-05-03-debootstrap-android-part2&#x2F;">
+				<img src="https:&#x2F;&#x2F;mamins1376.github.io&#x2F;blog&#x2F;images&#x2F;share&#x2F;googleplus.png" alt="گوگل پلاس" />
+			</a>
+		</span>
+		<span class="button">
+			<a target="_blank" title="فیس‌بوک" href="https://www.facebook.com/sharer/sharer.php?u=https:&#x2F;&#x2F;mamins1376.github.io&#x2F;blog&#x2F;2015-05-03-debootstrap-android-part2&#x2F;">
+				<img src="https:&#x2F;&#x2F;mamins1376.github.io&#x2F;blog&#x2F;images&#x2F;share&#x2F;facebook.png" alt="فیس‌بوک" />
+			</a>
+		</span>
+	</div>
+
+	
+	<div class="nav text-center">
+		
+		<div class="inline m-block m-full-width text-right">
+			<a href="https:&#x2F;&#x2F;mamins1376.github.io&#x2F;blog&#x2F;2015-05-02-debootstrap-android-part1&#x2F;" title="نوشته پیشین">
+				<div class="caption">نوشته پیشین</div>
+				<div class="title">دبیان بر بستر اندروید: پیش به سوی جسی!(قسمت اول)</div>
+			</a>
+		</div>
+		
+
+		
+		<div class="inline m-block m-full-width text-left">
+			<a href="https:&#x2F;&#x2F;mamins1376.github.io&#x2F;blog&#x2F;2015-05-04-rtcwake-cron&#x2F;" title="نوشته پسین">
+				<div class="caption">نوشته پسین</div>
+				<div class="title">cron و rtcwake: خواب راحت</div>
+			</a>
+		</div>
+		
+	</div>
+	
+
+	
+	<div id="disqus_thread" style="margin-bottom: 1em;"></div>
+	<script type="text/javascript">
+		var disqus_shortname = 'geekylife';
+		var disqus_config = function () { this.language = "fa"; };
+		var disqus_title = "دبیان بر بستر اندروید: پیش به سوی جسی!(قسمت دوم)";
+		var disqus_identifier = "2015-05-03-debootstrap-android-part2";
+
+		(function() {
+			var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+			dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+			(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+		})();
+	</script>
+	<noscript>
+		لطفاً برای مشاهده‌ی
+		<a href="https://disqus.com/?ref_noscript" rel="nofollow">دیدگاه‌ها</a>،
+		جاوا اسکریپت را فعال کنید. قدرت گرفته از Disqus
+	</noscript>
+	
+</section>
+
+				</div>
+			</main>
+		</div>
+		<footer class="text-center full-width">
+			<div class="wrapper center">
+				<div class="column inline m-block m-center m-full-width">
+					<div class="title"><strong>زندگی خوره‌ای</strong></div>
+				</div>
+				<div class="column inline m-block m-center m-full-width">
+					<div class="email"><a href="mailto:mamins1376@gmail.com">mamins1376@gmail.com</a></div>
+					<div class="subscribe"><a href="https:&#x2F;&#x2F;mamins1376.github.io&#x2F;blog&#x2F;rss.xml&#x2F;">اشتراک خوراک RSS</a></div>
+				</div>
+				<div class="column inline m-block m-center m-full-width">
+					<div class="license">
+						<a target="_blank" rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.fa"><img class="no-border" alt="مجوز کریتیو کامنز" src="https://licensebuttons.net/l/by-sa/4.0/88x31.png"/></a>
+					</div>
+					<div class="powered-by">با افتخار، نیرو گرفته از <a href="https://www.getgutenberg.io" title="گوتنبرگ">گوتنبرگ</a></div>
+				</div>
+			</div>
+		</footer>
+		<script lang="text/javascript">
+			(function() {
+				// convert post content headings to links
+				var articles = document.getElementsByTagName("article");
+				for (var i = 0; i < articles.length; i++) {
+					var article = articles[i];
+
+					if (!article.classList.contains("post")) {
+						continue;
+					}
+
+					var article_url = article.children[0].children[0].getAttribute("href");
+					var content_elements = article.children[1].children;
+					for (var j = 0; j < content_elements.length; j++) {
+						var heading = content_elements[j];
+
+						var is_heading = false;
+						for (var k = 1; k <= 6; k++) {
+							if (heading.tagName === ("H" + String(k))) {
+								is_heading = true;
+							}
+						}
+
+						if (!is_heading) {
+							continue;
+						}
+
+						var link = document.createElement("a");
+						var heading_id = heading.getAttribute("id");
+						link.setAttribute("href", article_url + "#" + heading_id);
+
+						heading = heading.parentNode.replaceChild(link, heading);
+						link.appendChild(heading);
+					}
+				}
+			})();
+		</script>
+	</body>
+</html>
