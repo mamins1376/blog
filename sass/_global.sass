@@ -2,10 +2,10 @@
 
 html, body
 	height: 100%
-	overflow-x: hidden
-	overflow-y: auto
 
 body
+	overflow-x: hidden
+	overflow-y: auto
 	font-family: Sahel, "Fira Sans", sans-serif, Arial
 	font-size: 16px
 	line-height: 1.65
@@ -24,7 +24,7 @@ body
 
 	.wrapper
 		max-width: 70%
-		padding: 14px 0
+		margin-bottom: $vertical-margin
 
 	> .container
 		// following won't work. hardcoded for now.
@@ -52,6 +52,7 @@ body
 		background-color: #393e46
 
 		.column
+			margin-top: $vertical-margin
 			width: 32%
 			vertical-align: middle
 
